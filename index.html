@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArticulateFlow | Module 1: Foundational Workplace Fluency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --surface: #ffffff;
+      --background: #f8fafc;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --success: #16a34a;
+      --success-bg: #f0fdf4;
+      --accent: #eff6ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 24px 16px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 32px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      transition: border-color 0.2s;
+    }
+    .card p.question {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .option-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    .option-label:hover {
+      background: var(--accent);
+      border-color: #bfdbfe;
+    }
+    .option-label input[type="radio"] {
+      accent-color: var(--primary);
+      width: 18px;
+      height: 18px;
+    }
+    .audio-btn {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .audio-btn:hover {
+      background: #e2e8f0;
+    }
+    button.submit-btn {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 24px;
+      box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+      transition: background 0.2s;
+    }
+    button.submit-btn:hover {
+      background: var(--primary-dark);
+    }
+    .explanation {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      display: none;
+      line-height: 1.5;
+    }
+    .explanation.correct {
+      background: var(--success-bg);
+      border: 1px solid #bbf7d0;
+      color: #14532d;
+    }
+    .explanation.incorrect {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #7f1d1d;
+    }
+    #result-banner {
+      display: none;
+      margin-top: 24px;
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+      background: var(--surface);
+      border: 2px solid var(--primary);
+    }
+    #result-score {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    #result-desc {
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <span class="badge">Module 1 • Diagnostic & Practice</span>
+    <h1>Foundational Workplace Communication</h1>
+    <p>Practice 20 core real-world workplace scenarios covering reading clarity, basic listening cadence, professional sentence construction, and routine speaking frameworks.</p>
+  </header>
+
+  <form id="quizForm">
+
+    <div class="section-title">1. Daily Updates & Routine Frameworks (Speaking)</div>
+
+    <div class="card">
+      <p class="question">1. In a morning sync meeting, which phrase accurately describes your daily ongoing responsibility?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q1" value="a"> I am handle the database updates every morning.</label>
+        <label class="option-label"><input type="radio" name="q1" value="b"> I handle the database updates every morning.</label>
+        <label class="option-label"><input type="radio" name="q1" value="c"> I handles the database updates every morning.</label>
+      </div>
+      <div class="explanation" id="exp1"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">2. When stating what you are actively working on today during a standup, choose the natural phrase:</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q2" value="a"> Today, I working on the authentication fix.</label>
+        <label class="option-label"><input type="radio" name="q2" value="b"> Today, I am working on the authentication fix.</label>
+        <label class="option-label"><input type="radio" name="q2" value="c"> Today, I am work on the authentication fix.</label>
+      </div>
+      <div class="explanation" id="exp2"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">3. Select the professional and clear response when asked, "Do you have any blockers?"</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q3" value="a"> No blockers from my side, everything is clear.</label>
+        <label class="option-label"><input type="radio" name="q3" value="b"> Not any blockers are there for me.</label>
+        <label class="option-label"><input type="radio" name="q3" value="c"> Blockers I am not having currently.</label>
+      </div>
+      <div class="explanation" id="exp3"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">4. How should you ask a colleague to confirm if they can attend a quick review call?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q4" value="a"> Are you available for a quick five-minute call?</label>
+        <label class="option-label"><input type="radio" name="q4" value="b"> You are having time for small call?</label>
+        <label class="option-label"><input type="radio" name="q4" value="c"> Can you able to join quick call?</label>
+      </div>
+      <div class="explanation" id="exp4"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">5. Complete the sentence: "My teammate __________ the release builds every Thursday."</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q5" value="a"> prepare</label>
+        <label class="option-label"><input type="radio" name="q5" value="b"> prepares</label>
+        <label class="option-label"><input type="radio" name="q5" value="c"> is prepare</label>
+      </div>
+      <div class="explanation" id="exp5"></div>
+    </div>
+
+    <div class="section-title">2. Reporting Completed Actions (Past Tenses)</div>
+
+    <div class="card">
+      <p class="question">6. "Yesterday, I __________ the API logs and found no critical bugs."</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q6" value="a"> reviewed</label>
+        <label class="option-label"><input type="radio" name="q6" value="b"> have reviewed</label>
+        <label class="option-label"><input type="radio" name="q6" value="c"> was reviewed</label>
+      </div>
+      <div class="explanation" id="exp6"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">7. When sharing an update about a task finished just moments ago, which form is most natural?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q7" value="a"> I have just submitted the pull request.</label>
+        <label class="option-label"><input type="radio" name="q7" value="b"> I just submit the pull request now.</label>
+        <label class="option-label"><input type="radio" name="q7" value="c"> I am just submitted the pull request.</label>
+      </div>
+      <div class="explanation" id="exp7"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">8. Which sentence is grammatically correct when explaining why an issue happened in the past?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q8" value="a"> I didn't noticed the error flag in the console.</label>
+        <label class="option-label"><input type="radio" name="q8" value="b"> I didn't notice the error flag in the console.</label>
+        <label class="option-label"><input type="radio" name="q8" value="c"> I haven't notice the error flag in the console.</label>
+      </div>
+      <div class="explanation" id="exp8"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">9. "We __________ the client's approval last Friday before pushing to production."</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q9" value="a"> received</label>
+        <label class="option-label"><input type="radio" name="q9" value="b"> have received</label>
+        <label class="option-label"><input type="radio" name="q9" value="c"> were received</label>
+      </div>
+      <div class="explanation" id="exp9"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">10. "The test suite has been running __________ two hours."</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q10" value="a"> since</label>
+        <label class="option-label"><input type="radio" name="q10" value="b"> for</label>
+        <label class="option-label"><input type="radio" name="q10" value="c"> during</label>
+      </div>
+      <div class="explanation" id="exp10"></div>
+    </div>
+
+    <div class="section-title">3. Listening & Auditory Identification</div>
+
+    <div class="card">
+      <button type="button" class="audio-btn" onclick="playPrompt('Could you please verify the staging deployment once you finish testing?')">🔊 Listen to Audio Clip 1</button>
+      <p class="question">11. What is the speaker asking you to do?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q11" value="a"> Stop testing and begin deployment right away.</label>
+        <label class="option-label"><input type="radio" name="q11" value="b"> Check the staging deployment after finishing testing.</label>
+        <label class="option-label"><input type="radio" name="q11" value="c"> Deploy to staging instead of running tests.</label>
+      </div>
+      <div class="explanation" id="exp11"></div>
+    </div>
+
+    <div class="card">
+      <button type="button" class="audio-btn" onclick="playPrompt('I am afraid we cannot deliver the feature this week due to an upstream dependency.')">🔊 Listen to Audio Clip 2</button>
+      <p class="question">12. What is the core message of the speaker?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q12" value="a"> The feature is delayed because another team or service is not ready.</label>
+        <label class="option-label"><input type="radio" name="q12" value="b"> The feature was completed early this week.</label>
+        <label class="option-label"><input type="radio" name="q12" value="c"> The team decided to cancel the project entirely.</label>
+      </div>
+      <div class="explanation" id="exp12"></div>
+    </div>
+
+    <div class="card">
+      <button type="button" class="audio-btn" onclick="playPrompt('Lets take this discussion offline to respect everyone time on the call.')">🔊 Listen to Audio Clip 3</button>
+      <p class="question">13. What does "Let's take this discussion offline" mean in this workplace context?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q13" value="a"> Disconnect from the internet completely.</label>
+        <label class="option-label"><input type="radio" name="q13" value="b"> Discuss this topic privately or separately after the main meeting.</label>
+        <label class="option-label"><input type="radio" name="q13" value="c"> Write down the notes on physical paper.</label>
+      </div>
+      <div class="explanation" id="exp13"></div>
+    </div>
+
+    <div class="section-title">4. Workplace Writing & Reading Context</div>
+
+    <div class="card">
+      <p class="question">14. Read the brief email note: <br><em>"Hi Team, please refrain from merging to the main branch after 5 PM today as we have a scheduled maintenance window."</em><br><br>What action is expected from team members?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q14" value="a"> Complete and merge all code after 5 PM.</label>
+        <label class="option-label"><input type="radio" name="q14" value="b"> Do not merge code to the main branch after 5 PM.</label>
+        <label class="option-label"><input type="radio" name="q14" value="c"> Cancel the scheduled maintenance window.</label>
+      </div>
+      <div class="explanation" id="exp14"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">15. Choose the most professional sign-off sentence for an email sending an attachment to a lead:</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q15" value="a"> Please find attached the updated project architecture diagram.</label>
+        <label class="option-label"><input type="radio" name="q15" value="b"> I have put the diagram down here please see it.</label>
+        <label class="option-label"><input type="radio" name="q15" value="c"> See this diagram which I attached inside.</label>
+      </div>
+      <div class="explanation" id="exp15"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">16. Identify the grammatically correct polite request for assistance:</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q16" value="a"> Could you please assist me with this query?</label>
+        <label class="option-label"><input type="radio" name="q16" value="b"> Can you please assisting me with this query?</label>
+        <label class="option-label"><input type="radio" name="q16" value="c"> Please to assist me with this query.</label>
+      </div>
+      <div class="explanation" id="exp16"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">17. Which word properly connects these two clauses? <br><em>"The migration was successful, __________ we noticed a minor increase in latency."</em></p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q17" value="a"> because</label>
+        <label class="option-label"><input type="radio" name="q17" value="b"> although</label>
+        <label class="option-label"><input type="radio" name="q17" value="c"> therefore</label>
+      </div>
+      <div class="explanation" id="exp17"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">18. Select the sentence that avoids an unprofessional double negative:</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q18" value="a"> We don't have no pending tasks for this sprint.</label>
+        <label class="option-label"><input type="radio" name="q18" value="b"> We don't have any pending tasks for this sprint.</label>
+        <label class="option-label"><input type="radio" name="q18" value="c"> We haven't got no pending tasks for this sprint.</label>
+      </div>
+      <div class="explanation" id="exp18"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">19. In a Slack or Teams message, which greeting is crisp and standard for starting a 1-on-1 question?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q19" value="a"> "Hi Sarah, do you have a quick minute to review a test case?"</label>
+        <label class="option-label"><input type="radio" name="q19" value="b"> "Hello sir, please do the needful."</label>
+        <label class="option-label"><input type="radio" name="q19" value="c"> "Hey, give me the test case answer."</label>
+      </div>
+      <div class="explanation" id="exp19"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">20. Which preposition correctly completes: <br><em>"The system reboot is scheduled to begin __________ 10:30 PM."</em></p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q20" value="a"> on</label>
+        <label class="option-label"><input type="radio" name="q20" value="b"> at</label>
+        <label class="option-label"><input type="radio" name="q20" value="c"> in</label>
+      </div>
+      <div class="explanation" id="exp20"></div>
+    </div>
+
+    <button type="button" class="submit-btn" onclick="evaluateQuiz()">Submit & Show Detailed Evaluation</button>
+  </form>
+
+  <div id="result-banner">
+    <div id="result-score">0 / 20</div>
+    <div id="result-desc">Your results and detailed explanations are displayed below each question.</div>
+  </div>
+</div>
+
+<script>
+  const answerKey = {
+    q1: { ans: 'b', exp: '<b>Correct: I handle the database updates every morning.</b><br>Habitual or routine workplace duties take the Simple Present (subject + base verb). Never pair "am" directly with a base verb like "am handle".' },
+    q2: { ans: 'b', exp: '<b>Correct: Today, I am working on the authentication fix.</b><br>Actions in progress on the current day take the Present Continuous structure (<i>subject + am/is/are + verb-ing</i>).' },
+    q3: { ans: 'a', exp: '<b>Correct: No blockers from my side, everything is clear.</b><br>This is idiomatic and professional. Avoid non-standard phrasing like "Not any blockers are there for me".' },
+    q4: { ans: 'a', exp: '<b>Correct: Are you available for a quick five-minute call?</b><br>Never combine "can" and "able to" together (e.g., "Can you able to"). "Are you available for..." is the industry standard.' },
+    q5: { ans: 'b', exp: '<b>Correct: prepares</b><br>Third-person singular subjects ("My teammate" = he/she) take an -s or -es suffix on base verbs in the Simple Present.' },
+    q6: { ans: 'a', exp: '<b>Correct: reviewed</b><br>The definite past time marker ("Yesterday") requires the Simple Past tense, never the Present Perfect ("have reviewed").' },
+    q7: { ans: 'a', exp: '<b>Correct: I have just submitted the pull request.</b><br>Actions completed moments prior to the conversation take the Present Perfect (<i>have/has + just + past participle</i>).' },
+    q8: { ans: 'b', exp: '<b>Correct: I didn\'t notice the error flag in the console.</b><br>Auxiliary "did/didn\'t" must always be followed by the bare base form of the verb (<i>notice</i>, not <i>noticed</i>).' },
+    q9: { ans: 'a', exp: '<b>Correct: received</b><br>The specific finished past marker "last Friday" mandates the Simple Past form ("received").' },
+    q10: { ans: 'b', exp: '<b>Correct: for</b><br>Use "for" to denote a duration or quantity of time (<i>for two hours</i>). Use "since" to denote an exact starting point (<i>since 2:00 PM</i>).' },
+    q11: { ans: 'b', exp: '<b>Correct: Check the staging deployment after finishing testing.</b><br>"Once you finish testing" means "as soon as/after you finish".' },
+    q12: { ans: 'a', exp: '<b>Correct: The feature is delayed because another team or service is not ready.</b><br>An "upstream dependency" refers to an external prerequisite service or module that must finish before you can proceed.' },
+    q13: { ans: 'b', exp: '<b>Correct: Discuss this topic privately or separately after the main meeting.</b><br>"Taking it offline" is standard professional idiom meaning moving a specific debate out of the general meeting to save attendees time.' },
+    q14: { ans: 'b', exp: '<b>Correct: Do not merge code to the main branch after 5 PM.</b><br>"Refrain from" means to deliberately avoid or stop doing an action.' },
+    q15: { ans: 'a', exp: '<b>Correct: Please find attached the updated project architecture diagram.</b><br>Clear, direct, and universally adopted across business emails.' },
+    q16: { ans: 'a', exp: '<b>Correct: Could you please assist me with this query?</b><br>Modal verbs like "could" require the bare infinitive verb (<i>assist</i>).' },
+    q17: { ans: 'b', exp: '<b>Correct: although</b><br>"Although" (or "though") introduces a contrasting clause showing an unexpected drawback despite success.' },
+    q18: { ans: 'b', exp: '<b>Correct: We don\'t have any pending tasks for this sprint.</b><br>In standard English, pairing a negative verb ("don\'t") with another negative word ("no") produces an incorrect double negative. Use "any" with negative verbs.' },
+    q19: { ans: 'a', exp: '<b>Correct: "Hi Sarah, do you have a quick minute to review a test case?"</b><br>Respectful, direct, and sets context immediately without archaic jargon like "do the needful".' },
+    q20: { ans: 'b', exp: '<b>Correct: at</b><br>Use "at" for specific clock times (<i>at 10:30 PM</i>), "on" for days/dates, and "in" for months/years.' }
+  };
+
+  function playPrompt(text) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.9;
+      utterance.lang = 'en-US';
+      window.speechSynthesis.speak(utterance);
+    } else {
+      alert("Audio synthesis is not supported on your current browser.");
+    }
+  }
+
+  function evaluateQuiz() {
+    let score = 0;
+    const total = Object.keys(answerKey).length;
+
+    for (let key in answerKey) {
+      const selected = document.querySelector(`input[name="${key}"]:checked`);
+      const qNum = key.replace('q', '');
+      const expDiv = document.getElementById(`exp${qNum}`);
+      const isCorrect = selected && selected.value === answerKey[key].ans;
+
+      if (isCorrect) score++;
+
+      expDiv.innerHTML = answerKey[key].exp;
+      expDiv.className = `explanation ${isCorrect ? 'correct' : 'incorrect'}`;
+      expDiv.style.display = 'block';
+    }
+
+    const banner = document.getElementById('result-banner');
+    const scoreText = document.getElementById('result-score');
+    banner.style.display = 'block';
+    scoreText.innerText = `${score} / ${total} (${Math.round((score / total) * 100)}%)`;
+    banner.scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
