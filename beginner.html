@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FluencyCraft | The Everyday Word Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --surface: #ffffff;
+      --background: #f4fbf7;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --success: #16a34a;
+      --success-bg: #f0fdf4;
+      --accent: #ecfdf5;
+      --accent-border: #a7f3d0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 24px 16px;
+    }
+    .container { max-width: 800px; margin: 0 auto; }
+    header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    header h1 { font-size: 1.8rem; font-weight: 800; color: #064e3b; margin-bottom: 8px; }
+    header p { color: var(--text-muted); font-size: 0.98rem; }
+    .name-field-wrap {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .name-field-wrap label { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+    .name-field-wrap input {
+      width: 100%;
+      max-width: 380px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+    .name-field-wrap input:focus { outline: none; border-color: var(--primary); }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 32px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+    .card p.question { font-weight: 600; font-size: 1rem; margin-bottom: 16px; }
+    .options { display: flex; flex-direction: column; gap: 10px; }
+    .option-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    .option-label:hover { background: var(--accent); border-color: var(--accent-border); }
+    .option-label.disabled { cursor: not-allowed; opacity: 0.85; }
+    .option-label.disabled:hover { background: #f8fafc; border-color: var(--border); }
+    .option-label input[type="radio"] { accent-color: var(--primary); width: 18px; height: 18px; }
+    .audio-btn {
+      background: #f1f5f9;
+      color: #1e293b;
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .audio-btn:hover { background: #e2e8f0; }
+    .actions-bar {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    button.submit-btn {
+      flex: 2;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(5, 150, 105, 0.2);
+    }
+    button.submit-btn:hover { background: var(--primary-dark); }
+    button.submit-btn:disabled { background: #cbd5e1; cursor: not-allowed; box-shadow: none; }
+    button.reset-btn {
+      flex: 1;
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button.reset-btn:hover { background: #e2e8f0; }
+    .explanation {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      display: none;
+      line-height: 1.5;
+    }
+    .explanation.correct { background: var(--success-bg); border: 1px solid #bbf7d0; color: #14532d; }
+    .explanation.incorrect { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+    #result-banner {
+      display: none;
+      margin-top: 24px;
+      padding: 24px;
+      border-radius: 14px;
+      text-align: center;
+      background: var(--surface);
+      border: 2px solid var(--primary);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    }
+    #result-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+    #result-score { font-size: 2.2rem; font-weight: 800; color: var(--primary); }
+    #result-desc { color: var(--text-muted); font-size: 0.95rem; margin-top: 6px; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <span class="badge">🛠️ Studio Level 1 • Everyday Essentials</span>
+    <h1>FluencyCraft: The Everyday Word Studio</h1>
+    <p>Construct clear and confident communication through 20 day-to-day scenarios spanning family life, hobbies, school, and routine conversations.</p>
+    
+    <div class="name-field-wrap">
+      <label for="learnerName">Learner's Name (Optional):</label>
+      <input type="text" id="learnerName" placeholder="e.g., Karthika or Pavan" oninput="saveNameState()">
+    </div>
+  </header>
+
+  <form id="quizForm">
+
+    <!-- Section 1: Daily Habits & Family Routines -->
+    <div class="section-title">1. Daily Habits & Family Routines</div>
+
+    <div class="card">
+      <p class="question">1. Which sentence describes something your sister does every single morning?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q1" value="a"> My sister drinks a glass of warm milk before school.</label>
+        <label class="option-label"><input type="radio" name="q1" value="b"> My sister drink a glass of warm milk before school.</label>
+        <label class="option-label"><input type="radio" name="q1" value="c"> My sister is drink warm milk before school.</label>
+      </div>
+      <div class="explanation" id="exp1"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">2. When mom asks what you are doing in your room right now, you reply:</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q2" value="a"> I read my science comic book right now.</label>
+        <label class="option-label"><input type="radio" name="q2" value="b"> I am reading my science comic book right now.</label>
+        <label class="option-label"><input type="radio" name="q2" value="c"> I am read my science comic book right now.</label>
+      </div>
+      <div class="explanation" id="exp2"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">3. Choose the polite way to ask your friend to share their drawing crayons:</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q3" value="a"> Give me your crayons now.</label>
+        <label class="option-label"><input type="radio" name="q3" value="b"> Could I please borrow your crayons for five minutes?</label>
+        <label class="option-label"><input type="radio" name="q3" value="c"> You can give crayons to me?</label>
+      </div>
+      <div class="explanation" id="exp3"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">4. Complete the sentence: "We usually __________ badminton in the society park every evening."</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q4" value="a"> plays</label>
+        <label class="option-label"><input type="radio" name="q4" value="b"> play</label>
+        <label class="option-label"><input type="radio" name="q4" value="c"> are play</label>
+      </div>
+      <div class="explanation" id="exp4"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">5. Which question is natural when asking a friend what game they want to play?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q5" value="a"> What do you want to play after homework?</label>
+        <label class="option-label"><input type="radio" name="q5" value="b"> What you are wanting to play after homework?</label>
+        <label class="option-label"><input type="radio" name="q5" value="c"> What game you want play?</label>
+      </div>
+      <div class="explanation" id="exp5"></div>
+    </div>
+
+    <!-- Section 2: Talking About Past Outings & Finished Events -->
+    <div class="section-title">2. Sharing Past Memories & Outings</div>
+
+    <div class="card">
+      <p class="question">6. "Last Sunday, we __________ our grandparents at their farm house."</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q6" value="a"> visited</label>
+        <label class="option-label"><input type="radio" name="q6" value="b"> have visited</label>
+        <label class="option-label"><input type="radio" name="q6" value="c"> were visit</label>
+      </div>
+      <div class="explanation" id="exp6"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">7. When you finished packing your school bag just two minutes ago, you say:</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q7" value="a"> I have just packed my school bag.</label>
+        <label class="option-label"><input type="radio" name="q7" value="b"> I just pack my school bag now.</label>
+        <label class="option-label"><input type="radio" name="q7" value="c"> I am just packed my school bag.</label>
+      </div>
+      <div class="explanation" id="exp7"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">8. Which sentence correctly explains why you didn't finish your art craft?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q8" value="a"> I didn't had enough colorful paper.</label>
+        <label class="option-label"><input type="radio" name="q8" value="b"> I didn't have enough colorful paper.</label>
+        <label class="option-label"><input type="radio" name="q8" value="c"> I hadn't not enough colorful paper.</label>
+      </div>
+      <div class="explanation" id="exp8"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">9. "While my brother was cycling in the driveway, he suddenly __________ a cute puppy."</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q9" value="a"> spotted</label>
+        <label class="option-label"><input type="radio" name="q9" value="b"> was spotting</label>
+        <label class="option-label"><input type="radio" name="q9" value="c"> has spotted</label>
+      </div>
+      <div class="explanation" id="exp9"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">10. "The children have been playing in the garden __________ four o'clock."</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q10" value="a"> for</label>
+        <label class="option-label"><input type="radio" name="q10" value="b"> since</label>
+        <label class="option-label"><input type="radio" name="q10" value="c"> from</label>
+      </div>
+      <div class="explanation" id="exp10"></div>
+    </div>
+
+    <!-- Section 3: Listening & Spoken Prompts -->
+    <div class="section-title">3. Listening & Clear Responses</div>
+
+    <div class="card">
+      <button type="button" class="audio-btn" onclick="playPrompt('Don\'t forget to pack your raincoat in your backpack, it might pour this afternoon!')">🔊 Listen to Voice Note 1</button>
+      <p class="question">11. What is the speaker reminding you to do?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q11" value="a"> Stay indoors all day because it is raining heavily right now.</label>
+        <label class="option-label"><input type="radio" name="q11" value="b"> Carry a raincoat because rain is expected later today.</label>
+        <label class="option-label"><input type="radio" name="q11" value="c"> Leave your backpack at home today.</label>
+      </div>
+      <div class="explanation" id="exp11"></div>
+    </div>
+
+    <div class="card">
+      <button type="button" class="audio-btn" onclick="playPrompt('Could you please keep the storybook back on the wooden shelf after you are done reading?')">🔊 Listen to Voice Note 2</button>
+      <p class="question">12. What action does the speaker ask for?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q12" value="a"> Return the storybook to its shelf once you finish it.</label>
+        <label class="option-label"><input type="radio" name="q12" value="b"> Stop reading the storybook immediately.</label>
+        <label class="option-label"><input type="radio" name="q12" value="c"> Buy a new wooden shelf for the book.</label>
+      </div>
+      <div class="explanation" id="exp12"></div>
+    </div>
+
+    <div class="card">
+      <button type="button" class="audio-btn" onclick="playPrompt('Let\'s call it a day and continue our puzzle tomorrow morning.')">🔊 Listen to Voice Note 3</button>
+      <p class="question">13. What does "Let's call it a day" mean here?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q13" value="a"> Check what day of the week it is on the calendar.</label>
+        <label class="option-label"><input type="radio" name="q13" value="b"> Stop working on the activity for today and rest.</label>
+        <label class="option-label"><input type="radio" name="q13" value="c"> Finish the entire puzzle before going to sleep.</label>
+      </div>
+      <div class="explanation" id="exp13"></div>
+    </div>
+
+    <!-- Section 4: Daily Reading, Writing & Manners -->
+    <div class="section-title">4. Everyday Reading, Notes & Manners</div>
+
+    <div class="card">
+      <p class="question">14. You read a sticky note on the kitchen table: <br><em>"The soup on the stove is hot. Please let it cool down before having it."</em><br><br>What should you do?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q14" value="a"> Drink the soup immediately while standing.</label>
+        <label class="option-label"><input type="radio" name="q14" value="b"> Wait for the soup to become warm or cooler before eating.</label>
+        <label class="option-label"><input type="radio" name="q14" value="c"> Boil the soup for five more minutes.</label>
+      </div>
+      <div class="explanation" id="exp14"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">15. How should a child politely ask for a second slice of homemade cake?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q15" value="a"> Put more cake on my plate right now.</label>
+        <label class="option-label"><input type="radio" name="q15" value="b"> May I please have one more small slice of cake?</label>
+        <label class="option-label"><input type="radio" name="q15" value="c"> I want cake again give me.</label>
+      </div>
+      <div class="explanation" id="exp15"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">16. Choose the correct word: <br><em>"We planned to fly our kite in the field, __________ the wind stopped blowing."</em></p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q16" value="a"> but</label>
+        <label class="option-label"><input type="radio" name="q16" value="b"> so</label>
+        <label class="option-label"><input type="radio" name="q16" value="c"> because</label>
+      </div>
+      <div class="explanation" id="exp16"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">17. Which sentence avoids an improper double negative?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q17" value="a"> I don't know nothing about the missing pencil.</label>
+        <label class="option-label"><input type="radio" name="q17" value="b"> I don't know anything about the missing pencil.</label>
+        <label class="option-label"><input type="radio" name="q17" value="c"> I didn't saw no missing pencil.</label>
+      </div>
+      <div class="explanation" id="exp17"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">18. "Look at the dark clouds and cold breeze; it __________ within an hour!"</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q18" value="a"> is going to rain</label>
+        <label class="option-label"><input type="radio" name="q18" value="b"> rains</label>
+        <label class="option-label"><input type="radio" name="q18" value="c"> will rained</label>
+      </div>
+      <div class="explanation" id="exp18"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">19. Which sentence uses the correct preposition for clock time?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q19" value="a"> Our swimming lesson starts at 5:00 PM.</label>
+        <label class="option-label"><input type="radio" name="q19" value="b"> Our swimming lesson starts on 5:00 PM.</label>
+        <label class="option-label"><input type="radio" name="q19" value="c"> Our swimming lesson starts in 5:00 PM.</label>
+      </div>
+      <div class="explanation" id="exp19"></div>
+    </div>
+
+    <div class="card">
+      <p class="question">20. What is the warmest way to thank someone who helped you pick up your fallen books?</p>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q20" value="a"> "Thank you so much, that was very kind of you!"</label>
+        <label class="option-label"><input type="radio" name="q20" value="b"> "It is your duty to help."</label>
+        <label class="option-label"><input type="radio" name="q20" value="c"> "Okay fine."</label>
+      </div>
+      <div class="explanation" id="exp20"></div>
+    </div>
+
+    <div class="actions-bar">
+      <button type="button" id="submitBtn" class="submit-btn" onclick="evaluateQuiz()">Submit Test</button>
+      <button type="button" id="resetBtn" class="reset-btn" onclick="resetQuiz()">Reset Test</button>
+    </div>
+  </form>
+
+  <div id="result-banner">
+    <div id="result-title">Test Result</div>
+    <div id="result-score">0 / 20</div>
+    <div id="result-desc">Review your answers and explanations below!</div>
+  </div>
+</div>
+
+<script>
+  const answerKey = {
+    q1: { ans: 'a', exp: '<b>Correct: My sister drinks a glass of warm milk before school.</b><br>With singular third-person subjects (he/she/sister), regular present tense verbs take an <i>-s</i> or <i>-es</i>.' },
+    q2: { ans: 'b', exp: '<b>Correct: I am reading my science comic book right now.</b><br>Actions in progress right at this moment require the continuous form (<i>am/is/are + verb-ing</i>).' },
+    q3: { ans: 'b', exp: '<b>Correct: Could I please borrow your crayons for five minutes?</b><br>Using "Could I please..." is polite, courteous, and respectful when sharing.' },
+    q4: { ans: 'b', exp: '<b>Correct: play</b><br>Plural subjects like "We" take the base verb (<i>play</i>, not <i>plays</i>).' },
+    q5: { ans: 'a', exp: '<b>Correct: What do you want to play after homework?</b><br>Simple present questions use the helping verb <i>do/does</i> before the subject.' },
+    q6: { ans: 'a', exp: '<b>Correct: visited</b><br>When mentioning an exact completed time in the past like "Last Sunday", always use Simple Past (<i>visited</i>).' },
+    q7: { ans: 'a', exp: '<b>Correct: I have just packed my school bag.</b><br>Things finished moments ago use Present Perfect (<i>have/has + just + V3</i>).' },
+    q8: { ans: 'b', exp: '<b>Correct: I didn\'t have enough colorful paper.</b><br>After <i>did</i> or <i>didn\'t</i>, always use the bare base verb (<i>have</i>, never <i>had</i>).' },
+    q9: { ans: 'a', exp: '<b>Correct: spotted</b><br>A short single action that interrupts an ongoing activity takes the Simple Past.' },
+    q10: { ans: 'b', exp: '<b>Correct: since</b><br>Use <i>since</i> for a specific starting point on the clock (<i>since 4 o\'clock</i>), and <i>for</i> for amounts of time.' },
+    q11: { ans: 'b', exp: '<b>Correct: Carry a raincoat because rain is expected later today.</b><br>"It might pour this afternoon" means heavy rain is possible later.' },
+    q12: { ans: 'a', exp: '<b>Correct: Return the storybook to its shelf once you finish it.</b><br>"Keep it back" is a common way to say return an item to where it belongs.' },
+    q13: { ans: 'b', exp: '<b>Correct: Stop working on the activity for today and rest.</b><br>"Let\'s call it a day" is a friendly everyday expression meaning we are stopping work for today.' },
+    q14: { ans: 'b', exp: '<b>Correct: Wait for the soup to become warm or cooler before eating.</b><br>"Let it cool down" means don\'t eat it while it is burning hot.' },
+    q15: { ans: 'b', exp: '<b>Correct: May I please have one more small slice of cake?</b><br>"May I please have..." is the most polite, well-mannered way to ask for food.' },
+    q16: { ans: 'a', exp: '<b>Correct: but</b><br>"But" connects two ideas that contrast each other (we wanted to fly it, but the wind stopped).' },
+    q17: { ans: 'b', exp: '<b>Correct: I don\'t know anything about the missing pencil.</b><br>Avoid double negatives! Pair <i>don\'t</i> with <i>anything</i>, not <i>nothing</i>.' },
+    q18: { ans: 'a', exp: '<b>Correct: is going to rain</b><br>When there is direct visual evidence (dark clouds), use <i>is going to</i> for future predictions.' },
+    q19: { ans: 'a', exp: '<b>Correct: Our swimming lesson starts at 5:00 PM.</b><br>Always use the preposition <b>at</b> for clock times.' },
+    q20: { ans: 'a', exp: '<b>Correct: "Thank you so much, that was very kind of you!"</b><br>A friendly and warm way to acknowledge someone\'s helpful gesture.' }
+  };
+
+  const STORAGE_KEY = 'fluencycraft_module1_state';
+
+  window.addEventListener('DOMContentLoaded', () => {
+    restoreQuizState();
+  });
+
+  function playPrompt(text) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.9;
+      utterance.lang = 'en-US';
+      window.speechSynthesis.speak(utterance);
+    } else {
+      alert("Audio synthesis is not supported in this browser.");
+    }
+  }
+
+  function saveNameState() {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    saved.userName = document.getElementById('learnerName').value.trim();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+  }
+
+  function evaluateQuiz() {
+    let score = 0;
+    const total = Object.keys(answerKey).length;
+    const userAnswers = {};
+
+    for (let key in answerKey) {
+      const selected = document.querySelector(`input[name="${key}"]:checked`);
+      const val = selected ? selected.value : null;
+      userAnswers[key] = val;
+      const isCorrect = val === answerKey[key].ans;
+      if (isCorrect) score++;
+
+      const qNum = key.replace('q', '');
+      const expDiv = document.getElementById(`exp${qNum}`);
+      expDiv.innerHTML = answerKey[key].exp;
+      expDiv.className = `explanation ${isCorrect ? 'correct' : 'incorrect'}`;
+      expDiv.style.display = 'block';
+    }
+
+    lockInputs(true);
+
+    const userName = document.getElementById('learnerName').value.trim();
+    displayResults(score, total, userName);
+
+    const state = {
+      submitted: true,
+      score: score,
+      total: total,
+      answers: userAnswers,
+      userName: userName
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function lockInputs(locked) {
+    document.querySelectorAll('input[type="radio"]').forEach(r => r.disabled = locked);
+    document.querySelectorAll('.option-label').forEach(l => {
+      if (locked) l.classList.add('disabled');
+      else l.classList.remove('disabled');
+    });
+    document.getElementById('submitBtn').disabled = locked;
+  }
+
+  function displayResults(score, total, name) {
+    const banner = document.getElementById('result-banner');
+    const title = document.getElementById('result-title');
+    const scoreText = document.getElementById('result-score');
+    
+    title.innerText = name ? `Great craft, ${name}!` : "Studio Evaluation";
+    scoreText.innerText = `${score} / ${total} (${Math.round((score / total) * 100)}%)`;
+    banner.style.display = 'block';
+    banner.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function restoreQuizState() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
+
+    try {
+      const state = JSON.parse(saved);
+      if (state.userName) {
+        document.getElementById('learnerName').value = state.userName;
+      }
+      if (state.answers) {
+        for (let key in state.answers) {
+          const val = state.answers[key];
+          if (val) {
+            const radio = document.querySelector(`input[name="${key}"][value="${val}"]`);
+            if (radio) radio.checked = true;
+          }
+        }
+      }
+      if (state.submitted) {
+        lockInputs(true);
+        for (let key in answerKey) {
+          const val = state.answers ? state.answers[key] : null;
+          const isCorrect = val === answerKey[key].ans;
+          const qNum = key.replace('q', '');
+          const expDiv = document.getElementById(`exp${qNum}`);
+          expDiv.innerHTML = answerKey[key].exp;
+          expDiv.className = `explanation ${isCorrect ? 'correct' : 'incorrect'}`;
+          expDiv.style.display = 'block';
+        }
+        displayResults(state.score, state.total, state.userName);
+      }
+    } catch (e) {
+      console.error("Failed to parse saved state", e);
+    }
+  }
+
+  function resetQuiz() {
+    if (!confirm("Reset this studio exercise? All selections and score history will be cleared.")) {
+      return;
+    }
+    localStorage.removeItem(STORAGE_KEY);
+    document.getElementById('quizForm').reset();
+    document.getElementById('learnerName').value = '';
+
+    lockInputs(false);
+
+    document.querySelectorAll('.explanation').forEach(exp => {
+      exp.style.display = 'none';
+      exp.innerHTML = '';
+    });
+
+    document.getElementById('result-banner').style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
