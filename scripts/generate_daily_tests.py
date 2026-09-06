@@ -335,9 +335,10 @@ def main():
     curriculum = load_curriculum()
     today_str = datetime.utcnow().strftime("%Y-%m-%d")
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    tests_root_dir = os.path.join(root_dir, "tests")
 
     for level in ["beginner", "intermediate", "advanced"]:
-        level_dir = os.path.join(root_dir, level)
+        level_dir = os.path.join(tests_root_dir, level)
         day_num = get_next_day_num(level_dir)
 
         word_info, concept_overview, why_important, questions = generate_20_questions_for_day(level, day_num, curriculum)
@@ -364,7 +365,7 @@ def main():
         with open(latest_path, "w", encoding="utf-8") as f:
             json.dump(test_data, f, indent=2, ensure_ascii=False)
 
-        print(f"[{level.upper()}] Generated {day_filename} and updated latest.json (20 questions)")
+        print(f"[{level.upper()}] Generated tests/{level}/{day_filename} and updated tests/{level}/latest.json (20 questions)")
 
 if __name__ == "__main__":
     main()

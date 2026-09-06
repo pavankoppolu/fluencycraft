@@ -3,68 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FluencyCraft | Practical Everyday English Mastery Studio</title>
-  <meta name="description" content="FluencyCraft - Daily AI-generated practical English scenarios, concept focus overview, real-time Telugu-to-English translation feedback, and 20 interactive practice questions.">
+  <title>FluencyCraft | Apple Glass Practical English Studio</title>
+  <meta name="description" content="FluencyCraft - Daily AI-generated practical English scenarios with Apple Glassmorphism design, real-time Telugu-to-English feedback, concept focus, and 20 daily practice questions.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #059669;
       --primary-dark: #047857;
-      --primary-light: #ecfdf5;
+      --primary-glow: rgba(5, 150, 105, 0.35);
       --accent-blue: #2563eb;
-      --surface: #ffffff;
-      --background: #f4fbf7;
+      --accent-purple: #7c3aed;
+      --glass-bg: rgba(255, 255, 255, 0.72);
+      --glass-bg-dark: rgba(15, 23, 42, 0.65);
+      --glass-border: rgba(255, 255, 255, 0.8);
+      --glass-border-subtle: rgba(226, 232, 240, 0.7);
+      --glass-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05), 0 0 15px rgba(255, 255, 255, 0.5) inset;
       --text: #0f172a;
       --text-muted: #475569;
-      --border: #e2e8f0;
-      --card-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.04);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--background);
+      background: radial-gradient(circle at 10% 20%, #e6f4ed 0%, #f0f4f8 40%, #eef2ff 90%);
+      background-attachment: fixed;
       color: var(--text);
       line-height: 1.6;
-      padding: 24px 16px;
+      padding: 32px 16px 60px;
+      min-height: 100vh;
     }
 
-    .container { max-width: 860px; margin: 0 auto; }
+    .container { max-width: 900px; margin: 0 auto; }
 
-    header {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-      margin-bottom: 20px;
-      box-shadow: var(--card-shadow);
+    /* Apple Glass Header */
+    header.glass-header {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px) saturate(190%);
+      -webkit-backdrop-filter: blur(24px) saturate(190%);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: var(--glass-shadow);
     }
 
-    .badge {
-      display: inline-block;
-      background: var(--primary-light);
-      color: var(--primary-dark);
+    .glass-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(5, 150, 105, 0.12);
+      backdrop-filter: blur(8px);
+      color: #047857;
       font-weight: 800;
       font-size: 0.78rem;
-      padding: 6px 14px;
+      padding: 6px 16px;
       border-radius: 9999px;
-      margin-bottom: 12px;
-      border: 1px solid #a7f3d0;
+      margin-bottom: 14px;
+      border: 1px solid rgba(167, 243, 208, 0.8);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
     }
 
-    header h1 { font-size: 1.8rem; font-weight: 800; color: #064e3b; margin-bottom: 6px; }
-    header p { color: var(--text-muted); font-size: 0.98rem; }
+    header.glass-header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #064e3b;
+      margin-bottom: 8px;
+    }
+    header.glass-header p { color: var(--text-muted); font-size: 1.05rem; }
 
-    /* Learner Name Input */
+    /* Learner Name Field */
     .learner-name-wrap {
-      margin-top: 18px;
-      padding-top: 16px;
-      border-top: 1px dashed var(--border);
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px dashed rgba(226, 232, 240, 0.9);
       display: flex;
       flex-direction: column;
       gap: 6px;
@@ -72,40 +88,50 @@
     .learner-name-wrap label { font-size: 0.9rem; font-weight: 700; color: var(--text); }
     .learner-name-wrap input {
       width: 100%;
-      max-width: 380px;
-      padding: 10px 14px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
+      max-width: 400px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(203, 213, 225, 0.8);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
       font-size: 0.95rem;
       font-family: inherit;
+      transition: all 0.2s;
     }
-    .learner-name-wrap input:focus { outline: none; border-color: var(--primary); }
+    .learner-name-wrap input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--primary-glow);
+    }
 
-    /* Word of the Day Banner */
-    .word-of-day-banner {
-      background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
+    /* Word of the Day Glass Card */
+    .wod-glass-card {
+      background: linear-gradient(135deg, rgba(6, 78, 59, 0.92) 0%, rgba(5, 150, 105, 0.92) 100%);
+      backdrop-filter: blur(20px);
       color: white;
-      border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 16px rgba(5, 150, 105, 0.15);
+      border-radius: 24px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 16px 32px -8px rgba(5, 150, 105, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.25);
     }
     .wod-header {
       font-size: 0.8rem;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: #a7f3d0;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
-    .wod-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 4px; }
-    .wod-meaning { font-size: 1.05rem; color: #ecfdf5; margin-bottom: 12px; }
+    .wod-title { font-size: 1.7rem; font-weight: 800; margin-bottom: 4px; }
+    .wod-meaning { font-size: 1.1rem; color: #ecfdf5; margin-bottom: 14px; }
     .wod-usage {
-      font-size: 0.92rem;
-      background: rgba(255, 255, 255, 0.12);
-      padding: 10px 14px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -113,159 +139,191 @@
       flex-wrap: wrap;
     }
 
-    /* Concept & Importance Banner */
-    .concept-card {
-      background: #eff6ff;
-      border-left: 5px solid #2563eb;
-      border-radius: 14px;
-      padding: 20px 24px;
-      margin-bottom: 24px;
-      box-shadow: var(--card-shadow);
-      border-top: 1px solid var(--border);
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    /* Concept & Importance Glass Card */
+    .concept-glass-card {
+      background: rgba(239, 246, 255, 0.85);
+      backdrop-filter: blur(20px);
+      border-left: 6px solid #2563eb;
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 28px;
+      box-shadow: var(--glass-shadow);
+      border-top: 1px solid var(--glass-border);
+      border-right: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
     }
     .concept-title {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 800;
       color: #1e40af;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .concept-body {
-      font-size: 0.95rem;
-      color: #1e293b;
-      line-height: 1.5;
-    }
+    .concept-body { font-size: 0.98rem; color: #1e293b; line-height: 1.5; }
     .importance-box {
-      margin-top: 10px;
-      padding-top: 10px;
+      margin-top: 12px;
+      padding-top: 12px;
       border-top: 1px dashed #bfdbfe;
-      font-size: 0.92rem;
+      font-size: 0.94rem;
       color: #334155;
     }
 
-    /* Section Title */
-    .section-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--text);
-      margin: 32px 0 16px;
+    /* Track Segmented Selector */
+    .track-segmented-bar {
       display: flex;
-      align-items: center;
-      gap: 8px;
+      background: rgba(226, 232, 240, 0.65);
+      backdrop-filter: blur(16px);
+      padding: 6px;
+      border-radius: 16px;
+      gap: 6px;
+      margin-bottom: 24px;
+      border: 1px solid var(--glass-border);
+    }
+    .segmented-btn {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: none;
+      background: transparent;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .segmented-btn.active {
+      background: white;
+      color: var(--primary-dark);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
-    /* Quiz Cards */
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 22px;
-      margin-bottom: 18px;
-      box-shadow: var(--card-shadow);
-      transition: all 0.2s;
+    /* Glass Quiz Cards */
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--glass-shadow);
+      transition: all 0.25s ease;
     }
-    .card p.question { font-weight: 700; font-size: 1rem; margin-bottom: 16px; color: var(--text); }
-    
-    .options { display: flex; flex-direction: column; gap: 10px; }
+    .glass-card:hover {
+      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.08);
+      border-color: rgba(5, 150, 105, 0.4);
+    }
+    .glass-card p.question { font-weight: 700; font-size: 1.05rem; margin-bottom: 18px; color: var(--text); }
+
+    .options { display: flex; flex-direction: column; gap: 12px; }
     .option-label {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 12px 14px;
-      border-radius: 8px;
-      background: #f8fafc;
-      border: 1px solid var(--border);
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(248, 250, 252, 0.8);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      backdrop-filter: blur(10px);
       cursor: pointer;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       transition: all 0.2s;
     }
-    .option-label:hover { background: #ecfdf5; border-color: #a7f3d0; }
-    .option-label.disabled { cursor: not-allowed; opacity: 0.85; }
-    .option-label.disabled:hover { background: #f8fafc; border-color: var(--border); }
-    .option-label input[type="radio"] { accent-color: var(--primary); width: 18px; height: 18px; }
+    .option-label:hover {
+      background: rgba(236, 253, 245, 0.9);
+      border-color: #a7f3d0;
+      transform: translateX(4px);
+    }
+    .option-label.disabled { cursor: not-allowed; opacity: 0.85; transform: none !important; }
+    .option-label.disabled:hover { background: rgba(248, 250, 252, 0.8); border-color: rgba(226, 232, 240, 0.8); }
+    .option-label input[type="radio"] { accent-color: var(--primary); width: 20px; height: 20px; }
 
-    .audio-btn {
-      background: #f1f5f9;
+    .audio-glass-btn {
+      background: rgba(241, 245, 249, 0.9);
+      backdrop-filter: blur(10px);
       color: #1e293b;
-      border: 1px solid var(--border);
-      padding: 8px 14px;
-      border-radius: 8px;
+      border: 1px solid rgba(203, 213, 225, 0.8);
+      padding: 9px 16px;
+      border-radius: 10px;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 700;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      transition: all 0.2s;
     }
-    .audio-btn:hover { background: #e2e8f0; }
+    .audio-glass-btn:hover { background: rgba(226, 232, 240, 1); transform: scale(1.02); }
 
     /* Explanation Box */
     .explanation {
-      margin-top: 16px;
-      padding: 14px;
-      border-radius: 8px;
-      font-size: 0.92rem;
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 0.95rem;
       display: none;
-      line-height: 1.5;
+      line-height: 1.55;
     }
-    .explanation.correct { background: #f0fdf4; border: 1px solid #bbf7d0; color: #14532d; }
-    .explanation.incorrect { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+    .explanation.correct { background: rgba(240, 253, 244, 0.95); border: 1px solid #bbf7d0; color: #14532d; }
+    .explanation.incorrect { background: rgba(254, 242, 242, 0.95); border: 1px solid #fecaca; color: #7f1d1d; }
 
-    /* Actions Bar */
-    .actions-bar { display: flex; gap: 12px; margin-top: 28px; }
+    /* Action Bar Buttons */
+    .actions-bar { display: flex; gap: 14px; margin-top: 32px; }
     button.submit-btn {
       flex: 2;
-      background: var(--primary);
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
       color: white;
       border: none;
-      padding: 16px;
-      border-radius: 10px;
-      font-size: 1.05rem;
+      padding: 18px;
+      border-radius: 14px;
+      font-size: 1.1rem;
       font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(5, 150, 105, 0.25);
+      box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3);
+      transition: all 0.25s;
     }
-    button.submit-btn:hover { background: var(--primary-dark); }
+    button.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(5, 150, 105, 0.4); }
     button.reset-btn {
       flex: 1;
-      background: #f1f5f9;
+      background: rgba(241, 245, 249, 0.9);
+      backdrop-filter: blur(10px);
       color: #334155;
-      border: 1px solid var(--border);
-      padding: 16px;
-      border-radius: 10px;
+      border: 1px solid var(--glass-border);
+      padding: 18px;
+      border-radius: 14px;
       font-size: 1.05rem;
       font-weight: 700;
       cursor: pointer;
+      transition: all 0.2s;
     }
-    button.reset-btn:hover { background: #e2e8f0; }
+    button.reset-btn:hover { background: rgba(226, 232, 240, 1); }
 
     #result-banner {
       display: none;
-      margin-top: 24px;
-      padding: 24px;
-      border-radius: 14px;
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 20px;
       text-align: center;
-      background: var(--surface);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
       border: 2px solid var(--primary);
-      box-shadow: var(--card-shadow);
+      box-shadow: var(--glass-shadow);
     }
-    #result-title { font-size: 1.3rem; font-weight: 800; }
-    #result-score { font-size: 2.3rem; font-weight: 800; color: var(--primary); margin: 4px 0; }
+    #result-title { font-size: 1.4rem; font-weight: 800; }
+    #result-score { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin: 6px 0; }
   </style>
 </head>
 <body>
 
 <div class="container">
 
-  <header>
-    <span class="badge"> Everyday Practical Studio • 20 Daily Questions</span>
+  <header class="glass-header">
+    <span class="glass-badge"> Apple Glass Studio • 20 Daily Questions</span>
     <h1>FluencyCraft: Practical Daily English</h1>
-    <p>Construct clear communication through 20 real-world scenario questions covering daily routines, vocabulary, auditory prompts, polite social manners, and Telugu-to-English translations.</p>
+    <p>Practice everyday living scenarios through 20 interactive questions covering routines, phrasal verbs, auditory dialogues, polite social manners, and Telugu-to-English translation feedback.</p>
 
     <div class="learner-name-wrap">
       <label for="learnerName">Learner's Name (Optional):</label>
@@ -274,20 +332,27 @@
   </header>
 
   <!-- Word of the Day Banner -->
-  <div class="word-of-day-banner" id="wordBanner">
+  <div class="wod-glass-card" id="wordBanner">
     <div class="wod-header">🌟 Word of the Day & Everyday Phrase</div>
     <div class="wod-title" id="wodTitle">Run errands</div>
     <div class="wod-meaning" id="wodMeaning">Meaning: Do short daily trips to accomplish chores</div>
     <div class="wod-usage">
       <span id="wodUsage">Usage: "I need to run a few errands before dinner."</span>
-      <button type="button" class="audio-btn" style="margin:0; background:white; color:#047857;" onclick="playPrompt('Run errands. I need to run a few errands before dinner.')">🔊 Listen</button>
+      <button type="button" class="audio-glass-btn" style="margin:0; background:white; color:#047857;" onclick="playPrompt('Run errands. I need to run a few errands before dinner.')">🔊 Listen</button>
     </div>
   </div>
 
+  <!-- Track Level Segmented Selector -->
+  <div class="track-segmented-bar">
+    <button class="segmented-btn active" id="btn-beginner" onclick="loadTrack('beginner')">Level 1: Beginner</button>
+    <button class="segmented-btn" id="btn-intermediate" onclick="loadTrack('intermediate')">Level 2: Intermediate</button>
+    <button class="segmented-btn" id="btn-advanced" onclick="loadTrack('advanced')">Level 3: Advanced</button>
+  </div>
+
   <!-- Concept Covered Today & Why It Is Important -->
-  <div class="concept-card" id="conceptCard">
-    <div class="concept-title">📘 Today's Concept Focus: <span id="conceptTitle">Day 3: Travel, Autos & Cabs & Phrasal Verbs</span></div>
-    <div class="concept-body" id="conceptBody">Focusing on practical everyday travel queries, requesting drop-offs, asking fares politely, and using phrasal verbs.</div>
+  <div class="concept-glass-card" id="conceptCard">
+    <div class="concept-title">📘 Today's Concept Focus: <span id="conceptTitle">Day 1: Morning & Home Routines</span></div>
+    <div class="concept-body" id="conceptBody">Focusing on daily habits, time markers, phrasal verbs, and polite social expressions.</div>
     <div class="importance-box">
       🎯 <b>Why this is important for your English skills:</b> <span id="importanceText">Developing automatic recall of everyday phrases improves your speaking speed, listening clarity, and overall English fluency in real-life situations.</span>
     </div>
@@ -305,19 +370,20 @@
   <div id="result-banner">
     <div id="result-title">Test Result</div>
     <div id="result-score">0 / 20</div>
-    <div id="result-desc">Review your answers and detailed explanations above!</div>
+    <div id="result-desc" style="color: var(--text-muted); font-size: 0.98rem; margin-top:6px;">Review your answers and detailed explanations above!</div>
   </div>
 
 </div>
 
 <script>
   let currentQuestions = [];
+  let currentLevel = 'beginner';
   const answerKeyMap = {};
   const userAnswersMap = {};
 
   window.addEventListener('DOMContentLoaded', () => {
     loadNameState();
-    loadLatestTest();
+    loadTrack('beginner');
   });
 
   function saveNameState() {
@@ -330,9 +396,19 @@
     if (savedName) document.getElementById('learnerName').value = savedName;
   }
 
-  async function loadLatestTest() {
+  async function loadTrack(level) {
+    currentLevel = level;
+    document.querySelectorAll('.segmented-btn').forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.getElementById(`btn-${level}`);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    const container = document.getElementById('questionsContainer');
+    container.innerHTML = `<div class="glass-card" style="text-align:center; padding:32px;"><p style="color:var(--text-muted);">Loading ${level.toUpperCase()} daily test dataset...</p></div>`;
+    document.getElementById('result-banner').style.display = 'none';
+
     try {
-      const resp = await fetch('/beginner/latest.json');
+      // Path updated under tests/ parent directory
+      const resp = await fetch(`/tests/${level}/latest.json`);
       if (!resp.ok) throw new Error("Could not load latest test dataset.");
       const data = await resp.json();
 
@@ -352,7 +428,7 @@
       currentQuestions = data.questions || [];
       renderQuestions(currentQuestions);
     } catch (err) {
-      console.warn("Using fallback dataset:", err);
+      console.warn("Using fallback questions:", err);
       renderFallbackQuestions();
     }
   }
@@ -366,15 +442,15 @@
       answerKeyMap[`q${qNum}`] = { ans: q.answer, exp: q.explanation };
 
       const card = document.createElement('div');
-      card.className = 'card';
+      card.className = 'glass-card';
 
       let audioHtml = '';
       if (q.audio_prompt && q.audio_prompt.trim().length > 0) {
-        audioHtml = `<button type="button" class="audio-btn" onclick="playPrompt('${q.audio_prompt.replace(/'/g, "\\'")}')">🔊 Listen to Audio Clip</button>`;
+        audioHtml = `<button type="button" class="audio-glass-btn" onclick="playPrompt('${q.audio_prompt.replace(/'/g, "\\'")}')">🔊 Listen to Audio Clip</button>`;
       }
 
       card.innerHTML = `
-        <div style="font-size:0.8rem; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:6px;">${q.section || ''}</div>
+        <div style="font-size:0.82rem; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.04em;">${q.section || ''}</div>
         ${audioHtml}
         <p class="question">${qNum}. ${q.question}</p>
         <div class="options" id="optionsGroup_${qNum}">

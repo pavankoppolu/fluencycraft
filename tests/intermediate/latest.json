@@ -1,28 +1,28 @@
 {
-  "day": 3,
+  "day": 1,
   "date": "2026-09-06",
-  "level": "beginner",
-  "title": "FluencyCraft Everyday English - Day 03",
-  "concept_overview": "Day 3: Travel, Autos & Cabs & Everyday Vocabulary",
+  "level": "intermediate",
+  "title": "FluencyCraft Everyday English - Day 01",
+  "concept_overview": "Day 1: Morning & Home Routines & Everyday Vocabulary",
   "why_important": "Developing automatic recall of everyday phrases improves your speaking speed, listening clarity, and overall English fluency in real-life situations.",
   "word_of_the_day": {
-    "word": "Drop me off",
-    "meaning": "Let someone get out of a vehicle at a destination",
-    "usage": "Please drop me off near the signal."
+    "word": "Run errands",
+    "meaning": "Do short daily trips to accomplish chores",
+    "usage": "I need to run a few errands at the market before dinner."
   },
   "total_questions": 20,
   "questions": [
     {
       "id": 1,
       "section": "1. Daily Routine & Habits",
-      "question": "When talking about your everyday schedule (Travel, Autos & Cabs), which sentence is grammatically correct?",
+      "question": "When talking about your everyday schedule (Morning & Home Routines), which sentence is grammatically correct?",
       "options": {
-        "a": "I am usually drop me off every morning.",
-        "b": "I usually drop me off every morning.",
-        "c": "I usually drop me offs every morning."
+        "a": "I am usually early riser every morning.",
+        "b": "I usually early riser every morning.",
+        "c": "I usually early risers every morning."
       },
       "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>Habitual daily routines take the Simple Present tense (<i>I usually drop me off</i>). Never pair 'am' directly with a base verb like 'am wake'.",
+      "explanation": "<b>Correct: Option B</b><br>Habitual daily routines take the Simple Present tense (<i>I usually early riser</i>). Never pair 'am' directly with a base verb like 'am wake'.",
       "audio_prompt": ""
     },
     {
@@ -67,14 +67,14 @@
     {
       "id": 5,
       "section": "2. Everyday Vocabulary & Word Match",
-      "question": "What is the exact practical meaning of the phrase 'Drop me off'?",
+      "question": "What is the exact practical meaning of the phrase 'Run errands'?",
       "options": {
         "a": "To sprint quickly in a athletic race.",
-        "b": "Let someone get out of a vehicle at a destination.",
+        "b": "Do short daily trips to accomplish chores.",
         "c": "To cancel all daily appointments."
       },
       "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>'Drop me off' means: Let someone get out of a vehicle at a destination. Example: <i>\"Please drop me off near the signal.\"</i>",
+      "explanation": "<b>Correct: Option B</b><br>'Run errands' means: Do short daily trips to accomplish chores. Example: <i>\"I need to run a few errands at the market before dinner.\"</i>",
       "audio_prompt": ""
     },
     {
@@ -223,15 +223,15 @@
     {
       "id": 17,
       "section": "5. Real-Life Telugu ➔ English Translation",
-      "question": "Translate Scenario 1:<br><br><b>Telugu:</b> \"అన్నా, బస్టాండ్ దగ్గర డ్రాప్ చేయండి, ఎంత అవుతుంది?\"<br><i>(Literal attempt: \"Brother, near bus stand drop me, how much will become?\")</i>",
+      "question": "Translate Scenario 1:<br><br><b>Telugu:</b> \"నేను సాధారణంగా ఉదయం 6 గంటలకే నిద్రలేచి, ఒక కప్పు టీ తాగుతాను.\"<br><i>(Literal attempt: \"I generally in morning at 6 clock wake up and drink one cup tea.\")</i>",
       "options": {
-        "a": "Brother, near bus stand drop me, how much will become?",
-        "b": "Please drop me off near the bus stand. How much is the fare?",
+        "a": "I generally in morning at 6 clock wake up and drink one cup tea.",
+        "b": "I usually wake up at 6:00 AM and have a cup of tea.",
         "c": "I morning wake up and tea drinking."
       },
       "answer": "b",
-      "explanation": "<b>AI Feedback & Scoring (9/10):</b><br>Avoid 'how much will become'. Instead ask 'How much is the fare?' or 'What will it cost?'.<br><br><b>Natural Version:</b> <i>\"Please drop me off near the bus stand. How much is the fare?\"</i>",
-      "audio_prompt": "Natural English phrasing: Please drop me off near the bus stand. How much is the fare?"
+      "explanation": "<b>AI Feedback & Scoring (9/10):</b><br>In English, say 'have a cup of tea' or 'drink a cup of tea' and specify clock times with '6:00 AM' instead of 'at 6 clock'.<br><br><b>Natural Version:</b> <i>\"I usually wake up at 6:00 AM and have a cup of tea.\"</i>",
+      "audio_prompt": "Natural English phrasing: I usually wake up at 6:00 AM and have a cup of tea."
     },
     {
       "id": 18,
