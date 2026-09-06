@@ -1,0 +1,269 @@
+{
+  "day": 1,
+  "date": "2026-09-06",
+  "level": "beginner",
+  "title": "FluencyCraft Beginner - Day 01",
+  "total_questions": 20,
+  "questions": [
+    {
+      "id": 1,
+      "section": "Section 1",
+      "question": "Sample question 1 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 1 for beginner fluency."
+    },
+    {
+      "id": 2,
+      "section": "Section 1",
+      "question": "Sample question 2 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 2 for beginner fluency."
+    },
+    {
+      "id": 3,
+      "section": "Section 1",
+      "question": "Sample question 3 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 3 for beginner fluency."
+    },
+    {
+      "id": 4,
+      "section": "Section 1",
+      "question": "Sample question 4 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 4 for beginner fluency."
+    },
+    {
+      "id": 5,
+      "section": "Section 1",
+      "question": "Sample question 5 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 5 for beginner fluency."
+    },
+    {
+      "id": 6,
+      "section": "Section 2",
+      "question": "Sample question 6 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 6 for beginner fluency."
+    },
+    {
+      "id": 7,
+      "section": "Section 2",
+      "question": "Sample question 7 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 7 for beginner fluency."
+    },
+    {
+      "id": 8,
+      "section": "Section 2",
+      "question": "Sample question 8 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 8 for beginner fluency."
+    },
+    {
+      "id": 9,
+      "section": "Section 2",
+      "question": "Sample question 9 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 9 for beginner fluency."
+    },
+    {
+      "id": 10,
+      "section": "Section 2",
+      "question": "Sample question 10 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 10 for beginner fluency."
+    },
+    {
+      "id": 11,
+      "section": "Section 3",
+      "question": "Sample question 11 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 11 for beginner fluency."
+    },
+    {
+      "id": 12,
+      "section": "Section 3",
+      "question": "Sample question 12 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 12 for beginner fluency."
+    },
+    {
+      "id": 13,
+      "section": "Section 3",
+      "question": "Sample question 13 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 13 for beginner fluency."
+    },
+    {
+      "id": 14,
+      "section": "Section 3",
+      "question": "Sample question 14 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 14 for beginner fluency."
+    },
+    {
+      "id": 15,
+      "section": "Section 3",
+      "question": "Sample question 15 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 15 for beginner fluency."
+    },
+    {
+      "id": 16,
+      "section": "Section 4",
+      "question": "Sample question 16 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 16 for beginner fluency."
+    },
+    {
+      "id": 17,
+      "section": "Section 4",
+      "question": "Sample question 17 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 17 for beginner fluency."
+    },
+    {
+      "id": 18,
+      "section": "Section 4",
+      "question": "Sample question 18 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 18 for beginner fluency."
+    },
+    {
+      "id": 19,
+      "section": "Section 4",
+      "question": "Sample question 19 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 19 for beginner fluency."
+    },
+    {
+      "id": 20,
+      "section": "Section 4",
+      "question": "Sample question 20 for beginner level (Day 01). Select the correct grammatical option:",
+      "options": {
+        "a": "Option A - Grammatically incomplete phrasing.",
+        "b": "Option B - Correct and standard English usage.",
+        "c": "Option C - Unnatural sentence structure."
+      },
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
+      "audio_prompt": "Listen carefully to scenario number 20 for beginner fluency."
+    }
+  ]
+}

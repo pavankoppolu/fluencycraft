@@ -1,1 +1,32 @@
-
+{
+  "beginner": {
+    "title": "Everyday Essentials",
+    "description": "Construct clear and confident communication through day-to-day scenarios spanning family life, hobbies, school, and routine conversations.",
+    "sections": [
+      "Daily Habits & Family Routines",
+      "Sharing Past Memories & Outings",
+      "Listening & Clear Responses",
+      "Everyday Reading, Notes & Manners"
+    ]
+  },
+  "intermediate": {
+    "title": "Foundational Workplace Fluency",
+    "description": "Practice 20 core real-world workplace scenarios covering reading clarity, basic listening cadence, professional sentence construction, and routine speaking frameworks.",
+    "sections": [
+      "Daily Updates & Routine Frameworks (Speaking)",
+      "Reporting Completed Actions (Past Tenses)",
+      "Listening & Auditory Identification",
+      "Workplace Writing & Reading Context"
+    ]
+  },
+  "advanced": {
+    "title": "Executive Communication & Leadership",
+    "description": "Master nuanced workplace negotiation, strategic stakeholder communication, complex passive/active structures, executive summary drafting, and high-impact verbal diplomacy.",
+    "sections": [
+      "Strategic Negotiations & Executive Diplomacy",
+      "Complex Syntactical Precision & Nuance",
+      "Advanced Auditory Nuance & Tone Analysis",
+      "Executive Writing & High-Stakes Reading"
+    ]
+  }
+}

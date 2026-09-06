@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "routes": [
+    {
+      "src": "/api/evaluate",
+      "dest": "/api/evaluate.js"
+    },
+    {
+      "src": "/beginner",
+      "dest": "/beginner.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
