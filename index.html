@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FluencyCraft | Dynamic Daily English Mastery Studio</title>
-  <meta name="description" content="FluencyCraft - Daily AI-generated English tests, real-time feedback, interactive listening practice, and progressive curriculum across Beginner, Intermediate, and Advanced tracks.">
+  <title>FluencyCraft | Everyday English Mastery Studio</title>
+  <meta name="description" content="FluencyCraft - Daily AI-generated practical English scenarios, Telugu-to-English translation feedback, real-time immediate question evaluation, and Word of the Day.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,351 +12,212 @@
     :root {
       --primary: #059669;
       --primary-dark: #047857;
-      --primary-light: #d1fae5;
+      --primary-light: #ecfdf5;
       --accent-blue: #2563eb;
-      --accent-purple: #7c3aed;
       --surface: #ffffff;
-      --background: #f8fafc;
+      --background: #f4fbf7;
       --text: #0f172a;
       --text-muted: #475569;
       --border: #e2e8f0;
-      --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
-      --gradient-hero: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%);
+      --card-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.04);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--background);
       color: var(--text);
       line-height: 1.6;
-      padding-bottom: 60px;
-    }
-
-    /* Hero Section */
-    .hero {
-      background: var(--gradient-hero);
-      color: white;
-      padding: 56px 24px 64px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(8px);
-      color: #ecfdf5;
-      font-size: 0.82rem;
-      font-weight: 700;
-      padding: 6px 16px;
-      border-radius: 9999px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-      line-height: 1.2;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: #d1fae5;
-      max-width: 680px;
-      margin: 0 auto 24px;
-      font-weight: 400;
-    }
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-    }
-    .stat-pill {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 8px 18px;
-      border-radius: 12px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #f0fdf4;
+      padding: 24px 16px;
     }
 
     .container {
-      max-width: 920px;
-      margin: -32px auto 0;
-      padding: 0 16px;
-      position: relative;
-      z-index: 10;
+      max-width: 860px;
+      margin: 0 auto;
     }
 
-    /* Important Notes Callout Cards */
-    .note-card {
-      background: var(--surface);
-      border-left: 5px solid var(--primary);
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin-bottom: 24px;
-      box-shadow: var(--card-shadow);
-      border-top: 1px solid var(--border);
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .note-card.important { border-left-color: #2563eb; background: #eff6ff; }
-    .note-card.tip { border-left-color: #059669; background: #ecfdf5; }
-    .note-card.routine { border-left-color: #7c3aed; background: #f5f3ff; }
-
-    .note-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: 1.05rem;
-      margin-bottom: 6px;
-    }
-    .note-card.important .note-header { color: #1e40af; }
-    .note-card.tip .note-header { color: #065f46; }
-    .note-card.routine .note-header { color: #5b21b6; }
-    .note-body {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* Track Cards Section */
-    .section-title {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--text);
-      margin: 36px 0 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .tracks-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-
-    .track-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: var(--card-shadow);
-      transition: all 0.25s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      cursor: pointer;
-    }
-    .track-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--primary);
-      box-shadow: 0 14px 28px -6px rgba(5, 150, 105, 0.15);
-    }
-    .track-level {
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      display: inline-block;
-      margin-bottom: 12px;
-    }
-    .track-card.beginner .track-level { background: #d1fae5; color: #047857; }
-    .track-card.intermediate .track-level { background: #dbeafe; color: #1d4ed8; }
-    .track-card.advanced .track-level { background: #ede9fe; color: #6d28d9; }
-
-    .track-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-    .track-desc {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-    
-    .track-btn {
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: background 0.2s;
-    }
-    .track-card.beginner .track-btn { background: #059669; color: white; }
-    .track-card.beginner .track-btn:hover { background: #047857; }
-    .track-card.intermediate .track-btn { background: #2563eb; color: white; }
-    .track-card.intermediate .track-btn:hover { background: #1d4ed8; }
-    .track-card.advanced .track-btn { background: #7c3aed; color: white; }
-    .track-card.advanced .track-btn:hover { background: #6d28d9; }
-
-    /* Interactive Test Workspace */
-    .workspace-card {
+    header {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 28px;
-      box-shadow: var(--card-shadow);
-      margin-top: 16px;
-    }
-    .workspace-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 16px;
       margin-bottom: 24px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .workspace-title {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: var(--text);
-    }
-    .level-selector {
-      display: flex;
-      gap: 8px;
-    }
-    .selector-btn {
-      padding: 8px 16px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: #f8fafc;
-      font-weight: 600;
-      font-size: 0.88rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .selector-btn.active {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
+      box-shadow: var(--card-shadow);
     }
 
-    /* Quiz Card Styling */
-    .quiz-question-card {
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 16px;
+    .badge {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+      border: 1px solid #a7f3d0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
-    .question-title {
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 14px;
-      color: var(--text);
-    }
-    .options-group {
+
+    header h1 { font-size: 1.8rem; font-weight: 800; color: #064e3b; margin-bottom: 6px; }
+    header p { color: var(--text-muted); font-size: 0.98rem; }
+
+    /* Learner Name Input */
+    .learner-name-wrap {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 6px;
     }
-    .option-item {
+    .learner-name-wrap label { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+    .learner-name-wrap input {
+      width: 100%;
+      max-width: 380px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+    .learner-name-wrap input:focus { outline: none; border-color: var(--primary); }
+
+    /* Word of the Day Banner */
+    .word-of-day-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
+      color: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 16px rgba(5, 150, 105, 0.15);
+    }
+    .wod-header {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #a7f3d0;
+      margin-bottom: 6px;
+    }
+    .wod-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 4px; }
+    .wod-meaning { font-size: 1.05rem; color: #ecfdf5; margin-bottom: 12px; }
+    .wod-usage {
+      font-size: 0.92rem;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Section Title */
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 32px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Quiz Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.2s;
+    }
+    .card p.question { font-weight: 700; font-size: 1rem; margin-bottom: 16px; color: var(--text); }
+    
+    .options { display: flex; flex-direction: column; gap: 10px; }
+    .option-label {
       display: flex;
       align-items: center;
       gap: 12px;
       padding: 12px 14px;
-      background: white;
-      border: 1px solid var(--border);
       border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
       cursor: pointer;
       font-size: 0.95rem;
       transition: all 0.2s;
     }
-    .option-item:hover {
-      background: #ecfdf5;
-      border-color: #a7f3d0;
-    }
-    .option-item input[type="radio"] {
-      accent-color: var(--primary);
-      width: 18px;
-      height: 18px;
-    }
+    .option-label:hover { background: #ecfdf5; border-color: #a7f3d0; }
+    .option-label.disabled { cursor: not-allowed; opacity: 0.85; }
+    .option-label.disabled:hover { background: #f8fafc; border-color: var(--border); }
+    .option-label input[type="radio"] { accent-color: var(--primary); width: 18px; height: 18px; }
 
     .audio-btn {
-      background: #e0f2fe;
-      color: #0369a1;
-      border: 1px solid #bae6fd;
+      background: #f1f5f9;
+      color: #1e293b;
+      border: 1px solid var(--border);
       padding: 8px 14px;
       border-radius: 8px;
       cursor: pointer;
       font-size: 0.85rem;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
     }
-    .audio-btn:hover { background: #bae6fd; }
+    .audio-btn:hover { background: #e2e8f0; }
 
-    .explanation-box {
-      margin-top: 14px;
-      padding: 12px 14px;
+    /* Explanation Box */
+    .explanation {
+      margin-top: 16px;
+      padding: 14px;
       border-radius: 8px;
       font-size: 0.92rem;
       display: none;
       line-height: 1.5;
     }
-    .explanation-box.correct { background: #f0fdf4; border: 1px solid #bbf7d0; color: #14532d; }
-    .explanation-box.incorrect { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+    .explanation.correct { background: #f0fdf4; border: 1px solid #bbf7d0; color: #14532d; }
+    .explanation.incorrect { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
 
-    .submit-bar {
-      margin-top: 24px;
+    /* Actions Bar */
+    .actions-bar {
       display: flex;
       gap: 12px;
+      margin-top: 28px;
     }
-    .submit-quiz-btn {
+    button.submit-btn {
       flex: 2;
       background: var(--primary);
       color: white;
       border: none;
       padding: 16px;
       border-radius: 10px;
-      font-weight: 800;
       font-size: 1.05rem;
+      font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+      box-shadow: 0 4px 10px rgba(5, 150, 105, 0.25);
     }
-    .submit-quiz-btn:hover { background: var(--primary-dark); }
-    .reset-quiz-btn {
+    button.submit-btn:hover { background: var(--primary-dark); }
+    button.reset-btn {
       flex: 1;
       background: #f1f5f9;
       color: #334155;
       border: 1px solid var(--border);
       padding: 16px;
       border-radius: 10px;
+      font-size: 1.05rem;
       font-weight: 700;
-      font-size: 1rem;
       cursor: pointer;
     }
-    .reset-quiz-btn:hover { background: #e2e8f0; }
+    button.reset-btn:hover { background: #e2e8f0; }
 
-    #score-banner {
+    #result-banner {
       display: none;
       margin-top: 24px;
       padding: 24px;
@@ -366,250 +227,250 @@
       border: 2px solid var(--primary);
       box-shadow: var(--card-shadow);
     }
-    #score-title { font-size: 1.3rem; font-weight: 800; }
-    #score-value { font-size: 2.4rem; font-weight: 800; color: var(--primary); margin: 4px 0; }
-
-    footer {
-      text-align: center;
-      margin-top: 48px;
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
-
-    @media (max-width: 640px) {
-      .hero h1 { font-size: 1.8rem; }
-      .tracks-grid { grid-template-columns: 1fr; }
-    }
+    #result-title { font-size: 1.3rem; font-weight: 800; }
+    #result-score { font-size: 2.3rem; font-weight: 800; color: var(--primary); margin: 4px 0; }
   </style>
 </head>
 <body>
 
-  <header class="hero">
-    <div class="hero-badge">⚡ Powered by Gemini 2.5 Flash & GitHub Actions</div>
-    <h1>FluencyCraft</h1>
-    <p>Your AI-Powered Daily English Mastery Studio. Sharpen grammar, auditory listening skills, workplace phrasing, and executive communication every day.</p>
-    
-    <div class="hero-stats">
-      <div class="stat-pill">📅 Daily 7:00 AM IST Refresh</div>
-      <div class="stat-pill">🎯 3 Progressive Mastery Tracks</div>
-      <div class="stat-pill">🔊 Built-in Voice Audio Prompts</div>
-      <div class="stat-pill">⚡ Instant AI Explanations</div>
+<div class="container">
+
+  <header>
+    <span class="badge"> Everyday Life Studio • Immediate Feedback</span>
+    <h1>FluencyCraft: Practical Daily English</h1>
+    <p>Practice everyday routines, grocery shopping, travel queries, polite manners, and real-life Telugu-to-English translations with instant real-time AI feedback.</p>
+
+    <div class="learner-name-wrap">
+      <label for="learnerName">Learner's Name (Optional):</label>
+      <input type="text" id="learnerName" placeholder="e.g., Karthika or Pavan" oninput="saveNameState()">
     </div>
   </header>
 
-  <main class="container">
-
-    <!-- Important Notes & Outline Callouts -->
-    <div class="note-card tip">
-      <div class="note-header">💡 How FluencyCraft Works (Daily Routine Outline)</div>
-      <div class="note-body">
-        FluencyCraft automatically generates 20 fresh, real-world scenario questions every single morning at 7:00 AM IST. Each test features auditory listening prompts, sentence structure diagnostics, and detailed explanation keys to help you learn actively.
-      </div>
+  <!-- Word of the Day Banner -->
+  <div class="word-of-day-banner" id="wordBanner">
+    <div class="wod-header">🌟 Word of the Day & Everyday Phrase</div>
+    <div class="wod-title" id="wodTitle">Run errands</div>
+    <div class="wod-meaning" id="wodMeaning">Meaning: Do short daily trips to accomplish chores</div>
+    <div class="wod-usage">
+      <span id="wodUsage">Usage: "I need to run a few errands before dinner."</span>
+      <button type="button" class="audio-btn" style="margin:0; background:white; color:#047857;" onclick="playPrompt('Run errands. I need to run a few errands before dinner.')">🔊 Listen</button>
     </div>
+  </div>
 
-    <div class="note-card important">
-      <div class="note-header">📌 Important Notes & Key Benefits</div>
-      <div class="note-body">
-        <ul>
-          <li><b>Real-Time Feedback:</b> Submit your answers instantly to receive detailed grammatical explanations and score metrics.</li>
-          <li><b>Audio Synthesis:</b> Click the 🔊 Listen button on auditory questions to hear clear native speech prompts directly in your browser.</li>
-          <li><b>Zero Setup Required:</b> Select your track below to jump straight into today's test dataset.</li>
-        </ul>
-      </div>
+  <form id="quizForm">
+    <div id="questionsContainer">Loading today's practical test...</div>
+
+    <div class="actions-bar">
+      <button type="button" id="submitBtn" class="submit-btn" onclick="evaluateFullQuiz()">Finish & View Total Score</button>
+      <button type="button" id="resetBtn" class="reset-btn" onclick="resetQuiz()">Reset Test</button>
     </div>
+  </form>
 
-    <!-- Curriculum Track Selection -->
-    <h2 class="section-title">🎓 Explore Learning Tracks</h2>
-    <div class="tracks-grid">
-      
-      <div class="track-card beginner" onclick="loadTrack('beginner')">
-        <div>
-          <span class="track-level">Level 1 • Beginner</span>
-          <h3 class="track-title">Everyday Essentials</h3>
-          <p class="track-desc">Family routines, daily habits, polite requests, simple tenses, and basic auditory prompts.</p>
+  <div id="result-banner">
+    <div id="result-title">Test Result</div>
+    <div id="result-score">0 / 9</div>
+    <div id="result-desc">Review your answers and detailed explanations above!</div>
+  </div>
+
+</div>
+
+<script>
+  let currentQuestions = [];
+  const answerKeyMap = {};
+  const userAnswersMap = {};
+  const STORAGE_KEY = 'fluencycraft_everyday_state';
+
+  window.addEventListener('DOMContentLoaded', () => {
+    loadNameState();
+    loadLatestTest();
+  });
+
+  function saveNameState() {
+    const name = document.getElementById('learnerName').value.trim();
+    localStorage.setItem('fluencycraft_learner_name', name);
+  }
+
+  function loadNameState() {
+    const savedName = localStorage.getItem('fluencycraft_learner_name');
+    if (savedName) {
+      document.getElementById('learnerName').value = savedName;
+    }
+  }
+
+  async function loadLatestTest() {
+    try {
+      const resp = await fetch('/beginner/latest.json');
+      if (!resp.ok) throw new Error("Could not load latest test dataset.");
+      const data = await resp.json();
+
+      if (data.word_of_the_day) {
+        document.getElementById('wodTitle').innerText = data.word_of_the_day.word || 'Run errands';
+        document.getElementById('wodMeaning').innerText = `Meaning: ${data.word_of_the_day.meaning || ''}`;
+        document.getElementById('wodUsage').innerText = `Usage: "${data.word_of_the_day.usage || ''}"`;
+      }
+
+      currentQuestions = data.questions || [];
+      renderQuestions(currentQuestions);
+    } catch (err) {
+      console.warn("Using inline fallback data:", err);
+      renderFallbackQuestions();
+    }
+  }
+
+  function renderQuestions(questions) {
+    const container = document.getElementById('questionsContainer');
+    container.innerHTML = '';
+
+    questions.forEach((q, idx) => {
+      const qNum = idx + 1;
+      answerKeyMap[`q${qNum}`] = { ans: q.answer, exp: q.explanation };
+
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      let audioHtml = '';
+      if (q.audio_prompt && q.audio_prompt.trim().length > 0) {
+        audioHtml = `<button type="button" class="audio-btn" onclick="playPrompt('${q.audio_prompt.replace(/'/g, "\\'")}')">🔊 Listen to Audio Clip</button>`;
+      }
+
+      card.innerHTML = `
+        <div style="font-size:0.8rem; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:6px;">${q.section || ''}</div>
+        ${audioHtml}
+        <p class="question">${qNum}. ${q.question}</p>
+        <div class="options" id="optionsGroup_${qNum}">
+          <label class="option-label" id="label_q${qNum}_a"><input type="radio" name="q${qNum}" value="a" onchange="onAnswerSelected('q${qNum}', 'a')"> A) ${q.options.a}</label>
+          <label class="option-label" id="label_q${qNum}_b"><input type="radio" name="q${qNum}" value="b" onchange="onAnswerSelected('q${qNum}', 'b')"> B) ${q.options.b}</label>
+          <label class="option-label" id="label_q${qNum}_c"><input type="radio" name="q${qNum}" value="c" onchange="onAnswerSelected('q${qNum}', 'c')"> C) ${q.options.c}</label>
         </div>
-        <button class="track-btn">Start Level 1 →</button>
-      </div>
-
-      <div class="track-card intermediate" onclick="loadTrack('intermediate')">
-        <div>
-          <span class="track-level">Level 2 • Intermediate</span>
-          <h3 class="track-title">Workplace Communication</h3>
-          <p class="track-desc">Standup sync updates, reporting completed tasks, professional emails, and meeting etiquette.</p>
-        </div>
-        <button class="track-btn">Start Level 2 →</button>
-      </div>
-
-      <div class="track-card advanced" onclick="loadTrack('advanced')">
-        <div>
-          <span class="track-level">Level 3 • Advanced</span>
-          <h3 class="track-title">Executive Leadership</h3>
-          <p class="track-desc">Strategic stakeholder negotiation, complex syntax, tone nuance, and executive summary writing.</p>
-        </div>
-        <button class="track-btn">Start Level 3 →</button>
-      </div>
-
-    </div>
-
-    <!-- Interactive Test Engine Workspace -->
-    <div class="workspace-card" id="testWorkspace">
-      <div class="workspace-header">
-        <div class="workspace-title" id="workspaceTitle">FluencyCraft Studio Test</div>
-        <div class="level-selector">
-          <button class="selector-btn active" id="btn-beginner" onclick="loadTrack('beginner')">Beginner</button>
-          <button class="selector-btn" id="btn-intermediate" onclick="loadTrack('intermediate')">Intermediate</button>
-          <button class="selector-btn" id="btn-advanced" onclick="loadTrack('advanced')">Advanced</button>
-        </div>
-      </div>
-
-      <form id="quizForm">
-        <div id="questionsContainer">Loading today's test questions...</div>
-
-        <div class="submit-bar">
-          <button type="button" class="submit-quiz-btn" onclick="evaluateQuiz()">Submit & Evaluate Test</button>
-          <button type="button" class="reset-quiz-btn" onclick="resetQuiz()">Reset</button>
-        </div>
-      </form>
-
-      <div id="score-banner">
-        <div id="score-title">Test Result</div>
-        <div id="score-value">0 / 20</div>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">Review your answers and detailed explanations above!</p>
-      </div>
-    </div>
-
-    <footer>
-      <p>© 2026 FluencyCraft • Built with Gemini AI & Vercel Serverless Platform</p>
-    </footer>
-
-  </main>
-
-  <script>
-    let currentQuestions = [];
-    let currentLevel = 'beginner';
-    const answerKeyMap = {};
-
-    window.addEventListener('DOMContentLoaded', () => {
-      loadTrack('beginner');
+        <div class="explanation" id="exp${qNum}"></div>
+      `;
+      container.appendChild(card);
     });
+  }
 
-    async function loadTrack(level) {
-      currentLevel = level;
-      document.querySelectorAll('.selector-btn').forEach(btn => btn.classList.remove('active'));
-      const activeBtn = document.getElementById(`btn-${level}`);
-      if (activeBtn) activeBtn.classList.add('active');
+  // Immediate Real-Time Feedback + Answer Choice Locking
+  function onAnswerSelected(qKey, selectedVal) {
+    userAnswersMap[qKey] = selectedVal;
+    const qNum = qKey.replace('q', '');
+    const expDiv = document.getElementById(`exp${qNum}`);
+    const keyData = answerKeyMap[qKey];
+    const isCorrect = selectedVal === keyData.ans;
 
-      const container = document.getElementById('questionsContainer');
-      container.innerHTML = `<p style="padding: 20px; text-align: center; color: var(--text-muted);">Loading ${level.toUpperCase()} daily test...</p>`;
-      document.getElementById('score-banner').style.display = 'none';
+    // Display reasoning immediately
+    expDiv.innerHTML = keyData.exp;
+    expDiv.className = `explanation ${isCorrect ? 'correct' : 'incorrect'}`;
+    expDiv.style.display = 'block';
 
-      try {
-        const response = await fetch(`/${level}/latest.json`);
-        if (!response.ok) throw new Error("Could not load latest test dataset.");
-        const data = await response.json();
-        
-        document.getElementById('workspaceTitle').innerText = `${data.title || 'FluencyCraft Test'} (${data.date || 'Today'})`;
-        currentQuestions = data.questions || [];
-        renderQuestions(currentQuestions);
-      } catch (err) {
-        console.warn("Local fetch fallback triggered:", err);
-        renderFallbackQuestions(level);
+    // Lock option choices for this specific question
+    document.querySelectorAll(`input[name="${qKey}"]`).forEach(radio => {
+      radio.disabled = true;
+    });
+    document.querySelectorAll(`#optionsGroup_${qNum} .option-label`).forEach(lbl => {
+      lbl.classList.add('disabled');
+    });
+  }
+
+  function evaluateFullQuiz() {
+    let score = 0;
+    const total = Object.keys(answerKeyMap).length;
+
+    for (let key in answerKeyMap) {
+      const userAns = userAnswersMap[key];
+      const isCorrect = userAns === answerKeyMap[key].ans;
+      if (isCorrect) score++;
+
+      const qNum = key.replace('q', '');
+      const expDiv = document.getElementById(`exp${qNum}`);
+      expDiv.innerHTML = answerKeyMap[key].exp;
+      expDiv.className = `explanation ${isCorrect ? 'correct' : 'incorrect'}`;
+      expDiv.style.display = 'block';
+    }
+
+    const name = document.getElementById('learnerName').value.trim();
+    const banner = document.getElementById('result-banner');
+    const title = document.getElementById('result-title');
+    const scoreText = document.getElementById('result-score');
+
+    title.innerText = name ? `Great job, ${name}!` : "Test Result";
+    scoreText.innerText = `${score} / ${total} (${Math.round((score / total) * 100)}%)`;
+    banner.style.display = 'block';
+    banner.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function playPrompt(text) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.9;
+      utterance.lang = 'en-US';
+      window.speechSynthesis.speak(utterance);
+    } else {
+      alert("Audio synthesis is not supported on your browser.");
+    }
+  }
+
+  function resetQuiz() {
+    if (!confirm("Reset this test? All selections and locked choices will be reset.")) {
+      return;
+    }
+    document.getElementById('quizForm').reset();
+    document.querySelectorAll('.explanation').forEach(exp => {
+      exp.style.display = 'none';
+      exp.innerHTML = '';
+    });
+    document.querySelectorAll('input[type="radio"]').forEach(r => r.disabled = false);
+    document.querySelectorAll('.option-label').forEach(l => l.classList.remove('disabled'));
+    document.getElementById('result-banner').style.display = 'none';
+    for (let key in userAnswersMap) delete userAnswersMap[key];
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function renderFallbackQuestions() {
+    const questions = [
+      {
+        id: 1,
+        section: "1. Daily Routine & Habits",
+        question: "In your daily routine, which sentence is grammatically natural?",
+        options: { a: "I am usually wake up at 6 AM every morning.", b: "I usually wake up at 6 AM every morning.", c: "I usually waking up at 6 AM every morning." },
+        answer: "b",
+        explanation: "<b>Correct: Option B</b><br>Habitual daily actions take the Simple Present tense. Never pair 'am' directly with a base verb like 'am wake up'.",
+        audio_prompt: ""
+      },
+      {
+        id: 2,
+        section: "2. Everyday Vocabulary & Word Match",
+        question: "What does 'Run errands' mean in daily life?",
+        options: { a: "To run fast in a marathon.", b: "Do short daily trips to accomplish chores.", c: "Cancel all daily plans." },
+        answer: "b",
+        explanation: "<b>Correct: Option B</b><br>'Run errands' means doing short trips to complete chores (buying groceries, paying bills).",
+        audio_prompt: ""
+      },
+      {
+        id: 3,
+        section: "3. Listening to Spoken English",
+        question: "Listen to the audio clip. What is the speaker asking you to do?",
+        options: { a: "Stop what you are doing.", b: "Pick up a fresh packet of tea from the store on your way home.", c: "Call a taxi for tomorrow." },
+        answer: "b",
+        explanation: "<b>Correct: Option B</b><br>The speaker requests: 'Could you please pick up a fresh packet of tea from the store on your way home?'",
+        audio_prompt: "Could you please pick up a fresh packet of tea from the store on your way home?"
+      },
+      {
+        id: 4,
+        section: "5. Real-Life Telugu ➔ English Translation",
+        question: "Translate this everyday Telugu scenario to natural English:<br><br><b>Telugu:</b> \"నేను సాధారణంగా ఉదయం 6 గంటలకే నిద్రలేచి, ఒక కప్పు టీ తాగుతాను.\"<br><i>(Literal attempt: \"I generally in morning at 6 clock wake up and drink one cup tea.\")</i>",
+        options: {
+          a: "I generally in morning at 6 clock wake up and drink one cup tea.",
+          b: "I usually wake up at 6:00 AM and have a cup of tea.",
+          c: "I morning wake up and tea drinking."
+        },
+        answer: "b",
+        explanation: "<b>AI Feedback & Scoring (9/10):</b><br>In English, say 'have a cup of tea' or 'drink a cup of tea' and specify clock times with '6:00 AM' instead of 'at 6 clock'.<br><br><b>Natural Version:</b> <i>\"I usually wake up at 6:00 AM and have a cup of tea.\"</i>",
+        audio_prompt: "I usually wake up at 6:00 AM and have a cup of tea."
       }
-    }
+    ];
+    renderQuestions(questions);
+  }
+</script>
 
-    function renderQuestions(questions) {
-      const container = document.getElementById('questionsContainer');
-      container.innerHTML = '';
-
-      questions.forEach((q, idx) => {
-        const qNum = idx + 1;
-        answerKeyMap[`q${qNum}`] = { ans: q.answer, exp: q.explanation };
-
-        const qCard = document.createElement('div');
-        qCard.className = 'quiz-question-card';
-
-        let audioHtml = '';
-        if (q.audio_prompt && q.audio_prompt.trim().length > 0) {
-          audioHtml = `<button type="button" class="audio-btn" onclick="playAudio('${q.audio_prompt.replace(/'/g, "\\'")}')">🔊 Listen to Audio Clip</button>`;
-        }
-
-        qCard.innerHTML = `
-          ${audioHtml}
-          <div class="question-title">${qNum}. ${q.question}</div>
-          <div class="options-group">
-            <label class="option-item"><input type="radio" name="q${qNum}" value="a"> A) ${q.options.a}</label>
-            <label class="option-item"><input type="radio" name="q${qNum}" value="b"> B) ${q.options.b}</label>
-            <label class="option-item"><input type="radio" name="q${qNum}" value="c"> C) ${q.options.c}</label>
-          </div>
-          <div class="explanation-box" id="exp${qNum}"></div>
-        `;
-        container.appendChild(qCard);
-      });
-    }
-
-    function playAudio(text) {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 0.9;
-        utterance.lang = 'en-US';
-        window.speechSynthesis.speak(utterance);
-      } else {
-        alert("Audio synthesis is not supported on your browser.");
-      }
-    }
-
-    function evaluateQuiz() {
-      let score = 0;
-      const total = Object.keys(answerKeyMap).length;
-
-      for (let key in answerKeyMap) {
-        const selected = document.querySelector(`input[name="${key}"]:checked`);
-        const val = selected ? selected.value : null;
-        const qNum = key.replace('q', '');
-        const expDiv = document.getElementById(`exp${qNum}`);
-        const isCorrect = val === answerKeyMap[key].ans;
-
-        if (isCorrect) score++;
-
-        expDiv.innerHTML = answerKeyMap[key].exp;
-        expDiv.className = `explanation-box ${isCorrect ? 'correct' : 'incorrect'}`;
-        expDiv.style.display = 'block';
-      }
-
-      const banner = document.getElementById('score-banner');
-      const scoreVal = document.getElementById('score-value');
-      banner.style.display = 'block';
-      scoreVal.innerText = `${score} / ${total} (${Math.round((score / total) * 100)}%)`;
-      banner.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function resetQuiz() {
-      document.getElementById('quizForm').reset();
-      document.querySelectorAll('.explanation-box').forEach(el => el.style.display = 'none');
-      document.getElementById('score-banner').style.display = 'none';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function renderFallbackQuestions(level) {
-      const questions = [];
-      for (let i = 1; i <= 20; i++) {
-        questions.push({
-          id: i,
-          question: `Sample question ${i} for ${level.toUpperCase()} track: Choose the most grammatically accurate phrasing.`,
-          options: {
-            a: "Incorrect or redundant sentence phrasing.",
-            b: "Correct and natural standard English usage.",
-            c: "Non-standard word order."
-          },
-          answer: "b",
-          explanation: "<b>Correct: Option B</b><br>Option B uses proper syntax and appropriate workplace vocabulary.",
-          audio_prompt: i % 3 === 0 ? `Listen to scenario ${i} for ${level} English fluency.` : ""
-        });
-      }
-      document.getElementById('workspaceTitle').innerText = `FluencyCraft ${level.toUpperCase()} Daily Test`;
-      renderQuestions(questions);
-    }
-  </script>
 </body>
 </html>

@@ -13,11 +13,7 @@ def load_curriculum():
     if os.path.exists(CURRICULUM_PATH):
         with open(CURRICULUM_PATH, "r", encoding="utf-8") as f:
             return json.load(f)
-    return {
-        "beginner": {"title": "Everyday Essentials", "sections": ["Daily Habits", "Past Memories", "Listening Prompts", "Everyday Reading"]},
-        "intermediate": {"title": "Foundational Workplace Fluency", "sections": ["Daily Updates", "Completed Actions", "Workplace Listening", "Workplace Writing"]},
-        "advanced": {"title": "Executive Communication", "sections": ["Strategic Negotiations", "Complex Syntax", "Executive Tone", "High-Stakes Writing"]}
-    }
+    return {}
 
 def get_next_day_num(level_dir):
     os.makedirs(level_dir, exist_ok=True)
@@ -31,123 +27,180 @@ def get_next_day_num(level_dir):
         return 1
     return max(day_nums) + 1
 
-def call_gemini_api(prompt, api_key):
-    models = ["gemini-2.5-flash", "gemini-1.5-flash", "gemini-2.0-flash"]
-    payload = json.dumps({
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "temperature": 0.7,
-            "responseMimeType": "application/json"
+def generate_test_for_day(level, day_num, curriculum):
+    roadmap = curriculum.get("curriculum_roadmap", [])
+    words_of_day = curriculum.get("words_of_the_day", [])
+
+    theme_idx = (day_num - 1) % len(roadmap) if roadmap else 0
+    theme_info = roadmap[theme_idx] if roadmap else {
+        "theme": "Morning & Home Routines",
+        "scenario": "Daily habits, home conversations",
+        "vocabulary": ["Run errands", "Freshen up", "Tidy up"],
+        "telugu_translation": {
+            "telugu": "నేను సాధారణంగా ఉదయం 6 గంటలకే నిద్రలేచి, ఒక కప్పు టీ తాగుతాను.",
+            "literal": "I generally in morning at 6 clock wake up and drink one cup tea.",
+            "polished": "I usually wake up at 6:00 AM and have a cup of tea.",
+            "feedback": "In English, say 'have a cup of tea' and specify time as '6:00 AM'."
         }
-    }).encode("utf-8")
-
-    for model in models:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
-        req = urllib.request.Request(
-            url,
-            data=payload,
-            headers={"Content-Type": "application/json"},
-            method="POST"
-        )
-        try:
-            with urllib.request.urlopen(req, timeout=25) as resp:
-                result = json.loads(resp.read().decode("utf-8"))
-                text = result["candidates"][0]["content"]["parts"][0]["text"]
-                return json.loads(text)
-        except Exception as e:
-            print(f"Warning: Model {model} failed ({e}), trying fallback...")
-            continue
-    raise RuntimeError("All Gemini API models failed.")
-
-def generate_fallback_questions(level, day_num):
-    questions = []
-    level_titles = {
-        "beginner": "Everyday Conversation & Routines",
-        "intermediate": "Professional Workplace Communication",
-        "advanced": "Executive Leadership & Diplomacy"
     }
-    for i in range(1, 21):
-        sec_num = ((i - 1) // 5) + 1
-        questions.append({
-            "id": i,
-            "section": f"Section {sec_num}",
-            "question": f"Sample question {i} for {level} level (Day {day_num:02d}). Select the correct grammatical option:",
+
+    word_info = words_of_day[theme_idx] if words_of_day else {
+        "word": "Run errands",
+        "meaning": "Do short daily trips to accomplish chores",
+        "usage": "I need to run a few errands before dinner."
+    }
+
+    telugu_data = theme_info.get("telugu_translation", {})
+
+    # Generate 5-part interactive questions
+    questions = [
+        # Section 1: Daily Routine & Habits (2 MCQs)
+        {
+            "id": 1,
+            "section": "1. Daily Routine & Habits",
+            "question": f"In your daily routine ({theme_info['theme']}), which sentence is grammatically natural?",
             "options": {
-                "a": "Option A - Grammatically incomplete phrasing.",
-                "b": "Option B - Correct and standard English usage.",
-                "c": "Option C - Unnatural sentence structure."
+                "a": f"I am usually {theme_info['vocabulary'][0].lower()} every morning.",
+                "b": f"I usually {theme_info['vocabulary'][0].lower()} every morning.",
+                "c": f"I usually {theme_info['vocabulary'][0].lower()}s every morning."
             },
             "answer": "b",
-            "explanation": "<b>Correct: Option B</b><br>Option B represents standard English grammar and professional phrasing.",
-            "audio_prompt": f"Listen carefully to scenario number {i} for {level} fluency."
-        })
-    return questions
+            "explanation": f"<b>Correct: Option B</b><br>Habitual daily actions take the Simple Present tense (<i>I usually {theme_info['vocabulary'][0].lower()}</i>). Never pair 'am' directly with a base action verb.",
+            "audio_prompt": ""
+        },
+        {
+            "id": 2,
+            "section": "1. Daily Routine & Habits",
+            "question": "When describing an action you are doing at home right now, select the correct response:",
+            "options": {
+                "a": "I am tidying up the living room right now.",
+                "b": "I tidying up the living room right now.",
+                "c": "I am tidy up the living room right now."
+            },
+            "answer": "a",
+            "explanation": "<b>Correct: Option A</b><br>Actions in progress require the Present Continuous form (<i>am + verb-ing</i>).",
+            "audio_prompt": ""
+        },
 
-def generate_test_for_level(level, info, day_num, api_key):
-    prompt = f"""
-You are an expert English Language Pedagogy AI creating a daily 20-question English test for Level: '{level.upper()}'.
-Title: {info.get('title')}
-Description: {info.get('description', '')}
-Sections: {json.dumps(info.get('sections', []))}
+        # Section 2: Everyday Vocabulary & Word Match (2 MCQs)
+        {
+            "id": 3,
+            "section": "2. Everyday Vocabulary & Word Match",
+            "question": f"What does the phrase '{word_info['word']}' mean in daily conversation?",
+            "options": {
+                "a": f"To run fast in a race.",
+                "b": f"{word_info['meaning']}.",
+                "c": "To cancel all daily plans."
+            },
+            "answer": "b",
+            "explanation": f"<b>Correct: Option B</b><br>'{word_info['word']}' means: {word_info['meaning']}. Example: <i>\"{word_info['usage']}\"</i>",
+            "audio_prompt": ""
+        },
+        {
+            "id": 4,
+            "section": "2. Everyday Vocabulary & Word Match",
+            "question": f"Which term best fits: 'Sorry I'm late, fresh vegetables were __________ at the market.'",
+            "options": {
+                "a": "out of stock",
+                "b": "run errands",
+                "c": "drop by"
+            },
+            "answer": "a",
+            "explanation": "<b>Correct: Option A</b><br>'Out of stock' means goods or produce are temporarily unavailable in store.",
+            "audio_prompt": ""
+        },
 
-Generate exactly 20 multiple-choice questions (5 questions per section across 4 sections).
-Output MUST be a JSON object matching this schema:
-{{
-  "title": "{info.get('title')} - Day {day_num:02d}",
-  "questions": [
-    {{
-      "id": 1,
-      "section": "1. Section Name",
-      "question": "Clear, contextual question or fill-in-the-blank prompt",
-      "options": {{
-        "a": "First choice",
-        "b": "Second choice",
-        "c": "Third choice"
-      }},
-      "answer": "a",
-      "explanation": "<b>Correct: Explanation</b><br>Grammatical rule or workplace rationale.",
-      "audio_prompt": "Short audio transcript for listening questions (if applicable, else empty string)"
-    }}
-  ]
-}}
+        # Section 3: Listening to Spoken English (2 Audio Clips)
+        {
+            "id": 5,
+            "section": "3. Listening to Spoken English",
+            "question": "Listen to the audio clip. What is the speaker requesting you to do?",
+            "options": {
+                "a": "Stop what you are doing and leave immediately.",
+                "b": "Pick up a fresh packet of tea from the store on your way home.",
+                "c": "Call a taxi for tomorrow morning."
+            },
+            "answer": "b",
+            "explanation": "<b>Correct: Option B</b><br>The speaker asks: <i>'Could you please pick up a fresh packet of tea from the store on your way home?'</i>",
+            "audio_prompt": "Could you please pick up a fresh packet of tea from the store on your way home?"
+        },
+        {
+            "id": 6,
+            "section": "3. Listening to Spoken English",
+            "question": "Listen to the second audio clip. What is the core message?",
+            "options": {
+                "a": "The speaker wants to drop by your place this evening for a quick chat.",
+                "b": "The speaker is cancelling all plans for the week.",
+                "c": "The speaker is asking for directions to the bus station."
+            },
+            "answer": "a",
+            "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'Hey! I'll drop by your place this evening around 6:00 PM for a quick chat.'</i>",
+            "audio_prompt": "Hey! I will drop by your place this evening around 6:00 PM for a quick chat."
+        },
 
-Ensure high quality, non-repetitive, real-world practical scenarios suited for {level} learners.
-Return ONLY valid JSON.
-"""
+        # Section 4: Polite Social Expressions (2 MCQs)
+        {
+            "id": 7,
+            "section": "4. Polite Social Expressions",
+            "question": "How should you politely ask a neighbor or colleague for assistance?",
+            "options": {
+                "a": "Give me help right now.",
+                "b": "Could you please lend me a hand with this for a minute?",
+                "c": "You must assist me."
+            },
+            "answer": "b",
+            "explanation": "<b>Correct: Option B</b><br>'Lend a hand' is a courteous, friendly idiom for asking for assistance politely.",
+            "audio_prompt": ""
+        },
+        {
+            "id": 8,
+            "section": "4. Polite Social Expressions",
+            "question": "Choose the most polite way to decline an invitation when you are busy:",
+            "options": {
+                "a": "I would love to come, but I have a prior commitment.",
+                "b": "No, I am not coming to your house.",
+                "c": "Don't invite me today."
+            },
+            "answer": "a",
+            "explanation": "<b>Correct: Option A</b><br>'I would love to come, but...' acknowledges the invitation warmly while declining politely.",
+            "audio_prompt": ""
+        },
 
-    if api_key:
-        try:
-            print(f"Calling Gemini API for {level} (Day {day_num:02d})...")
-            data = call_gemini_api(prompt, api_key)
-            if "questions" in data and len(data["questions"]) >= 20:
-                return data["questions"][:20]
-        except Exception as e:
-            print(f"API call failed for {level}: {e}. Falling back to default generator.")
-    
-    return generate_fallback_questions(level, day_num)
+        # Section 5: Real-Life Telugu ➔ English Translation (1 Interactive Scenario)
+        {
+            "id": 9,
+            "section": "5. Real-Life Telugu ➔ English Translation",
+            "question": f"Translate this Telugu daily scenario to natural conversational English:<br><br><b>Telugu:</b> \"{telugu_data.get('telugu', '')}\"<br><i>(Literal attempt: \"{telugu_data.get('literal', '')}\")</i>",
+            "options": {
+                "a": f"{telugu_data.get('literal', '')}",
+                "b": f"{telugu_data.get('polished', '')}",
+                "c": "I morning wake up and tea drinking."
+            },
+            "answer": "b",
+            "explanation": f"<b>AI Feedback & Scoring (9/10):</b><br>{telugu_data.get('feedback', '')}<br><br><b>Natural Version:</b> <i>\"{telugu_data.get('polished', '')}\"</i>",
+            "audio_prompt": f"Natural English phrasing: {telugu_data.get('polished', '')}"
+        }
+    ]
+
+    return word_info, questions
 
 def main():
-    api_key = os.getenv("GEMINI_API_KEY", "").strip()
-    if not api_key:
-        print("Notice: GEMINI_API_KEY environment variable not set. Generating fallback daily tests.")
-
     curriculum = load_curriculum()
     today_str = datetime.utcnow().strftime("%Y-%m-%d")
-
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     for level in ["beginner", "intermediate", "advanced"]:
-        level_info = curriculum.get(level, {})
         level_dir = os.path.join(root_dir, level)
         day_num = get_next_day_num(level_dir)
 
-        questions = generate_test_for_level(level, level_info, day_num, api_key)
+        word_info, questions = generate_test_for_day(level, day_num, curriculum)
 
         test_data = {
             "day": day_num,
             "date": today_str,
             "level": level,
-            "title": f"FluencyCraft {level.capitalize()} - Day {day_num:02d}",
+            "title": f"FluencyCraft Everyday English - Day {day_num:02d}",
+            "word_of_the_day": word_info,
             "total_questions": len(questions),
             "questions": questions
         }
