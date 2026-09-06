@@ -253,8 +253,8 @@ def generate_20_questions(level):
                     "c": "Manager project report sent already."
                 },
                 "answer": "b",
-                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use Present Perfect ('have sent') for completed actions with present relevance, placing 'already' between 'have' and the past participle.<br><br><b>Natural Version:</b> <i>\"I have already sent this project report to the manager.\"</i>",
-                "audio_prompt": "I have already sent this project report to the manager."
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use Present Perfect ('have sent') for completed actions with present relevance, placing 'already' between 'have' and the past participle.<br><br><b>Natural Version:</b> <i>\"I have already sent this project report to the manager.\"</i><br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('I have already sent this project report to the manager.')\">🔊 Listen to Polished Pronunciation</button>",
+                "audio_prompt": ""
             },
             {
                 "id": 18,
@@ -266,8 +266,8 @@ def generate_20_questions(level):
                     "c": "Can 3 PM meeting tomorrow shifting?"
                 },
                 "answer": "b",
-                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use 'Could we reschedule...' for polite professional requests, using 'to 3:00 PM' for target time.<br><br><b>Natural Version:</b> <i>\"Could we reschedule tomorrow's meeting to 3:00 PM?\"</i>",
-                "audio_prompt": "Could we reschedule tomorrow's meeting to 3:00 PM?"
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use 'Could we reschedule...' for polite professional requests, using 'to 3:00 PM' for target time.<br><br><b>Natural Version:</b> <i>\"Could we reschedule tomorrow's meeting to 3:00 PM?\"</i><br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Could we reschedule tomorrow\\'s meeting to 3:00 PM?')\">🔊 Listen to Polished Pronunciation</button>",
+                "audio_prompt": ""
             },
             {
                 "id": 19,
@@ -279,8 +279,8 @@ def generate_20_questions(level):
                     "c": "Fever coming to me doctor seeing."
                 },
                 "answer": "b",
-                "explanation": "<b>Natural Phrasing & Guidance:</b><br>In English, say 'I am running a mild fever' or 'I have a fever' rather than literal translations. Use 'consult a doctor'.<br><br><b>Natural Version:</b> <i>\"I am running a mild fever; I need to consult a doctor.\"</i>",
-                "audio_prompt": "I am running a mild fever; I need to consult a doctor."
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>In English, say 'I am running a mild fever' or 'I have a fever' rather than literal translations. Use 'consult a doctor'.<br><br><b>Natural Version:</b> <i>\"I am running a mild fever; I need to consult a doctor.\"</i><br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('I am running a mild fever; I need to consult a doctor.')\">🔊 Listen to Polished Pronunciation</button>",
+                "audio_prompt": ""
             },
             {
                 "id": 20,
@@ -292,8 +292,8 @@ def generate_20_questions(level):
                     "c": "Late 10 minutes office traffic coming."
                 },
                 "answer": "b",
-                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Start with 'Due to heavy traffic' or 'Because of traffic' and say 'I will be 10 minutes late to the office'.<br><br><b>Natural Version:</b> <i>\"Due to heavy traffic, I will be about 10 minutes late to the office.\"</i>",
-                "audio_prompt": "Due to heavy traffic, I will be about 10 minutes late to the office."
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Start with 'Due to heavy traffic' or 'Because of traffic' and say 'I will be 10 minutes late to the office'.<br><br><b>Natural Version:</b> <i>\"Due to heavy traffic, I will be about 10 minutes late to the office.\"</i><br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Due to heavy traffic, I will be about 10 minutes late to the office.')\">🔊 Listen to Polished Pronunciation</button>",
+                "audio_prompt": ""
             }
         ]
         return word_info, concept_overview, why_important, questions
@@ -535,8 +535,8 @@ def generate_20_questions(level):
                     "c": "Agreement changes doing good."
                 },
                 "answer": "b",
-                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use executive modal diplomacy ('It would be advantageous to incorporate...') instead of literal translations.<br><br><b>Natural Version:</b> <i>\"It would be advantageous to incorporate a few revisions into this agreement.\"</i>",
-                "audio_prompt": "It would be advantageous to incorporate a few revisions into this agreement."
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use executive modal diplomacy ('It would be advantageous to incorporate...') instead of literal translations.<br><br><b>Natural Version:</b> <i>\"It would be advantageous to incorporate a few revisions into this agreement.\"</i><br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('It would be advantageous to incorporate a few revisions into this agreement.')\">🔊 Listen to Polished Pronunciation</button>",
+                "audio_prompt": ""
             },
             {
                 "id": 18,
@@ -548,8 +548,8 @@ def generate_20_questions(level):
                     "c": "Good idea but budget zero."
                 },
                 "answer": "b",
-                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use diplomatic contrast ('While your proposal is insightful...') to decline constructively.<br><br><b>Natural Version:</b> <i>\"While your proposal is insightful, our current budget constraints prevent us from adopting it.\"</i>",
-                "audio_prompt": "While your proposal is insightful, our current budget constraints prevent us from adopting it."
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use diplomatic contrast ('While your proposal is insightful...') to decline constructively.<br><br><b>Natural Version:</b> <i>\"While your proposal is insightful, our current budget constraints prevent us from adopting it.\"</i><br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('While your proposal is insightful, our current budget constraints prevent us from adopting it.')\">🔊 Listen to Polished Pronunciation</button>",
+                "audio_prompt": ""
             },
             {
                 "id": 19,
@@ -561,8 +561,8 @@ def generate_20_questions(level):
                     "c": "Problem main reason seeing first."
                 },
                 "answer": "b",
-                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use the executive connecting pillar 'First and foremost' and 'identify the root cause'.<br><br><b>Natural Version:</b> <i>\"First and foremost, we must identify the root cause of the issue.\"</i>",
-                "audio_prompt": "First and foremost, we must identify the root cause of the issue."
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use the executive connecting pillar 'First and foremost' and 'identify the root cause'.<br><br><b>Natural Version:</b> <i>\"First and foremost, we must identify the root cause of the issue.\"</i><br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('First and foremost, we must identify the root cause of the issue.')\">🔊 Listen to Polished Pronunciation</button>",
+                "audio_prompt": ""
             },
             {
                 "id": 20,
@@ -574,8 +574,8 @@ def generate_20_questions(level):
                     "c": "Project pass team working hard."
                 },
                 "answer": "b",
-                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use 'boils down to' and 'collective effort' for polished leadership summaries.<br><br><b>Natural Version:</b> <i>\"Ultimately, the success of this project boils down to our team's collective effort.\"</i>",
-                "audio_prompt": "Ultimately, the success of this project boils down to our team's collective effort."
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use 'boils down to' and 'collective effort' for polished leadership summaries.<br><br><b>Natural Version:</b> <i>\"Ultimately, the success of this project boils down to our team's collective effort.\"</i><br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Ultimately, the success of this project boils down to our team\\'s collective effort.')\">🔊 Listen to Polished Pronunciation</button>",
+                "audio_prompt": ""
             }
         ]
         return word_info, concept_overview, why_important, questions
@@ -818,8 +818,8 @@ def generate_20_questions(level):
                     "c": "I morning wake up and tea drinking."
                 },
                 "answer": "b",
-                "explanation": "<b>Natural Phrasing & Guidance:</b><br>In English, say 'have a cup of tea' and specify time as '6:00 AM'.<br><br><b>Natural Version:</b> <i>\"I usually wake up at 6:00 AM and have a cup of tea.\"</i>",
-                "audio_prompt": "Natural English phrasing: I usually wake up at 6:00 AM and have a cup of tea."
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>In English, say 'have a cup of tea' and specify time as '6:00 AM'.<br><br><b>Natural Version:</b> <i>\"I usually wake up at 6:00 AM and have a cup of tea.\"</i><br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('I usually wake up at 6:00 AM and have a cup of tea.')\">🔊 Listen to Polished Pronunciation</button>",
+                "audio_prompt": ""
             },
             {
                 "id": 18,
@@ -831,8 +831,8 @@ def generate_20_questions(level):
                     "c": "What is price for tomatoes giving?"
                 },
                 "answer": "b",
-                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Avoid literal word-by-word translation. Use 'per kilo' for price by weight, and 'pick out' for selecting fresh produce.<br><br><b>Natural Version:</b> <i>\"How much are these tomatoes per kilo? Please pick out some fresh ones for me.\"</i>",
-                "audio_prompt": "How much are these tomatoes per kilo? Please pick out some fresh ones for me."
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Avoid literal word-by-word translation. Use 'per kilo' for price by weight, and 'pick out' for selecting fresh produce.<br><br><b>Natural Version:</b> <i>\"How much are these tomatoes per kilo? Please pick out some fresh ones for me.\"</i><br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('How much are these tomatoes per kilo? Please pick out some fresh ones for me.')\">🔊 Listen to Polished Pronunciation</button>",
+                "audio_prompt": ""
             },
             {
                 "id": 19,
@@ -844,8 +844,8 @@ def generate_20_questions(level):
                     "c": "Drop bus stand how much cost becoming?"
                 },
                 "answer": "b",
-                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Avoid 'how much will become' (a common Telugu-ism). Use 'How much is the fare?' or 'What will it cost?'.<br><br><b>Natural Version:</b> <i>\"Please drop me off near the bus stand. How much is the fare?\"</i>",
-                "audio_prompt": "Please drop me off near the bus stand. How much is the fare?"
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Avoid 'how much will become' (a common Telugu-ism). Use 'How much is the fare?' or 'What will it cost?'.<br><br><b>Natural Version:</b> <i>\"Please drop me off near the bus stand. How much is the fare?\"</i><br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Please drop me off near the bus stand. How much is the fare?')\">🔊 Listen to Polished Pronunciation</button>",
+                "audio_prompt": ""
             },
             {
                 "id": 20,
@@ -857,8 +857,8 @@ def generate_20_questions(level):
                     "c": "My head is hurting small, resting one hour."
                 },
                 "answer": "b",
-                "explanation": "<b>Natural Phrasing & Guidance:</b><br>In English, say 'I have a slight headache' rather than 'to me headache is there'. Also say 'rest for an hour'.<br><br><b>Natural Version:</b> <i>\"I have a slight headache; I'm going to rest for an hour.\"</i>",
-                "audio_prompt": "I have a slight headache; I'm going to rest for an hour."
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>In English, say 'I have a slight headache' rather than 'to me headache is there'. Also say 'rest for an hour'.<br><br><b>Natural Version:</b> <i>\"I have a slight headache; I'm going to rest for an hour.\"</i><br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('I have a slight headache; I am going to rest for an hour.')\">🔊 Listen to Polished Pronunciation</button>",
+                "audio_prompt": ""
             }
         ]
         return word_info, concept_overview, why_important, questions
