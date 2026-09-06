@@ -1783,11 +1783,32 @@ def main():
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     tests_root_dir = os.path.join(root_dir, "tests")
 
+    increment_day = os.getenv("INCREMENT_DAY", "false").lower() in ["true", "1", "yes"]
+    if "--increment" in sys.argv or "--new-day" in sys.argv:
+        increment_day = True
+
+    specified_day = None
+    for arg in sys.argv[1:]:
+        if arg.isdigit():
+            specified_day = int(arg)
+
     for level in ["beginner", "intermediate", "advanced"]:
         level_dir = os.path.join(tests_root_dir, level)
-        
-        # Rule: Always stick with Day 1 (day-01.html) until perfected!
-        day_num = 1
+        os.makedirs(level_dir, exist_ok=True)
+
+        existing_days = []
+        if os.path.exists(level_dir):
+            for fname in os.listdir(level_dir):
+                match = re.match(r"^day-(\d+)\.html$", fname)
+                if match:
+                    existing_days.append(int(match.group(1)))
+
+        if specified_day is not None:
+            day_num = specified_day
+        elif increment_day:
+            day_num = (max(existing_days) + 1) if existing_days else 1
+        else:
+            day_num = 1
 
         word_info, concept_overview, why_important, questions = generate_20_questions(level)
 
@@ -1808,8 +1829,9 @@ def main():
         with open(weekend_path, "w", encoding="utf-8") as f:
             f.write(weekend_content)
 
-        print(f"[{level.upper()}] Successfully generated tests/{level}/{day_filename}, latest.html, and weekend-test.html")
+        print(f"[{level.upper()}] Generated tests/{level}/{day_filename}, latest.html, and weekend-test.html (Day {day_num})")
 
 if __name__ == "__main__":
     main()
+
 
