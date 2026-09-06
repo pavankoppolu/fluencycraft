@@ -273,7 +273,7 @@ def generate_20_questions(level):
                 "c": "I morning wake up and tea drinking."
             },
             "answer": "b",
-            "explanation": f"<b>AI Feedback & Scoring (9/10):</b><br>{telugu_data.get('feedback', '')}<br><br><b>Natural Version:</b> <i>\"{telugu_data.get('polished', '')}\"</i>",
+            "explanation": f"<b>Natural Phrasing & Guidance:</b><br>{telugu_data.get('feedback', '')}<br><br><b>Natural Version:</b> <i>\"{telugu_data.get('polished', '')}\"</i>",
             "audio_prompt": f"Natural English phrasing: {telugu_data.get('polished', '')}"
         },
         {
@@ -286,7 +286,7 @@ def generate_20_questions(level):
                 "c": "What is price for tomatoes giving?"
             },
             "answer": "b",
-            "explanation": "<b>AI Feedback & Scoring (9/10):</b><br>Avoid literal word-by-word translation. Use 'per kilo' for price by weight, and 'pick out' for selecting fresh produce.<br><br><b>Natural Version:</b> <i>\"How much are these tomatoes per kilo? Please pick out some fresh ones for me.\"</i>",
+            "explanation": "<b>Natural Phrasing & Guidance:</b><br>Avoid literal word-by-word translation. Use 'per kilo' for price by weight, and 'pick out' for selecting fresh produce.<br><br><b>Natural Version:</b> <i>\"How much are these tomatoes per kilo? Please pick out some fresh ones for me.\"</i>",
             "audio_prompt": "How much are these tomatoes per kilo? Please pick out some fresh ones for me."
         },
         {
@@ -299,7 +299,7 @@ def generate_20_questions(level):
                 "c": "Drop bus stand how much cost becoming?"
             },
             "answer": "b",
-            "explanation": "<b>AI Feedback & Scoring (10/10):</b><br>Avoid 'how much will become' (a common Telugu-ism). Use 'How much is the fare?' or 'What will it cost?'.<br><br><b>Natural Version:</b> <i>\"Please drop me off near the bus stand. How much is the fare?\"</i>",
+            "explanation": "<b>Natural Phrasing & Guidance:</b><br>Avoid 'how much will become' (a common Telugu-ism). Use 'How much is the fare?' or 'What will it cost?'.<br><br><b>Natural Version:</b> <i>\"Please drop me off near the bus stand. How much is the fare?\"</i>",
             "audio_prompt": "Please drop me off near the bus stand. How much is the fare?"
         },
         {
@@ -312,7 +312,7 @@ def generate_20_questions(level):
                 "c": "My head is hurting small, resting one hour."
             },
             "answer": "b",
-            "explanation": "<b>AI Feedback & Scoring (10/10):</b><br>In English, say 'I have a slight headache' rather than 'to me headache is there'. Also say 'rest for an hour'.<br><br><b>Natural Version:</b> <i>\"I have a slight headache; I'm going to rest for an hour.\"</i>",
+            "explanation": "<b>Natural Phrasing & Guidance:</b><br>In English, say 'I have a slight headache' rather than 'to me headache is there'. Also say 'rest for an hour'.<br><br><b>Natural Version:</b> <i>\"I have a slight headache; I'm going to rest for an hour.\"</i>",
             "audio_prompt": "I have a slight headache; I'm going to rest for an hour."
         }
     ]
@@ -610,10 +610,12 @@ def build_standalone_html(level, day_num, word_info, concept_overview, why_impor
   const questionsData = {questions_js};
   const answerKeyMap = {{}};
   const userAnswersMap = {{}};
+  const TEST_STORAGE_KEY = 'fluencycraft_saved_answers_' + window.location.pathname;
 
   window.addEventListener('DOMContentLoaded', () => {{
     loadNameState();
     renderQuestions(questionsData);
+    restoreSavedAnswers();
   }});
 
   function saveNameState() {{
@@ -624,6 +626,22 @@ def build_standalone_html(level, day_num, word_info, concept_overview, why_impor
   function loadNameState() {{
     const saved = localStorage.getItem('fluencycraft_learner_name');
     if (saved) document.getElementById('learnerName').value = saved;
+  }}
+
+  function restoreSavedAnswers() {{
+    let savedMap = {{}};
+    try {{
+      savedMap = JSON.parse(localStorage.getItem(TEST_STORAGE_KEY) || '{{}}');
+    }} catch(e) {{ savedMap = {{}}; }}
+
+    for (let qKey in savedMap) {{
+      const val = savedMap[qKey];
+      const radio = document.querySelector(`input[name="${{qKey}}"][value="${{val}}"]`);
+      if (radio) {{
+        radio.checked = true;
+        onAnswerSelected(qKey, val, false);
+      }}
+    }}
   }}
 
   function renderQuestions(questions) {{
@@ -647,9 +665,9 @@ def build_standalone_html(level, day_num, word_info, concept_overview, why_impor
         ${{audioHtml}}
         <p class="question">${{qNum}}. ${{q.question}}</p>
         <div class="options" id="optionsGroup_${{qNum}}">
-          <label class="option-label" id="label_q${{qNum}}_a"><input type="radio" name="q${{qNum}}" value="a" onchange="onAnswerSelected('q${{qNum}}', 'a')"> A) ${{q.options.a}}</label>
-          <label class="option-label" id="label_q${{qNum}}_b"><input type="radio" name="q${{qNum}}" value="b" onchange="onAnswerSelected('q${{qNum}}', 'b')"> B) ${{q.options.b}}</label>
-          <label class="option-label" id="label_q${{qNum}}_c"><input type="radio" name="q${{qNum}}" value="c" onchange="onAnswerSelected('q${{qNum}}', 'c')"> C) ${{q.options.c}}</label>
+          <label class="option-label" id="label_q${{qNum}}_a"><input type="radio" name="q${{qNum}}" value="a" onchange="onAnswerSelected('q${{qNum}}', 'a', true)"> A) ${{q.options.a}}</label>
+          <label class="option-label" id="label_q${{qNum}}_b"><input type="radio" name="q${{qNum}}" value="b" onchange="onAnswerSelected('q${{qNum}}', 'b', true)"> B) ${{q.options.b}}</label>
+          <label class="option-label" id="label_q${{qNum}}_c"><input type="radio" name="q${{qNum}}" value="c" onchange="onAnswerSelected('q${{qNum}}', 'c', true)"> C) ${{q.options.c}}</label>
         </div>
         <div class="explanation" id="exp${{qNum}}"></div>
       `;
@@ -657,8 +675,15 @@ def build_standalone_html(level, day_num, word_info, concept_overview, why_impor
     }});
   }}
 
-  function onAnswerSelected(qKey, selectedVal) {{
+  function onAnswerSelected(qKey, selectedVal, isUserClick = true) {{
     userAnswersMap[qKey] = selectedVal;
+    
+    if (isUserClick) {{
+      try {{
+        localStorage.setItem(TEST_STORAGE_KEY, JSON.stringify(userAnswersMap));
+      }} catch(e) {{}}
+    }}
+
     const qNum = qKey.replace('q', '');
     const expDiv = document.getElementById(`exp${{qNum}}`);
     const keyData = answerKeyMap[qKey];
@@ -668,7 +693,7 @@ def build_standalone_html(level, day_num, word_info, concept_overview, why_impor
     expDiv.className = `explanation ${{isCorrect ? 'correct' : 'incorrect'}}`;
     expDiv.style.display = 'block';
 
-    if (!isCorrect) {{
+    if (!isCorrect && isUserClick) {{
       logMistake(questionsData[parseInt(qNum) - 1], selectedVal);
     }}
 
@@ -737,6 +762,7 @@ def build_standalone_html(level, day_num, word_info, concept_overview, why_impor
   function resetQuiz() {{
     if (!confirm("Reset test? All selections will be cleared.")) return;
     document.getElementById('quizForm').reset();
+    try {{ localStorage.removeItem(TEST_STORAGE_KEY); }} catch(e) {{}}
     document.querySelectorAll('.explanation').forEach(exp => {{ exp.style.display = 'none'; exp.innerHTML = ''; }});
     document.querySelectorAll('input[type="radio"]').forEach(r => r.disabled = false);
     document.querySelectorAll('.option-label').forEach(l => l.classList.remove('disabled'));
@@ -1066,6 +1092,24 @@ def build_weekend_test_html(level, questions):
     }}
 
     renderQuestions(questionsData);
+    restoreSavedAnswers();
+  }}
+
+  function restoreSavedAnswers() {{
+    const TEST_STORAGE_KEY = 'fluencycraft_saved_answers_' + window.location.pathname;
+    let savedMap = {{}};
+    try {{
+      savedMap = JSON.parse(localStorage.getItem(TEST_STORAGE_KEY) || '{{}}');
+    }} catch(e) {{ savedMap = {{}}; }}
+
+    for (let qKey in savedMap) {{
+      const val = savedMap[qKey];
+      const radio = document.querySelector(`input[name="${{qKey}}"][value="${{val}}"]`);
+      if (radio) {{
+        radio.checked = true;
+        onAnswerSelected(qKey, val, false);
+      }}
+    }}
   }}
 
   function renderQuestions(questions) {{
@@ -1089,9 +1133,9 @@ def build_weekend_test_html(level, questions):
         ${{audioHtml}}
         <p class="question">${{qNum}}. ${{q.question}}</p>
         <div class="options" id="optionsGroup_${{qNum}}">
-          <label class="option-label" id="label_q${{qNum}}_a"><input type="radio" name="q${{qNum}}" value="a" onchange="onAnswerSelected('q${{qNum}}', 'a')"> A) ${{q.options.a}}</label>
-          <label class="option-label" id="label_q${{qNum}}_b"><input type="radio" name="q${{qNum}}" value="b" onchange="onAnswerSelected('q${{qNum}}', 'b')"> B) ${{q.options.b}}</label>
-          <label class="option-label" id="label_q${{qNum}}_c"><input type="radio" name="q${{qNum}}" value="c" onchange="onAnswerSelected('q${{qNum}}', 'c')"> C) ${{q.options.c}}</label>
+          <label class="option-label" id="label_q${{qNum}}_a"><input type="radio" name="q${{qNum}}" value="a" onchange="onAnswerSelected('q${{qNum}}', 'a', true)"> A) ${{q.options.a}}</label>
+          <label class="option-label" id="label_q${{qNum}}_b"><input type="radio" name="q${{qNum}}" value="b" onchange="onAnswerSelected('q${{qNum}}', 'b', true)"> B) ${{q.options.b}}</label>
+          <label class="option-label" id="label_q${{qNum}}_c"><input type="radio" name="q${{qNum}}" value="c" onchange="onAnswerSelected('q${{qNum}}', 'c', true)"> C) ${{q.options.c}}</label>
         </div>
         <div class="explanation" id="exp${{qNum}}"></div>
       `;
@@ -1099,8 +1143,16 @@ def build_weekend_test_html(level, questions):
     }});
   }}
 
-  function onAnswerSelected(qKey, selectedVal) {{
+  function onAnswerSelected(qKey, selectedVal, isUserClick = true) {{
     userAnswersMap[qKey] = selectedVal;
+    
+    if (isUserClick) {{
+      const TEST_STORAGE_KEY = 'fluencycraft_saved_answers_' + window.location.pathname;
+      try {{
+        localStorage.setItem(TEST_STORAGE_KEY, JSON.stringify(userAnswersMap));
+      }} catch(e) {{}}
+    }}
+
     const qNum = qKey.replace('q', '');
     const expDiv = document.getElementById(`exp${{qNum}}`);
     const keyData = answerKeyMap[qKey];
