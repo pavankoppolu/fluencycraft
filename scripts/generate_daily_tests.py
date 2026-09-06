@@ -3,8 +3,6 @@ import os
 import sys
 import json
 import re
-import urllib.request
-import urllib.error
 from datetime import datetime
 
 CURRICULUM_PATH = os.path.join(os.path.dirname(__file__), "curriculum.json")
@@ -20,14 +18,14 @@ def get_next_day_num(level_dir):
     existing_files = os.listdir(level_dir)
     day_nums = []
     for f in existing_files:
-        match = re.match(r"day-(\d+)\.json", f)
+        match = re.match(r"day-(\d+)\.html", f)
         if match:
             day_nums.append(int(match.group(1)))
     if not day_nums:
         return 1
     return max(day_nums) + 1
 
-def generate_20_questions_for_day(level, day_num, curriculum):
+def generate_20_questions(level, day_num, curriculum):
     roadmap = curriculum.get("curriculum_roadmap", [])
     words_of_day = curriculum.get("words_of_the_day", [])
 
@@ -129,7 +127,7 @@ def generate_20_questions_for_day(level, day_num, curriculum):
         {
             "id": 6,
             "section": "2. Everyday Vocabulary & Word Match",
-            "question": f"Choose the phrase that fits: 'I'm sorry for the delay, fresh milk was __________ at the grocery store.'",
+            "question": "Choose the phrase that fits: 'I'm sorry for the delay, fresh milk was __________ at the grocery store.'",
             "options": {
                 "a": "out of stock",
                 "b": "running late",
@@ -331,9 +329,412 @@ def generate_20_questions_for_day(level, day_num, curriculum):
 
     return word_info, concept_overview, why_important, questions
 
+def build_standalone_html(level, day_num, word_info, concept_overview, why_important, questions):
+    today_str = datetime.utcnow().strftime("%Y-%m-%d")
+
+    questions_js = json.dumps(questions, ensure_ascii=False)
+
+    html_content = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FluencyCraft {level.capitalize()} - Day {day_num:02d} Interactive Test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {{
+      --primary: #059669;
+      --primary-dark: #047857;
+      --surface: #ffffff;
+      --background: #f8fafc;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }}
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 24px 16px;
+    }}
+    .container {{ max-width: 860px; margin: 0 auto; }}
+
+    .nav-bar {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }}
+    .back-link {{
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }}
+    .back-link:hover {{ text-decoration: underline; }}
+
+    header {{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: var(--card-shadow);
+    }}
+    .badge {{
+      display: inline-block;
+      background: #ecfdf5;
+      color: #047857;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+      border: 1px solid #a7f3d0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }}
+    header h1 {{ font-size: 1.8rem; font-weight: 800; color: #064e3b; margin-bottom: 6px; }}
+    header p {{ color: var(--text-muted); font-size: 0.98rem; }}
+
+    /* Learner Name Field */
+    .learner-name-wrap {{
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }}
+    .learner-name-wrap label {{ font-size: 0.9rem; font-weight: 700; color: var(--text); }}
+    .learner-name-wrap input {{
+      width: 100%;
+      max-width: 380px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 0.95rem;
+      font-family: inherit;
+    }}
+    .learner-name-wrap input:focus {{ outline: none; border-color: var(--primary); }}
+
+    /* Word of the Day Card */
+    .wod-banner {{
+      background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
+      color: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 16px rgba(5, 150, 105, 0.15);
+    }}
+    .wod-header {{ font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: #a7f3d0; margin-bottom: 6px; }}
+    .wod-title {{ font-size: 1.5rem; font-weight: 800; margin-bottom: 4px; }}
+    .wod-meaning {{ font-size: 1.05rem; color: #ecfdf5; margin-bottom: 12px; }}
+    .wod-usage {{
+      font-size: 0.92rem;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }}
+
+    /* Concept & Importance Card */
+    .concept-card {{
+      background: #eff6ff;
+      border-left: 5px solid #2563eb;
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }}
+    .concept-title {{ font-size: 1.05rem; font-weight: 800; color: #1e40af; margin-bottom: 6px; }}
+    .concept-body {{ font-size: 0.95rem; color: #1e293b; line-height: 1.5; }}
+    .importance-box {{ margin-top: 10px; padding-top: 10px; border-top: 1px dashed #bfdbfe; font-size: 0.92rem; color: #334155; }}
+
+    /* Quiz Cards */
+    .card {{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: var(--card-shadow);
+    }}
+    .card p.question {{ font-weight: 700; font-size: 1rem; margin-bottom: 16px; color: var(--text); }}
+
+    .options {{ display: flex; flex-direction: column; gap: 10px; }}
+    .option-label {{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }}
+    .option-label:hover {{ background: #ecfdf5; border-color: #a7f3d0; }}
+    .option-label.disabled {{ cursor: not-allowed; opacity: 0.85; }}
+    .option-label.disabled:hover {{ background: #f8fafc; border-color: var(--border); }}
+    .option-label input[type="radio"] {{ accent-color: var(--primary); width: 18px; height: 18px; }}
+
+    .audio-btn {{
+      background: #f1f5f9;
+      color: #1e293b;
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }}
+    .audio-btn:hover {{ background: #e2e8f0; }}
+
+    /* Explanation Box */
+    .explanation {{
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      display: none;
+      line-height: 1.5;
+    }}
+    .explanation.correct {{ background: #f0fdf4; border: 1px solid #bbf7d0; color: #14532d; }}
+    .explanation.incorrect {{ background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }}
+
+    .actions-bar {{ display: flex; gap: 12px; margin-top: 28px; }}
+    button.submit-btn {{
+      flex: 2;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      cursor: pointer;
+    }}
+    button.submit-btn:hover {{ background: var(--primary-dark); }}
+    button.reset-btn {{
+      flex: 1;
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+    }}
+
+    #result-banner {{
+      display: none;
+      margin-top: 24px;
+      padding: 24px;
+      border-radius: 14px;
+      text-align: center;
+      background: var(--surface);
+      border: 2px solid var(--primary);
+    }}
+    #result-title {{ font-size: 1.3rem; font-weight: 800; }}
+    #result-score {{ font-size: 2.3rem; font-weight: 800; color: var(--primary); margin: 4px 0; }}
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="nav-bar">
+    <a href="/" class="back-link">← Back to Course Overview</a>
+    <span style="font-size:0.88rem; font-weight:700; color:var(--text-muted);">Date: {today_str}</span>
+  </div>
+
+  <header>
+    <span class="badge">Everyday Practical Studio • {level.capitalize()} Track</span>
+    <h1>FluencyCraft {level.capitalize()} - Day {day_num:02d}</h1>
+    <p>Practice 20 practical everyday questions covering routines, phrasal verbs, auditory dialogues, polite social etiquette, and Telugu-to-English translation scenarios.</p>
+
+    <div class="learner-name-wrap">
+      <label for="learnerName">Learner's Name (Optional):</label>
+      <input type="text" id="learnerName" placeholder="e.g., Pavan" oninput="saveNameState()">
+    </div>
+  </header>
+
+  <!-- Word of the Day Banner -->
+  <div class="wod-banner">
+    <div class="wod-header">🌟 Word of the Day & Everyday Phrase</div>
+    <div class="wod-title">{word_info.get('word', 'Run errands')}</div>
+    <div class="wod-meaning">Meaning: {word_info.get('meaning', '')}</div>
+    <div class="wod-usage">
+      <span>Usage: "{word_info.get('usage', '')}"</span>
+      <button type="button" class="audio-btn" style="margin:0; background:white; color:#047857;" onclick="playPrompt('{word_info.get('word', '')}. {word_info.get('usage', '')}')">🔊 Listen</button>
+    </div>
+  </div>
+
+  <!-- Concept Covered Today & Why It Is Important -->
+  <div class="concept-card">
+    <div class="concept-title">📘 Today's Concept Focus: {concept_overview}</div>
+    <div class="concept-body">Focusing on real-life daily living scenarios, spoken audio recognition, and eliminating literal Telugu-isms.</div>
+    <div class="importance-box">
+      🎯 <b>Why this is important for your English skills:</b> {why_important}
+    </div>
+  </div>
+
+  <form id="quizForm">
+    <div id="questionsContainer"></div>
+
+    <div class="actions-bar">
+      <button type="button" class="submit-btn" onclick="evaluateFullQuiz()">Finish & View Final Score</button>
+      <button type="button" class="reset-btn" onclick="resetQuiz()">Reset Test</button>
+    </div>
+  </form>
+
+  <div id="result-banner">
+    <div id="result-title">Test Result</div>
+    <div id="result-score">0 / 20</div>
+    <p style="color: var(--text-muted); font-size: 0.95rem;">Review your answers and detailed explanations above!</p>
+  </div>
+
+</div>
+
+<script>
+  const questionsData = {questions_js};
+  const answerKeyMap = {{}};
+  const userAnswersMap = {{}};
+
+  window.addEventListener('DOMContentLoaded', () => {{
+    loadNameState();
+    renderQuestions(questionsData);
+  }});
+
+  function saveNameState() {{
+    const name = document.getElementById('learnerName').value.trim();
+    localStorage.setItem('fluencycraft_learner_name', name);
+  }}
+
+  function loadNameState() {{
+    const saved = localStorage.getItem('fluencycraft_learner_name');
+    if (saved) document.getElementById('learnerName').value = saved;
+  }}
+
+  function renderQuestions(questions) {{
+    const container = document.getElementById('questionsContainer');
+    container.innerHTML = '';
+
+    questions.forEach((q, idx) => {{
+      const qNum = idx + 1;
+      answerKeyMap[`q${{qNum}}`] = {{ ans: q.answer, exp: q.explanation }};
+
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      let audioHtml = '';
+      if (q.audio_prompt && q.audio_prompt.trim().length > 0) {{
+        audioHtml = `<button type="button" class="audio-btn" onclick="playPrompt('${{q.audio_prompt.replace(/'/g, "\\'")}}')">🔊 Listen to Audio Clip</button>`;
+      }}
+
+      card.innerHTML = `
+        <div style="font-size:0.8rem; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:6px;">${{q.section || ''}}</div>
+        ${{audioHtml}}
+        <p class="question">${{qNum}}. ${{q.question}}</p>
+        <div class="options" id="optionsGroup_${{qNum}}">
+          <label class="option-label" id="label_q${{qNum}}_a"><input type="radio" name="q${{qNum}}" value="a" onchange="onAnswerSelected('q${{qNum}}', 'a')"> A) ${{q.options.a}}</label>
+          <label class="option-label" id="label_q${{qNum}}_b"><input type="radio" name="q${{qNum}}" value="b" onchange="onAnswerSelected('q${{qNum}}', 'b')"> B) ${{q.options.b}}</label>
+          <label class="option-label" id="label_q${{qNum}}_c"><input type="radio" name="q${{qNum}}" value="c" onchange="onAnswerSelected('q${{qNum}}', 'c')"> C) ${{q.options.c}}</label>
+        </div>
+        <div class="explanation" id="exp${{qNum}}"></div>
+      `;
+      container.appendChild(card);
+    }});
+  }}
+
+  function onAnswerSelected(qKey, selectedVal) {{
+    userAnswersMap[qKey] = selectedVal;
+    const qNum = qKey.replace('q', '');
+    const expDiv = document.getElementById(`exp${{qNum}}`);
+    const keyData = answerKeyMap[qKey];
+    const isCorrect = selectedVal === keyData.ans;
+
+    expDiv.innerHTML = keyData.exp;
+    expDiv.className = `explanation ${{isCorrect ? 'correct' : 'incorrect'}}`;
+    expDiv.style.display = 'block';
+
+    document.querySelectorAll(`input[name="${{qKey}}"]`).forEach(radio => radio.disabled = true);
+    document.querySelectorAll(`#optionsGroup_${{qNum}} .option-label`).forEach(lbl => lbl.classList.add('disabled'));
+  }}
+
+  function evaluateFullQuiz() {{
+    let score = 0;
+    const total = Object.keys(answerKeyMap).length;
+
+    for (let key in answerKeyMap) {{
+      if (userAnswersMap[key] === answerKeyMap[key].ans) score++;
+
+      const qNum = key.replace('q', '');
+      const expDiv = document.getElementById(`exp${{qNum}}`);
+      expDiv.innerHTML = answerKeyMap[key].exp;
+      expDiv.className = `explanation ${{userAnswersMap[key] === answerKeyMap[key].ans ? 'correct' : 'incorrect'}}`;
+      expDiv.style.display = 'block';
+    }}
+
+    const name = document.getElementById('learnerName').value.trim();
+    const banner = document.getElementById('result-banner');
+    const title = document.getElementById('result-title');
+    const scoreText = document.getElementById('result-score');
+
+    title.innerText = name ? `Great job, ${{name}}!` : "Test Result";
+    scoreText.innerText = `${{score}} / ${{total}} (${{Math.round((score / total) * 100)}}%)`;
+    banner.style.display = 'block';
+    banner.scrollIntoView({{ behavior: 'smooth' }});
+  }}
+
+  function playPrompt(text) {{
+    if ('speechSynthesis' in window) {{
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.9;
+      utterance.lang = 'en-US';
+      window.speechSynthesis.speak(utterance);
+    }}
+  }}
+
+  function resetQuiz() {{
+    if (!confirm("Reset test? All selections will be cleared.")) return;
+    document.getElementById('quizForm').reset();
+    document.querySelectorAll('.explanation').forEach(exp => {{ exp.style.display = 'none'; exp.innerHTML = ''; }});
+    document.querySelectorAll('input[type="radio"]').forEach(r => r.disabled = false);
+    document.querySelectorAll('.option-label').forEach(l => l.classList.remove('disabled'));
+    document.getElementById('result-banner').style.display = 'none';
+    for (let k in userAnswersMap) delete userAnswersMap[k];
+    window.scrollTo({{ top: 0, behavior: 'smooth' }});
+  }}
+</script>
+</body>
+</html>
+"""
+    return html_content
+
 def main():
     curriculum = load_curriculum()
-    today_str = datetime.utcnow().strftime("%Y-%m-%d")
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     tests_root_dir = os.path.join(root_dir, "tests")
 
@@ -341,31 +742,21 @@ def main():
         level_dir = os.path.join(tests_root_dir, level)
         day_num = get_next_day_num(level_dir)
 
-        word_info, concept_overview, why_important, questions = generate_20_questions_for_day(level, day_num, curriculum)
+        word_info, concept_overview, why_important, questions = generate_20_questions(level, day_num, curriculum)
 
-        test_data = {
-            "day": day_num,
-            "date": today_str,
-            "level": level,
-            "title": f"FluencyCraft Everyday English - Day {day_num:02d}",
-            "concept_overview": concept_overview,
-            "why_important": why_important,
-            "word_of_the_day": word_info,
-            "total_questions": len(questions),
-            "questions": questions
-        }
+        html_content = build_standalone_html(level, day_num, word_info, concept_overview, why_important, questions)
 
-        day_filename = f"day-{day_num:02d}.json"
+        day_filename = f"day-{day_num:02d}.html"
         day_path = os.path.join(level_dir, day_filename)
-        latest_path = os.path.join(level_dir, "latest.json")
+        latest_path = os.path.join(level_dir, "latest.html")
 
         with open(day_path, "w", encoding="utf-8") as f:
-            json.dump(test_data, f, indent=2, ensure_ascii=False)
+            f.write(html_content)
 
         with open(latest_path, "w", encoding="utf-8") as f:
-            json.dump(test_data, f, indent=2, ensure_ascii=False)
+            f.write(html_content)
 
-        print(f"[{level.upper()}] Generated tests/{level}/{day_filename} and updated tests/{level}/latest.json (20 questions)")
+        print(f"[{level.upper()}] Successfully generated tests/{level}/{day_filename} and updated tests/{level}/latest.html (20 questions)")
 
 if __name__ == "__main__":
     main()

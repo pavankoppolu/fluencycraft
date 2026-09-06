@@ -3,543 +3,437 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FluencyCraft | Apple Glass Practical English Studio</title>
-  <meta name="description" content="FluencyCraft - Daily AI-generated practical English scenarios with Apple Glassmorphism design, real-time Telugu-to-English feedback, concept focus, and 20 daily practice questions.">
+  <title>FluencyCraft | Everyday Practical English Mastery Studio</title>
+  <meta name="description" content="FluencyCraft - Daily AI-generated practical English learning platform. Master everyday scenarios, phrasal verbs, listening prompts, and Telugu-to-English translation feedback.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #059669;
       --primary-dark: #047857;
-      --primary-glow: rgba(5, 150, 105, 0.35);
       --accent-blue: #2563eb;
       --accent-purple: #7c3aed;
-      --glass-bg: rgba(255, 255, 255, 0.72);
-      --glass-bg-dark: rgba(15, 23, 42, 0.65);
-      --glass-border: rgba(255, 255, 255, 0.8);
-      --glass-border-subtle: rgba(226, 232, 240, 0.7);
-      --glass-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05), 0 0 15px rgba(255, 255, 255, 0.5) inset;
+      --surface: #ffffff;
+      --background: #f8fafc;
       --text: #0f172a;
       --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+      --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
+      --shadow-lg: 0 20px 30px -10px rgba(5, 150, 105, 0.15);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at 10% 20%, #e6f4ed 0%, #f0f4f8 40%, #eef2ff 90%);
-      background-attachment: fixed;
+      background: var(--background);
       color: var(--text);
       line-height: 1.6;
-      padding: 32px 16px 60px;
-      min-height: 100vh;
+      padding-bottom: 60px;
     }
 
-    .container { max-width: 900px; margin: 0 auto; }
-
-    /* Apple Glass Header */
-    header.glass-header {
-      background: var(--glass-bg);
-      backdrop-filter: blur(24px) saturate(190%);
-      -webkit-backdrop-filter: blur(24px) saturate(190%);
-      border: 1px solid var(--glass-border);
-      border-radius: 24px;
-      padding: 32px;
-      margin-bottom: 24px;
-      box-shadow: var(--glass-shadow);
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(135deg, #064e3b 0%, #047857 60%, #059669 100%);
+      color: white;
+      padding: 60px 24px 70px;
+      text-align: center;
+      position: relative;
     }
-
-    .glass-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(5, 150, 105, 0.12);
-      backdrop-filter: blur(8px);
-      color: #047857;
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.18);
+      color: #ecfdf5;
+      font-size: 0.82rem;
       font-weight: 800;
-      font-size: 0.78rem;
-      padding: 6px 16px;
+      padding: 6px 18px;
       border-radius: 9999px;
-      margin-bottom: 14px;
-      border: 1px solid rgba(167, 243, 208, 0.8);
       text-transform: uppercase;
       letter-spacing: 0.06em;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
-
-    header.glass-header h1 {
-      font-size: 2.2rem;
+    .hero h1 {
+      font-size: 2.6rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      color: #064e3b;
-      margin-bottom: 8px;
+      margin-bottom: 14px;
+      line-height: 1.25;
     }
-    header.glass-header p { color: var(--text-muted); font-size: 1.05rem; }
-
-    /* Learner Name Field */
-    .learner-name-wrap {
-      margin-top: 20px;
-      padding-top: 18px;
-      border-top: 1px dashed rgba(226, 232, 240, 0.9);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .learner-name-wrap label { font-size: 0.9rem; font-weight: 700; color: var(--text); }
-    .learner-name-wrap input {
-      width: 100%;
-      max-width: 400px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(203, 213, 225, 0.8);
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(10px);
-      font-size: 0.95rem;
-      font-family: inherit;
-      transition: all 0.2s;
-    }
-    .learner-name-wrap input:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px var(--primary-glow);
+    .hero p {
+      font-size: 1.15rem;
+      color: #d1fae5;
+      max-width: 720px;
+      margin: 0 auto 28px;
+      font-weight: 400;
     }
 
-    /* Word of the Day Glass Card */
-    .wod-glass-card {
-      background: linear-gradient(135deg, rgba(6, 78, 59, 0.92) 0%, rgba(5, 150, 105, 0.92) 100%);
-      backdrop-filter: blur(20px);
-      color: white;
-      border-radius: 24px;
-      padding: 28px;
-      margin-bottom: 24px;
-      box-shadow: 0 16px 32px -8px rgba(5, 150, 105, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+    .container {
+      max-width: 960px;
+      margin: -36px auto 0;
+      padding: 0 16px;
+      position: relative;
+      z-index: 10;
     }
-    .wod-header {
-      font-size: 0.8rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #a7f3d0;
-      margin-bottom: 8px;
-    }
-    .wod-title { font-size: 1.7rem; font-weight: 800; margin-bottom: 4px; }
-    .wod-meaning { font-size: 1.1rem; color: #ecfdf5; margin-bottom: 14px; }
-    .wod-usage {
-      font-size: 0.95rem;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      padding: 12px 18px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
+
+    /* Learner Profile Card */
+    .profile-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-md);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 20px;
       flex-wrap: wrap;
     }
-
-    /* Concept & Importance Glass Card */
-    .concept-glass-card {
-      background: rgba(239, 246, 255, 0.85);
-      backdrop-filter: blur(20px);
-      border-left: 6px solid #2563eb;
-      border-radius: 20px;
-      padding: 24px;
-      margin-bottom: 28px;
-      box-shadow: var(--glass-shadow);
-      border-top: 1px solid var(--glass-border);
-      border-right: 1px solid var(--glass-border);
-      border-bottom: 1px solid var(--glass-border);
+    .profile-info { flex: 1; min-width: 260px; }
+    .profile-info h3 { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+    .profile-info p { font-size: 0.92rem; color: var(--text-muted); }
+    .profile-field input {
+      width: 100%;
+      max-width: 300px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 0.95rem;
+      font-family: inherit;
     }
-    .concept-title {
-      font-size: 1.1rem;
+    .profile-field input:focus { outline: none; border-color: var(--primary); }
+
+    /* Level Tracks Grid */
+    .section-header {
+      font-size: 1.4rem;
       font-weight: 800;
-      color: #1e40af;
-      margin-bottom: 8px;
+      color: var(--text);
+      margin: 36px 0 20px;
       display: flex;
       align-items: center;
-      gap: 8px;
-    }
-    .concept-body { font-size: 0.98rem; color: #1e293b; line-height: 1.5; }
-    .importance-box {
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px dashed #bfdbfe;
-      font-size: 0.94rem;
-      color: #334155;
+      gap: 10px;
     }
 
-    /* Track Segmented Selector */
-    .track-segmented-bar {
-      display: flex;
-      background: rgba(226, 232, 240, 0.65);
-      backdrop-filter: blur(16px);
-      padding: 6px;
-      border-radius: 16px;
-      gap: 6px;
-      margin-bottom: 24px;
-      border: 1px solid var(--glass-border);
-    }
-    .segmented-btn {
-      flex: 1;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: none;
-      background: transparent;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .segmented-btn.active {
-      background: white;
-      color: var(--primary-dark);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+      margin-bottom: 36px;
     }
 
-    /* Glass Quiz Cards */
-    .glass-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid var(--glass-border);
+    .track-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 24px;
-      margin-bottom: 20px;
-      box-shadow: var(--glass-shadow);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       transition: all 0.25s ease;
     }
-    .glass-card:hover {
-      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.08);
-      border-color: rgba(5, 150, 105, 0.4);
+    .track-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
     }
-    .glass-card p.question { font-weight: 700; font-size: 1.05rem; margin-bottom: 18px; color: var(--text); }
+    .track-badge {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .track-card.beginner .track-badge { background: #d1fae5; color: #047857; }
+    .track-card.intermediate .track-badge { background: #dbeafe; color: #1d4ed8; }
+    .track-card.advanced .track-badge { background: #ede9fe; color: #6d28d9; }
 
-    .options { display: flex; flex-direction: column; gap: 12px; }
-    .option-label {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 16px;
+    .track-title { font-size: 1.35rem; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+    .track-desc { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; }
+    
+    .link-group { display: flex; flex-direction: column; gap: 10px; }
+    .btn-main {
+      width: 100%;
+      padding: 14px 20px;
       border-radius: 12px;
-      background: rgba(248, 250, 252, 0.8);
-      border: 1px solid rgba(226, 232, 240, 0.8);
-      backdrop-filter: blur(10px);
-      cursor: pointer;
+      font-weight: 800;
       font-size: 0.98rem;
-      transition: all 0.2s;
-    }
-    .option-label:hover {
-      background: rgba(236, 253, 245, 0.9);
-      border-color: #a7f3d0;
-      transform: translateX(4px);
-    }
-    .option-label.disabled { cursor: not-allowed; opacity: 0.85; transform: none !important; }
-    .option-label.disabled:hover { background: rgba(248, 250, 252, 0.8); border-color: rgba(226, 232, 240, 0.8); }
-    .option-label input[type="radio"] { accent-color: var(--primary); width: 20px; height: 20px; }
-
-    .audio-glass-btn {
-      background: rgba(241, 245, 249, 0.9);
-      backdrop-filter: blur(10px);
-      color: #1e293b;
-      border: 1px solid rgba(203, 213, 225, 0.8);
-      padding: 9px 16px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 0.88rem;
-      font-weight: 700;
-      margin-bottom: 16px;
+      text-decoration: none;
+      text-align: center;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      transition: all 0.2s;
+      transition: background 0.2s;
     }
-    .audio-glass-btn:hover { background: rgba(226, 232, 240, 1); transform: scale(1.02); }
+    .track-card.beginner .btn-main { background: #059669; color: white; }
+    .track-card.beginner .btn-main:hover { background: #047857; }
+    .track-card.intermediate .btn-main { background: #2563eb; color: white; }
+    .track-card.intermediate .btn-main:hover { background: #1d4ed8; }
+    .track-card.advanced .btn-main { background: #7c3aed; color: white; }
+    .track-card.advanced .btn-main:hover { background: #6d28d9; }
 
-    /* Explanation Box */
-    .explanation {
-      margin-top: 18px;
-      padding: 16px;
-      border-radius: 12px;
-      font-size: 0.95rem;
-      display: none;
-      line-height: 1.55;
-    }
-    .explanation.correct { background: rgba(240, 253, 244, 0.95); border: 1px solid #bbf7d0; color: #14532d; }
-    .explanation.incorrect { background: rgba(254, 242, 242, 0.95); border: 1px solid #fecaca; color: #7f1d1d; }
-
-    /* Action Bar Buttons */
-    .actions-bar { display: flex; gap: 14px; margin-top: 32px; }
-    button.submit-btn {
-      flex: 2;
-      background: linear-gradient(135deg, #059669 0%, #047857 100%);
-      color: white;
-      border: none;
-      padding: 18px;
-      border-radius: 14px;
-      font-size: 1.1rem;
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3);
-      transition: all 0.25s;
-    }
-    button.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(5, 150, 105, 0.4); }
-    button.reset-btn {
-      flex: 1;
-      background: rgba(241, 245, 249, 0.9);
-      backdrop-filter: blur(10px);
-      color: #334155;
-      border: 1px solid var(--glass-border);
-      padding: 18px;
-      border-radius: 14px;
-      font-size: 1.05rem;
+    .btn-sub {
+      font-size: 0.88rem;
       font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    button.reset-btn:hover { background: rgba(226, 232, 240, 1); }
-
-    #result-banner {
-      display: none;
-      margin-top: 28px;
-      padding: 28px;
-      border-radius: 20px;
+      color: var(--text-muted);
+      text-decoration: none;
       text-align: center;
-      background: var(--glass-bg);
-      backdrop-filter: blur(24px);
-      border: 2px solid var(--primary);
-      box-shadow: var(--glass-shadow);
     }
-    #result-title { font-size: 1.4rem; font-weight: 800; }
-    #result-score { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin: 6px 0; }
+    .btn-sub:hover { color: var(--primary); text-decoration: underline; }
+
+    /* Features & Outline Section */
+    .content-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-md);
+    }
+    .content-box h3 { font-size: 1.25rem; font-weight: 800; color: var(--text); margin-bottom: 14px; }
+    .content-box p { font-size: 0.98rem; color: var(--text-muted); margin-bottom: 16px; line-height: 1.6; }
+
+    /* 5-Part Flow List */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .flow-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .flow-item-num { font-size: 0.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; margin-bottom: 4px; }
+    .flow-item-title { font-weight: 800; font-size: 1rem; color: var(--text); margin-bottom: 6px; }
+    .flow-item-desc { font-size: 0.88rem; color: var(--text-muted); }
+
+    /* Curriculum Roadmap Table */
+    .roadmap-table-wrap {
+      overflow-x: auto;
+      margin-top: 16px;
+    }
+    table.roadmap-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+    table.roadmap-table th {
+      background: #f1f5f9;
+      color: var(--text);
+      font-weight: 800;
+      padding: 14px 16px;
+      border-bottom: 2px solid var(--border);
+    }
+    table.roadmap-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    table.roadmap-table tr:hover td { background: #f8fafc; }
+
+    footer { text-align: center; margin-top: 48px; color: var(--text-muted); font-size: 0.9rem; }
   </style>
 </head>
 <body>
 
-<div class="container">
-
-  <header class="glass-header">
-    <span class="glass-badge"> Apple Glass Studio • 20 Daily Questions</span>
-    <h1>FluencyCraft: Practical Daily English</h1>
-    <p>Practice everyday living scenarios through 20 interactive questions covering routines, phrasal verbs, auditory dialogues, polite social manners, and Telugu-to-English translation feedback.</p>
-
-    <div class="learner-name-wrap">
-      <label for="learnerName">Learner's Name (Optional):</label>
-      <input type="text" id="learnerName" placeholder="e.g., Karthika or Pavan" oninput="saveNameState()">
-    </div>
+  <header class="hero">
+    <span class="hero-badge">⚡ Everyday Practical English Mastery</span>
+    <h1>FluencyCraft</h1>
+    <p>Build conversational confidence through 20 daily living scenario questions refreshed every morning at 7:00 AM IST. Master phrasal verbs, listening prompts, and natural Telugu-to-English translation phrasing.</p>
   </header>
 
-  <!-- Word of the Day Banner -->
-  <div class="wod-glass-card" id="wordBanner">
-    <div class="wod-header">🌟 Word of the Day & Everyday Phrase</div>
-    <div class="wod-title" id="wodTitle">Run errands</div>
-    <div class="wod-meaning" id="wodMeaning">Meaning: Do short daily trips to accomplish chores</div>
-    <div class="wod-usage">
-      <span id="wodUsage">Usage: "I need to run a few errands before dinner."</span>
-      <button type="button" class="audio-glass-btn" style="margin:0; background:white; color:#047857;" onclick="playPrompt('Run errands. I need to run a few errands before dinner.')">🔊 Listen</button>
+  <main class="container">
+
+    <!-- Learner Profile Settings -->
+    <div class="profile-card">
+      <div class="profile-info">
+        <h3>👤 Welcome Learner!</h3>
+        <p>Enter your name below to personalize your daily test score certificates and feedback.</p>
+      </div>
+      <div class="profile-field">
+        <input type="text" id="learnerName" placeholder="e.g., Pavan" oninput="saveNameState()">
+      </div>
     </div>
-  </div>
 
-  <!-- Track Level Segmented Selector -->
-  <div class="track-segmented-bar">
-    <button class="segmented-btn active" id="btn-beginner" onclick="loadTrack('beginner')">Level 1: Beginner</button>
-    <button class="segmented-btn" id="btn-intermediate" onclick="loadTrack('intermediate')">Level 2: Intermediate</button>
-    <button class="segmented-btn" id="btn-advanced" onclick="loadTrack('advanced')">Level 3: Advanced</button>
-  </div>
+    <!-- Course Level Direct Links -->
+    <h2 class="section-header">🎓 Choose Your Practice Track</h2>
+    <div class="tracks-grid">
 
-  <!-- Concept Covered Today & Why It Is Important -->
-  <div class="concept-glass-card" id="conceptCard">
-    <div class="concept-title">📘 Today's Concept Focus: <span id="conceptTitle">Day 1: Morning & Home Routines</span></div>
-    <div class="concept-body" id="conceptBody">Focusing on daily habits, time markers, phrasal verbs, and polite social expressions.</div>
-    <div class="importance-box">
-      🎯 <b>Why this is important for your English skills:</b> <span id="importanceText">Developing automatic recall of everyday phrases improves your speaking speed, listening clarity, and overall English fluency in real-life situations.</span>
-    </div>
-  </div>
-
-  <form id="quizForm">
-    <div id="questionsContainer">Loading today's 20 practical questions...</div>
-
-    <div class="actions-bar">
-      <button type="button" id="submitBtn" class="submit-btn" onclick="evaluateFullQuiz()">Finish & View Final Score</button>
-      <button type="button" id="resetBtn" class="reset-btn" onclick="resetQuiz()">Reset Test</button>
-    </div>
-  </form>
-
-  <div id="result-banner">
-    <div id="result-title">Test Result</div>
-    <div id="result-score">0 / 20</div>
-    <div id="result-desc" style="color: var(--text-muted); font-size: 0.98rem; margin-top:6px;">Review your answers and detailed explanations above!</div>
-  </div>
-
-</div>
-
-<script>
-  let currentQuestions = [];
-  let currentLevel = 'beginner';
-  const answerKeyMap = {};
-  const userAnswersMap = {};
-
-  window.addEventListener('DOMContentLoaded', () => {
-    loadNameState();
-    loadTrack('beginner');
-  });
-
-  function saveNameState() {
-    const name = document.getElementById('learnerName').value.trim();
-    localStorage.setItem('fluencycraft_learner_name', name);
-  }
-
-  function loadNameState() {
-    const savedName = localStorage.getItem('fluencycraft_learner_name');
-    if (savedName) document.getElementById('learnerName').value = savedName;
-  }
-
-  async function loadTrack(level) {
-    currentLevel = level;
-    document.querySelectorAll('.segmented-btn').forEach(btn => btn.classList.remove('active'));
-    const activeBtn = document.getElementById(`btn-${level}`);
-    if (activeBtn) activeBtn.classList.add('active');
-
-    const container = document.getElementById('questionsContainer');
-    container.innerHTML = `<div class="glass-card" style="text-align:center; padding:32px;"><p style="color:var(--text-muted);">Loading ${level.toUpperCase()} daily test dataset...</p></div>`;
-    document.getElementById('result-banner').style.display = 'none';
-
-    try {
-      // Path updated under tests/ parent directory
-      const resp = await fetch(`/tests/${level}/latest.json`);
-      if (!resp.ok) throw new Error("Could not load latest test dataset.");
-      const data = await resp.json();
-
-      if (data.word_of_the_day) {
-        document.getElementById('wodTitle').innerText = data.word_of_the_day.word || 'Run errands';
-        document.getElementById('wodMeaning').innerText = `Meaning: ${data.word_of_the_day.meaning || ''}`;
-        document.getElementById('wodUsage').innerText = `Usage: "${data.word_of_the_day.usage || ''}"`;
-      }
-
-      if (data.concept_overview) {
-        document.getElementById('conceptTitle').innerText = data.concept_overview;
-      }
-      if (data.why_important) {
-        document.getElementById('importanceText').innerText = data.why_important;
-      }
-
-      currentQuestions = data.questions || [];
-      renderQuestions(currentQuestions);
-    } catch (err) {
-      console.warn("Using fallback questions:", err);
-      renderFallbackQuestions();
-    }
-  }
-
-  function renderQuestions(questions) {
-    const container = document.getElementById('questionsContainer');
-    container.innerHTML = '';
-
-    questions.forEach((q, idx) => {
-      const qNum = idx + 1;
-      answerKeyMap[`q${qNum}`] = { ans: q.answer, exp: q.explanation };
-
-      const card = document.createElement('div');
-      card.className = 'glass-card';
-
-      let audioHtml = '';
-      if (q.audio_prompt && q.audio_prompt.trim().length > 0) {
-        audioHtml = `<button type="button" class="audio-glass-btn" onclick="playPrompt('${q.audio_prompt.replace(/'/g, "\\'")}')">🔊 Listen to Audio Clip</button>`;
-      }
-
-      card.innerHTML = `
-        <div style="font-size:0.82rem; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.04em;">${q.section || ''}</div>
-        ${audioHtml}
-        <p class="question">${qNum}. ${q.question}</p>
-        <div class="options" id="optionsGroup_${qNum}">
-          <label class="option-label" id="label_q${qNum}_a"><input type="radio" name="q${qNum}" value="a" onchange="onAnswerSelected('q${qNum}', 'a')"> A) ${q.options.a}</label>
-          <label class="option-label" id="label_q${qNum}_b"><input type="radio" name="q${qNum}" value="b" onchange="onAnswerSelected('q${qNum}', 'b')"> B) ${q.options.b}</label>
-          <label class="option-label" id="label_q${qNum}_c"><input type="radio" name="q${qNum}" value="c" onchange="onAnswerSelected('q${qNum}', 'c')"> C) ${q.options.c}</label>
+      <!-- Level 1 -->
+      <div class="track-card beginner">
+        <div>
+          <span class="track-badge">Level 1 • Beginner</span>
+          <h3 class="track-title">Everyday Essentials</h3>
+          <p class="track-desc">Home routines, grocery shopping, market queries, polite manners, and everyday Telugu translation scenarios.</p>
         </div>
-        <div class="explanation" id="exp${qNum}"></div>
-      `;
-      container.appendChild(card);
+        <div class="link-group">
+          <a href="/tests/beginner/latest.html" class="btn-main">Start Today's Test (Latest) →</a>
+          <a href="/tests/beginner/day-01.html" class="btn-sub">View Day 1 Test</a>
+        </div>
+      </div>
+
+      <!-- Level 2 -->
+      <div class="track-card intermediate">
+        <div>
+          <span class="track-badge">Level 2 • Intermediate</span>
+          <h3 class="track-title">Workplace Communication</h3>
+          <p class="track-desc">Standup sync updates, travel & cab queries, completed actions, clinic checkups, and workplace etiquette.</p>
+        </div>
+        <div class="link-group">
+          <a href="/tests/intermediate/latest.html" class="btn-main">Start Today's Test (Latest) →</a>
+          <a href="/tests/intermediate/day-01.html" class="btn-sub">View Day 1 Test</a>
+        </div>
+      </div>
+
+      <!-- Level 3 -->
+      <div class="track-card advanced">
+        <div>
+          <span class="track-badge">Level 3 • Advanced</span>
+          <h3 class="track-title">Executive Leadership</h3>
+          <p class="track-desc">Stakeholder negotiation, passive/active syntax precision, phone etiquette, and advanced tone diplomacy.</p>
+        </div>
+        <div class="link-group">
+          <a href="/tests/advanced/latest.html" class="btn-main">Start Today's Test (Latest) →</a>
+          <a href="/tests/advanced/day-01.html" class="btn-sub">View Day 1 Test</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 5-Part Daily Living Interactive Flow Outline -->
+    <div class="content-box">
+      <h3>📋 The 5-Part Daily Living Flow (20 Questions per Day)</h3>
+      <p>Every daily test is structured into 5 practical sections designed to take just 6–8 minutes during your morning routine:</p>
+      
+      <div class="flow-grid">
+        <div class="flow-item">
+          <div class="flow-item-num">Section 1 • 4 Questions</div>
+          <div class="flow-item-title">Daily Routine & Habits</div>
+          <div class="flow-item-desc">Simple present tense & daily schedule phrasing for home or outdoor conversations.</div>
+        </div>
+
+        <div class="flow-item">
+          <div class="flow-item-num">Section 2 • 4 Questions</div>
+          <div class="flow-item-title">Everyday Vocabulary & Word Match</div>
+          <div class="flow-item-desc">Practical phrasal verbs like <i>"Out of stock"</i>, <i>"Running late"</i>, <i>"Freshen up"</i>, and <i>"Drop by"</i>.</div>
+        </div>
+
+        <div class="flow-item">
+          <div class="flow-item-num">Section 3 • 4 Questions</div>
+          <div class="flow-item-title">Listening to Spoken English</div>
+          <div class="flow-item-desc">Auditory dialogues with 🔊 Listen buttons to train spoken recognition.</div>
+        </div>
+
+        <div class="flow-item">
+          <div class="flow-item-num">Section 4 • 4 Questions</div>
+          <div class="flow-item-title">Polite Social Expressions</div>
+          <div class="flow-item-desc">How to ask for help, decline invitations warmly, and give travel directions.</div>
+        </div>
+
+        <div class="flow-item">
+          <div class="flow-item-num">Section 5 • 4 Questions</div>
+          <div class="flow-item-title">Telugu ➔ English Translation</div>
+          <div class="flow-item-desc">AI feedback correcting literal "Telugu-isms" into natural conversational English.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7-Day Universal Everyday Life Curriculum Roadmap -->
+    <div class="content-box">
+      <h3>🗓️ 7-Day Universal Everyday Life Curriculum Roadmap</h3>
+      <p>The curriculum cycles across 7 practical life themes mapped to core conversational grammar:</p>
+
+      <div class="roadmap-table-wrap">
+        <table class="roadmap-table">
+          <thead>
+            <tr>
+              <th>Day & Theme</th>
+              <th>Everyday Scenario</th>
+              <th>Target Vocabulary</th>
+              <th>Telugu ➔ Natural English Translation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Day 1: Morning & Home Routines</b></td>
+              <td>Waking up, tea, getting kids ready</td>
+              <td>Early riser, freshen up, tidy up</td>
+              <td><i>"నేను సాధారణంగా ఉదయం 6 గంటలకే నిద్రలేచి..."</i> ➔ <i>"I usually wake up at 6:00 AM and have a cup of tea."</i></td>
+            </tr>
+            <tr>
+              <td><b>Day 2: Market & Grocery Shopping</b></td>
+              <td>Supermarkets, vegetables, billing</td>
+              <td>Out of stock, ripe/fresh, receipt</td>
+              <td><i>"ఈ టమాటాలు కేజీ ఎంత?..."</i> ➔ <i>"How much are these tomatoes per kilo? Please pick out fresh ones for me."</i></td>
+            </tr>
+            <tr>
+              <td><b>Day 3: Travel, Autos & Cabs</b></td>
+              <td>Booking rides, fares, directions</td>
+              <td>Drop me off, take a right, fare</td>
+              <td><i>"అన్నా, బస్టాండ్ దగ్గర డ్రాప్ చేయండి..."</i> ➔ <i>"Please drop me off near the bus stand. How much is the fare?"</i></td>
+            </tr>
+            <tr>
+              <td><b>Day 4: Clinic & Health Visits</b></td>
+              <td>Doctor symptoms, pharmacy</td>
+              <td>Sore throat, dizzy, prescription</td>
+              <td><i>"రెండు రోజుల నుండి కొంచెం జ్వరంగా ఉంది..."</i> ➔ <i>"I've had a mild fever for two days. Which medication should I take?"</i></td>
+            </tr>
+            <tr>
+              <td><b>Day 5: Polite Social Manners</b></td>
+              <td>Inviting neighbors, offering food</td>
+              <td>Drop by, lend a hand, I'd love to</td>
+              <td><i>"సాయంత్రం మా ఇంటికి రండి..."</i> ➔ <i>"Please drop by our home this evening; we can all have tea together."</i></td>
+            </tr>
+            <tr>
+              <td><b>Day 6: Phone Calls & Deliveries</b></td>
+              <td>Delivery agents, customer service</td>
+              <td>Pick up, parcel, check status</td>
+              <td><i>"నా పార్సెల్ ఈ రోజు సాయంత్రానికి..."</i> ➔ <i>"Will my package be delivered by this evening?"</i></td>
+            </tr>
+            <tr>
+              <td><b>Day 7: Weekend Plans & Weather</b></td>
+              <td>Movies, eating out, weather talk</td>
+              <td>Grab a bite, catch up, call it a day</td>
+              <td><i>"ఈ వారాంతంలో మనం బయటకు వెళ్లి..."</i> ➔ <i>"Shall we go out and watch a movie this weekend?"</i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 FluencyCraft • Practical Everyday English Mastery Platform</p>
+    </footer>
+
+  </main>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      loadNameState();
     });
-  }
 
-  function onAnswerSelected(qKey, selectedVal) {
-    userAnswersMap[qKey] = selectedVal;
-    const qNum = qKey.replace('q', '');
-    const expDiv = document.getElementById(`exp${qNum}`);
-    const keyData = answerKeyMap[qKey];
-    const isCorrect = selectedVal === keyData.ans;
-
-    expDiv.innerHTML = keyData.exp;
-    expDiv.className = `explanation ${isCorrect ? 'correct' : 'incorrect'}`;
-    expDiv.style.display = 'block';
-
-    document.querySelectorAll(`input[name="${qKey}"]`).forEach(radio => radio.disabled = true);
-    document.querySelectorAll(`#optionsGroup_${qNum} .option-label`).forEach(lbl => lbl.classList.add('disabled'));
-  }
-
-  function evaluateFullQuiz() {
-    let score = 0;
-    const total = Object.keys(answerKeyMap).length;
-
-    for (let key in answerKeyMap) {
-      if (userAnswersMap[key] === answerKeyMap[key].ans) score++;
-
-      const qNum = key.replace('q', '');
-      const expDiv = document.getElementById(`exp${qNum}`);
-      expDiv.innerHTML = answerKeyMap[key].exp;
-      expDiv.className = `explanation ${userAnswersMap[key] === answerKeyMap[key].ans ? 'correct' : 'incorrect'}`;
-      expDiv.style.display = 'block';
+    function saveNameState() {
+      const name = document.getElementById('learnerName').value.trim();
+      localStorage.setItem('fluencycraft_learner_name', name);
     }
 
-    const name = document.getElementById('learnerName').value.trim();
-    const banner = document.getElementById('result-banner');
-    const title = document.getElementById('result-title');
-    const scoreText = document.getElementById('result-score');
-
-    title.innerText = name ? `Great job, ${name}!` : "Test Result";
-    scoreText.innerText = `${score} / ${total} (${Math.round((score / total) * 100)}%)`;
-    banner.style.display = 'block';
-    banner.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  function playPrompt(text) {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.rate = 0.9;
-      utterance.lang = 'en-US';
-      window.speechSynthesis.speak(utterance);
+    function loadNameState() {
+      const savedName = localStorage.getItem('fluencycraft_learner_name');
+      if (savedName) {
+        document.getElementById('learnerName').value = savedName;
+      }
     }
-  }
-
-  function resetQuiz() {
-    if (!confirm("Reset this test? All selections will be cleared.")) return;
-    document.getElementById('quizForm').reset();
-    document.querySelectorAll('.explanation').forEach(exp => { exp.style.display = 'none'; exp.innerHTML = ''; });
-    document.querySelectorAll('input[type="radio"]').forEach(r => r.disabled = false);
-    document.querySelectorAll('.option-label').forEach(l => l.classList.remove('disabled'));
-    document.getElementById('result-banner').style.display = 'none';
-    for (let key in userAnswersMap) delete userAnswersMap[key];
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function renderFallbackQuestions() {
-    const questions = [];
-    for (let i = 1; i <= 20; i++) {
-      questions.push({
-        id: i,
-        section: `Section ${((i-1)//4)+1}`,
-        question: `Sample question ${i}: Select the correct grammatical option for daily communication:`,
-        options: { a: "Option A - Non-standard phrasing.", b: "Option B - Correct and natural standard usage.", c: "Option C - Redundant phrasing." },
-        answer: "b",
-        explanation: "<b>Correct: Option B</b><br>Option B uses proper syntax and natural vocabulary.",
-        audio_prompt: i % 3 === 0 ? `Listen to scenario ${i} for practical English fluency.` : ""
-      });
-    }
-    renderQuestions(questions);
-  }
-</script>
+  </script>
 </body>
 </html>
