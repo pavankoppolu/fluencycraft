@@ -14,310 +14,854 @@ def load_curriculum():
     return {}
 
 def generate_20_questions(level):
-    curriculum = load_curriculum()
-    roadmap = curriculum.get("curriculum_roadmap", [{}])
-    words_of_day = curriculum.get("words_of_the_day", [{}])
+    level_str = str(level).lower()
 
-    theme_info = roadmap[0] if roadmap else {
-        "theme": "Morning & Home Routines",
-        "scenario": "Waking up, making tea/breakfast, getting kids ready",
-        "vocabulary": ["Early riser", "Freshen up", "Running late", "Tidy up"],
-        "connecting_pillars": ["Short and sweet", "Bits and pieces", "Safe and sound", "Spick and span"],
-        "concept_overview": "Day 1: Everyday Home Routines, Phrasal Verbs & Connecting Pillars",
-        "why_important": "Mastering daily routine expressions and connecting pillars (like 'short and sweet') helps you express thoughts naturally without hesitation during everyday conversations.",
-        "telugu_translation": {
-            "telugu": "నేను సాధారణంగా ఉదయం 6 గంటలకే నిద్రలేచి, ఒక కప్పు టీ తాగుతాను.",
-            "literal": "I generally in morning at 6 clock wake up and drink one cup tea.",
-            "polished": "I usually wake up at 6:00 AM and have a cup of tea.",
-            "feedback": "In English, say 'have a cup of tea' and specify time as '6:00 AM'."
+    if level_str == "intermediate":
+        word_info = {
+            "word": "Circle back",
+            "meaning": "To return to a topic or person later for follow-up",
+            "usage": "Let's circle back to the timeline discussion after the team review."
         }
-    }
+        concept_overview = "Day 1: Workplace Standups, Meeting Scheduling & Professional Etiquette"
+        why_important = "Navigating status updates, schedule changes, and team requests with polite present perfect forms builds your workplace credibility."
 
-    word_info = words_of_day[0] if words_of_day else {
-        "word": "Run errands",
-        "meaning": "Do short daily trips to accomplish chores",
-        "usage": "I need to run a few errands at the market before dinner."
-    }
+        questions = [
+            # SECTION 1: Workplace Communication & Tenses (4 MCQs)
+            {
+                "id": 1,
+                "section": "1. Workplace Communication & Tenses",
+                "question": "Which sentence correctly uses the Present Perfect tense for a completed work task?",
+                "options": {
+                    "a": "I have already submitted the project report to the manager.",
+                    "b": "I am already submitted the project report to the manager.",
+                    "c": "I have already submit the project report to the manager."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>Completed workplace tasks affecting the present take the Present Perfect tense (<i>have + past participle: have submitted</i>).",
+                "audio_prompt": ""
+            },
+            {
+                "id": 2,
+                "section": "1. Workplace Communication & Tenses",
+                "question": "How do you politely ask a colleague if they have received an email attachment?",
+                "options": {
+                    "a": "Have you received the updated file I sent this morning?",
+                    "b": "Are you receive the updated file I sent this morning?",
+                    "c": "Did you received the updated file I sent this morning?"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>In professional inquiries, use 'Have you received' for recent email confirmations.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 3,
+                "section": "1. Workplace Communication & Tenses",
+                "question": "Select the correct sentence describing an ongoing meeting when someone calls:",
+                "options": {
+                    "a": "I am attending a client sync right now; can I call you back in 20 minutes?",
+                    "b": "I attending a client sync right now; can I call you back in 20 minutes?",
+                    "c": "I am attend a client sync right now; can I call you back in 20 minutes?"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>Ongoing activities right now require Present Continuous (<i>am attending</i>).",
+                "audio_prompt": ""
+            },
+            {
+                "id": 4,
+                "section": "1. Workplace Communication & Tenses",
+                "question": "Which option accurately explains a past delay due to traffic?",
+                "options": {
+                    "a": "I was stuck in traffic for 30 minutes, so I missed the opening presentation.",
+                    "b": "I were stuck in traffic for 30 minutes, so I missed the opening presentation.",
+                    "c": "I am stuck in traffic yesterday for 30 minutes."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>First-person singular past states require 'was' (<i>I was stuck</i>).",
+                "audio_prompt": ""
+            },
 
-    concept_overview = theme_info.get("concept_overview", "Day 1: Everyday Home Routines & Connecting Pillars")
-    why_important = theme_info.get("why_important", "Developing automatic recall of everyday phrases and connecting pillars improves your speaking confidence in real-life situations.")
-    telugu_data = theme_info.get("telugu_translation", {})
-    vocab = theme_info.get("vocabulary", ["Run errands", "Freshen up", "Tidy up", "Out of stock"])
-    pillars = theme_info.get("connecting_pillars", ["Short and sweet", "Bits and pieces", "Safe and sound", "Spick and span"])
+            # SECTION 2: Workplace Vocabulary & Phrasal Verbs (4 MCQs)
+            {
+                "id": 5,
+                "section": "2. Workplace Vocabulary & Phrasal Verbs",
+                "question": f"What is the workplace meaning of the term '{word_info['word']}'?",
+                "options": {
+                    "a": "To draw a physical circle on paper.",
+                    "b": f"{word_info['meaning']}.",
+                    "c": "To cancel all meetings permanently."
+                },
+                "answer": "b",
+                "explanation": f"<b>Correct: Option B</b><br>'{word_info['word']}' means: {word_info['meaning']}. Example: <i>\"{word_info['usage']}\"</i>",
+                "audio_prompt": ""
+            },
+            {
+                "id": 6,
+                "section": "2. Workplace Vocabulary & Phrasal Verbs",
+                "question": "Choose the best phrasal verb: 'I will __________ with the design team regarding the revised layout.'",
+                "options": {
+                    "a": "follow up",
+                    "b": "follow out",
+                    "c": "follow off"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Follow up' means checking on progress or continuing communication on a prior matter.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 7,
+                "section": "2. Workplace Vocabulary & Phrasal Verbs",
+                "question": "What does the phrasal verb 'Call off' mean in an office context?",
+                "options": {
+                    "a": "To shout loudly in a meeting room.",
+                    "b": "To cancel a planned event or meeting.",
+                    "c": "To invite new team members."
+                },
+                "answer": "b",
+                "explanation": "<b>Correct: Option B</b><br>'Call off' means cancelling a planned meeting or activity.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 8,
+                "section": "2. Workplace Vocabulary & Phrasal Verbs",
+                "question": "Select the correct phrase: 'We need to hurry because we are __________ for the afternoon presentation.'",
+                "options": {
+                    "a": "running out of time",
+                    "b": "running off of time",
+                    "c": "running away of time"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Running out of time' means having very little remaining time to complete a task.",
+                "audio_prompt": ""
+            },
 
-    questions = [
-        # SECTION 1: Daily Routine & Habits (4 MCQs)
-        {
-            "id": 1,
-            "section": "1. Daily Routine & Habits",
-            "question": f"When talking about your morning schedule, which sentence is grammatically correct?",
-            "options": {
-                "a": "I am usually wake up at 6 AM every morning.",
-                "b": "I usually wake up at 6 AM every morning.",
-                "c": "I usually wakes up at 6 AM every morning."
+            # SECTION 3: Connecting Pillars & Everyday Expressions (4 MCQs)
+            {
+                "id": 9,
+                "section": "3. Connecting Pillars & Expressions",
+                "question": "Complete the workplace sentence: 'Before adopting the new software, we weighed all the __________.'",
+                "options": {
+                    "a": "pros and cons",
+                    "b": "bits and pieces",
+                    "c": "spick and span"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Pros and cons' is a connecting pillar referring to the advantages and disadvantages of a decision.",
+                "audio_prompt": ""
             },
-            "answer": "b",
-            "explanation": "<b>Correct: Option B</b><br>Habitual daily routines take the Simple Present tense (<i>I usually wake up</i>). Never pair 'am' directly with a base verb like 'am wake'.",
-            "audio_prompt": ""
-        },
-        {
-            "id": 2,
-            "section": "1. Daily Routine & Habits",
-            "question": "Which response is natural when someone asks what you are currently doing at home?",
-            "options": {
-                "a": "I am tidying up the living room right now.",
-                "b": "I tidying up the living room right now.",
-                "c": "I am tidy up the living room right now."
+            {
+                "id": 10,
+                "section": "3. Connecting Pillars & Expressions",
+                "question": "Which expression fits best: 'Successful teamwork requires a healthy amount of __________.'",
+                "options": {
+                    "a": "give and take",
+                    "b": "short and sweet",
+                    "c": "out of stock"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Give and take' refers to mutual compromise and flexibility between colleagues.",
+                "audio_prompt": ""
             },
-            "answer": "a",
-            "explanation": "<b>Correct: Option A</b><br>Ongoing actions right now require the Present Continuous form (<i>am/is/are + verb-ing</i>).",
-            "audio_prompt": ""
-        },
-        {
-            "id": 3,
-            "section": "1. Daily Routine & Habits",
-            "question": "Complete the sentence: 'My sister __________ a cup of warm tea every morning before breakfast.'",
-            "options": {
-                "a": "drink",
-                "b": "drinks",
-                "c": "is drink"
+            {
+                "id": 11,
+                "section": "3. Connecting Pillars & Expressions",
+                "question": "Choose the correct phrase: 'I work remotely __________ to focus on deep analysis.'",
+                "options": {
+                    "a": "now and then",
+                    "b": "safe and sound",
+                    "c": "first and foremost"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Now and then' means occasionally or from time to time.",
+                "audio_prompt": ""
             },
-            "answer": "b",
-            "explanation": "<b>Correct: Option B</b><br>Singular third-person subjects ('My sister') require an <i>-s</i> ending on base verbs in the Simple Present (<i>drinks</i>).",
-            "audio_prompt": ""
-        },
-        {
-            "id": 4,
-            "section": "1. Daily Routine & Habits",
-            "question": "How do you correctly describe a past action finished yesterday morning?",
-            "options": {
-                "a": "Yesterday morning, I prepared breakfast for my family.",
-                "b": "Yesterday morning, I have prepared breakfast for my family.",
-                "c": "Yesterday morning, I am prepare breakfast for my family."
+            {
+                "id": 12,
+                "section": "3. Connecting Pillars & Expressions",
+                "question": "Select the expression: 'Our Internet connection has been __________ all morning due to weather.'",
+                "options": {
+                    "a": "on and off",
+                    "b": "short and sweet",
+                    "c": "spick and span"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'On and off' means intermittent or happening irregularly.",
+                "audio_prompt": ""
             },
-            "answer": "a",
-            "explanation": "<b>Correct: Option A</b><br>Definite past markers like 'Yesterday morning' mandate the Simple Past tense (<i>prepared</i>).",
-            "audio_prompt": ""
-        },
 
-        # SECTION 2: Everyday Easy Vocabulary & Phrasal Verbs (4 MCQs)
-        {
-            "id": 5,
-            "section": "2. Everyday Easy Vocabulary",
-            "question": f"What is the easy daily meaning of the phrase '{word_info['word']}'?",
-            "options": {
-                "a": "To run fast in an athletic race.",
-                "b": f"{word_info['meaning']}.",
-                "c": "To cancel all daily plans."
+            # SECTION 4: Listening to Spoken English (4 Audio Clips)
+            {
+                "id": 13,
+                "section": "4. Listening to Spoken English",
+                "question": "Listen to Audio Clip 1. What is the speaker proposing?",
+                "options": {
+                    "a": "Cancel the project completely.",
+                    "b": "Reschedule tomorrow's team sync to 3:00 PM.",
+                    "c": "Take the day off tomorrow."
+                },
+                "answer": "b",
+                "explanation": "<b>Correct: Option B</b><br>The speaker asks: <i>'Could we please reschedule tomorrow's team sync to 3:00 PM?'</i>",
+                "audio_prompt": "Could we please reschedule tomorrow's team sync to 3:00 PM?"
             },
-            "answer": "b",
-            "explanation": f"<b>Correct: Option B</b><br>'{word_info['word']}' means: {word_info['meaning']}. Example: <i>\"{word_info['usage']}\"</i>",
-            "audio_prompt": ""
-        },
-        {
-            "id": 6,
-            "section": "2. Everyday Easy Vocabulary",
-            "question": "Choose the phrase that fits: 'I'm sorry for the delay, fresh milk was __________ at the grocery store.'",
-            "options": {
-                "a": "out of stock",
-                "b": "running late",
-                "c": "tidy up"
+            {
+                "id": 14,
+                "section": "4. Listening to Spoken English",
+                "question": "Listen to Audio Clip 2. What status update is provided?",
+                "options": {
+                    "a": "The project report has already been sent to the manager.",
+                    "b": "The report will take two more weeks.",
+                    "c": "The manager rejected the project proposal."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'I have already sent the updated project report to the manager for review.'</i>",
+                "audio_prompt": "I have already sent the updated project report to the manager for review."
             },
-            "answer": "a",
-            "explanation": "<b>Correct: Option A</b><br>'Out of stock' means goods or products are temporarily unavailable for purchase.",
-            "audio_prompt": ""
-        },
-        {
-            "id": 7,
-            "section": "2. Everyday Easy Vocabulary",
-            "question": "What does the phrasal verb 'Freshen up' mean when returning home from work?",
-            "options": {
-                "a": "To cook a heavy meal.",
-                "b": "To wash your hands/face and change into comfortable clothes.",
-                "c": "To clean the whole house."
+            {
+                "id": 15,
+                "section": "4. Listening to Spoken English",
+                "question": "Listen to Audio Clip 3. What reason is given for arriving late?",
+                "options": {
+                    "a": "Oversleeping in the morning.",
+                    "b": "Heavy traffic on the main road.",
+                    "c": "A broken laptop charger."
+                },
+                "answer": "b",
+                "explanation": "<b>Correct: Option B</b><br>The speaker says: <i>'Due to heavy traffic on the main road, I will be about 10 minutes late.'</i>",
+                "audio_prompt": "Due to heavy traffic on the main road, I will be about 10 minutes late for the standup."
             },
-            "answer": "b",
-            "explanation": "<b>Correct: Option B</b><br>'Freshen up' means quickly washing and relaxing after returning home.",
-            "audio_prompt": ""
-        },
-        {
-            "id": 8,
-            "section": "2. Everyday Easy Vocabulary",
-            "question": "Select the correct term: 'Let's __________ for a quick cup of tea this evening.'",
-            "options": {
-                "a": "catch up",
-                "b": "catch out",
-                "c": "catch off"
+            {
+                "id": 16,
+                "section": "4. Listening to Spoken English",
+                "question": "Listen to Audio Clip 4. What health update is shared?",
+                "options": {
+                    "a": "The speaker is running a mild fever and needs to consult a doctor.",
+                    "b": "The speaker is going for a morning jog.",
+                    "c": "The speaker is attending a gym session."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'I am running a mild fever today, so I need to consult a doctor.'</i>",
+                "audio_prompt": "I am running a mild fever today, so I need to consult a doctor after lunch."
             },
-            "answer": "a",
-            "explanation": "<b>Correct: Option A</b><br>'Catch up' means meeting someone to chat and share recent news.",
-            "audio_prompt": ""
-        },
 
-        # SECTION 3: Connecting Pillars & Everyday Expressions (4 MCQs)
-        {
-            "id": 9,
-            "section": "3. Connecting Pillars & Expressions",
-            "question": "Complete the daily sentence: 'Keep the morning family update __________ so we aren't late for school.'",
-            "options": {
-                "a": "short and sweet",
-                "b": "bits and pieces",
-                "c": "bells and whistles"
+            # SECTION 5: Real-Life Telugu ➔ English Translation & Guidance (4 Scenarios)
+            {
+                "id": 17,
+                "section": "5. Real-Life Telugu ➔ English Translation",
+                "question": "Translate Scenario 1:<br><br><b>Telugu:</b> \"ఈ ప్రాజెక్ట్ నివేదిక నేను ఇప్పటికే మేనేజర్‌కి పంపాను.\"<br><i>(Literal attempt: \"This project report I already manager sent.\")</i>",
+                "options": {
+                    "a": "This project report I already manager sent.",
+                    "b": "I have already sent this project report to the manager.",
+                    "c": "Manager project report sent already."
+                },
+                "answer": "b",
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use Present Perfect ('have sent') for completed actions with present relevance, placing 'already' between 'have' and the past participle.<br><br><b>Natural Version:</b> <i>\"I have already sent this project report to the manager.\"</i>",
+                "audio_prompt": "I have already sent this project report to the manager."
             },
-            "answer": "a",
-            "explanation": "<b>Correct: Option A</b><br>'Short and sweet' is a connecting pillar meaning brief, pleasant, and direct without wasting time.",
-            "audio_prompt": ""
-        },
-        {
-            "id": 10,
-            "section": "3. Connecting Pillars & Expressions",
-            "question": "Which connecting pillar fits best: 'After cleaning the living room, the whole house is __________.'",
-            "options": {
-                "a": "spick and span",
-                "b": "short and sweet",
-                "c": "elephant in the room"
+            {
+                "id": 18,
+                "section": "5. Real-Life Telugu ➔ English Translation",
+                "question": "Translate Scenario 2:<br><br><b>Telugu:</b> \"రేపటి మీటింగ్ 3 గంటలకు రీషెడ్యూల్ చేయవచ్చా?\"<br><i>(Literal attempt: \"Tomorrow meeting 3 clock reschedule possible?\")</i>",
+                "options": {
+                    "a": "Tomorrow meeting 3 clock reschedule possible?",
+                    "b": "Could we reschedule tomorrow's meeting to 3:00 PM?",
+                    "c": "Can 3 PM meeting tomorrow shifting?"
+                },
+                "answer": "b",
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use 'Could we reschedule...' for polite professional requests, using 'to 3:00 PM' for target time.<br><br><b>Natural Version:</b> <i>\"Could we reschedule tomorrow's meeting to 3:00 PM?\"</i>",
+                "audio_prompt": "Could we reschedule tomorrow's meeting to 3:00 PM?"
             },
-            "answer": "a",
-            "explanation": "<b>Correct: Option A</b><br>'Spick and span' is an everyday connecting pillar meaning completely neat, spotless, and tidy.",
-            "audio_prompt": ""
-        },
-        {
-            "id": 11,
-            "section": "3. Connecting Pillars & Expressions",
-            "question": "Choose the correct expression: 'I picked up a few __________ from the market for dinner.'",
-            "options": {
-                "a": "bits and pieces",
-                "b": "touch and go",
-                "c": "safe and sound"
+            {
+                "id": 19,
+                "section": "5. Real-Life Telugu ➔ English Translation",
+                "question": "Translate Scenario 3:<br><br><b>Telugu:</b> \"నన్ను కొంచెం జ్వరం వేధిస్తోంది, డాక్టర్‌ని కలవాలి.\"<br><i>(Literal attempt: \"To me fever is troubling, doctor meeting wanted.\")</i>",
+                "options": {
+                    "a": "To me fever is troubling, doctor meeting wanted.",
+                    "b": "I am running a mild fever; I need to consult a doctor.",
+                    "c": "Fever coming to me doctor seeing."
+                },
+                "answer": "b",
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>In English, say 'I am running a mild fever' or 'I have a fever' rather than literal translations. Use 'consult a doctor'.<br><br><b>Natural Version:</b> <i>\"I am running a mild fever; I need to consult a doctor.\"</i>",
+                "audio_prompt": "I am running a mild fever; I need to consult a doctor."
             },
-            "answer": "a",
-            "explanation": "<b>Correct: Option A</b><br>'Bits and pieces' refers to small individual items or small household purchases.",
-            "audio_prompt": ""
-        },
-        {
-            "id": 12,
-            "section": "3. Connecting Pillars & Expressions",
-            "question": "Select the expression: 'Despite heavy evening traffic, my family arrived home __________.'",
-            "options": {
-                "a": "safe and sound",
-                "b": "short and sweet",
-                "c": "ups and downs"
-            },
-            "answer": "a",
-            "explanation": "<b>Correct: Option A</b><br>'Safe and sound' means arriving safely without any harm or injury.",
-            "audio_prompt": ""
-        },
+            {
+                "id": 20,
+                "section": "5. Real-Life Telugu ➔ English Translation",
+                "question": "Translate Scenario 4:<br><br><b>Telugu:</b> \"ట్రాఫిక్ వల్ల నేను ఆఫీస్‌కి 10 నిమిషాలు ఆలస్యంగా వస్తాను.\"<br><i>(Literal attempt: \"Traffic because of I office 10 minutes late coming.\")</i>",
+                "options": {
+                    "a": "Traffic because of I office 10 minutes late coming.",
+                    "b": "Due to heavy traffic, I will be about 10 minutes late to the office.",
+                    "c": "Late 10 minutes office traffic coming."
+                },
+                "answer": "b",
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Start with 'Due to heavy traffic' or 'Because of traffic' and say 'I will be 10 minutes late to the office'.<br><br><b>Natural Version:</b> <i>\"Due to heavy traffic, I will be about 10 minutes late to the office.\"</i>",
+                "audio_prompt": "Due to heavy traffic, I will be about 10 minutes late to the office."
+            }
+        ]
+        return word_info, concept_overview, why_important, questions
 
-        # SECTION 4: Listening to Spoken English (4 Audio Clips)
-        {
-            "id": 13,
-            "section": "4. Listening to Spoken English",
-            "question": "Listen to Audio Clip 1. What is the speaker asking you to do?",
-            "options": {
-                "a": "Stop testing immediately.",
-                "b": "Pick up a fresh packet of tea from the store on your way home.",
-                "c": "Cancel tomorrow's grocery list."
-            },
-            "answer": "b",
-            "explanation": "<b>Correct: Option B</b><br>The speaker says: <i>'Could you please pick up a fresh packet of tea from the store on your way home?'</i>",
-            "audio_prompt": "Could you please pick up a fresh packet of tea from the store on your way home?"
-        },
-        {
-            "id": 14,
-            "section": "4. Listening to Spoken English",
-            "question": "Listen to Audio Clip 2. What is the main instruction?",
-            "options": {
-                "a": "The speaker will drop by your home around 6:00 PM today.",
-                "b": "The speaker wants to reschedule for next month.",
-                "c": "The speaker is asking for directions to the airport."
-            },
-            "answer": "a",
-            "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'Hey! I will drop by your place this evening around 6:00 PM for a quick chat.'</i>",
-            "audio_prompt": "Hey! I will drop by your place this evening around 6:00 PM for a quick chat."
-        },
-        {
-            "id": 15,
-            "section": "4. Listening to Spoken English",
-            "question": "Listen to Audio Clip 3. What does the phrase 'Let's call it a day' mean in this dialogue?",
-            "options": {
-                "a": "Check the date on the wall calendar.",
-                "b": "Stop working on the task for today and rest.",
-                "c": "Work late into the night."
-            },
-            "answer": "b",
-            "explanation": "<b>Correct: Option B</b><br>'Let's call it a day' is an everyday idiom meaning we have finished work for today.",
-            "audio_prompt": "We have made great progress on the chores! Let us call it a day and continue tomorrow morning."
-        },
-        {
-            "id": 16,
-            "section": "4. Listening to Spoken English",
-            "question": "Listen to Audio Clip 4. What reminder is given?",
-            "options": {
-                "a": "Take an umbrella because dark clouds are gathering.",
-                "b": "Stay indoors all weekend.",
-                "c": "Buy a new raincoat online."
-            },
-            "answer": "a",
-            "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'Don't forget your umbrella, it looks like rain this afternoon!'</i>",
-            "audio_prompt": "Don't forget your umbrella when you step out, it looks like rain this afternoon!"
-        },
-
-        # SECTION 5: Real-Life Telugu ➔ English Translation & AI Feedback (4 Scenarios)
-        {
-            "id": 17,
-            "section": "5. Real-Life Telugu ➔ English Translation",
-            "question": f"Translate Scenario 1:<br><br><b>Telugu:</b> \"{telugu_data.get('telugu', '')}\"<br><i>(Literal attempt: \"{telugu_data.get('literal', '')}\")</i>",
-            "options": {
-                "a": f"{telugu_data.get('literal', '')}",
-                "b": f"{telugu_data.get('polished', '')}",
-                "c": "I morning wake up and tea drinking."
-            },
-            "answer": "b",
-            "explanation": f"<b>Natural Phrasing & Guidance:</b><br>{telugu_data.get('feedback', '')}<br><br><b>Natural Version:</b> <i>\"{telugu_data.get('polished', '')}\"</i>",
-            "audio_prompt": f"Natural English phrasing: {telugu_data.get('polished', '')}"
-        },
-        {
-            "id": 18,
-            "section": "5. Real-Life Telugu ➔ English Translation",
-            "question": "Translate Scenario 2:<br><br><b>Telugu:</b> \"ఈ టమాటాలు కేజీ ఎంత? కొంచెం తాజావి ఏరి ఇవ్వండి.\"<br><i>(Literal attempt: \"These tomatoes kg how much? Pick and give fresh ones.\")</i>",
-            "options": {
-                "a": "These tomatoes kg how much? Pick and give fresh ones.",
-                "b": "How much are these tomatoes per kilo? Please pick out some fresh ones for me.",
-                "c": "What is price for tomatoes giving?"
-            },
-            "answer": "b",
-            "explanation": "<b>Natural Phrasing & Guidance:</b><br>Avoid literal word-by-word translation. Use 'per kilo' for price by weight, and 'pick out' for selecting fresh produce.<br><br><b>Natural Version:</b> <i>\"How much are these tomatoes per kilo? Please pick out some fresh ones for me.\"</i>",
-            "audio_prompt": "How much are these tomatoes per kilo? Please pick out some fresh ones for me."
-        },
-        {
-            "id": 19,
-            "section": "5. Real-Life Telugu ➔ English Translation",
-            "question": "Translate Scenario 3:<br><br><b>Telugu:</b> \"అన్నా, బస్టాండ్ దగ్గర డ్రాప్ చేయండి, ఎంత అవుతుంది?\"<br><i>(Literal attempt: \"Brother, near bus stand drop me, how much will become?\")</i>",
-            "options": {
-                "a": "Brother, near bus stand drop me, how much will become?",
-                "b": "Please drop me off near the bus stand. How much is the fare?",
-                "c": "Drop bus stand how much cost becoming?"
-            },
-            "answer": "b",
-            "explanation": "<b>Natural Phrasing & Guidance:</b><br>Avoid 'how much will become' (a common Telugu-ism). Use 'How much is the fare?' or 'What will it cost?'.<br><br><b>Natural Version:</b> <i>\"Please drop me off near the bus stand. How much is the fare?\"</i>",
-            "audio_prompt": "Please drop me off near the bus stand. How much is the fare?"
-        },
-        {
-            "id": 20,
-            "section": "5. Real-Life Telugu ➔ English Translation",
-            "question": "Translate Scenario 4:<br><br><b>Telugu:</b> \"నాకు కొంచెం తలనొప్పిగా ఉంది, ఒక గంట సేపు రెస్ట్ తీసుకుంటాను.\"<br><i>(Literal attempt: \"To me little headache is there, I will take rest one hour.\")</i>",
-            "options": {
-                "a": "To me little headache is there, I will take rest one hour.",
-                "b": "I have a slight headache; I'm going to rest for an hour.",
-                "c": "My head is hurting small, resting one hour."
-            },
-            "answer": "b",
-            "explanation": "<b>Natural Phrasing & Guidance:</b><br>In English, say 'I have a slight headache' rather than 'to me headache is there'. Also say 'rest for an hour'.<br><br><b>Natural Version:</b> <i>\"I have a slight headache; I'm going to rest for an hour.\"</i>",
-            "audio_prompt": "I have a slight headache; I'm going to rest for an hour."
+    elif level_str == "advanced":
+        word_info = {
+            "word": "Iron out",
+            "meaning": "To resolve minor problems, discrepancies, or details in a plan or agreement",
+            "usage": "We need one final meeting to iron out the remaining contract details."
         }
-    ]
+        concept_overview = "Day 1: Strategic Negotiation, Delicate Refusal & Tone Diplomacy"
+        why_important = "Executive communication requires modal diplomacy ('I would suggest'), subtle disagreement phrasing, and syntax precision to negotiate effectively."
 
-    return word_info, concept_overview, why_important, questions
+        questions = [
+            # SECTION 1: Executive Syntax & Diplomatic Precision (4 MCQs)
+            {
+                "id": 1,
+                "section": "1. Executive Syntax & Diplomatic Precision",
+                "question": "Which sentence demonstrates proper executive modal diplomacy when offering a strategic recommendation?",
+                "options": {
+                    "a": "I would suggest incorporating a phased rollout to mitigate operational risk.",
+                    "b": "I am suggest to incorporate a phased rollout for risk.",
+                    "c": "I must suggesting phased rollout right now."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>Executive tone diplomacy uses conditional modals like 'I would suggest' followed by a gerund (<i>incorporating</i>) for polished persuasiveness.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 2,
+                "section": "2. Executive Syntax & Diplomatic Precision",
+                "question": "Select the correct inverted conditional structure for high-level risk assessment:",
+                "options": {
+                    "a": "Had we identified the bottleneck earlier, we would have adjusted our timeline.",
+                    "b": "If we had identify the bottleneck earlier, we will adjust timeline.",
+                    "c": "Had we identify bottleneck earlier, we adjusted timeline."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>Formal inverted conditionals omit 'if' and start with 'Had + subject + past participle' (<i>Had we identified</i>).",
+                "audio_prompt": ""
+            },
+            {
+                "id": 3,
+                "section": "3. Executive Syntax & Diplomatic Precision",
+                "question": "How do you diplomatically decline an unrealistic request from a senior stakeholder?",
+                "options": {
+                    "a": "While I understand the urgency, our current bandwidth prevents us from accelerating the delivery date.",
+                    "b": "No, we cannot do this request because we are too busy.",
+                    "c": "Your deadline is impossible and our team refuses it."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>Diplomatic refusal acknowledges the stakeholder's perspective ('While I understand...') before stating constraints constructively.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 4,
+                "section": "4. Executive Syntax & Diplomatic Precision",
+                "question": "Which option correctly uses the subjunctive mood in a formal resolution?",
+                "options": {
+                    "a": "It is essential that every department head submit their quarterly projections by Friday.",
+                    "b": "It is essential that every department head submits their quarterly projections by Friday.",
+                    "c": "It is essential that every department head will submit projections."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>Mandatory clause structures ('It is essential that...') require the bare base form of the verb (<i>submit</i>, not <i>submits</i>).",
+                "audio_prompt": ""
+            },
+
+            # SECTION 2: Advanced Vocabulary & Executive Idioms (4 MCQs)
+            {
+                "id": 5,
+                "section": "2. Advanced Vocabulary & Idioms",
+                "question": f"What is the executive meaning of the idiom '{word_info['word']}'?",
+                "options": {
+                    "a": "To press clothes using a hot iron.",
+                    "b": f"{word_info['meaning']}.",
+                    "c": "To reject a proposal outright."
+                },
+                "answer": "b",
+                "explanation": f"<b>Correct: Option B</b><br>'{word_info['word']}' means: {word_info['meaning']}. Example: <i>\"{word_info['usage']}\"</i>",
+                "audio_prompt": ""
+            },
+            {
+                "id": 6,
+                "section": "2. Advanced Vocabulary & Idioms",
+                "question": "Choose the best term: 'During the keynote, the CEO sought to __________ the importance of customer security.'",
+                "options": {
+                    "a": "drive home",
+                    "b": "drive away",
+                    "c": "drive past"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Drive home' means to emphasize a point persuasively so it is clearly understood.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 7,
+                "section": "2. Advanced Vocabulary & Idioms",
+                "question": "What does the expression 'Boil down to' mean in strategic summaries?",
+                "options": {
+                    "a": "To cook liquid until it evaporates.",
+                    "b": "To be the primary or essential core factor of a complex situation.",
+                    "c": "To increase the temperature of a discussion."
+                },
+                "answer": "b",
+                "explanation": "<b>Correct: Option B</b><br>'Boil down to' means summarizing a complex issue into its fundamental core element.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 8,
+                "section": "2. Advanced Vocabulary & Idioms",
+                "question": "Select the appropriate corporate term: 'We must diversify our suppliers to __________ market volatility.'",
+                "options": {
+                    "a": "hedge against",
+                    "b": "hedge into",
+                    "c": "hedge off"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Hedge against' means protecting an organization against potential financial or operational loss.",
+                "audio_prompt": ""
+            },
+
+            # SECTION 3: Connecting Pillars & Everyday Expressions (4 MCQs)
+            {
+                "id": 9,
+                "section": "3. Connecting Pillars & Expressions",
+                "question": "Complete the executive statement: '__________, we must prioritize data security before launching new features.'",
+                "options": {
+                    "a": "First and foremost",
+                    "b": "Bits and pieces",
+                    "c": "Short and sweet"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'First and foremost' is an executive connecting pillar meaning most importantly or above all else.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 10,
+                "section": "3. Connecting Pillars & Expressions",
+                "question": "Which expression fits best: 'Navigating regulatory audits is __________ of operating in healthcare.'",
+                "options": {
+                    "a": "part and parcel",
+                    "b": "spick and span",
+                    "c": "out of stock"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Part and parcel' refers to an essential, unavoidable component of a job or industry.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 11,
+                "section": "3. Connecting Pillars & Expressions",
+                "question": "Choose the correct pillar: 'Negotiating the final merger terms was __________ until midnight.'",
+                "options": {
+                    "a": "touch and go",
+                    "b": "safe and sound",
+                    "c": "bits and pieces"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Touch and go' describes a precarious situation with an uncertain outcome.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 12,
+                "section": "3. Connecting Pillars & Expressions",
+                "question": "Select the expression: '__________, the strategic initiative achieved all its core objectives.'",
+                "options": {
+                    "a": "By and large",
+                    "b": "Short and sweet",
+                    "c": "Now and then"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'By and large' means overall, generally speaking, or considering everything.",
+                "audio_prompt": ""
+            },
+
+            # SECTION 4: Listening to Spoken English (4 Audio Clips)
+            {
+                "id": 13,
+                "section": "4. Listening to Spoken English",
+                "question": "Listen to Audio Clip 1. What strategic advice is given?",
+                "options": {
+                    "a": "Accelerate delivery without testing.",
+                    "b": "Adopt a phased implementation model to mitigate operational risk.",
+                    "c": "Cancel the agreement immediately."
+                },
+                "answer": "b",
+                "explanation": "<b>Correct: Option B</b><br>The speaker says: <i>'I would recommend adopting a phased implementation model to mitigate operational risk.'</i>",
+                "audio_prompt": "I would recommend adopting a phased implementation model to mitigate operational risk."
+            },
+            {
+                "id": 14,
+                "section": "4. Listening to Spoken English",
+                "question": "Listen to Audio Clip 2. What diplomatic refusal is stated?",
+                "options": {
+                    "a": "While we appreciate the proposal, current budget constraints prevent us from adopting it.",
+                    "b": "We refuse all vendor proposals indefinitely.",
+                    "c": "We have unlimited budget for this expansion."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'While we appreciate the proposal, current budget constraints prevent us from adopting it at this time.'</i>",
+                "audio_prompt": "While we appreciate the proposal, current budget constraints prevent us from adopting it at this time."
+            },
+            {
+                "id": 15,
+                "section": "4. Listening to Spoken English",
+                "question": "Listen to Audio Clip 3. What summary point is emphasized?",
+                "options": {
+                    "a": "The success of this project boils down to our team's collective commitment.",
+                    "b": "The project failed completely.",
+                    "c": "The timeline is extended by five years."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'Ultimately, the success of this project boils down to our team's collective commitment.'</i>",
+                "audio_prompt": "Ultimately, the success of this project boils down to our team's collective commitment."
+            },
+            {
+                "id": 16,
+                "section": "4. Listening to Spoken English",
+                "question": "Listen to Audio Clip 4. What priority is highlighted?",
+                "options": {
+                    "a": "First and foremost, we must align our stakeholders before final execution.",
+                    "b": "Disregard stakeholder feedback.",
+                    "c": "Postpone the product launch indefinitely."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'First and foremost, we must align all executive stakeholders before final execution.'</i>",
+                "audio_prompt": "First and foremost, we must align all executive stakeholders before final execution."
+            },
+
+            # SECTION 5: Real-Life Telugu ➔ English Translation & Guidance (4 Scenarios)
+            {
+                "id": 17,
+                "section": "5. Real-Life Telugu ➔ English Translation",
+                "question": "Translate Scenario 1:<br><br><b>Telugu:</b> \"ఈ ఒప్పందంలో కొన్ని మార్పులు చేస్తే బాగుంటుంది.\"<br><i>(Literal attempt: \"In this agreement some changes if do good.\")</i>",
+                "options": {
+                    "a": "In this agreement some changes if do good.",
+                    "b": "It would be advantageous to incorporate a few revisions into this agreement.",
+                    "c": "Agreement changes doing good."
+                },
+                "answer": "b",
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use executive modal diplomacy ('It would be advantageous to incorporate...') instead of literal translations.<br><br><b>Natural Version:</b> <i>\"It would be advantageous to incorporate a few revisions into this agreement.\"</i>",
+                "audio_prompt": "It would be advantageous to incorporate a few revisions into this agreement."
+            },
+            {
+                "id": 18,
+                "section": "5. Real-Life Telugu ➔ English Translation",
+                "question": "Translate Scenario 2:<br><br><b>Telugu:</b> \"మీ ఆలోచన బాగుంది కానీ మన బడ్జెట్ దానికి అనుమతించదు.\"<br><i>(Literal attempt: \"Your thought good but our budget to that not allow.\")</i>",
+                "options": {
+                    "a": "Your thought good but our budget to that not allow.",
+                    "b": "While your proposal is insightful, our current budget constraints prevent us from adopting it.",
+                    "c": "Good idea but budget zero."
+                },
+                "answer": "b",
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use diplomatic contrast ('While your proposal is insightful...') to decline constructively.<br><br><b>Natural Version:</b> <i>\"While your proposal is insightful, our current budget constraints prevent us from adopting it.\"</i>",
+                "audio_prompt": "While your proposal is insightful, our current budget constraints prevent us from adopting it."
+            },
+            {
+                "id": 19,
+                "section": "5. Real-Life Telugu ➔ English Translation",
+                "question": "Translate Scenario 3:<br><br><b>Telugu:</b> \"ముందుగా సమస్య యొక్క మూలకారణాన్ని కనుగొనాలి.\"<br><i>(Literal attempt: \"First problem root cause finding wanted.\")</i>",
+                "options": {
+                    "a": "First problem root cause finding wanted.",
+                    "b": "First and foremost, we must identify the root cause of the issue.",
+                    "c": "Problem main reason seeing first."
+                },
+                "answer": "b",
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use the executive connecting pillar 'First and foremost' and 'identify the root cause'.<br><br><b>Natural Version:</b> <i>\"First and foremost, we must identify the root cause of the issue.\"</i>",
+                "audio_prompt": "First and foremost, we must identify the root cause of the issue."
+            },
+            {
+                "id": 20,
+                "section": "5. Real-Life Telugu ➔ English Translation",
+                "question": "Translate Scenario 4:<br><br><b>Telugu:</b> \"ఈ ప్రాజెక్ట్ విజయవంతం కావడం మన టీమ్ శ్రమపైనే ఆధారపడి ఉంది.\"<br><i>(Literal attempt: \"This project success becoming our team hard work depending.\")</i>",
+                "options": {
+                    "a": "This project success becoming our team hard work depending.",
+                    "b": "Ultimately, the success of this project boils down to our team's collective effort.",
+                    "c": "Project pass team working hard."
+                },
+                "answer": "b",
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Use 'boils down to' and 'collective effort' for polished leadership summaries.<br><br><b>Natural Version:</b> <i>\"Ultimately, the success of this project boils down to our team's collective effort.\"</i>",
+                "audio_prompt": "Ultimately, the success of this project boils down to our team's collective effort."
+            }
+        ]
+        return word_info, concept_overview, why_important, questions
+
+    else:
+        # Beginner Track (Default)
+        word_info = {
+            "word": "Run errands",
+            "meaning": "Do short daily trips to accomplish chores",
+            "usage": "I need to run a few errands at the market before dinner."
+        }
+        concept_overview = "Day 1: Everyday Home Routines, Easy Phrasal Verbs & Connecting Pillars"
+        why_important = "Mastering daily routine expressions and connecting pillars (like 'short and sweet') helps you express thoughts naturally without hesitation during everyday conversations."
+
+        questions = [
+            # SECTION 1: Daily Routine & Habits (4 MCQs)
+            {
+                "id": 1,
+                "section": "1. Daily Routine & Habits",
+                "question": "When talking about your morning schedule, which sentence is grammatically correct?",
+                "options": {
+                    "a": "I am usually wake up at 6 AM every morning.",
+                    "b": "I usually wake up at 6 AM every morning.",
+                    "c": "I usually wakes up at 6 AM every morning."
+                },
+                "answer": "b",
+                "explanation": "<b>Correct: Option B</b><br>Habitual daily routines take the Simple Present tense (<i>I usually wake up</i>). Never pair 'am' directly with a base verb like 'am wake'.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 2,
+                "section": "1. Daily Routine & Habits",
+                "question": "Which response is natural when someone asks what you are currently doing at home?",
+                "options": {
+                    "a": "I am tidying up the living room right now.",
+                    "b": "I tidying up the living room right now.",
+                    "c": "I am tidy up the living room right now."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>Ongoing actions right now require the Present Continuous form (<i>am/is/are + verb-ing</i>).",
+                "audio_prompt": ""
+            },
+            {
+                "id": 3,
+                "section": "1. Daily Routine & Habits",
+                "question": "Complete the sentence: 'My sister __________ a cup of warm tea every morning before breakfast.'",
+                "options": {
+                    "a": "drink",
+                    "b": "drinks",
+                    "c": "is drink"
+                },
+                "answer": "b",
+                "explanation": "<b>Correct: Option B</b><br>Singular third-person subjects ('My sister') require an <i>-s</i> ending on base verbs in the Simple Present (<i>drinks</i>).",
+                "audio_prompt": ""
+            },
+            {
+                "id": 4,
+                "section": "1. Daily Routine & Habits",
+                "question": "How do you correctly describe a past action finished yesterday morning?",
+                "options": {
+                    "a": "Yesterday morning, I prepared breakfast for my family.",
+                    "b": "Yesterday morning, I have prepared breakfast for my family.",
+                    "c": "Yesterday morning, I am prepare breakfast for my family."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>Definite past markers like 'Yesterday morning' mandate the Simple Past tense (<i>prepared</i>).",
+                "audio_prompt": ""
+            },
+
+            # SECTION 2: Everyday Easy Vocabulary & Phrasal Verbs (4 MCQs)
+            {
+                "id": 5,
+                "section": "2. Everyday Easy Vocabulary",
+                "question": f"What is the easy daily meaning of the phrase '{word_info['word']}'?",
+                "options": {
+                    "a": "To run fast in an athletic race.",
+                    "b": f"{word_info['meaning']}.",
+                    "c": "To cancel all daily plans."
+                },
+                "answer": "b",
+                "explanation": f"<b>Correct: Option B</b><br>'{word_info['word']}' means: {word_info['meaning']}. Example: <i>\"{word_info['usage']}\"</i>",
+                "audio_prompt": ""
+            },
+            {
+                "id": 6,
+                "section": "2. Everyday Easy Vocabulary",
+                "question": "Choose the phrase that fits: 'I'm sorry for the delay, fresh milk was __________ at the grocery store.'",
+                "options": {
+                    "a": "out of stock",
+                    "b": "running late",
+                    "c": "tidy up"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Out of stock' means goods or products are temporarily unavailable for purchase.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 7,
+                "section": "2. Everyday Easy Vocabulary",
+                "question": "What does the phrasal verb 'Freshen up' mean when returning home from work?",
+                "options": {
+                    "a": "To cook a heavy meal.",
+                    "b": "To wash your hands/face and change into comfortable clothes.",
+                    "c": "To clean the whole house."
+                },
+                "answer": "b",
+                "explanation": "<b>Correct: Option B</b><br>'Freshen up' means quickly washing and relaxing after returning home.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 8,
+                "section": "2. Everyday Easy Vocabulary",
+                "question": "Select the correct term: 'Let's __________ for a quick cup of tea this evening.'",
+                "options": {
+                    "a": "catch up",
+                    "b": "catch out",
+                    "c": "catch off"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Catch up' means meeting someone to chat and share recent news.",
+                "audio_prompt": ""
+            },
+
+            # SECTION 3: Connecting Pillars & Everyday Expressions (4 MCQs)
+            {
+                "id": 9,
+                "section": "3. Connecting Pillars & Expressions",
+                "question": "Complete the daily sentence: 'Keep the morning family update __________ so we aren't late for school.'",
+                "options": {
+                    "a": "short and sweet",
+                    "b": "bits and pieces",
+                    "c": "bells and whistles"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Short and sweet' is a connecting pillar meaning brief, pleasant, and direct without wasting time.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 10,
+                "section": "3. Connecting Pillars & Expressions",
+                "question": "Which connecting pillar fits best: 'After cleaning the living room, the whole house is __________.'",
+                "options": {
+                    "a": "spick and span",
+                    "b": "short and sweet",
+                    "c": "elephant in the room"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Spick and span' is an everyday connecting pillar meaning completely neat, spotless, and tidy.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 11,
+                "section": "3. Connecting Pillars & Expressions",
+                "question": "Choose the correct expression: 'I picked up a few __________ from the market for dinner.'",
+                "options": {
+                    "a": "bits and pieces",
+                    "b": "touch and go",
+                    "c": "safe and sound"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Bits and pieces' refers to small individual items or small household purchases.",
+                "audio_prompt": ""
+            },
+            {
+                "id": 12,
+                "section": "3. Connecting Pillars & Expressions",
+                "question": "Select the expression: 'Despite heavy evening traffic, my family arrived home __________.'",
+                "options": {
+                    "a": "safe and sound",
+                    "b": "short and sweet",
+                    "c": "ups and downs"
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>'Safe and sound' means arriving safely without any harm or injury.",
+                "audio_prompt": ""
+            },
+
+            # SECTION 4: Listening to Spoken English (4 Audio Clips)
+            {
+                "id": 13,
+                "section": "4. Listening to Spoken English",
+                "question": "Listen to Audio Clip 1. What is the speaker asking you to do?",
+                "options": {
+                    "a": "Stop testing immediately.",
+                    "b": "Pick up a fresh packet of tea from the store on your way home.",
+                    "c": "Cancel tomorrow's grocery list."
+                },
+                "answer": "b",
+                "explanation": "<b>Correct: Option B</b><br>The speaker says: <i>'Could you please pick up a fresh packet of tea from the store on your way home?'</i>",
+                "audio_prompt": "Could you please pick up a fresh packet of tea from the store on your way home?"
+            },
+            {
+                "id": 14,
+                "section": "4. Listening to Spoken English",
+                "question": "Listen to Audio Clip 2. What is the main instruction?",
+                "options": {
+                    "a": "The speaker will drop by your home around 6:00 PM today.",
+                    "b": "The speaker wants to reschedule for next month.",
+                    "c": "The speaker is asking for directions to the airport."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'Hey! I will drop by your place this evening around 6:00 PM for a quick chat.'</i>",
+                "audio_prompt": "Hey! I will drop by your place this evening around 6:00 PM for a quick chat."
+            },
+            {
+                "id": 15,
+                "section": "4. Listening to Spoken English",
+                "question": "Listen to Audio Clip 3. What does the phrase 'Let's call it a day' mean in this dialogue?",
+                "options": {
+                    "a": "Check the date on the wall calendar.",
+                    "b": "Stop working on the task for today and rest.",
+                    "c": "Work late into the night."
+                },
+                "answer": "b",
+                "explanation": "<b>Correct: Option B</b><br>'Let's call it a day' is an everyday idiom meaning we have finished work for today.",
+                "audio_prompt": "We have made great progress on the chores! Let us call it a day and continue tomorrow morning."
+            },
+            {
+                "id": 16,
+                "section": "4. Listening to Spoken English",
+                "question": "Listen to Audio Clip 4. What reminder is given?",
+                "options": {
+                    "a": "Take an umbrella because dark clouds are gathering.",
+                    "b": "Stay indoors all weekend.",
+                    "c": "Buy a new raincoat online."
+                },
+                "answer": "a",
+                "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'Don't forget your umbrella, it looks like rain this afternoon!'</i>",
+                "audio_prompt": "Don't forget your umbrella when you step out, it looks like rain this afternoon!"
+            },
+
+            # SECTION 5: Real-Life Telugu ➔ English Translation & Guidance (4 Scenarios)
+            {
+                "id": 17,
+                "section": "5. Real-Life Telugu ➔ English Translation",
+                "question": "Translate Scenario 1:<br><br><b>Telugu:</b> \"నేను సాధారణంగా ఉదయం 6 గంటలకే నిద్రలేచి, ఒక కప్పు టీ తాగుతాను.\"<br><i>(Literal attempt: \"I generally in morning at 6 clock wake up and drink one cup tea.\")</i>",
+                "options": {
+                    "a": "I generally in morning at 6 clock wake up and drink one cup tea.",
+                    "b": "I usually wake up at 6:00 AM and have a cup of tea.",
+                    "c": "I morning wake up and tea drinking."
+                },
+                "answer": "b",
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>In English, say 'have a cup of tea' and specify time as '6:00 AM'.<br><br><b>Natural Version:</b> <i>\"I usually wake up at 6:00 AM and have a cup of tea.\"</i>",
+                "audio_prompt": "Natural English phrasing: I usually wake up at 6:00 AM and have a cup of tea."
+            },
+            {
+                "id": 18,
+                "section": "5. Real-Life Telugu ➔ English Translation",
+                "question": "Translate Scenario 2:<br><br><b>Telugu:</b> \"ఈ టమాటాలు కేజీ ఎంత? కొంచెం తాజావి ఏరి ఇవ్వండి.\"<br><i>(Literal attempt: \"These tomatoes kg how much? Pick and give fresh ones.\")</i>",
+                "options": {
+                    "a": "These tomatoes kg how much? Pick and give fresh ones.",
+                    "b": "How much are these tomatoes per kilo? Please pick out some fresh ones for me.",
+                    "c": "What is price for tomatoes giving?"
+                },
+                "answer": "b",
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Avoid literal word-by-word translation. Use 'per kilo' for price by weight, and 'pick out' for selecting fresh produce.<br><br><b>Natural Version:</b> <i>\"How much are these tomatoes per kilo? Please pick out some fresh ones for me.\"</i>",
+                "audio_prompt": "How much are these tomatoes per kilo? Please pick out some fresh ones for me."
+            },
+            {
+                "id": 19,
+                "section": "5. Real-Life Telugu ➔ English Translation",
+                "question": "Translate Scenario 3:<br><br><b>Telugu:</b> \"అన్నా, బస్టాండ్ దగ్గర డ్రాప్ చేయండి, ఎంత అవుతుంది?\"<br><i>(Literal attempt: \"Brother, near bus stand drop me, how much will become?\")</i>",
+                "options": {
+                    "a": "Brother, near bus stand drop me, how much will become?",
+                    "b": "Please drop me off near the bus stand. How much is the fare?",
+                    "c": "Drop bus stand how much cost becoming?"
+                },
+                "answer": "b",
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>Avoid 'how much will become' (a common Telugu-ism). Use 'How much is the fare?' or 'What will it cost?'.<br><br><b>Natural Version:</b> <i>\"Please drop me off near the bus stand. How much is the fare?\"</i>",
+                "audio_prompt": "Please drop me off near the bus stand. How much is the fare?"
+            },
+            {
+                "id": 20,
+                "section": "5. Real-Life Telugu ➔ English Translation",
+                "question": "Translate Scenario 4:<br><br><b>Telugu:</b> \"నాకు కొంచెం తలనొప్పిగా ఉంది, ఒక గంట సేపు రెస్ట్ తీసుకుంటాను.\"<br><i>(Literal attempt: \"To me little headache is there, I will take rest one hour.\")</i>",
+                "options": {
+                    "a": "To me little headache is there, I will take rest one hour.",
+                    "b": "I have a slight headache; I'm going to rest for an hour.",
+                    "c": "My head is hurting small, resting one hour."
+                },
+                "answer": "b",
+                "explanation": "<b>Natural Phrasing & Guidance:</b><br>In English, say 'I have a slight headache' rather than 'to me headache is there'. Also say 'rest for an hour'.<br><br><b>Natural Version:</b> <i>\"I have a slight headache; I'm going to rest for an hour.\"</i>",
+                "audio_prompt": "I have a slight headache; I'm going to rest for an hour."
+            }
+        ]
+        return word_info, concept_overview, why_important, questions
 
 def build_standalone_html(level, day_num, word_info, concept_overview, why_important, questions):
     today_str = datetime.utcnow().strftime("%Y-%m-%d")
