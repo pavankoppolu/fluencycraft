@@ -27,15 +27,17 @@ def get_next_day_num(level_dir):
         return 1
     return max(day_nums) + 1
 
-def generate_test_for_day(level, day_num, curriculum):
+def generate_20_questions_for_day(level, day_num, curriculum):
     roadmap = curriculum.get("curriculum_roadmap", [])
     words_of_day = curriculum.get("words_of_the_day", [])
 
     theme_idx = (day_num - 1) % len(roadmap) if roadmap else 0
     theme_info = roadmap[theme_idx] if roadmap else {
         "theme": "Morning & Home Routines",
-        "scenario": "Daily habits, home conversations",
-        "vocabulary": ["Run errands", "Freshen up", "Tidy up"],
+        "scenario": "Waking up, making tea/breakfast, getting kids ready",
+        "vocabulary": ["Early riser", "Freshen up", "Running late", "Tidy up"],
+        "concept_overview": "Simple Present Tense for Daily Habits & Phrasal Verbs",
+        "why_important": "Mastering daily routine expressions enables you to describe your schedule naturally, eliminate hesitation during everyday chats, and build core conversational confidence.",
         "telugu_translation": {
             "telugu": "నేను సాధారణంగా ఉదయం 6 గంటలకే నిద్రలేచి, ఒక కప్పు టీ తాగుతాను.",
             "literal": "I generally in morning at 6 clock wake up and drink one cup tea.",
@@ -47,130 +49,236 @@ def generate_test_for_day(level, day_num, curriculum):
     word_info = words_of_day[theme_idx] if words_of_day else {
         "word": "Run errands",
         "meaning": "Do short daily trips to accomplish chores",
-        "usage": "I need to run a few errands before dinner."
+        "usage": "I need to run a few errands at the market before dinner."
     }
 
+    concept_overview = theme_info.get("concept_overview", f"Day {day_num}: {theme_info['theme']} & Everyday Vocabulary")
+    why_important = theme_info.get("why_important", "Developing automatic recall of everyday phrases improves your speaking speed, listening clarity, and overall English fluency in real-life situations.")
     telugu_data = theme_info.get("telugu_translation", {})
+    vocab = theme_info.get("vocabulary", ["Run errands", "Freshen up", "Tidy up", "Out of stock"])
 
-    # Generate 5-part interactive questions
     questions = [
-        # Section 1: Daily Routine & Habits (2 MCQs)
+        # SECTION 1: Daily Routine & Habits (4 MCQs)
         {
             "id": 1,
             "section": "1. Daily Routine & Habits",
-            "question": f"In your daily routine ({theme_info['theme']}), which sentence is grammatically natural?",
+            "question": f"When talking about your everyday schedule ({theme_info['theme']}), which sentence is grammatically correct?",
             "options": {
-                "a": f"I am usually {theme_info['vocabulary'][0].lower()} every morning.",
-                "b": f"I usually {theme_info['vocabulary'][0].lower()} every morning.",
-                "c": f"I usually {theme_info['vocabulary'][0].lower()}s every morning."
+                "a": f"I am usually {vocab[0].lower()} every morning.",
+                "b": f"I usually {vocab[0].lower()} every morning.",
+                "c": f"I usually {vocab[0].lower()}s every morning."
             },
             "answer": "b",
-            "explanation": f"<b>Correct: Option B</b><br>Habitual daily actions take the Simple Present tense (<i>I usually {theme_info['vocabulary'][0].lower()}</i>). Never pair 'am' directly with a base action verb.",
+            "explanation": f"<b>Correct: Option B</b><br>Habitual daily routines take the Simple Present tense (<i>I usually {vocab[0].lower()}</i>). Never pair 'am' directly with a base verb like 'am wake'.",
             "audio_prompt": ""
         },
         {
             "id": 2,
             "section": "1. Daily Routine & Habits",
-            "question": "When describing an action you are doing at home right now, select the correct response:",
+            "question": "Which response is natural when someone asks what you are currently doing at home?",
             "options": {
-                "a": "I am tidying up the living room right now.",
-                "b": "I tidying up the living room right now.",
-                "c": "I am tidy up the living room right now."
+                "a": "I am tidying up the kitchen right now.",
+                "b": "I tidying up the kitchen right now.",
+                "c": "I am tidy up the kitchen right now."
             },
             "answer": "a",
-            "explanation": "<b>Correct: Option A</b><br>Actions in progress require the Present Continuous form (<i>am + verb-ing</i>).",
+            "explanation": "<b>Correct: Option A</b><br>Ongoing actions right now require the Present Continuous form (<i>am/is/are + verb-ing</i>).",
+            "audio_prompt": ""
+        },
+        {
+            "id": 3,
+            "section": "1. Daily Routine & Habits",
+            "question": "Complete the sentence: 'My sister __________ a cup of warm water every morning before breakfast.'",
+            "options": {
+                "a": "drink",
+                "b": "drinks",
+                "c": "is drink"
+            },
+            "answer": "b",
+            "explanation": "<b>Correct: Option B</b><br>Singular third-person subjects ('My sister') require an <i>-s</i> ending on base verbs in the Simple Present (<i>drinks</i>).",
+            "audio_prompt": ""
+        },
+        {
+            "id": 4,
+            "section": "1. Daily Routine & Habits",
+            "question": "How do you correctly describe a past action finished yesterday morning?",
+            "options": {
+                "a": "Yesterday morning, I prepared breakfast for my family.",
+                "b": "Yesterday morning, I have prepared breakfast for my family.",
+                "c": "Yesterday morning, I am prepare breakfast for my family."
+            },
+            "answer": "a",
+            "explanation": "<b>Correct: Option A</b><br>Definite past markers like 'Yesterday morning' mandate the Simple Past tense (<i>prepared</i>), not the Present Perfect.",
             "audio_prompt": ""
         },
 
-        # Section 2: Everyday Vocabulary & Word Match (2 MCQs)
+        # SECTION 2: Everyday Vocabulary & Word Match (4 MCQs)
         {
-            "id": 3,
+            "id": 5,
             "section": "2. Everyday Vocabulary & Word Match",
-            "question": f"What does the phrase '{word_info['word']}' mean in daily conversation?",
+            "question": f"What is the exact practical meaning of the phrase '{word_info['word']}'?",
             "options": {
-                "a": f"To run fast in a race.",
+                "a": "To sprint quickly in a athletic race.",
                 "b": f"{word_info['meaning']}.",
-                "c": "To cancel all daily plans."
+                "c": "To cancel all daily appointments."
             },
             "answer": "b",
             "explanation": f"<b>Correct: Option B</b><br>'{word_info['word']}' means: {word_info['meaning']}. Example: <i>\"{word_info['usage']}\"</i>",
             "audio_prompt": ""
         },
         {
-            "id": 4,
+            "id": 6,
             "section": "2. Everyday Vocabulary & Word Match",
-            "question": f"Which term best fits: 'Sorry I'm late, fresh vegetables were __________ at the market.'",
+            "question": f"Choose the phrase that fits: 'I'm sorry for the delay, fresh milk was __________ at the grocery store.'",
             "options": {
                 "a": "out of stock",
-                "b": "run errands",
-                "c": "drop by"
+                "b": "running late",
+                "c": "tidy up"
             },
             "answer": "a",
-            "explanation": "<b>Correct: Option A</b><br>'Out of stock' means goods or produce are temporarily unavailable in store.",
+            "explanation": "<b>Correct: Option A</b><br>'Out of stock' means goods or products are temporarily unavailable for purchase.",
+            "audio_prompt": ""
+        },
+        {
+            "id": 7,
+            "section": "2. Everyday Vocabulary & Word Match",
+            "question": "What does the phrasal verb 'Freshen up' mean when returning home from work?",
+            "options": {
+                "a": "To cook a heavy meal.",
+                "b": "To wash your hands/face and change into comfortable clothes.",
+                "c": "To clean the whole house."
+            },
+            "answer": "b",
+            "explanation": "<b>Correct: Option B</b><br>'Freshen up' means quickly washing and relaxing after travel or work.",
+            "audio_prompt": ""
+        },
+        {
+            "id": 8,
+            "section": "2. Everyday Vocabulary & Word Match",
+            "question": "Select the correct term: 'Let's __________ for a quick cup of coffee after work.'",
+            "options": {
+                "a": "catch up",
+                "b": "catch out",
+                "c": "catch off"
+            },
+            "answer": "a",
+            "explanation": "<b>Correct: Option A</b><br>'Catch up' means meeting someone to exchange recent news and talk.",
             "audio_prompt": ""
         },
 
-        # Section 3: Listening to Spoken English (2 Audio Clips)
+        # SECTION 3: Listening to Spoken English (4 Audio Clips)
         {
-            "id": 5,
+            "id": 9,
             "section": "3. Listening to Spoken English",
-            "question": "Listen to the audio clip. What is the speaker requesting you to do?",
+            "question": "Listen to Audio Clip 1. What is the speaker asking you to do?",
             "options": {
-                "a": "Stop what you are doing and leave immediately.",
+                "a": "Stop testing immediately.",
                 "b": "Pick up a fresh packet of tea from the store on your way home.",
-                "c": "Call a taxi for tomorrow morning."
+                "c": "Cancel tomorrow's grocery list."
             },
             "answer": "b",
-            "explanation": "<b>Correct: Option B</b><br>The speaker asks: <i>'Could you please pick up a fresh packet of tea from the store on your way home?'</i>",
+            "explanation": "<b>Correct: Option B</b><br>The speaker says: <i>'Could you please pick up a fresh packet of tea from the store on your way home?'</i>",
             "audio_prompt": "Could you please pick up a fresh packet of tea from the store on your way home?"
         },
         {
-            "id": 6,
+            "id": 10,
             "section": "3. Listening to Spoken English",
-            "question": "Listen to the second audio clip. What is the core message?",
+            "question": "Listen to Audio Clip 2. What is the main instruction?",
             "options": {
-                "a": "The speaker wants to drop by your place this evening for a quick chat.",
-                "b": "The speaker is cancelling all plans for the week.",
-                "c": "The speaker is asking for directions to the bus station."
+                "a": "The speaker will drop by your home around 6:00 PM today.",
+                "b": "The speaker wants to reschedule for next month.",
+                "c": "The speaker is asking for directions to the airport."
             },
             "answer": "a",
-            "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'Hey! I'll drop by your place this evening around 6:00 PM for a quick chat.'</i>",
+            "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'Hey! I will drop by your place this evening around 6:00 PM for a quick chat.'</i>",
             "audio_prompt": "Hey! I will drop by your place this evening around 6:00 PM for a quick chat."
         },
-
-        # Section 4: Polite Social Expressions (2 MCQs)
         {
-            "id": 7,
-            "section": "4. Polite Social Expressions",
-            "question": "How should you politely ask a neighbor or colleague for assistance?",
+            "id": 11,
+            "section": "3. Listening to Spoken English",
+            "question": "Listen to Audio Clip 3. What does the phrase 'Let's call it a day' mean in this dialogue?",
+            "options": {
+                "a": "Check the date on the wall calendar.",
+                "b": "Stop working on the task for today and rest.",
+                "c": "Work late into the night."
+            },
+            "answer": "b",
+            "explanation": "<b>Correct: Option B</b><br>'Let's call it a day' is an everyday idiom meaning we have finished work for today.",
+            "audio_prompt": "We have made great progress on the chores! Let us call it a day and continue tomorrow morning."
+        },
+        {
+            "id": 12,
+            "section": "3. Listening to Spoken English",
+            "question": "Listen to Audio Clip 4. What reminder is given?",
+            "options": {
+                "a": "Take an umbrella because dark clouds are gathering.",
+                "b": "Stay indoors all weekend.",
+                "c": "Buy a new raincoat online."
+            },
+            "answer": "a",
+            "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'Don't forget your umbrella, it looks like rain this afternoon!'</i>",
+            "audio_prompt": "Don't forget your umbrella when you step out, it looks like rain this afternoon!"
+        },
+
+        # SECTION 4: Polite Social Expressions & Etiquette (4 MCQs)
+        {
+            "id": 13,
+            "section": "4. Polite Social Expressions & Etiquette",
+            "question": "How should you politely ask a friend or neighbor to lend a helping hand?",
             "options": {
                 "a": "Give me help right now.",
                 "b": "Could you please lend me a hand with this for a minute?",
                 "c": "You must assist me."
             },
             "answer": "b",
-            "explanation": "<b>Correct: Option B</b><br>'Lend a hand' is a courteous, friendly idiom for asking for assistance politely.",
+            "explanation": "<b>Correct: Option B</b><br>'Could you please lend me a hand...' is polite, warm, and natural.",
             "audio_prompt": ""
         },
         {
-            "id": 8,
-            "section": "4. Polite Social Expressions",
-            "question": "Choose the most polite way to decline an invitation when you are busy:",
+            "id": 14,
+            "section": "4. Polite Social Expressions & Etiquette",
+            "question": "Choose the most courteous sign-off when sending a note to a colleague or neighbor:",
             "options": {
-                "a": "I would love to come, but I have a prior commitment.",
-                "b": "No, I am not coming to your house.",
-                "c": "Don't invite me today."
+                "a": "Please find attached the requested document. Thank you!",
+                "b": "I put the paper here see it.",
+                "c": "Look at this attached inside."
             },
             "answer": "a",
-            "explanation": "<b>Correct: Option A</b><br>'I would love to come, but...' acknowledges the invitation warmly while declining politely.",
+            "explanation": "<b>Correct: Option A</b><br>Standard, polite phrasing universally accepted across personal and professional writing.",
+            "audio_prompt": ""
+        },
+        {
+            "id": 15,
+            "section": "4. Polite Social Expressions & Etiquette",
+            "question": "Which response is best when someone offers you tea, but you have already had some?",
+            "options": {
+                "a": "I don't want your tea.",
+                "b": "Thank you so much, but I've just had a cup!",
+                "c": "No give to someone else."
+            },
+            "answer": "b",
+            "explanation": "<b>Correct: Option B</b><br>Appreciates the offer warmly while declining politely.",
+            "audio_prompt": ""
+        },
+        {
+            "id": 16,
+            "section": "4. Polite Social Expressions & Etiquette",
+            "question": "How do you politely ask a driver where they are dropping you off?",
+            "options": {
+                "a": "Where are you taking me?",
+                "b": "Could you please drop me off near the landmark ahead?",
+                "c": "Stop the vehicle immediately."
+            },
+            "answer": "b",
+            "explanation": "<b>Correct: Option B</b><br>'Drop me off near...' is the standard phrasing for rides and commutes.",
             "audio_prompt": ""
         },
 
-        # Section 5: Real-Life Telugu ➔ English Translation (1 Interactive Scenario)
+        # SECTION 5: Real-Life Telugu ➔ English Translation & AI Feedback (4 Scenarios)
         {
-            "id": 9,
+            "id": 17,
             "section": "5. Real-Life Telugu ➔ English Translation",
-            "question": f"Translate this Telugu daily scenario to natural conversational English:<br><br><b>Telugu:</b> \"{telugu_data.get('telugu', '')}\"<br><i>(Literal attempt: \"{telugu_data.get('literal', '')}\")</i>",
+            "question": f"Translate Scenario 1:<br><br><b>Telugu:</b> \"{telugu_data.get('telugu', '')}\"<br><i>(Literal attempt: \"{telugu_data.get('literal', '')}\")</i>",
             "options": {
                 "a": f"{telugu_data.get('literal', '')}",
                 "b": f"{telugu_data.get('polished', '')}",
@@ -179,10 +287,49 @@ def generate_test_for_day(level, day_num, curriculum):
             "answer": "b",
             "explanation": f"<b>AI Feedback & Scoring (9/10):</b><br>{telugu_data.get('feedback', '')}<br><br><b>Natural Version:</b> <i>\"{telugu_data.get('polished', '')}\"</i>",
             "audio_prompt": f"Natural English phrasing: {telugu_data.get('polished', '')}"
+        },
+        {
+            "id": 18,
+            "section": "5. Real-Life Telugu ➔ English Translation",
+            "question": "Translate Scenario 2:<br><br><b>Telugu:</b> \"ఈ టమాటాలు కేజీ ఎంత? కొంచెం తాజావి ఏరి ఇవ్వండి.\"<br><i>(Literal attempt: \"These tomatoes kg how much? Pick and give fresh ones.\")</i>",
+            "options": {
+                "a": "These tomatoes kg how much? Pick and give fresh ones.",
+                "b": "How much are these tomatoes per kilo? Please pick out some fresh ones for me.",
+                "c": "What is price for tomatoes giving?"
+            },
+            "answer": "b",
+            "explanation": "<b>AI Feedback & Scoring (9/10):</b><br>Avoid literal word-by-word translation. Use 'per kilo' for price by weight, and 'pick out' for selecting fresh produce.<br><br><b>Natural Version:</b> <i>\"How much are these tomatoes per kilo? Please pick out some fresh ones for me.\"</i>",
+            "audio_prompt": "How much are these tomatoes per kilo? Please pick out some fresh ones for me."
+        },
+        {
+            "id": 19,
+            "section": "5. Real-Life Telugu ➔ English Translation",
+            "question": "Translate Scenario 3:<br><br><b>Telugu:</b> \"అన్నా, బస్టాండ్ దగ్గర డ్రాప్ చేయండి, ఎంత అవుతుంది?\"<br><i>(Literal attempt: \"Brother, near bus stand drop me, how much will become?\")</i>",
+            "options": {
+                "a": "Brother, near bus stand drop me, how much will become?",
+                "b": "Please drop me off near the bus stand. How much is the fare?",
+                "c": "Drop bus stand how much cost becoming?"
+            },
+            "answer": "b",
+            "explanation": "<b>AI Feedback & Scoring (10/10):</b><br>Avoid 'how much will become' (a common Telugu-ism). Use 'How much is the fare?' or 'What will it cost?'.<br><br><b>Natural Version:</b> <i>\"Please drop me off near the bus stand. How much is the fare?\"</i>",
+            "audio_prompt": "Please drop me off near the bus stand. How much is the fare?"
+        },
+        {
+            "id": 20,
+            "section": "5. Real-Life Telugu ➔ English Translation",
+            "question": "Translate Scenario 4:<br><br><b>Telugu:</b> \"నాకు కొంచెం తలనొప్పిగా ఉంది, ఒక గంట సేపు రెస్ట్ తీసుకుంటాను.\"<br><i>(Literal attempt: \"To me little headache is there, I will take rest one hour.\")</i>",
+            "options": {
+                "a": "To me little headache is there, I will take rest one hour.",
+                "b": "I have a slight headache; I'm going to rest for an hour.",
+                "c": "My head is hurting small, resting one hour."
+            },
+            "answer": "b",
+            "explanation": "<b>AI Feedback & Scoring (10/10):</b><br>In English, say 'I have a slight headache' rather than 'to me headache is there'. Also say 'rest for an hour'.<br><br><b>Natural Version:</b> <i>\"I have a slight headache; I'm going to rest for an hour.\"</i>",
+            "audio_prompt": "I have a slight headache; I'm going to rest for an hour."
         }
     ]
 
-    return word_info, questions
+    return word_info, concept_overview, why_important, questions
 
 def main():
     curriculum = load_curriculum()
@@ -193,13 +340,15 @@ def main():
         level_dir = os.path.join(root_dir, level)
         day_num = get_next_day_num(level_dir)
 
-        word_info, questions = generate_test_for_day(level, day_num, curriculum)
+        word_info, concept_overview, why_important, questions = generate_20_questions_for_day(level, day_num, curriculum)
 
         test_data = {
             "day": day_num,
             "date": today_str,
             "level": level,
             "title": f"FluencyCraft Everyday English - Day {day_num:02d}",
+            "concept_overview": concept_overview,
+            "why_important": why_important,
             "word_of_the_day": word_info,
             "total_questions": len(questions),
             "questions": questions
@@ -215,7 +364,7 @@ def main():
         with open(latest_path, "w", encoding="utf-8") as f:
             json.dump(test_data, f, indent=2, ensure_ascii=False)
 
-        print(f"[{level.upper()}] Generated {day_filename} and updated latest.json ({len(questions)} questions)")
+        print(f"[{level.upper()}] Generated {day_filename} and updated latest.json (20 questions)")
 
 if __name__ == "__main__":
     main()

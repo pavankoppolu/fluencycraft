@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FluencyCraft | Everyday English Mastery Studio</title>
-  <meta name="description" content="FluencyCraft - Daily AI-generated practical English scenarios, Telugu-to-English translation feedback, real-time immediate question evaluation, and Word of the Day.">
+  <title>FluencyCraft | Practical Everyday English Mastery Studio</title>
+  <meta name="description" content="FluencyCraft - Daily AI-generated practical English scenarios, concept focus overview, real-time Telugu-to-English translation feedback, and 20 interactive practice questions.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -32,17 +32,14 @@
       padding: 24px 16px;
     }
 
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-    }
+    .container { max-width: 860px; margin: 0 auto; }
 
     header {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 28px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       box-shadow: var(--card-shadow);
     }
 
@@ -90,7 +87,7 @@
       color: white;
       border-radius: 16px;
       padding: 24px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       box-shadow: 0 8px 16px rgba(5, 150, 105, 0.15);
     }
     .wod-header {
@@ -114,6 +111,40 @@
       justify-content: space-between;
       gap: 12px;
       flex-wrap: wrap;
+    }
+
+    /* Concept & Importance Banner */
+    .concept-card {
+      background: #eff6ff;
+      border-left: 5px solid #2563eb;
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--card-shadow);
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .concept-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #1e40af;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .concept-body {
+      font-size: 0.95rem;
+      color: #1e293b;
+      line-height: 1.5;
+    }
+    .importance-box {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed #bfdbfe;
+      font-size: 0.92rem;
+      color: #334155;
     }
 
     /* Section Title */
@@ -186,11 +217,7 @@
     .explanation.incorrect { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
 
     /* Actions Bar */
-    .actions-bar {
-      display: flex;
-      gap: 12px;
-      margin-top: 28px;
-    }
+    .actions-bar { display: flex; gap: 12px; margin-top: 28px; }
     button.submit-btn {
       flex: 2;
       background: var(--primary);
@@ -236,9 +263,9 @@
 <div class="container">
 
   <header>
-    <span class="badge"> Everyday Life Studio • Immediate Feedback</span>
+    <span class="badge"> Everyday Practical Studio • 20 Daily Questions</span>
     <h1>FluencyCraft: Practical Daily English</h1>
-    <p>Practice everyday routines, grocery shopping, travel queries, polite manners, and real-life Telugu-to-English translations with instant real-time AI feedback.</p>
+    <p>Construct clear communication through 20 real-world scenario questions covering daily routines, vocabulary, auditory prompts, polite social manners, and Telugu-to-English translations.</p>
 
     <div class="learner-name-wrap">
       <label for="learnerName">Learner's Name (Optional):</label>
@@ -257,18 +284,27 @@
     </div>
   </div>
 
+  <!-- Concept Covered Today & Why It Is Important -->
+  <div class="concept-card" id="conceptCard">
+    <div class="concept-title">📘 Today's Concept Focus: <span id="conceptTitle">Day 3: Travel, Autos & Cabs & Phrasal Verbs</span></div>
+    <div class="concept-body" id="conceptBody">Focusing on practical everyday travel queries, requesting drop-offs, asking fares politely, and using phrasal verbs.</div>
+    <div class="importance-box">
+      🎯 <b>Why this is important for your English skills:</b> <span id="importanceText">Developing automatic recall of everyday phrases improves your speaking speed, listening clarity, and overall English fluency in real-life situations.</span>
+    </div>
+  </div>
+
   <form id="quizForm">
-    <div id="questionsContainer">Loading today's practical test...</div>
+    <div id="questionsContainer">Loading today's 20 practical questions...</div>
 
     <div class="actions-bar">
-      <button type="button" id="submitBtn" class="submit-btn" onclick="evaluateFullQuiz()">Finish & View Total Score</button>
+      <button type="button" id="submitBtn" class="submit-btn" onclick="evaluateFullQuiz()">Finish & View Final Score</button>
       <button type="button" id="resetBtn" class="reset-btn" onclick="resetQuiz()">Reset Test</button>
     </div>
   </form>
 
   <div id="result-banner">
     <div id="result-title">Test Result</div>
-    <div id="result-score">0 / 9</div>
+    <div id="result-score">0 / 20</div>
     <div id="result-desc">Review your answers and detailed explanations above!</div>
   </div>
 
@@ -278,7 +314,6 @@
   let currentQuestions = [];
   const answerKeyMap = {};
   const userAnswersMap = {};
-  const STORAGE_KEY = 'fluencycraft_everyday_state';
 
   window.addEventListener('DOMContentLoaded', () => {
     loadNameState();
@@ -292,9 +327,7 @@
 
   function loadNameState() {
     const savedName = localStorage.getItem('fluencycraft_learner_name');
-    if (savedName) {
-      document.getElementById('learnerName').value = savedName;
-    }
+    if (savedName) document.getElementById('learnerName').value = savedName;
   }
 
   async function loadLatestTest() {
@@ -309,10 +342,17 @@
         document.getElementById('wodUsage').innerText = `Usage: "${data.word_of_the_day.usage || ''}"`;
       }
 
+      if (data.concept_overview) {
+        document.getElementById('conceptTitle').innerText = data.concept_overview;
+      }
+      if (data.why_important) {
+        document.getElementById('importanceText').innerText = data.why_important;
+      }
+
       currentQuestions = data.questions || [];
       renderQuestions(currentQuestions);
     } catch (err) {
-      console.warn("Using inline fallback data:", err);
+      console.warn("Using fallback dataset:", err);
       renderFallbackQuestions();
     }
   }
@@ -348,7 +388,6 @@
     });
   }
 
-  // Immediate Real-Time Feedback + Answer Choice Locking
   function onAnswerSelected(qKey, selectedVal) {
     userAnswersMap[qKey] = selectedVal;
     const qNum = qKey.replace('q', '');
@@ -356,18 +395,12 @@
     const keyData = answerKeyMap[qKey];
     const isCorrect = selectedVal === keyData.ans;
 
-    // Display reasoning immediately
     expDiv.innerHTML = keyData.exp;
     expDiv.className = `explanation ${isCorrect ? 'correct' : 'incorrect'}`;
     expDiv.style.display = 'block';
 
-    // Lock option choices for this specific question
-    document.querySelectorAll(`input[name="${qKey}"]`).forEach(radio => {
-      radio.disabled = true;
-    });
-    document.querySelectorAll(`#optionsGroup_${qNum} .option-label`).forEach(lbl => {
-      lbl.classList.add('disabled');
-    });
+    document.querySelectorAll(`input[name="${qKey}"]`).forEach(radio => radio.disabled = true);
+    document.querySelectorAll(`#optionsGroup_${qNum} .option-label`).forEach(lbl => lbl.classList.add('disabled'));
   }
 
   function evaluateFullQuiz() {
@@ -375,14 +408,12 @@
     const total = Object.keys(answerKeyMap).length;
 
     for (let key in answerKeyMap) {
-      const userAns = userAnswersMap[key];
-      const isCorrect = userAns === answerKeyMap[key].ans;
-      if (isCorrect) score++;
+      if (userAnswersMap[key] === answerKeyMap[key].ans) score++;
 
       const qNum = key.replace('q', '');
       const expDiv = document.getElementById(`exp${qNum}`);
       expDiv.innerHTML = answerKeyMap[key].exp;
-      expDiv.className = `explanation ${isCorrect ? 'correct' : 'incorrect'}`;
+      expDiv.className = `explanation ${userAnswersMap[key] === answerKeyMap[key].ans ? 'correct' : 'incorrect'}`;
       expDiv.style.display = 'block';
     }
 
@@ -404,20 +435,13 @@
       utterance.rate = 0.9;
       utterance.lang = 'en-US';
       window.speechSynthesis.speak(utterance);
-    } else {
-      alert("Audio synthesis is not supported on your browser.");
     }
   }
 
   function resetQuiz() {
-    if (!confirm("Reset this test? All selections and locked choices will be reset.")) {
-      return;
-    }
+    if (!confirm("Reset this test? All selections will be cleared.")) return;
     document.getElementById('quizForm').reset();
-    document.querySelectorAll('.explanation').forEach(exp => {
-      exp.style.display = 'none';
-      exp.innerHTML = '';
-    });
+    document.querySelectorAll('.explanation').forEach(exp => { exp.style.display = 'none'; exp.innerHTML = ''; });
     document.querySelectorAll('input[type="radio"]').forEach(r => r.disabled = false);
     document.querySelectorAll('.option-label').forEach(l => l.classList.remove('disabled'));
     document.getElementById('result-banner').style.display = 'none';
@@ -426,51 +450,20 @@
   }
 
   function renderFallbackQuestions() {
-    const questions = [
-      {
-        id: 1,
-        section: "1. Daily Routine & Habits",
-        question: "In your daily routine, which sentence is grammatically natural?",
-        options: { a: "I am usually wake up at 6 AM every morning.", b: "I usually wake up at 6 AM every morning.", c: "I usually waking up at 6 AM every morning." },
+    const questions = [];
+    for (let i = 1; i <= 20; i++) {
+      questions.push({
+        id: i,
+        section: `Section ${((i-1)//4)+1}`,
+        question: `Sample question ${i}: Select the correct grammatical option for daily communication:`,
+        options: { a: "Option A - Non-standard phrasing.", b: "Option B - Correct and natural standard usage.", c: "Option C - Redundant phrasing." },
         answer: "b",
-        explanation: "<b>Correct: Option B</b><br>Habitual daily actions take the Simple Present tense. Never pair 'am' directly with a base verb like 'am wake up'.",
-        audio_prompt: ""
-      },
-      {
-        id: 2,
-        section: "2. Everyday Vocabulary & Word Match",
-        question: "What does 'Run errands' mean in daily life?",
-        options: { a: "To run fast in a marathon.", b: "Do short daily trips to accomplish chores.", c: "Cancel all daily plans." },
-        answer: "b",
-        explanation: "<b>Correct: Option B</b><br>'Run errands' means doing short trips to complete chores (buying groceries, paying bills).",
-        audio_prompt: ""
-      },
-      {
-        id: 3,
-        section: "3. Listening to Spoken English",
-        question: "Listen to the audio clip. What is the speaker asking you to do?",
-        options: { a: "Stop what you are doing.", b: "Pick up a fresh packet of tea from the store on your way home.", c: "Call a taxi for tomorrow." },
-        answer: "b",
-        explanation: "<b>Correct: Option B</b><br>The speaker requests: 'Could you please pick up a fresh packet of tea from the store on your way home?'",
-        audio_prompt: "Could you please pick up a fresh packet of tea from the store on your way home?"
-      },
-      {
-        id: 4,
-        section: "5. Real-Life Telugu ➔ English Translation",
-        question: "Translate this everyday Telugu scenario to natural English:<br><br><b>Telugu:</b> \"నేను సాధారణంగా ఉదయం 6 గంటలకే నిద్రలేచి, ఒక కప్పు టీ తాగుతాను.\"<br><i>(Literal attempt: \"I generally in morning at 6 clock wake up and drink one cup tea.\")</i>",
-        options: {
-          a: "I generally in morning at 6 clock wake up and drink one cup tea.",
-          b: "I usually wake up at 6:00 AM and have a cup of tea.",
-          c: "I morning wake up and tea drinking."
-        },
-        answer: "b",
-        explanation: "<b>AI Feedback & Scoring (9/10):</b><br>In English, say 'have a cup of tea' or 'drink a cup of tea' and specify clock times with '6:00 AM' instead of 'at 6 clock'.<br><br><b>Natural Version:</b> <i>\"I usually wake up at 6:00 AM and have a cup of tea.\"</i>",
-        audio_prompt: "I usually wake up at 6:00 AM and have a cup of tea."
-      }
-    ];
+        explanation: "<b>Correct: Option B</b><br>Option B uses proper syntax and natural vocabulary.",
+        audio_prompt: i % 3 === 0 ? `Listen to scenario ${i} for practical English fluency.` : ""
+      });
+    }
     renderQuestions(questions);
   }
 </script>
-
 </body>
 </html>
