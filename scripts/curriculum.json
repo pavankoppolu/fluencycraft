@@ -5,93 +5,22 @@
       "theme": "Morning & Home Routines",
       "scenario": "Waking up, making tea/breakfast, getting kids ready",
       "vocabulary": ["Early riser", "Freshen up", "Running late", "Tidy up"],
+      "connecting_pillars": ["Short and sweet", "Bits and pieces", "Safe and sound", "Spick and span"],
+      "concept_overview": "Day 1: Everyday Home Routines, Easy Phrasal Verbs & Connecting Pillars",
+      "why_important": "Mastering daily routine expressions and connecting pillars (like 'short and sweet') helps you express thoughts naturally without hesitation during everyday conversations.",
       "telugu_translation": {
         "telugu": "నేను సాధారణంగా ఉదయం 6 గంటలకే నిద్రలేచి, ఒక కప్పు టీ తాగుతాను.",
         "literal": "I generally in morning at 6 clock wake up and drink one cup tea.",
         "polished": "I usually wake up at 6:00 AM and have a cup of tea.",
-        "feedback": "In English, say 'have a cup of tea' or 'drink a cup of tea' and specify clock times with '6:00 AM' instead of 'at 6 clock'."
-      }
-    },
-    {
-      "day": 2,
-      "theme": "Market & Grocery Shopping",
-      "scenario": "Supermarkets, vegetable vendors, billing, availability",
-      "vocabulary": ["Out of stock", "Ripe/Fresh", "Receipt", "Change/Cash"],
-      "telugu_translation": {
-        "telugu": "ఈ టమాటాలు కేజీ ఎంత? కొంచెం తాజావి ఏరి ఇవ్వండి.",
-        "literal": "These tomatoes kg how much? Pick and give some fresh ones.",
-        "polished": "How much are these tomatoes per kilo? Please pick out some fresh ones for me.",
-        "feedback": "Use 'per kilo' when asking price by weight, and 'pick out' or 'select' for choosing fresh produce."
-      }
-    },
-    {
-      "day": 3,
-      "theme": "Travel, Autos & Cabs",
-      "scenario": "Booking a ride, asking fares, giving directions",
-      "vocabulary": ["Drop me off", "Take a right", "Landmark", "Fare"],
-      "telugu_translation": {
-        "telugu": "అన్నా, బస్టాండ్ దగ్గర డ్రాప్ చేయండి, ఎంత అవుతుంది?",
-        "literal": "Brother, near bus stand drop me, how much will become?",
-        "polished": "Please drop me off near the bus stand. How much is the fare?",
-        "feedback": "Avoid 'how much will become'. Instead ask 'How much is the fare?' or 'What will it cost?'."
-      }
-    },
-    {
-      "day": 4,
-      "theme": "Clinic & Health Visits",
-      "scenario": "Describing symptoms to a doctor, pharmacy visits",
-      "vocabulary": ["Sore throat", "Dizzy", "Prescription", "On an empty stomach"],
-      "telugu_translation": {
-        "telugu": "రెండు రోజుల నుండి కొంచెం జ్వరంగా ఉంది, ఎలాంటి టాబ్లెట్స్ వేసుకోవాలి?",
-        "literal": "From two days little fever is there, what tablets to put?",
-        "polished": "I've had a mild fever for two days. Which medication should I take?",
-        "feedback": "Use 'I've had a fever' for duration, and 'take medication/tablets' instead of 'put tablets'."
-      }
-    },
-    {
-      "day": 5,
-      "theme": "Polite Social Manners",
-      "scenario": "Inviting neighbors, offering food, saying no politely",
-      "vocabulary": ["Drop by", "Lend a hand", "I'd love to", "Appreciate it"],
-      "telugu_translation": {
-        "telugu": "సాయంత్రం మా ఇంటికి రండి, అందరం కలిసి టీ తాగుదాం.",
-        "literal": "In evening come to our house, all together tea we drink.",
-        "polished": "Please drop by our home this evening; we can all have tea together.",
-        "feedback": "'Drop by' is a natural phrasal verb for visiting informally."
-      }
-    },
-    {
-      "day": 6,
-      "theme": "Phone Calls & Deliveries",
-      "scenario": "Talking to delivery agents, customer service calls",
-      "vocabulary": ["Pick up", "Parcel", "Verify", "Check the status"],
-      "telugu_translation": {
-        "telugu": "నా పార్సెల్ ఈ రోజు సాయంత్రానికి డెలివరీ అవుతుందా?",
-        "literal": "My parcel today evening by delivery will happen?",
-        "polished": "Will my package be delivered by this evening?",
-        "feedback": "Use 'package' or 'parcel' and phrased as a question: 'Will my package be delivered by...'."
-      }
-    },
-    {
-      "day": 7,
-      "theme": "Weekend Plans & Relaxation",
-      "scenario": "Watching a movie, eating out, weather talk",
-      "vocabulary": ["Grab a bite", "Catch up", "Looks like rain", "Call it a day"],
-      "telugu_translation": {
-        "telugu": "ఈ వారాంతంలో మనం బయటకు వెళ్లి సినిమా చూద్దామా?",
-        "literal": "This weekend we outside go and movie shall see?",
-        "polished": "Shall we go out and watch a movie this weekend?",
-        "feedback": "In English, place 'this weekend' at the end of the question."
+        "feedback": "In English, say 'have a cup of tea' and specify time as '6:00 AM'."
       }
     }
   ],
   "words_of_the_day": [
-    { "word": "Run errands", "meaning": "Do short daily trips to accomplish chores", "usage": "I need to run a few errands at the market before dinner." },
-    { "word": "Out of stock", "meaning": "Temporarily unavailable in store", "usage": "Fresh milk was out of stock at the supermarket." },
-    { "word": "Drop me off", "meaning": "Let someone get out of a vehicle at a destination", "usage": "Please drop me off near the signal." },
-    { "word": "On an empty stomach", "meaning": "Before eating any food", "usage": "Take this tablet on an empty stomach in the morning." },
-    { "word": "Drop by", "meaning": "Pay a casual, informal visit", "usage": "Feel free to drop by our place this weekend." },
-    { "word": "Check the status", "meaning": "Verify progress or tracking of an item", "usage": "Could you check the status of my order delivery?" },
-    { "word": "Grab a bite", "meaning": "Get a quick meal or snack", "usage": "Let's grab a bite after work today." }
+    {
+      "word": "Run errands",
+      "meaning": "Do short daily trips to accomplish chores",
+      "usage": "I need to run a few errands at the market before dinner."
+    }
   ]
 }

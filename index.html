@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FluencyCraft | Everyday Practical English Mastery Studio</title>
-  <meta name="description" content="FluencyCraft - Daily AI-generated practical English learning platform. Master everyday scenarios, phrasal verbs, listening prompts, and Telugu-to-English translation feedback.">
+  <meta name="description" content="FluencyCraft - Daily AI-generated practical English learning platform. Master everyday scenarios, phrasal verbs, connecting pillars, listening prompts, and Telugu-to-English translation feedback.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -105,6 +105,41 @@
       font-family: inherit;
     }
     .profile-field input:focus { outline: none; border-color: var(--primary); }
+
+    /* Privacy & Trust Banner */
+    .trust-banner {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 16px;
+      padding: 16px 22px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .trust-icon {
+      font-size: 1.6rem;
+      background: #dcfce7;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .trust-content h4 {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #166534;
+      margin-bottom: 2px;
+    }
+    .trust-content p {
+      font-size: 0.88rem;
+      color: #15803d;
+      line-height: 1.45;
+    }
 
     /* Level Tracks Grid */
     .section-header {
@@ -250,7 +285,7 @@
   <header class="hero">
     <span class="hero-badge">⚡ Everyday Practical English Mastery</span>
     <h1>FluencyCraft</h1>
-    <p>Build conversational confidence through 20 daily living scenario questions refreshed every morning at 7:00 AM IST. Master phrasal verbs, listening prompts, and natural Telugu-to-English translation phrasing.</p>
+    <p>Build conversational confidence through 20 daily living scenario questions refreshed every morning at 7:00 AM IST. Master phrasal verbs, connecting pillars, listening prompts, and natural Telugu-to-English translation phrasing.</p>
   </header>
 
   <main class="container">
@@ -266,6 +301,15 @@
       </div>
     </div>
 
+    <!-- Privacy & Data Trust Note -->
+    <div class="trust-banner">
+      <div class="trust-icon">🔒</div>
+      <div class="trust-content">
+        <h4>100% Private & Safe • Stored Only In Your Local Browser</h4>
+        <p>Your name, quiz answers, and test scores are strictly saved inside your own local browser (LocalStorage). No personal data or responses are ever sent to external servers or stored elsewhere. Learn with complete confidence and privacy!</p>
+      </div>
+    </div>
+
     <!-- Course Level Direct Links -->
     <h2 class="section-header">🎓 Choose Your Practice Track</h2>
     <div class="tracks-grid">
@@ -275,11 +319,12 @@
         <div>
           <span class="track-badge">Level 1 • Beginner</span>
           <h3 class="track-title">Everyday Essentials</h3>
-          <p class="track-desc">Home routines, grocery shopping, market queries, polite manners, and everyday Telugu translation scenarios.</p>
+          <p class="track-desc">Home routines, grocery shopping, market queries, polite manners, connecting pillars, and everyday Telugu translation scenarios.</p>
         </div>
         <div class="link-group">
-          <a href="/tests/beginner/latest.html" class="btn-main">Start Today's Test (Latest) →</a>
-          <a href="/tests/beginner/day-01.html" class="btn-sub">View Day 1 Test</a>
+          <a href="tests/beginner/latest.html" class="btn-main">Start Day 1 Test (latest.html) →</a>
+          <a href="tests/beginner/day-01.html" class="btn-sub">View Day 1 Test File</a>
+          <a href="tests/beginner/weekend-test.html" class="btn-sub" style="background:#eff6ff; color:#1e40af; border-color:#bfdbfe;">🎯 Weekend Weak-Spot Test</a>
         </div>
       </div>
 
@@ -288,11 +333,12 @@
         <div>
           <span class="track-badge">Level 2 • Intermediate</span>
           <h3 class="track-title">Workplace Communication</h3>
-          <p class="track-desc">Standup sync updates, travel & cab queries, completed actions, clinic checkups, and workplace etiquette.</p>
+          <p class="track-desc">Standup sync updates, travel & cab queries, completed actions, clinic checkups, and connecting pillar expressions.</p>
         </div>
         <div class="link-group">
-          <a href="/tests/intermediate/latest.html" class="btn-main">Start Today's Test (Latest) →</a>
-          <a href="/tests/intermediate/day-01.html" class="btn-sub">View Day 1 Test</a>
+          <a href="tests/intermediate/latest.html" class="btn-main">Start Day 1 Test (latest.html) →</a>
+          <a href="tests/intermediate/day-01.html" class="btn-sub">View Day 1 Test File</a>
+          <a href="tests/intermediate/weekend-test.html" class="btn-sub" style="background:#eff6ff; color:#1e40af; border-color:#bfdbfe;">🎯 Weekend Weak-Spot Test</a>
         </div>
       </div>
 
@@ -304,8 +350,9 @@
           <p class="track-desc">Stakeholder negotiation, passive/active syntax precision, phone etiquette, and advanced tone diplomacy.</p>
         </div>
         <div class="link-group">
-          <a href="/tests/advanced/latest.html" class="btn-main">Start Today's Test (Latest) →</a>
-          <a href="/tests/advanced/day-01.html" class="btn-sub">View Day 1 Test</a>
+          <a href="tests/advanced/latest.html" class="btn-main">Start Day 1 Test (latest.html) →</a>
+          <a href="tests/advanced/day-01.html" class="btn-sub">View Day 1 Test File</a>
+          <a href="tests/advanced/weekend-test.html" class="btn-sub" style="background:#eff6ff; color:#1e40af; border-color:#bfdbfe;">🎯 Weekend Weak-Spot Test</a>
         </div>
       </div>
 
@@ -325,26 +372,52 @@
 
         <div class="flow-item">
           <div class="flow-item-num">Section 2 • 4 Questions</div>
-          <div class="flow-item-title">Everyday Vocabulary & Word Match</div>
-          <div class="flow-item-desc">Practical phrasal verbs like <i>"Out of stock"</i>, <i>"Running late"</i>, <i>"Freshen up"</i>, and <i>"Drop by"</i>.</div>
+          <div class="flow-item-title">Everyday Vocabulary & Phrasal Verbs</div>
+          <div class="flow-item-desc">Easy daily terms like <i>"Freshen up"</i>, <i>"Out of stock"</i>, <i>"Running late"</i>, and <i>"Drop by"</i>.</div>
         </div>
 
         <div class="flow-item">
           <div class="flow-item-num">Section 3 • 4 Questions</div>
-          <div class="flow-item-title">Listening to Spoken English</div>
-          <div class="flow-item-desc">Auditory dialogues with 🔊 Listen buttons to train spoken recognition.</div>
+          <div class="flow-item-title">Connecting Pillars & Expressions</div>
+          <div class="flow-item-desc">Pair idioms and connecting pillars like <i>"Short and sweet"</i>, <i>"Bits and pieces"</i>, <i>"Safe and sound"</i>, and <i>"Spick and span"</i>.</div>
         </div>
 
         <div class="flow-item">
           <div class="flow-item-num">Section 4 • 4 Questions</div>
-          <div class="flow-item-title">Polite Social Expressions</div>
-          <div class="flow-item-desc">How to ask for help, decline invitations warmly, and give travel directions.</div>
+          <div class="flow-item-title">Listening to Spoken English</div>
+          <div class="flow-item-desc">Auditory dialogues with 🔊 Listen buttons to train spoken recognition.</div>
         </div>
 
         <div class="flow-item">
           <div class="flow-item-num">Section 5 • 4 Questions</div>
           <div class="flow-item-title">Telugu ➔ English Translation</div>
           <div class="flow-item-desc">AI feedback correcting literal "Telugu-isms" into natural conversational English.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5-Day Practice + Weekend Weak-Spot Adaptive Strategy -->
+    <div class="content-box" style="border-left: 5px solid #1e40af; background: #f0f7ff;">
+      <h3>🏆 Elevated Strategy: 5-Day Weekday Practice + Weekend Weak-Spot Mastery Test</h3>
+      <p>FluencyCraft uses an intelligent local tracking system to ensure you eliminate mistakes and achieve 100% conversational precision:</p>
+      
+      <div class="flow-grid">
+        <div class="flow-item" style="background:white; border-color:#bfdbfe;">
+          <div class="flow-item-num" style="color:#1e40af;">Step 1 • Weekday Practice (Days 1–5)</div>
+          <div class="flow-item-title">Interactive Daily Living Tests</div>
+          <div class="flow-item-desc">Practice 20 questions daily covering routines, phrasal verbs, connecting pillars, spoken dialogues, and translation cards.</div>
+        </div>
+
+        <div class="flow-item" style="background:white; border-color:#bfdbfe;">
+          <div class="flow-item-num" style="color:#1e40af;">Step 2 • Automated Local Log</div>
+          <div class="flow-item-title">Weak Spot Identification</div>
+          <div class="flow-item-desc">Whenever an option is missed during weekday practice, the exact concept, section, and explanation are logged privately in your local browser.</div>
+        </div>
+
+        <div class="flow-item" style="background:white; border-color:#bfdbfe;">
+          <div class="flow-item-num" style="color:#1e40af;">Step 3 • Weekend Adaptive Test</div>
+          <div class="flow-item-title">Targeted Re-Evaluation & Roadmap</div>
+          <div class="flow-item-desc">On weekends, launch the Weekend Weak-Spot Test. It dynamically constructs a custom review test focusing strictly on your logged errors, providing tailored improvement feedback!</div>
         </div>
       </div>
     </div>
@@ -360,7 +433,7 @@
             <tr>
               <th>Day & Theme</th>
               <th>Everyday Scenario</th>
-              <th>Target Vocabulary</th>
+              <th>Target Vocabulary & Connecting Pillars</th>
               <th>Telugu ➔ Natural English Translation</th>
             </tr>
           </thead>
@@ -368,43 +441,43 @@
             <tr>
               <td><b>Day 1: Morning & Home Routines</b></td>
               <td>Waking up, tea, getting kids ready</td>
-              <td>Early riser, freshen up, tidy up</td>
+              <td>Freshen up, tidy up, <i>Short and sweet</i>, <i>Bits and pieces</i></td>
               <td><i>"నేను సాధారణంగా ఉదయం 6 గంటలకే నిద్రలేచి..."</i> ➔ <i>"I usually wake up at 6:00 AM and have a cup of tea."</i></td>
             </tr>
             <tr>
               <td><b>Day 2: Market & Grocery Shopping</b></td>
               <td>Supermarkets, vegetables, billing</td>
-              <td>Out of stock, ripe/fresh, receipt</td>
+              <td>Out of stock, ripe/fresh, <i>Safe and sound</i>, <i>Spick and span</i></td>
               <td><i>"ఈ టమాటాలు కేజీ ఎంత?..."</i> ➔ <i>"How much are these tomatoes per kilo? Please pick out fresh ones for me."</i></td>
             </tr>
             <tr>
               <td><b>Day 3: Travel, Autos & Cabs</b></td>
               <td>Booking rides, fares, directions</td>
-              <td>Drop me off, take a right, fare</td>
+              <td>Drop me off, take a right, <i>Now and then</i>, <i>Touch and go</i></td>
               <td><i>"అన్నా, బస్టాండ్ దగ్గర డ్రాప్ చేయండి..."</i> ➔ <i>"Please drop me off near the bus stand. How much is the fare?"</i></td>
             </tr>
             <tr>
               <td><b>Day 4: Clinic & Health Visits</b></td>
               <td>Doctor symptoms, pharmacy</td>
-              <td>Sore throat, dizzy, prescription</td>
+              <td>Sore throat, dizzy, <i>Pros and cons</i>, <i>Give and take</i></td>
               <td><i>"రెండు రోజుల నుండి కొంచెం జ్వరంగా ఉంది..."</i> ➔ <i>"I've had a mild fever for two days. Which medication should I take?"</i></td>
             </tr>
             <tr>
               <td><b>Day 5: Polite Social Manners</b></td>
               <td>Inviting neighbors, offering food</td>
-              <td>Drop by, lend a hand, I'd love to</td>
+              <td>Drop by, lend a hand, <i>Warm and welcoming</i>, <i>Part and parcel</i></td>
               <td><i>"సాయంత్రం మా ఇంటికి రండి..."</i> ➔ <i>"Please drop by our home this evening; we can all have tea together."</i></td>
             </tr>
             <tr>
               <td><b>Day 6: Phone Calls & Deliveries</b></td>
               <td>Delivery agents, customer service</td>
-              <td>Pick up, parcel, check status</td>
+              <td>Pick up, parcel, <i>First and foremost</i>, <i>Loud and clear</i></td>
               <td><i>"నా పార్సెల్ ఈ రోజు సాయంత్రానికి..."</i> ➔ <i>"Will my package be delivered by this evening?"</i></td>
             </tr>
             <tr>
               <td><b>Day 7: Weekend Plans & Weather</b></td>
               <td>Movies, eating out, weather talk</td>
-              <td>Grab a bite, catch up, call it a day</td>
+              <td>Grab a bite, catch up, <i>Call it a day</i>, <i>Peace and quiet</i></td>
               <td><i>"ఈ వారాంతంలో మనం బయటకు వెళ్లి..."</i> ➔ <i>"Shall we go out and watch a movie this weekend?"</i></td>
             </tr>
           </tbody>

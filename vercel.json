@@ -1,18 +1,25 @@
 {
   "version": 2,
-  "cleanUrls": true,
   "routes": [
     {
       "src": "/api/evaluate",
       "dest": "/api/evaluate.js"
     },
     {
-      "src": "/tests/(.*)",
-      "dest": "/tests/$1"
+      "src": "/beginner",
+      "dest": "/tests/beginner/latest.html"
     },
     {
-      "src": "/beginner",
-      "dest": "/beginner.html"
+      "src": "/intermediate",
+      "dest": "/tests/intermediate/latest.html"
+    },
+    {
+      "src": "/advanced",
+      "dest": "/tests/advanced/latest.html"
+    },
+    {
+      "src": "/tests/(.*)",
+      "dest": "/tests/$1"
     },
     {
       "src": "/(.*)",

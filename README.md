@@ -12,7 +12,8 @@ Whether you are a student, working professional, homemaker, or job seeker, Fluen
 
 Language fluency is built through **consistent, real-world micro-practice**:
 
-- 🎯 **Everyday Scenarios:** Learn phrases you use every day (e.g., *"Run errands"*, *"Drop me off near the bus stand"*, *"On an empty stomach"*, *"Out of stock"*).
+- 🎯 **Everyday Scenarios (Zero Jargon):** Learn practical phrases you use every day (e.g., *"Run errands"*, *"Drop me off near the bus stand"*, *"On an empty stomach"*, *"Out of stock"*). No complex technical jargon!
+- 🔗 **Connecting Pillars & Pair Idioms:** Master everyday natural connecting expressions like *"Short and sweet"*, *"Bits and pieces"*, *"Spick and span"*, *"Safe and sound"*.
 - 🇮🇳 ➔ 🇬🇧 **Eliminate "Telugu-isms":** Real-time AI feedback correcting direct literal translations (e.g., changing *"To me headache is there"* into natural *"I have a slight headache"*).
 - ⚡ **Instant Micro-Feedback:** Get immediate grammatical reasoning the exact second you select an answer.
 - 🔒 **Answer Choice Locking:** Answers lock automatically upon selection to ensure focused learning.
@@ -23,46 +24,29 @@ Language fluency is built through **consistent, real-world micro-practice**:
 
 ## 🔗 How to Access the Tests (With Direct Links & Examples)
 
-FluencyCraft provides standalone interactive **HTML test pages** for every level. `latest.html` automatically points to the most recently generated test for that track.
+FluencyCraft provides standalone interactive **HTML test pages** for every level. `latest.html` automatically points to the latest test version (`day-01.html`).
 
 ### 🏠 Main Course Landing Page
 - **Course Overview & Level Direct Links:** [https://fluencycraft.vercel.app](https://fluencycraft.vercel.app)
 
 ### 🎓 Interactive HTML Test Links
 
-| Level / Track | Latest Test URL (`latest.html`) | Day 1 Test URL (`day-01.html`) |
-| :--- | :--- | :--- |
-| **Level 1: Everyday Essentials** (Beginner) | [tests/beginner/latest.html](https://fluencycraft.vercel.app/tests/beginner/latest.html) | [tests/beginner/day-01.html](https://fluencycraft.vercel.app/tests/beginner/day-01.html) |
-| **Level 2: Workplace Communication** (Intermediate) | [tests/intermediate/latest.html](https://fluencycraft.vercel.app/tests/intermediate/latest.html) | [tests/intermediate/day-01.html](https://fluencycraft.vercel.app/tests/intermediate/day-01.html) |
-| **Level 3: Executive Leadership** (Advanced) | [tests/advanced/latest.html](https://fluencycraft.vercel.app/tests/advanced/latest.html) | [tests/advanced/day-01.html](https://fluencycraft.vercel.app/tests/advanced/day-01.html) |
+| Level / Track | Daily Test URL (`latest.html`) | Day 1 Test URL (`day-01.html`) | Weekend Weak-Spot Test URL |
+| :--- | :--- | :--- | :--- |
+| **Level 1: Everyday Essentials** (Beginner) | [tests/beginner/latest.html](https://fluencycraft.vercel.app/tests/beginner/latest.html) | [tests/beginner/day-01.html](https://fluencycraft.vercel.app/tests/beginner/day-01.html) | [tests/beginner/weekend-test.html](https://fluencycraft.vercel.app/tests/beginner/weekend-test.html) |
+| **Level 2: Workplace Communication** (Intermediate) | [tests/intermediate/latest.html](https://fluencycraft.vercel.app/tests/intermediate/latest.html) | [tests/intermediate/day-01.html](https://fluencycraft.vercel.app/tests/intermediate/day-01.html) | [tests/intermediate/weekend-test.html](https://fluencycraft.vercel.app/tests/intermediate/weekend-test.html) |
+| **Level 3: Executive Leadership** (Advanced) | [tests/advanced/latest.html](https://fluencycraft.vercel.app/tests/advanced/latest.html) | [tests/advanced/day-01.html](https://fluencycraft.vercel.app/tests/advanced/day-01.html) | [tests/advanced/weekend-test.html](https://fluencycraft.vercel.app/tests/advanced/weekend-test.html) |
 
 ---
 
-## 📁 Repository Directory Structure
+## 🏆 Elevated Strategy: 5-Day Weekday Practice + Weekend Weak-Spot Adaptive Mastery Test
 
-```
-fluencycraft/
-├── tests/
-│   ├── beginner/
-│   │   ├── day-01.html
-│   │   └── latest.html
-│   ├── intermediate/
-│   │   ├── day-01.html
-│   │   └── latest.html
-│   └── advanced/
-│       ├── day-01.html
-│       └── latest.html
-├── api/
-│   └── evaluate.js
-├── scripts/
-│   ├── curriculum.json
-│   └── generate_daily_tests.py
-├── .github/workflows/
-│   └── daily_tests.yml
-├── index.html
-├── beginner.html
-└── vercel.json
-```
+FluencyCraft implements an elevated, data-driven learning strategy designed to turn personal errors into long-term speaking mastery:
+
+1. 📅 **Mon–Fri Weekday Practice (Days 1–5):** Complete 20 everyday living questions daily covering daily routines, phrasal verbs, connecting pillars, auditory dialogues, and translation cards.
+2. 🔒 **Automated Private Local Mistake Logging:** Whenever an incorrect option is chosen, FluencyCraft automatically logs the question, section, user selection, and reasoning into your browser's private `LocalStorage`. Zero data is sent to external servers!
+3. 🎯 **Weekend Weak-Spot Adaptive Test (`weekend-test.html`):** On Saturday & Sunday, launch the Weekend Adaptive Test. It dynamically pulls your past 5 days of logged weak spots and constructs a targeted re-evaluation test!
+4. 📈 **Improvement Roadmap & Actionable Feedback:** Upon finishing the Weekend Test, receive customized section-by-section improvement feedback identifying exact rules to remember and conversational tips to practice.
 
 ---
 
@@ -79,14 +63,14 @@ fluencycraft/
 │  1. Daily Routine & Habits (4 MCQs)                          │
 │     Real conversations at home, work, or outdoors            │
 ├──────────────────────────────────────────────────────────────┤
-│  2. Everyday Vocabulary & Word Match (4 MCQs)                │
+│  2. Everyday Vocabulary & Phrasal Verbs (4 MCQs)             │
 │     Practical terms ("Out of stock", "Running late", etc.)   │
 ├──────────────────────────────────────────────────────────────┤
-│  3. Listening to Spoken English (4 Audio Clips)              │
-│     Natural dialogues with 🔊 Listen audio buttons           │
+│  3. Connecting Pillars & Everyday Expressions (4 MCQs)       │
+│     Natural pair idioms ("Short and sweet", "Safe and sound")│
 ├──────────────────────────────────────────────────────────────┤
-│  4. Polite Social Expressions & Etiquette (4 MCQs)           │
-│     How to request, say no politely, or ask directions     │
+│  4. Listening to Spoken English (4 Audio Clips)              │
+│     Natural dialogues with 🔊 Listen audio buttons           │
 ├──────────────────────────────────────────────────────────────┤
 │  5. Real-Life Telugu ➔ English Translation (4 Scenarios)     │
 │     Everyday Telugu sentences translated to natural English  │
@@ -98,15 +82,15 @@ fluencycraft/
 
 ## 🗓️ 7-Day Universal Everyday Life Curriculum Roadmap
 
-| Day & Theme | Everyday Scenario | Target Vocabulary | Telugu ➔ Natural English Context |
+| Day & Theme | Everyday Scenario | Target Vocabulary & Connecting Pillars | Telugu ➔ Natural English Context |
 | :--- | :--- | :--- | :--- |
-| **Day 1: Morning & Home Routines** | Waking up, tea, getting kids ready | Early riser, freshen up, tidy up | *"నేను సాధారణంగా ఉదయం 6 గంటలకే నిద్రలేచి..."* ➔ *"I usually wake up at 6:00 AM and have a cup of tea."* |
-| **Day 2: Market & Grocery Shopping** | Supermarkets, vegetables, billing | Out of stock, ripe/fresh, receipt | *"ఈ టమాటాలు కేజీ ఎంత? కొంచెం తాజావి ఏరి ఇవ్వండి."* ➔ *"How much are these tomatoes per kilo? Please pick out fresh ones for me."* |
-| **Day 3: Travel, Autos & Cabs** | Booking rides, fares, directions | Drop me off, take a right, fare | *"అన్నా, బస్టాండ్ దగ్గర డ్రాప్ చేయండి, ఎంత అవుతుంది?"* ➔ *"Please drop me off near the bus stand. How much is the fare?"* |
-| **Day 4: Clinic & Health Visits** | Doctor symptoms, pharmacy | Sore throat, dizzy, prescription | *"రెండు రోజుల నుండి కొంచెం జ్వరంగా ఉంది..."* ➔ *"I've had a mild fever for two days. Which medication should I take?"* |
-| **Day 5: Polite Social Manners** | Inviting neighbors, offering food | Drop by, lend a hand, I'd love to | *"సాయంత్రం మా ఇంటికి రండి..."* ➔ *"Please drop by our home this evening; we can all have tea together."* |
-| **Day 6: Phone Calls & Deliveries** | Delivery agents, customer service | Pick up, parcel, check status | *"నా పార్సెల్ ఈ రోజు సాయంత్రానికి డెలివరీ అవుతుందా?"* ➔ *"Will my package be delivered by this evening?"* |
-| **Day 7: Weekend Plans & Weather** | Movies, eating out, weather talk | Grab a bite, catch up, call it a day | *"ఈ వారాంతంలో మనం బయటకు వెళ్లి..."* ➔ *"Shall we go out and watch a movie this weekend?"* |
+| **Day 1: Morning & Home Routines** | Waking up, tea, getting kids ready | Freshen up, tidy up, *Short and sweet*, *Bits and pieces* | *"నేను సాధారణంగా ఉదయం 6 గంటలకే నిద్రలేచి..."* ➔ *"I usually wake up at 6:00 AM and have a cup of tea."* |
+| **Day 2: Market & Grocery Shopping** | Supermarkets, vegetables, billing | Out of stock, ripe/fresh, *Safe and sound*, *Spick and span* | *"ఈ టమాటాలు కేజీ ఎంత?..."* ➔ *"How much are these tomatoes per kilo? Please pick out fresh ones for me."* |
+| **Day 3: Travel, Autos & Cabs** | Booking rides, fares, directions | Drop me off, take a right, *Now and then*, *Touch and go* | *"అన్నా, బస్టాండ్ దగ్గర డ్రాప్ చేయండి..."* ➔ *"Please drop me off near the bus stand. How much is the fare?"* |
+| **Day 4: Clinic & Health Visits** | Doctor symptoms, pharmacy | Sore throat, dizzy, *Pros and cons*, *Give and take* | *"రెండు రోజుల నుండి కొంచెం జ్వరంగా ఉంది..."* ➔ *"I've had a mild fever for two days. Which medication should I take?"* |
+| **Day 5: Polite Social Manners** | Inviting neighbors, offering food | Drop by, lend a hand, *Warm and welcoming* | *"సాయంత్రం మా ఇంటికి రండి..."* ➔ *"Please drop by our home this evening; we can all have tea together."* |
+| **Day 6: Phone Calls & Deliveries** | Delivery agents, customer service | Pick up, parcel, *First and foremost*, *Loud and clear* | *"నా పార్సెల్ ఈ రోజు సాయంత్రానికి..."* ➔ *"Will my package be delivered by this evening?"* |
+| **Day 7: Weekend Plans & Weather** | Movies, eating out, weather talk | Grab a bite, catch up, *Call it a day* | *"ఈ వారాంతంలో మనం బయటకు వెళ్లి..."* ➔ *"Shall we go out and watch a movie this weekend?"* |
 
 ---
 
