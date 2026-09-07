@@ -26,8 +26,9 @@ jobs:
       - name: Generate Daily English Tests
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          INCREMENT_DAY: "true"
         run: |
-          python scripts/generate_daily_tests.py
+          python scripts/generate_daily_tests.py --increment
 
       - name: Commit and Push Generated Tests
         run: |

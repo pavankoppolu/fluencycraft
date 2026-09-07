@@ -3,7 +3,7 @@ import os
 import sys
 import json
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 
 CURRICULUM_PATH = os.path.join(os.path.dirname(__file__), "curriculum.json")
 
@@ -864,7 +864,7 @@ def generate_20_questions(level):
         return word_info, concept_overview, why_important, questions
 
 def build_standalone_html(level, day_num, word_info, concept_overview, why_important, questions):
-    today_str = datetime.utcnow().strftime("%Y-%m-%d")
+    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     questions_js = json.dumps(questions, ensure_ascii=False)
 
     html_content = f"""<!DOCTYPE html>
@@ -1321,7 +1321,7 @@ def build_standalone_html(level, day_num, word_info, concept_overview, why_impor
     return html_content
 
 def build_weekend_test_html(level, questions):
-    today_str = datetime.utcnow().strftime("%Y-%m-%d")
+    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     default_questions_js = json.dumps(questions, ensure_ascii=False)
 
     html_content = f"""<!DOCTYPE html>
