@@ -1,276 +1,276 @@
 {
   "day": 1,
-  "date": "2026-09-06",
+  "date": "2026-09-07",
   "level": "advanced",
-  "title": "FluencyCraft Everyday English - Day 01",
-  "concept_overview": "Day 1: Morning & Home Routines & Everyday Vocabulary",
-  "why_important": "Developing automatic recall of everyday phrases improves your speaking speed, listening clarity, and overall English fluency in real-life situations.",
+  "title": "FluencyCraft Advanced - Day 01",
+  "concept_overview": "Day 1: Strategic Negotiation, Delicate Refusal & Tone Diplomacy",
+  "why_important": "Executive communication requires modal diplomacy, subtle disagreement phrasing, and syntax precision.",
   "word_of_the_day": {
-    "word": "Run errands",
-    "meaning": "Do short daily trips to accomplish chores",
-    "usage": "I need to run a few errands at the market before dinner."
+    "word": "Iron out",
+    "meaning": "To resolve minor problems, discrepancies, or details in a plan or agreement",
+    "usage": "We need one final meeting to iron out the remaining contract details."
   },
   "total_questions": 20,
   "questions": [
     {
       "id": 1,
       "section": "1. Daily Routine & Habits",
-      "question": "When talking about your everyday schedule (Morning & Home Routines), which sentence is grammatically correct?",
+      "question": "Day 1 Practice: When talking about buying fresh produce at the market (twice a week), which sentence is grammatically correct for 'I'?",
       "options": {
-        "a": "I am usually early riser every morning.",
-        "b": "I usually early riser every morning.",
-        "c": "I usually early risers every morning."
+        "a": "I buyed vegetables market.",
+        "b": "I picked out fresh tomatoes and spinach at the market.",
+        "c": "I buyed vegetables market."
       },
       "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>Habitual daily routines take the Simple Present tense (<i>I usually early riser</i>). Never pair 'am' directly with a base verb like 'am wake'.",
+      "explanation": "<b>Correct: Option B</b><br>Natural everyday English uses standard tense agreement: <i>\"I picked out fresh tomatoes and spinach at the market.\"</i>.",
       "audio_prompt": ""
     },
     {
       "id": 2,
       "section": "1. Daily Routine & Habits",
-      "question": "Which response is natural when someone asks what you are currently doing at home?",
+      "question": "Day 1 Practice: When talking about inquiring about doctor appointment (yesterday afternoon), which sentence is grammatically correct for 'I'?",
       "options": {
-        "a": "I am tidying up the kitchen right now.",
-        "b": "I tidying up the kitchen right now.",
-        "c": "I am tidy up the kitchen right now."
+        "a": "Doctor meeting wanted for fever.",
+        "b": "I need to consult a doctor regarding a mild fever.",
+        "c": "Doctor meeting wanted for fever."
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>Ongoing actions right now require the Present Continuous form (<i>am/is/are + verb-ing</i>).",
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Natural everyday English uses standard tense agreement: <i>\"I need to consult a doctor regarding a mild fever.\"</i>.",
       "audio_prompt": ""
     },
     {
       "id": 3,
       "section": "1. Daily Routine & Habits",
-      "question": "Complete the sentence: 'My sister __________ a cup of warm water every morning before breakfast.'",
+      "question": "Day 1 Practice: When talking about tidying up the room (on weekends), which sentence is grammatically correct for 'My sister'?",
       "options": {
-        "a": "drink",
-        "b": "drinks",
-        "c": "is drink"
+        "a": "I am tidy up room.",
+        "b": "I am tidying up the room right now.",
+        "c": "I is tidy up room."
       },
       "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>Singular third-person subjects ('My sister') require an <i>-s</i> ending on base verbs in the Simple Present (<i>drinks</i>).",
+      "explanation": "<b>Correct: Option B</b><br>Natural everyday English uses standard tense agreement: <i>\"I am tidying up the room right now.\"</i>.",
       "audio_prompt": ""
     },
     {
       "id": 4,
       "section": "1. Daily Routine & Habits",
-      "question": "How do you correctly describe a past action finished yesterday morning?",
+      "question": "Day 1 Practice: When talking about tracking a package delivery (every morning), which sentence is grammatically correct for 'My manager'?",
       "options": {
-        "a": "Yesterday morning, I prepared breakfast for my family.",
-        "b": "Yesterday morning, I have prepared breakfast for my family.",
-        "c": "Yesterday morning, I am prepare breakfast for my family."
+        "a": "My parcel delivery coming today?",
+        "b": "Will my parcel be delivered by 5:00 PM today?",
+        "c": "My parcel delivery coming today?"
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>Definite past markers like 'Yesterday morning' mandate the Simple Past tense (<i>prepared</i>), not the Present Perfect.",
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>Natural everyday English uses standard tense agreement: <i>\"Will my parcel be delivered by 5:00 PM today?\"</i>.",
       "audio_prompt": ""
     },
     {
       "id": 5,
-      "section": "2. Everyday Vocabulary & Word Match",
-      "question": "What is the exact practical meaning of the phrase 'Run errands'?",
+      "section": "2. Everyday Vocabulary & Phrasal Verbs",
+      "question": "Day 1 Vocabulary: What is the exact practical meaning of the everyday phrase 'iron out'?",
       "options": {
-        "a": "To sprint quickly in a athletic race.",
-        "b": "Do short daily trips to accomplish chores.",
-        "c": "To cancel all daily appointments."
+        "a": "To stop doing all daily activities immediately.",
+        "b": "Resolve minor problems or details in a plan.",
+        "c": "To clean the room using water."
       },
       "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>'Run errands' means: Do short daily trips to accomplish chores. Example: <i>\"I need to run a few errands at the market before dinner.\"</i>",
+      "explanation": "<b>Correct: Option B</b><br>'iron out' means: resolve minor problems or details in a plan. Example: <i>\"We need one final sync to iron out contract details.\"</i>",
       "audio_prompt": ""
     },
     {
       "id": 6,
-      "section": "2. Everyday Vocabulary & Word Match",
-      "question": "Choose the phrase that fits: 'I'm sorry for the delay, fresh milk was __________ at the grocery store.'",
+      "section": "2. Everyday Vocabulary & Phrasal Verbs",
+      "question": "Day 1 Vocabulary: What is the exact practical meaning of the everyday phrase 'reach out to'?",
       "options": {
-        "a": "out of stock",
-        "b": "running late",
-        "c": "tidy up"
+        "a": "To stop doing all daily activities immediately.",
+        "b": "Contact someone for help or information.",
+        "c": "To clean the room using water."
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>'Out of stock' means goods or products are temporarily unavailable for purchase.",
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>'reach out to' means: contact someone for help or information. Example: <i>\"I will reach out to customer support tomorrow.\"</i>",
       "audio_prompt": ""
     },
     {
       "id": 7,
-      "section": "2. Everyday Vocabulary & Word Match",
-      "question": "What does the phrasal verb 'Freshen up' mean when returning home from work?",
+      "section": "2. Everyday Vocabulary & Phrasal Verbs",
+      "question": "Day 1 Vocabulary: What is the exact practical meaning of the everyday phrase 'circle back'?",
       "options": {
-        "a": "To cook a heavy meal.",
-        "b": "To wash your hands/face and change into comfortable clothes.",
-        "c": "To clean the whole house."
+        "a": "To stop doing all daily activities immediately.",
+        "b": "Return to a topic later for follow-up.",
+        "c": "To clean the room using water."
       },
       "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>'Freshen up' means quickly washing and relaxing after travel or work.",
+      "explanation": "<b>Correct: Option B</b><br>'circle back' means: return to a topic later for follow-up. Example: <i>\"Let us circle back to the timeline discussion.\"</i>",
       "audio_prompt": ""
     },
     {
       "id": 8,
-      "section": "2. Everyday Vocabulary & Word Match",
-      "question": "Select the correct term: 'Let's __________ for a quick cup of coffee after work.'",
+      "section": "2. Everyday Vocabulary & Phrasal Verbs",
+      "question": "Day 1 Vocabulary: What is the exact practical meaning of the everyday phrase 'call off'?",
       "options": {
-        "a": "catch up",
-        "b": "catch out",
-        "c": "catch off"
+        "a": "To stop doing all daily activities immediately.",
+        "b": "Cancel a planned event or meeting.",
+        "c": "To clean the room using water."
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>'Catch up' means meeting someone to exchange recent news and talk.",
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>'call off' means: cancel a planned event or meeting. Example: <i>\"They had to call off the afternoon presentation.\"</i>",
       "audio_prompt": ""
     },
     {
       "id": 9,
-      "section": "3. Listening to Spoken English",
-      "question": "Listen to Audio Clip 1. What is the speaker asking you to do?",
+      "section": "3. Connecting Pillars & Expressions",
+      "question": "Day 1 Connecting Pillars: Complete the sentence: 'Team success requires a healthy amount of __________.'",
       "options": {
-        "a": "Stop testing immediately.",
-        "b": "Pick up a fresh packet of tea from the store on your way home.",
-        "c": "Cancel tomorrow's grocery list."
+        "a": "give and take",
+        "b": "out of stock",
+        "c": "bits and pieces"
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>The speaker says: <i>'Could you please pick up a fresh packet of tea from the store on your way home?'</i>",
-      "audio_prompt": "Could you please pick up a fresh packet of tea from the store on your way home?"
+      "answer": "a",
+      "explanation": "<b>Correct: Option A</b><br>'give and take' is a natural connecting pillar meaning: mutual compromise and flexibility.",
+      "audio_prompt": ""
     },
     {
       "id": 10,
-      "section": "3. Listening to Spoken English",
-      "question": "Listen to Audio Clip 2. What is the main instruction?",
+      "section": "3. Connecting Pillars & Expressions",
+      "question": "Day 1 Connecting Pillars: Complete the sentence: 'Keep the morning family update __________.'",
       "options": {
-        "a": "The speaker will drop by your home around 6:00 PM today.",
-        "b": "The speaker wants to reschedule for next month.",
-        "c": "The speaker is asking for directions to the airport."
+        "a": "short and sweet",
+        "b": "out of stock",
+        "c": "bits and pieces"
       },
       "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'Hey! I will drop by your place this evening around 6:00 PM for a quick chat.'</i>",
-      "audio_prompt": "Hey! I will drop by your place this evening around 6:00 PM for a quick chat."
+      "explanation": "<b>Correct: Option A</b><br>'short and sweet' is a natural connecting pillar meaning: brief, pleasant, and direct.",
+      "audio_prompt": ""
     },
     {
       "id": 11,
-      "section": "3. Listening to Spoken English",
-      "question": "Listen to Audio Clip 3. What does the phrase 'Let's call it a day' mean in this dialogue?",
+      "section": "3. Connecting Pillars & Expressions",
+      "question": "Day 1 Connecting Pillars: Complete the sentence: 'Audits are __________ of this industry.'",
       "options": {
-        "a": "Check the date on the wall calendar.",
-        "b": "Stop working on the task for today and rest.",
-        "c": "Work late into the night."
+        "a": "part and parcel",
+        "b": "out of stock",
+        "c": "bits and pieces"
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>'Let's call it a day' is an everyday idiom meaning we have finished work for today.",
-      "audio_prompt": "We have made great progress on the chores! Let us call it a day and continue tomorrow morning."
+      "answer": "a",
+      "explanation": "<b>Correct: Option A</b><br>'part and parcel' is a natural connecting pillar meaning: an unavoidable essential component.",
+      "audio_prompt": ""
     },
     {
       "id": 12,
-      "section": "3. Listening to Spoken English",
-      "question": "Listen to Audio Clip 4. What reminder is given?",
+      "section": "3. Connecting Pillars & Expressions",
+      "question": "Day 1 Connecting Pillars: Complete the sentence: 'Our family arrived home __________ after the trip.'",
       "options": {
-        "a": "Take an umbrella because dark clouds are gathering.",
-        "b": "Stay indoors all weekend.",
-        "c": "Buy a new raincoat online."
+        "a": "safe and sound",
+        "b": "out of stock",
+        "c": "bits and pieces"
       },
       "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>The speaker says: <i>'Don't forget your umbrella, it looks like rain this afternoon!'</i>",
-      "audio_prompt": "Don't forget your umbrella when you step out, it looks like rain this afternoon!"
+      "explanation": "<b>Correct: Option A</b><br>'safe and sound' is a natural connecting pillar meaning: completely unharmed and intact after travel.",
+      "audio_prompt": ""
     },
     {
       "id": 13,
-      "section": "4. Polite Social Expressions & Etiquette",
-      "question": "How should you politely ask a friend or neighbor to lend a helping hand?",
+      "section": "4. Listening to Spoken English",
+      "question": "Day 1 Auditory Clip 1: Listen to the audio snippet. What instruction is given?",
       "options": {
-        "a": "Give me help right now.",
-        "b": "Could you please lend me a hand with this for a minute?",
-        "c": "You must assist me."
+        "a": "The speaker says: \"I picked out fresh tomatoes and spinach at the market.\"",
+        "b": "The speaker is canceling all upcoming meetings.",
+        "c": "The speaker is asking for directions to the airport."
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>'Could you please lend me a hand...' is polite, warm, and natural.",
-      "audio_prompt": ""
+      "answer": "a",
+      "explanation": "<b>Correct: Option A</b><br>The speaker states: <i>\"I picked out fresh tomatoes and spinach at the market.\"</i>",
+      "audio_prompt": "I picked out fresh tomatoes and spinach at the market."
     },
     {
       "id": 14,
-      "section": "4. Polite Social Expressions & Etiquette",
-      "question": "Choose the most courteous sign-off when sending a note to a colleague or neighbor:",
+      "section": "4. Listening to Spoken English",
+      "question": "Day 1 Auditory Clip 2: Listen to the audio snippet. What instruction is given?",
       "options": {
-        "a": "Please find attached the requested document. Thank you!",
-        "b": "I put the paper here see it.",
-        "c": "Look at this attached inside."
+        "a": "The speaker says: \"Please drop me off near gate 2 of the metro station.\"",
+        "b": "The speaker is canceling all upcoming meetings.",
+        "c": "The speaker is asking for directions to the airport."
       },
       "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>Standard, polite phrasing universally accepted across personal and professional writing.",
-      "audio_prompt": ""
+      "explanation": "<b>Correct: Option A</b><br>The speaker states: <i>\"Please drop me off near gate 2 of the metro station.\"</i>",
+      "audio_prompt": "Please drop me off near gate 2 of the metro station."
     },
     {
       "id": 15,
-      "section": "4. Polite Social Expressions & Etiquette",
-      "question": "Which response is best when someone offers you tea, but you have already had some?",
+      "section": "4. Listening to Spoken English",
+      "question": "Day 1 Auditory Clip 3: Listen to the audio snippet. What instruction is given?",
       "options": {
-        "a": "I don't want your tea.",
-        "b": "Thank you so much, but I've just had a cup!",
-        "c": "No give to someone else."
+        "a": "The speaker says: \"I prepared breakfast for my family this morning.\"",
+        "b": "The speaker is canceling all upcoming meetings.",
+        "c": "The speaker is asking for directions to the airport."
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>Appreciates the offer warmly while declining politely.",
-      "audio_prompt": ""
+      "answer": "a",
+      "explanation": "<b>Correct: Option A</b><br>The speaker states: <i>\"I prepared breakfast for my family this morning.\"</i>",
+      "audio_prompt": "I prepared breakfast for my family this morning."
     },
     {
       "id": 16,
-      "section": "4. Polite Social Expressions & Etiquette",
-      "question": "How do you politely ask a driver where they are dropping you off?",
+      "section": "4. Listening to Spoken English",
+      "question": "Day 1 Auditory Clip 4: Listen to the audio snippet. What instruction is given?",
       "options": {
-        "a": "Where are you taking me?",
-        "b": "Could you please drop me off near the landmark ahead?",
-        "c": "Stop the vehicle immediately."
+        "a": "The speaker says: \"How much are these organic apples per kilo?\"",
+        "b": "The speaker is canceling all upcoming meetings.",
+        "c": "The speaker is asking for directions to the airport."
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>'Drop me off near...' is the standard phrasing for rides and commutes.",
-      "audio_prompt": ""
+      "answer": "a",
+      "explanation": "<b>Correct: Option A</b><br>The speaker states: <i>\"How much are these organic apples per kilo?\"</i>",
+      "audio_prompt": "How much are these organic apples per kilo?"
     },
     {
       "id": 17,
       "section": "5. Real-Life Telugu ➔ English Translation",
-      "question": "Translate Scenario 1:<br><br><b>Telugu:</b> \"నేను సాధారణంగా ఉదయం 6 గంటలకే నిద్రలేచి, ఒక కప్పు టీ తాగుతాను.\"<br><i>(Literal attempt: \"I generally in morning at 6 clock wake up and drink one cup tea.\")</i>",
+      "question": "Day 1 Translation Scenario 1:<br><br><b>Telugu:</b> \"నాకు కొంచెం తలనొప్పిగా ఉంది, ఒక గంట సేపు రెస్ట్ తీసుకుంటాను.\"<br><i>(Literal attempt: \"To me little headache is there, take rest one hour.\")</i>",
       "options": {
-        "a": "I generally in morning at 6 clock wake up and drink one cup tea.",
-        "b": "I usually wake up at 6:00 AM and have a cup of tea.",
-        "c": "I morning wake up and tea drinking."
+        "a": "To me little headache is there, take rest one hour.",
+        "b": "I have a slight headache; I'm going to rest for an hour.",
+        "c": "Literal translation attempt."
       },
       "answer": "b",
-      "explanation": "<b>AI Feedback & Scoring (9/10):</b><br>In English, say 'have a cup of tea' or 'drink a cup of tea' and specify clock times with '6:00 AM' instead of 'at 6 clock'.<br><br><b>Natural Version:</b> <i>\"I usually wake up at 6:00 AM and have a cup of tea.\"</i>",
-      "audio_prompt": "Natural English phrasing: I usually wake up at 6:00 AM and have a cup of tea."
+      "explanation": "<b>Natural Version:</b> <i>\"I have a slight headache; I'm going to rest for an hour.\"</i><br><br>Say 'I have a slight headache' instead of literal translations.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('I have a slight headache; I\\'m going to rest for an hour.')\">🔊 Listen to Polished Pronunciation</button>",
+      "audio_prompt": ""
     },
     {
       "id": 18,
       "section": "5. Real-Life Telugu ➔ English Translation",
-      "question": "Translate Scenario 2:<br><br><b>Telugu:</b> \"ఈ టమాటాలు కేజీ ఎంత? కొంచెం తాజావి ఏరి ఇవ్వండి.\"<br><i>(Literal attempt: \"These tomatoes kg how much? Pick and give fresh ones.\")</i>",
+      "question": "Day 1 Translation Scenario 2:<br><br><b>Telugu:</b> \"అన్నా, బస్టాండ్ దగ్గర డ్రాప్ చేయండి, ఎంత అవుతుంది?\"<br><i>(Literal attempt: \"Brother bus stand drop me, how much will become?\")</i>",
       "options": {
-        "a": "These tomatoes kg how much? Pick and give fresh ones.",
-        "b": "How much are these tomatoes per kilo? Please pick out some fresh ones for me.",
-        "c": "What is price for tomatoes giving?"
+        "a": "Brother bus stand drop me, how much will become?",
+        "b": "Please drop me off near the bus stand. How much is the fare?",
+        "c": "Literal translation attempt."
       },
       "answer": "b",
-      "explanation": "<b>AI Feedback & Scoring (9/10):</b><br>Avoid literal word-by-word translation. Use 'per kilo' for price by weight, and 'pick out' for selecting fresh produce.<br><br><b>Natural Version:</b> <i>\"How much are these tomatoes per kilo? Please pick out some fresh ones for me.\"</i>",
-      "audio_prompt": "How much are these tomatoes per kilo? Please pick out some fresh ones for me."
+      "explanation": "<b>Natural Version:</b> <i>\"Please drop me off near the bus stand. How much is the fare?\"</i><br><br>Avoid 'how much will become' and ask 'How much is the fare?'.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Please drop me off near the bus stand. How much is the fare?')\">🔊 Listen to Polished Pronunciation</button>",
+      "audio_prompt": ""
     },
     {
       "id": 19,
       "section": "5. Real-Life Telugu ➔ English Translation",
-      "question": "Translate Scenario 3:<br><br><b>Telugu:</b> \"అన్నా, బస్టాండ్ దగ్గర డ్రాప్ చేయండి, ఎంత అవుతుంది?\"<br><i>(Literal attempt: \"Brother, near bus stand drop me, how much will become?\")</i>",
+      "question": "Day 1 Translation Scenario 3:<br><br><b>Telugu:</b> \"రేపటి మీటింగ్ 3 గంటలకు రీషెడ్యూల్ చేయవచ్చా?\"<br><i>(Literal attempt: \"Tomorrow meeting 3 clock reschedule possible?\")</i>",
       "options": {
-        "a": "Brother, near bus stand drop me, how much will become?",
-        "b": "Please drop me off near the bus stand. How much is the fare?",
-        "c": "Drop bus stand how much cost becoming?"
+        "a": "Tomorrow meeting 3 clock reschedule possible?",
+        "b": "Could we reschedule tomorrow's meeting to 3:00 PM?",
+        "c": "Literal translation attempt."
       },
       "answer": "b",
-      "explanation": "<b>AI Feedback & Scoring (10/10):</b><br>Avoid 'how much will become' (a common Telugu-ism). Use 'How much is the fare?' or 'What will it cost?'.<br><br><b>Natural Version:</b> <i>\"Please drop me off near the bus stand. How much is the fare?\"</i>",
-      "audio_prompt": "Please drop me off near the bus stand. How much is the fare?"
+      "explanation": "<b>Natural Version:</b> <i>\"Could we reschedule tomorrow's meeting to 3:00 PM?\"</i><br><br>Use 'Could we reschedule...' for polite professional requests.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Could we reschedule tomorrow\\'s meeting to 3:00 PM?')\">🔊 Listen to Polished Pronunciation</button>",
+      "audio_prompt": ""
     },
     {
       "id": 20,
       "section": "5. Real-Life Telugu ➔ English Translation",
-      "question": "Translate Scenario 4:<br><br><b>Telugu:</b> \"నాకు కొంచెం తలనొప్పిగా ఉంది, ఒక గంట సేపు రెస్ట్ తీసుకుంటాను.\"<br><i>(Literal attempt: \"To me little headache is there, I will take rest one hour.\")</i>",
+      "question": "Day 1 Translation Scenario 4:<br><br><b>Telugu:</b> \"సాయంత్రం మా ఇంటికి రండి, టీ తాగుదాం.\"<br><i>(Literal attempt: \"Evening my house come, tea drink.\")</i>",
       "options": {
-        "a": "To me little headache is there, I will take rest one hour.",
-        "b": "I have a slight headache; I'm going to rest for an hour.",
-        "c": "My head is hurting small, resting one hour."
+        "a": "Evening my house come, tea drink.",
+        "b": "Please drop by our home this evening; we can have tea together.",
+        "c": "Literal translation attempt."
       },
       "answer": "b",
-      "explanation": "<b>AI Feedback & Scoring (10/10):</b><br>In English, say 'I have a slight headache' rather than 'to me headache is there'. Also say 'rest for an hour'.<br><br><b>Natural Version:</b> <i>\"I have a slight headache; I'm going to rest for an hour.\"</i>",
-      "audio_prompt": "I have a slight headache; I'm going to rest for an hour."
+      "explanation": "<b>Natural Version:</b> <i>\"Please drop by our home this evening; we can have tea together.\"</i><br><br>Use 'drop by our home' for informal invitations.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Please drop by our home this evening; we can have tea together.')\">🔊 Listen to Polished Pronunciation</button>",
+      "audio_prompt": ""
     }
   ]
 }
