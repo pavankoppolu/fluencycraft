@@ -102,18 +102,23 @@ def generate_via_gemini_api(level, day_num, plan_info, past_questions):
     if not api_key:
         return None
 
-    past_samples = list(past_questions)[:30]
-    past_questions_str = json.dumps(past_samples, ensure_ascii=False) if past_samples else "[]"
-
     prompt = f"""
-    You are an expert English language pedagogue designing a 20-question practical daily living English test for FluencyCraft ({level.capitalize()} track, Day {day_num}).
+    You are an expert English language pedagogue designing a 20-question conceptual practical English test for FluencyCraft ({level.capitalize()} track, Day {day_num}).
 
-    Planned Topic: {plan_info['theme']}
-    Concept Focus: {plan_info['concept_overview']}
-    Why Important: {plan_info['why_important']}
+    CONCEPTUAL MODULE FOCUS:
+    - Planned Topic: {plan_info['theme']}
+    - Targeted Concept: {plan_info['concept_overview']}
+    - Pedagogical Purpose: {plan_info['why_important']}
+    - Difficulty Level: {level.capitalize()} (Ensure vocabulary, tense complexity, and sentence structure strictly match the {level.capitalize()} difficulty tier).
 
-    Instructions:
-    Generate a JSON object with EXACTLY 20 questions based on daily practical living/communication scenarios.
+    CONCEPTUAL ALIGNMENT MANDATE:
+    This test MUST NOT contain random disconnected questions. ALL 20 questions MUST be systematically and conceptually tied to '{plan_info['theme']}':
+    1. Section 1 (Q1-4): Test tenses and habits applied directly within '{plan_info['theme']}'.
+    2. Section 2 (Q5-8): Test vocabulary and phrasal verbs relevant to '{plan_info['theme']}'.
+    3. Section 3 (Q9-12): Test natural connecting pillars (pair idioms) in contexts related to '{plan_info['theme']}'.
+    4. Section 4 (Q13-16): Auditory listening clips representing realistic spoken dialogues within '{plan_info['theme']}'.
+    5. Section 5 (Q17-20): Real-life Telugu -> English translation scenarios expressing thoughts within '{plan_info['theme']}'.
+
     Ensure NO questions overlap with these previously used questions: {past_questions_str}.
 
     Required JSON Schema:
@@ -126,12 +131,7 @@ def generate_via_gemini_api(level, day_num, plan_info, past_questions):
       "concept_overview": "{plan_info['concept_overview']}",
       "why_important": "{plan_info['why_important']}",
       "questions": [
-        // 20 objects with id 1..20
-        // id 1-4: Section 1 (Daily Routine / Habits / Tenses)
-        // id 5-8: Section 2 (Everyday Vocabulary & Phrasal Verbs)
-        // id 9-12: Section 3 (Connecting Pillars & Pair Idioms)
-        // id 13-16: Section 4 (Listening to Spoken English with 'audio_prompt' containing spoken audio script)
-        // id 17-20: Section 5 (Real-Life Telugu -> English Translation with Telugu sentence script, literal attempt, natural options, and explanation).
+        // 20 objects with id 1..20 following the 5 sections above
       ]
     }}
 
