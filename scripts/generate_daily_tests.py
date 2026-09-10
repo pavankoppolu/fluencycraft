@@ -122,6 +122,12 @@ def generate_via_gemini_api(level, day_num, plan_info, past_questions):
     4. Section 4 (Q13-16): Auditory listening clips representing realistic spoken dialogues within '{plan_info['theme']}'.
     5. Section 5 (Q17-20): Real-life Telugu -> English translation scenarios expressing thoughts within '{plan_info['theme']}'.
 
+    OPTION SHUFFLING & RIGOR MANDATE:
+    - Every question MUST contain EXACTLY 4 options: "a", "b", "c", "d".
+    - Answer keys MUST be evenly and randomly distributed across "a", "b", "c", and "d" (~5 questions per option key across the 20 questions). NEVER place the answer in option 'a' or 'b' for all questions.
+    - Distractor choices ("a", "b", "c", "d" that are not the answer) MUST be realistic, subtle English learner errors or plausible alternatives (e.g. wrong preposition, subtle tense confusion, plausible misinterpretation). NEVER use repetitive dummy options.
+    - The "explanation" field MUST always explicitly begin with "<b>Correct: Option X</b><br>" where X is the uppercase letter of the correct answer key ("A", "B", "C", or "D").
+
     Ensure NO questions overlap with these previously used questions: {past_questions_str}.
 
     Required JSON Schema:
@@ -134,7 +140,7 @@ def generate_via_gemini_api(level, day_num, plan_info, past_questions):
       "concept_overview": "{plan_info['concept_overview']}",
       "why_important": "{plan_info['why_important']}",
       "questions": [
-        // 20 objects with id 1..20 following the 5 sections above
+        // 20 objects with id 1..20 following the 5 sections above. Each question object must have options object with keys "a", "b", "c", "d", answer key ("a", "b", "c", or "d"), explanation ("<b>Correct: Option X</b>..."), and audio_prompt string.
       ]
     }}
 
@@ -256,6 +262,35 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
         used_questions_clean.add(clean)
         return True
 
+    def create_shuffled_question(q_id, section, q_text, correct_choice, distractor1, distractor2, distractor3, exp_body, audio_prompt=""):
+        choices = [
+            (correct_choice, True),
+            (distractor1, False),
+            (distractor2, False),
+            (distractor3, False)
+        ]
+        rng.shuffle(choices)
+        
+        keys = ["a", "b", "c", "d"]
+        options = {}
+        correct_key = "a"
+        for i, (text_val, is_corr) in enumerate(choices):
+            k = keys[i]
+            options[k] = text_val
+            if is_corr:
+                correct_key = k
+                
+        explanation = f"<b>Correct: Option {correct_key.upper()}</b><br>{exp_body}"
+        return {
+            "id": q_id,
+            "section": section,
+            "question": q_text,
+            "options": options,
+            "answer": correct_key,
+            "explanation": explanation,
+            "audio_prompt": audio_prompt
+        }
+
     # Section 1: Daily Routine & Habits (Q1-4)
     rng.shuffle(actions_pool)
     q_id = 1
@@ -271,19 +306,12 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
             if not is_unique(q_text):
                 continue
                 
-        questions.append({
-            "id": q_id,
-            "section": "1. Daily Routine & Habits",
-            "question": q_text,
-            "options": {
-                "a": wrong_sent,
-                "b": correct_sent,
-                "c": wrong_sent.replace("am", "is")
-            },
-            "answer": "b",
-            "explanation": f"<b>Correct: Option B</b><br>Natural everyday English uses standard tense agreement: <i>\"{correct_sent}\"</i>.",
-            "audio_prompt": ""
-        })
+        d1 = wrong_sent
+        d2 = wrong_sent.replace("am", "is").replace("I ", "He ") if "am" in wrong_sent else f"I am {act} right now."
+        d3 = correct_sent.replace("am", "was") if "am" in correct_sent else wrong_sent + " yesterday"
+        exp_body = f"Natural everyday English uses standard tense agreement: <i>\"{correct_sent}\"</i>."
+        
+        questions.append(create_shuffled_question(q_id, "1. Daily Routine & Habits", q_text, correct_sent, d1, d2, d3, exp_body))
         q_id += 1
 
     # Section 2: Vocabulary & Phrasal Verbs (Q5-8)
@@ -298,19 +326,13 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
             if not is_unique(q_text):
                 continue
 
-        questions.append({
-            "id": q_id,
-            "section": "2. Everyday Vocabulary & Phrasal Verbs",
-            "question": q_text,
-            "options": {
-                "a": "To stop doing all daily activities immediately.",
-                "b": f"{meaning.capitalize()}.",
-                "c": "To clean the room using water."
-            },
-            "answer": "b",
-            "explanation": f"<b>Correct: Option B</b><br>'{pv}' means: {meaning}. Example: <i>\"{example}\"</i>",
-            "audio_prompt": ""
-        })
+        correct_choice = f"{meaning.capitalize()}."
+        d1 = "To postpone or cancel an activity indefinitely."
+        d2 = "To perform a daily task hastily without preparation."
+        d3 = "To clean or inspect a physical room thoroughly."
+        exp_body = f"'{pv}' means: {meaning}. Example: <i>\"{example}\"</i>"
+
+        questions.append(create_shuffled_question(q_id, "2. Everyday Vocabulary & Phrasal Verbs", q_text, correct_choice, d1, d2, d3, exp_body))
         q_id += 1
 
     # Section 3: Connecting Pillars (Q9-12)
@@ -325,19 +347,13 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
             if not is_unique(q_text):
                 continue
 
-        questions.append({
-            "id": q_id,
-            "section": "3. Connecting Pillars & Expressions",
-            "question": q_text,
-            "options": {
-                "a": pil,
-                "b": "out of stock",
-                "c": "bits and pieces" if pil != "bits and pieces" else "short and sweet"
-            },
-            "answer": "a",
-            "explanation": f"<b>Correct: Option A</b><br>'{pil}' is a natural connecting pillar meaning: {pil_meaning}.",
-            "audio_prompt": ""
-        })
+        correct_choice = pil
+        d1 = "touch and go" if pil != "touch and go" else "spick and span"
+        d2 = "bits and pieces" if pil != "bits and pieces" else "short and sweet"
+        d3 = "part and parcel" if pil != "part and parcel" else "first and foremost"
+        exp_body = f"'{pil}' is a natural connecting pillar meaning: {pil_meaning}."
+
+        questions.append(create_shuffled_question(q_id, "3. Connecting Pillars & Expressions", q_text, correct_choice, d1, d2, d3, exp_body))
         q_id += 1
 
     # Section 4: Listening (Q13-16)
@@ -352,19 +368,13 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
             if not is_unique(q_text):
                 continue
 
-        questions.append({
-            "id": q_id,
-            "section": "4. Listening to Spoken English",
-            "question": q_text,
-            "options": {
-                "a": f"The speaker says: \"{correct_sent}\"",
-                "b": "The speaker is canceling all upcoming meetings.",
-                "c": "The speaker is asking for directions to the airport."
-            },
-            "answer": "a",
-            "explanation": f"<b>Correct: Option A</b><br>The speaker states: <i>\"{correct_sent}\"</i>",
-            "audio_prompt": correct_sent
-        })
+        correct_choice = f"The speaker says: \"{correct_sent}\""
+        d1 = f"The speaker says: \"{wrong_sent}\""
+        d2 = "The speaker is requesting to cancel all scheduled meetings for today."
+        d3 = "The speaker is asking for urgent driving directions to the station."
+        exp_body = f"The speaker states: <i>\"{correct_sent}\"</i>"
+
+        questions.append(create_shuffled_question(q_id, "4. Listening to Spoken English", q_text, correct_choice, d1, d2, d3, exp_body, audio_prompt=correct_sent))
         q_id += 1
 
     # Section 5: Telugu Translation (Q17-20)
@@ -380,19 +390,13 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
                 continue
 
         clean_nat = nat.replace("'", "\\'")
-        questions.append({
-            "id": q_id,
-            "section": "5. Real-Life Telugu ➔ English Translation",
-            "question": q_text,
-            "options": {
-                "a": lit,
-                "b": nat,
-                "c": "Literal translation attempt."
-            },
-            "answer": "b",
-            "explanation": f"<b>Natural Version:</b> <i>\"{nat}\"</i><br><br>{exp}<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('{clean_nat}')\">🔊 Listen to Polished Pronunciation</button>",
-            "audio_prompt": ""
-        })
+        correct_choice = nat
+        d1 = lit
+        d2 = f"I am needing to {lit.lower()}" if len(lit) > 10 else "Word by word direct conversion"
+        d3 = "Literal Indian English phrasing without modal polite verbs."
+        exp_body = f"<b>Natural Version:</b> <i>\"{nat}\"</i><br><br>{exp}<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('{clean_nat}')\">🔊 Listen to Polished Pronunciation</button>"
+
+        questions.append(create_shuffled_question(q_id, "5. Real-Life Telugu ➔ English Translation", q_text, correct_choice, d1, d2, d3, exp_body))
         q_id += 1
 
     return word_info, concept_overview, why_important, questions
@@ -744,7 +748,7 @@ def build_standalone_html(level, day_num, word_info, concept_overview, why_impor
 
     for (let qKey in savedMap) {{
       const val = savedMap[qKey];
-      const radio = document.querySelector(`input[name="${{qKey}}"][value="${{val}}"]`);
+      const radio = document.querySelector(`input[name="${'{'}qKey{'}'}"][value="${'{'}val{'}'}"]`);
       if (radio) {{
         radio.checked = true;
         onAnswerSelected(qKey, val, false);
@@ -765,17 +769,24 @@ def build_standalone_html(level, day_num, word_info, concept_overview, why_impor
 
       let audioHtml = '';
       if (q.audio_prompt && q.audio_prompt.trim().length > 0) {{
-        audioHtml = `<button type="button" class="audio-btn" onclick="playPrompt('${{q.audio_prompt.replace(/'/g, "\\'")}}')">🔊 Listen to Audio Clip</button>`;
+        const cleanAudio = q.audio_prompt.replace(/'/g, "\\'");
+        audioHtml = `<button type="button" class="audio-btn" onclick="playPrompt('${{cleanAudio}}')">🔊 Listen to Audio Clip</button>`;
       }}
+
+      let optionsHtml = '';
+      const optKeys = Object.keys(q.options || {{}});
+      optKeys.forEach(optKey => {{
+        const keyUpper = optKey.toUpperCase();
+        const valText = q.options[optKey];
+        optionsHtml += `<label class="option-label" id="label_q${{qNum}}_${{optKey}}"><input type="radio" name="q${{qNum}}" value="${{optKey}}" onchange="onAnswerSelected('q${{qNum}}', '${{optKey}}', true)"> ${{keyUpper}}) ${{valText}}</label>`;
+      }});
 
       card.innerHTML = `
         <div style="font-size:0.8rem; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:6px;">${{q.section || ''}}</div>
         ${{audioHtml}}
         <p class="question">${{qNum}}. ${{q.question}}</p>
         <div class="options" id="optionsGroup_${{qNum}}">
-          <label class="option-label" id="label_q${{qNum}}_a"><input type="radio" name="q${{qNum}}" value="a" onchange="onAnswerSelected('q${{qNum}}', 'a', true)"> A) ${{q.options.a}}</label>
-          <label class="option-label" id="label_q${{qNum}}_b"><input type="radio" name="q${{qNum}}" value="b" onchange="onAnswerSelected('q${{qNum}}', 'b', true)"> B) ${{q.options.b}}</label>
-          <label class="option-label" id="label_q${{qNum}}_c"><input type="radio" name="q${{qNum}}" value="c" onchange="onAnswerSelected('q${{qNum}}', 'c', true)"> C) ${{q.options.c}}</label>
+          ${{optionsHtml}}
         </div>
         <div class="explanation" id="exp${{qNum}}"></div>
       `;

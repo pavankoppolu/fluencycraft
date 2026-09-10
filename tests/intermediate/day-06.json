@@ -15,24 +15,26 @@
     {
       "id": 1,
       "section": "1. Daily Routine & Habits",
-      "question": "Day 6 Practice (Technical Demos & Walkthroughs): When talking about inviting neighbors for tea (by 5:00 PM), which sentence is grammatically correct for 'My sister'?",
+      "question": "Day 6 Scenario (Technical Demos & Walkthroughs): Select the natural English phrasing when My sister is inviting neighbors for tea by 5:00 PM:",
       "options": {
-        "a": "Evening come my house tea.",
-        "b": "Please drop by our place this evening for tea.",
-        "c": "Evening come my house tea."
+        "a": "Please drop by our place this evening for tea.",
+        "b": "Evening come my house tea.",
+        "c": "Evening come my house tea. yesterday",
+        "d": "I am inviting neighbors for tea right now."
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>Natural everyday English uses standard tense agreement: <i>\"Please drop by our place this evening for tea.\"</i>.",
+      "answer": "a",
+      "explanation": "<b>Correct: Option A</b><br>Natural everyday English uses standard tense agreement: <i>\"Please drop by our place this evening for tea.\"</i>.",
       "audio_prompt": ""
     },
     {
       "id": 2,
       "section": "1. Daily Routine & Habits",
-      "question": "Day 6 Practice (Technical Demos & Walkthroughs): When talking about giving street directions (by 5:00 PM), which sentence is grammatically correct for 'The delivery executive'?",
+      "question": "Day 6 Practice (Technical Demos & Walkthroughs): When talking about giving street directions (yesterday afternoon), which sentence is grammatically correct for 'The store vendor'?",
       "options": {
         "a": "Signal crossing left turn take.",
         "b": "Take a left turn after crossing the traffic signal.",
-        "c": "Signal crossing left turn take."
+        "c": "Signal crossing left turn take. yesterday",
+        "d": "I am giving street directions right now."
       },
       "answer": "b",
       "explanation": "<b>Correct: Option B</b><br>Natural everyday English uses standard tense agreement: <i>\"Take a left turn after crossing the traffic signal.\"</i>.",
@@ -41,235 +43,253 @@
     {
       "id": 3,
       "section": "1. Daily Routine & Habits",
-      "question": "Day 6 Practice (Technical Demos & Walkthroughs): When talking about declining an out-of-scope task (this evening), which sentence is grammatically correct for 'My manager'?",
+      "question": "Day 6 Practice (Technical Demos & Walkthroughs): When talking about declining an out-of-scope task (right now), which sentence is grammatically correct for 'Our neighbor'?",
       "options": {
-        "a": "No cannot do this work.",
-        "b": "While I understand the urgency, our current bandwidth is full.",
-        "c": "No cannot do this work."
+        "a": "No cannot do this work. yesterday",
+        "b": "I am declining an out-of-scope task right now.",
+        "c": "While I understand the urgency, our current bandwidth is full.",
+        "d": "No cannot do this work."
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>Natural everyday English uses standard tense agreement: <i>\"While I understand the urgency, our current bandwidth is full.\"</i>.",
+      "answer": "c",
+      "explanation": "<b>Correct: Option C</b><br>Natural everyday English uses standard tense agreement: <i>\"While I understand the urgency, our current bandwidth is full.\"</i>.",
       "audio_prompt": ""
     },
     {
       "id": 4,
       "section": "1. Daily Routine & Habits",
-      "question": "Day 6 Practice (Technical Demos & Walkthroughs): When talking about tidying up the room (on weekends), which sentence is grammatically correct for 'My manager'?",
+      "question": "Day 6 Practice (Technical Demos & Walkthroughs): When talking about tidying up the room (yesterday afternoon), which sentence is grammatically correct for 'The delivery executive'?",
       "options": {
-        "a": "I am tidy up room.",
-        "b": "I am tidying up the room right now.",
-        "c": "I is tidy up room."
+        "a": "I am tidying up the room right now.",
+        "b": "I am tidy up room.",
+        "c": "He is tidy up room.",
+        "d": "I was tidying up the room right now."
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>Natural everyday English uses standard tense agreement: <i>\"I am tidying up the room right now.\"</i>.",
+      "answer": "a",
+      "explanation": "<b>Correct: Option A</b><br>Natural everyday English uses standard tense agreement: <i>\"I am tidying up the room right now.\"</i>.",
       "audio_prompt": ""
     },
     {
       "id": 5,
       "section": "2. Everyday Vocabulary & Phrasal Verbs",
-      "question": "Day 6 Vocabulary (Technical Demos & Walkthroughs): What is the exact practical meaning of the phrase 'call off'?",
+      "question": "Day 6 Vocabulary (Technical Demos & Walkthroughs): What is the exact practical meaning of the phrase 'circle back'?",
       "options": {
-        "a": "To stop doing all daily activities immediately.",
-        "b": "Cancel a planned event or meeting.",
-        "c": "To clean the room using water."
+        "a": "To clean or inspect a physical room thoroughly.",
+        "b": "Return to a topic later for follow-up.",
+        "c": "To postpone or cancel an activity indefinitely.",
+        "d": "To perform a daily task hastily without preparation."
       },
       "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>'call off' means: cancel a planned event or meeting. Example: <i>\"They had to call off the afternoon presentation.\"</i>",
+      "explanation": "<b>Correct: Option B</b><br>'circle back' means: return to a topic later for follow-up. Example: <i>\"Let us circle back to the timeline discussion.\"</i>",
       "audio_prompt": ""
     },
     {
       "id": 6,
       "section": "2. Everyday Vocabulary & Phrasal Verbs",
-      "question": "Day 6 Vocabulary (Technical Demos & Walkthroughs): What is the exact practical meaning of the phrase 'fill out'?",
+      "question": "Day 6 Vocabulary (Technical Demos & Walkthroughs): What is the exact practical meaning of the phrase 'follow up'?",
       "options": {
-        "a": "To stop doing all daily activities immediately.",
-        "b": "Complete an official form.",
-        "c": "To clean the room using water."
+        "a": "Check progress on a prior matter.",
+        "b": "To perform a daily task hastily without preparation.",
+        "c": "To postpone or cancel an activity indefinitely.",
+        "d": "To clean or inspect a physical room thoroughly."
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>'fill out' means: complete an official form. Example: <i>\"Please fill out this registration form.\"</i>",
+      "answer": "a",
+      "explanation": "<b>Correct: Option A</b><br>'follow up' means: check progress on a prior matter. Example: <i>\"I will follow up with the team regarding the report.\"</i>",
       "audio_prompt": ""
     },
     {
       "id": 7,
       "section": "2. Everyday Vocabulary & Phrasal Verbs",
-      "question": "Day 6 Vocabulary (Technical Demos & Walkthroughs): What is the exact practical meaning of the phrase 'order in'?",
+      "question": "Day 6 Terms (Technical Demos & Walkthroughs): Choose the correct definition for the phrasal verb 'fill out':",
       "options": {
-        "a": "To stop doing all daily activities immediately.",
-        "b": "Request food delivered home.",
-        "c": "To clean the room using water."
+        "a": "To clean or inspect a physical room thoroughly.",
+        "b": "To postpone or cancel an activity indefinitely.",
+        "c": "To perform a daily task hastily without preparation.",
+        "d": "Complete an official form."
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>'order in' means: request food delivered home. Example: <i>\"Let us order in dinner tonight.\"</i>",
+      "answer": "d",
+      "explanation": "<b>Correct: Option D</b><br>'fill out' means: complete an official form. Example: <i>\"Please fill out this registration form.\"</i>",
       "audio_prompt": ""
     },
     {
       "id": 8,
       "section": "2. Everyday Vocabulary & Phrasal Verbs",
-      "question": "Day 6 Vocabulary (Technical Demos & Walkthroughs): What is the exact practical meaning of the phrase 'touch base'?",
+      "question": "Day 6 Terms (Technical Demos & Walkthroughs): Choose the correct definition for the phrasal verb 'touch base':",
       "options": {
-        "a": "To stop doing all daily activities immediately.",
-        "b": "Briefly connect with someone to exchange news.",
-        "c": "To clean the room using water."
+        "a": "To perform a daily task hastily without preparation.",
+        "b": "To clean or inspect a physical room thoroughly.",
+        "c": "To postpone or cancel an activity indefinitely.",
+        "d": "Briefly connect with someone to exchange news."
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>'touch base' means: briefly connect with someone to exchange news. Example: <i>\"I will touch base with you after the review.\"</i>",
+      "answer": "d",
+      "explanation": "<b>Correct: Option D</b><br>'touch base' means: briefly connect with someone to exchange news. Example: <i>\"I will touch base with you after the review.\"</i>",
       "audio_prompt": ""
     },
     {
       "id": 9,
       "section": "3. Connecting Pillars & Expressions",
-      "question": "Day 6 Connecting Pillars (Technical Demos & Walkthroughs): Complete the sentence: 'Audits are __________ of this industry.'",
+      "question": "Day 6 Pair Idioms (Technical Demos & Walkthroughs): Fill in the blank with the best connecting pillar: 'I picked up a few __________ from the store.'",
       "options": {
-        "a": "part and parcel",
-        "b": "out of stock",
-        "c": "bits and pieces"
+        "a": "touch and go",
+        "b": "part and parcel",
+        "c": "short and sweet",
+        "d": "bits and pieces"
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>'part and parcel' is a natural connecting pillar meaning: an unavoidable essential component.",
+      "answer": "d",
+      "explanation": "<b>Correct: Option D</b><br>'bits and pieces' is a natural connecting pillar meaning: small miscellaneous items.",
       "audio_prompt": ""
     },
     {
       "id": 10,
       "section": "3. Connecting Pillars & Expressions",
-      "question": "Day 6 Connecting Pillars (Technical Demos & Walkthroughs): Complete the sentence: 'I picked up a few __________ from the store.'",
+      "question": "Day 6 Connecting Pillars (Technical Demos & Walkthroughs): Complete the sentence: 'Our family arrived home __________ after the trip.'",
       "options": {
-        "a": "bits and pieces",
-        "b": "out of stock",
-        "c": "short and sweet"
+        "a": "part and parcel",
+        "b": "bits and pieces",
+        "c": "safe and sound",
+        "d": "touch and go"
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>'bits and pieces' is a natural connecting pillar meaning: small miscellaneous items.",
+      "answer": "c",
+      "explanation": "<b>Correct: Option C</b><br>'safe and sound' is a natural connecting pillar meaning: completely unharmed and intact after travel.",
       "audio_prompt": ""
     },
     {
       "id": 11,
       "section": "3. Connecting Pillars & Expressions",
-      "question": "Day 6 Connecting Pillars (Technical Demos & Walkthroughs): Complete the sentence: 'By and large, the project achieved all key milestones.'",
-      "options": {
-        "a": "by and large",
-        "b": "out of stock",
-        "c": "bits and pieces"
-      },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>'by and large' is a natural connecting pillar meaning: overall or generally speaking.",
-      "audio_prompt": ""
-    },
-    {
-      "id": 12,
-      "section": "3. Connecting Pillars & Expressions",
-      "question": "Day 6 Connecting Pillars (Technical Demos & Walkthroughs): Complete the sentence: 'Keep the morning family update __________.'",
+      "question": "Day 6 Pair Idioms (Technical Demos & Walkthroughs): Fill in the blank with the best connecting pillar: 'Keep the morning family update __________.'",
       "options": {
         "a": "short and sweet",
-        "b": "out of stock",
-        "c": "bits and pieces"
+        "b": "touch and go",
+        "c": "part and parcel",
+        "d": "bits and pieces"
       },
       "answer": "a",
       "explanation": "<b>Correct: Option A</b><br>'short and sweet' is a natural connecting pillar meaning: brief, pleasant, and direct.",
       "audio_prompt": ""
     },
     {
+      "id": 12,
+      "section": "3. Connecting Pillars & Expressions",
+      "question": "Day 6 Connecting Pillars (Technical Demos & Walkthroughs): Complete the sentence: 'After cleaning, the living room is __________.'",
+      "options": {
+        "a": "bits and pieces",
+        "b": "part and parcel",
+        "c": "spick and span",
+        "d": "touch and go"
+      },
+      "answer": "c",
+      "explanation": "<b>Correct: Option C</b><br>'spick and span' is a natural connecting pillar meaning: neat, spotless, and orderly.",
+      "audio_prompt": ""
+    },
+    {
       "id": 13,
       "section": "4. Listening to Spoken English",
-      "question": "Day 6 Auditory Clip 1 (Technical Demos & Walkthroughs): Listen to the audio snippet. What instruction is given?",
+      "question": "Day 6 Spoken Clip 1 (Technical Demos & Walkthroughs): Listen to the audio prompt. What message is shared?",
       "options": {
-        "a": "The speaker says: \"I need to consult a doctor regarding a mild fever.\"",
-        "b": "The speaker is canceling all upcoming meetings.",
-        "c": "The speaker is asking for directions to the airport."
+        "a": "The speaker is asking for urgent driving directions to the station.",
+        "b": "The speaker says: \"My parcel delivery coming today?\"",
+        "c": "The speaker says: \"Will my parcel be delivered by 5:00 PM today?\"",
+        "d": "The speaker is requesting to cancel all scheduled meetings for today."
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>The speaker states: <i>\"I need to consult a doctor regarding a mild fever.\"</i>",
-      "audio_prompt": "I need to consult a doctor regarding a mild fever."
+      "answer": "c",
+      "explanation": "<b>Correct: Option C</b><br>The speaker states: <i>\"Will my parcel be delivered by 5:00 PM today?\"</i>",
+      "audio_prompt": "Will my parcel be delivered by 5:00 PM today?"
     },
     {
       "id": 14,
       "section": "4. Listening to Spoken English",
-      "question": "Day 6 Auditory Clip 2 (Technical Demos & Walkthroughs): Listen to the audio snippet. What instruction is given?",
+      "question": "Day 6 Spoken Clip 2 (Technical Demos & Walkthroughs): Listen to the audio prompt. What message is shared?",
       "options": {
-        "a": "The speaker says: \"Could we please see the menu and order starters?\"",
-        "b": "The speaker is canceling all upcoming meetings.",
-        "c": "The speaker is asking for directions to the airport."
+        "a": "The speaker says: \"Doctor meeting wanted for fever.\"",
+        "b": "The speaker is requesting to cancel all scheduled meetings for today.",
+        "c": "The speaker is asking for urgent driving directions to the station.",
+        "d": "The speaker says: \"I need to consult a doctor regarding a mild fever.\""
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>The speaker states: <i>\"Could we please see the menu and order starters?\"</i>",
-      "audio_prompt": "Could we please see the menu and order starters?"
+      "answer": "d",
+      "explanation": "<b>Correct: Option D</b><br>The speaker states: <i>\"I need to consult a doctor regarding a mild fever.\"</i>",
+      "audio_prompt": "I need to consult a doctor regarding a mild fever."
     },
     {
       "id": 15,
       "section": "4. Listening to Spoken English",
-      "question": "Day 6 Auditory Clip 3 (Technical Demos & Walkthroughs): Listen to the audio snippet. What instruction is given?",
+      "question": "Day 6 Spoken Clip 3 (Technical Demos & Walkthroughs): Listen to the audio prompt. What message is shared?",
       "options": {
-        "a": "The speaker says: \"Please drop me off near gate 2 of the metro station.\"",
-        "b": "The speaker is canceling all upcoming meetings.",
-        "c": "The speaker is asking for directions to the airport."
+        "a": "The speaker is requesting to cancel all scheduled meetings for today.",
+        "b": "The speaker says: \"Card cash withdrawal taking?\"",
+        "c": "The speaker says: \"Is this card accepted at the cash withdrawal counter?\"",
+        "d": "The speaker is asking for urgent driving directions to the station."
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>The speaker states: <i>\"Please drop me off near gate 2 of the metro station.\"</i>",
-      "audio_prompt": "Please drop me off near gate 2 of the metro station."
+      "answer": "c",
+      "explanation": "<b>Correct: Option C</b><br>The speaker states: <i>\"Is this card accepted at the cash withdrawal counter?\"</i>",
+      "audio_prompt": "Is this card accepted at the cash withdrawal counter?"
     },
     {
       "id": 16,
       "section": "4. Listening to Spoken English",
-      "question": "Day 6 Auditory Clip 4 (Technical Demos & Walkthroughs): Listen to the audio snippet. What instruction is given?",
+      "question": "Day 6 Spoken Clip 4 (Technical Demos & Walkthroughs): Listen to the audio prompt. What message is shared?",
       "options": {
-        "a": "The speaker says: \"I am having a fresh cup of tea before leaving.\"",
-        "b": "The speaker is canceling all upcoming meetings.",
-        "c": "The speaker is asking for directions to the airport."
+        "a": "The speaker is asking for urgent driving directions to the station.",
+        "b": "The speaker says: \"I am prepare breakfast family.\"",
+        "c": "The speaker says: \"I prepared breakfast for my family this morning.\"",
+        "d": "The speaker is requesting to cancel all scheduled meetings for today."
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>The speaker states: <i>\"I am having a fresh cup of tea before leaving.\"</i>",
-      "audio_prompt": "I am having a fresh cup of tea before leaving."
+      "answer": "c",
+      "explanation": "<b>Correct: Option C</b><br>The speaker states: <i>\"I prepared breakfast for my family this morning.\"</i>",
+      "audio_prompt": "I prepared breakfast for my family this morning."
     },
     {
       "id": 17,
       "section": "5. Real-Life Telugu ➔ English Translation",
-      "question": "Day 6 Translation Scenario 1 (Technical Demos & Walkthroughs):<br><br><b>Telugu:</b> \"రేపటి మీటింగ్ 3 గంటలకు రీషెడ్యూల్ చేయవచ్చా?\"<br><i>(Literal attempt: \"Tomorrow meeting 3 clock reschedule possible?\")</i>",
+      "question": "Day 6 Translation Scenario 1 (Technical Demos & Walkthroughs):<br><br><b>Telugu:</b> \"ఈ ఒప్పందంలో కొన్ని మార్పులు చేస్తే బాగుంటుంది.\"<br><i>(Literal attempt: \"In agreement some changes if do good.\")</i>",
       "options": {
-        "a": "Tomorrow meeting 3 clock reschedule possible?",
-        "b": "Could we reschedule tomorrow's meeting to 3:00 PM?",
-        "c": "Literal translation attempt."
+        "a": "It would be advantageous to incorporate a few revisions into this agreement.",
+        "b": "Literal Indian English phrasing without modal polite verbs.",
+        "c": "I am needing to in agreement some changes if do good.",
+        "d": "In agreement some changes if do good."
       },
-      "answer": "b",
-      "explanation": "<b>Natural Version:</b> <i>\"Could we reschedule tomorrow's meeting to 3:00 PM?\"</i><br><br>Use 'Could we reschedule...' for polite professional requests.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Could we reschedule tomorrow\\'s meeting to 3:00 PM?')\">🔊 Listen to Polished Pronunciation</button>",
+      "answer": "a",
+      "explanation": "<b>Correct: Option A</b><br><b>Natural Version:</b> <i>\"It would be advantageous to incorporate a few revisions into this agreement.\"</i><br><br>Use executive diplomacy 'It would be advantageous to...'.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('It would be advantageous to incorporate a few revisions into this agreement.')\">🔊 Listen to Polished Pronunciation</button>",
       "audio_prompt": ""
     },
     {
       "id": 18,
       "section": "5. Real-Life Telugu ➔ English Translation",
-      "question": "Day 6 Translation Scenario 2 (Technical Demos & Walkthroughs):<br><br><b>Telugu:</b> \"అన్నా, బస్టాండ్ దగ్గర డ్రాప్ చేయండి, ఎంత అవుతుంది?\"<br><i>(Literal attempt: \"Brother bus stand drop me, how much will become?\")</i>",
+      "question": "Day 6 Telugu Scenario 2 (Technical Demos & Walkthroughs):<br><br><b>Telugu:</b> \"అన్నా, బస్టాండ్ దగ్గర డ్రాప్ చేయండి, ఎంత అవుతుంది?\"<br><i>(Word-by-word: \"Brother bus stand drop me, how much will become?\")</i>",
       "options": {
-        "a": "Brother bus stand drop me, how much will become?",
+        "a": "Literal Indian English phrasing without modal polite verbs.",
         "b": "Please drop me off near the bus stand. How much is the fare?",
-        "c": "Literal translation attempt."
+        "c": "I am needing to brother bus stand drop me, how much will become?",
+        "d": "Brother bus stand drop me, how much will become?"
       },
       "answer": "b",
-      "explanation": "<b>Natural Version:</b> <i>\"Please drop me off near the bus stand. How much is the fare?\"</i><br><br>Avoid 'how much will become' and ask 'How much is the fare?'.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Please drop me off near the bus stand. How much is the fare?')\">🔊 Listen to Polished Pronunciation</button>",
+      "explanation": "<b>Correct: Option B</b><br><b>Natural Version:</b> <i>\"Please drop me off near the bus stand. How much is the fare?\"</i><br><br>Avoid 'how much will become' and ask 'How much is the fare?'.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Please drop me off near the bus stand. How much is the fare?')\">🔊 Listen to Polished Pronunciation</button>",
       "audio_prompt": ""
     },
     {
       "id": 19,
       "section": "5. Real-Life Telugu ➔ English Translation",
-      "question": "Day 6 Translation Scenario 3 (Technical Demos & Walkthroughs):<br><br><b>Telugu:</b> \"ముందుగా సమస్య యొక్క మూలకారణాన్ని కనుగొనాలి.\"<br><i>(Literal attempt: \"First problem root cause finding wanted.\")</i>",
+      "question": "Day 6 Translation Scenario 3 (Technical Demos & Walkthroughs):<br><br><b>Telugu:</b> \"రేపటి మీటింగ్ 3 గంటలకు రీషెడ్యూల్ చేయవచ్చా?\"<br><i>(Literal attempt: \"Tomorrow meeting 3 clock reschedule possible?\")</i>",
       "options": {
-        "a": "First problem root cause finding wanted.",
-        "b": "First and foremost, we must identify the root cause of the issue.",
-        "c": "Literal translation attempt."
+        "a": "Could we reschedule tomorrow's meeting to 3:00 PM?",
+        "b": "Tomorrow meeting 3 clock reschedule possible?",
+        "c": "I am needing to tomorrow meeting 3 clock reschedule possible?",
+        "d": "Literal Indian English phrasing without modal polite verbs."
       },
-      "answer": "b",
-      "explanation": "<b>Natural Version:</b> <i>\"First and foremost, we must identify the root cause of the issue.\"</i><br><br>Use 'First and foremost' and 'identify the root cause'.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('First and foremost, we must identify the root cause of the issue.')\">🔊 Listen to Polished Pronunciation</button>",
+      "answer": "a",
+      "explanation": "<b>Correct: Option A</b><br><b>Natural Version:</b> <i>\"Could we reschedule tomorrow's meeting to 3:00 PM?\"</i><br><br>Use 'Could we reschedule...' for polite professional requests.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Could we reschedule tomorrow\\'s meeting to 3:00 PM?')\">🔊 Listen to Polished Pronunciation</button>",
       "audio_prompt": ""
     },
     {
       "id": 20,
       "section": "5. Real-Life Telugu ➔ English Translation",
-      "question": "Day 6 Translation Scenario 4 (Technical Demos & Walkthroughs):<br><br><b>Telugu:</b> \"నాకు కొంచెం తలనొప్పిగా ఉంది, ఒక గంట సేపు రెస్ట్ తీసుకుంటాను.\"<br><i>(Literal attempt: \"To me little headache is there, take rest one hour.\")</i>",
+      "question": "Day 6 Translation Scenario 4 (Technical Demos & Walkthroughs):<br><br><b>Telugu:</b> \"నేను సాధారణంగా ఉదయం 6 గంటలకే నిద్రలేచి ఒక కప్పు టీ తాగుతాను.\"<br><i>(Literal attempt: \"I generally in morning 6 clock wake up drink tea.\")</i>",
       "options": {
-        "a": "To me little headache is there, take rest one hour.",
-        "b": "I have a slight headache; I'm going to rest for an hour.",
-        "c": "Literal translation attempt."
+        "a": "I am needing to i generally in morning 6 clock wake up drink tea.",
+        "b": "I usually wake up at 6:00 AM and have a cup of tea.",
+        "c": "Literal Indian English phrasing without modal polite verbs.",
+        "d": "I generally in morning 6 clock wake up drink tea."
       },
       "answer": "b",
-      "explanation": "<b>Natural Version:</b> <i>\"I have a slight headache; I'm going to rest for an hour.\"</i><br><br>Say 'I have a slight headache' instead of literal translations.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('I have a slight headache; I\\'m going to rest for an hour.')\">🔊 Listen to Polished Pronunciation</button>",
+      "explanation": "<b>Correct: Option B</b><br><b>Natural Version:</b> <i>\"I usually wake up at 6:00 AM and have a cup of tea.\"</i><br><br>Use 'have a cup of tea' and specify time as '6:00 AM'.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('I usually wake up at 6:00 AM and have a cup of tea.')\">🔊 Listen to Polished Pronunciation</button>",
       "audio_prompt": ""
     }
   ]

@@ -15,11 +15,12 @@
     {
       "id": 1,
       "section": "1. Daily Routine & Habits",
-      "question": "Day 6 Practice (Strategic Negotiation & Tone (Phase 2)): When talking about inviting neighbors for tea (by 5:00 PM), which sentence is grammatically correct for 'My colleague'?",
+      "question": "Day 6 Scenario (Strategic Negotiation & Tone (Phase 2)): Select the natural English phrasing when My colleague is inviting neighbors for tea by 5:00 PM:",
       "options": {
-        "a": "Evening come my house tea.",
+        "a": "I am inviting neighbors for tea right now.",
         "b": "Please drop by our place this evening for tea.",
-        "c": "Evening come my house tea."
+        "c": "Evening come my house tea.",
+        "d": "Evening come my house tea. yesterday"
       },
       "answer": "b",
       "explanation": "<b>Correct: Option B</b><br>Natural everyday English uses standard tense agreement: <i>\"Please drop by our place this evening for tea.\"</i>.",
@@ -28,248 +29,267 @@
     {
       "id": 2,
       "section": "1. Daily Routine & Habits",
-      "question": "Day 6 Practice (Strategic Negotiation & Tone (Phase 2)): When talking about withdrawing cash from ATM (yesterday afternoon), which sentence is grammatically correct for 'The cab driver'?",
+      "question": "Day 6 Practice (Strategic Negotiation & Tone (Phase 2)): When talking about withdrawing cash from ATM (this evening), which sentence is grammatically correct for 'Our neighbor'?",
       "options": {
-        "a": "Card cash withdrawal taking?",
-        "b": "Is this card accepted at the cash withdrawal counter?",
-        "c": "Card cash withdrawal taking?"
+        "a": "Card cash withdrawal taking? yesterday",
+        "b": "Card cash withdrawal taking?",
+        "c": "Is this card accepted at the cash withdrawal counter?",
+        "d": "I am withdrawing cash from ATM right now."
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>Natural everyday English uses standard tense agreement: <i>\"Is this card accepted at the cash withdrawal counter?\"</i>.",
+      "answer": "c",
+      "explanation": "<b>Correct: Option C</b><br>Natural everyday English uses standard tense agreement: <i>\"Is this card accepted at the cash withdrawal counter?\"</i>.",
       "audio_prompt": ""
     },
     {
       "id": 3,
       "section": "1. Daily Routine & Habits",
-      "question": "Day 6 Practice (Strategic Negotiation & Tone (Phase 2)): When talking about checking grocery item stock (right now), which sentence is grammatically correct for 'Our neighbor'?",
+      "question": "Day 6 Practice (Strategic Negotiation & Tone (Phase 2)): When talking about checking grocery item stock (this evening), which sentence is grammatically correct for 'My colleague'?",
       "options": {
-        "a": "Milk packet no stock having.",
-        "b": "Fresh milk packets were completely out of stock.",
-        "c": "Milk packet no stock having."
+        "a": "Fresh milk packets were completely out of stock.",
+        "b": "I am checking grocery item stock right now.",
+        "c": "Milk packet no stock having.",
+        "d": "Milk packet no stock having. yesterday"
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>Natural everyday English uses standard tense agreement: <i>\"Fresh milk packets were completely out of stock.\"</i>.",
+      "answer": "a",
+      "explanation": "<b>Correct: Option A</b><br>Natural everyday English uses standard tense agreement: <i>\"Fresh milk packets were completely out of stock.\"</i>.",
       "audio_prompt": ""
     },
     {
       "id": 4,
       "section": "1. Daily Routine & Habits",
-      "question": "Day 6 Practice (Strategic Negotiation & Tone (Phase 2)): When talking about buying fresh produce at the market (yesterday afternoon), which sentence is grammatically correct for 'The cab driver'?",
+      "question": "Day 6 Practice (Strategic Negotiation & Tone (Phase 2)): When talking about buying fresh produce at the market (by 5:00 PM), which sentence is grammatically correct for 'My manager'?",
       "options": {
-        "a": "I buyed vegetables market.",
-        "b": "I picked out fresh tomatoes and spinach at the market.",
-        "c": "I buyed vegetables market."
+        "a": "I picked out fresh tomatoes and spinach at the market.",
+        "b": "I am buying fresh produce at the market right now.",
+        "c": "I buyed vegetables market.",
+        "d": "I buyed vegetables market. yesterday"
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>Natural everyday English uses standard tense agreement: <i>\"I picked out fresh tomatoes and spinach at the market.\"</i>.",
+      "answer": "a",
+      "explanation": "<b>Correct: Option A</b><br>Natural everyday English uses standard tense agreement: <i>\"I picked out fresh tomatoes and spinach at the market.\"</i>.",
       "audio_prompt": ""
     },
     {
       "id": 5,
       "section": "2. Everyday Vocabulary & Phrasal Verbs",
-      "question": "Day 6 Vocabulary (Strategic Negotiation & Tone (Phase 2)): What is the exact practical meaning of the phrase 'run errands'?",
+      "question": "Day 6 Vocabulary (Strategic Negotiation & Tone (Phase 2)): What is the exact practical meaning of the phrase 'drop by'?",
       "options": {
-        "a": "To stop doing all daily activities immediately.",
-        "b": "Do short daily trips for chores.",
-        "c": "To clean the room using water."
+        "a": "To perform a daily task hastily without preparation.",
+        "b": "To postpone or cancel an activity indefinitely.",
+        "c": "To clean or inspect a physical room thoroughly.",
+        "d": "Visit someone informally for a short time."
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>'run errands' means: do short daily trips for chores. Example: <i>\"I need to run errands at the market before dinner.\"</i>",
+      "answer": "d",
+      "explanation": "<b>Correct: Option D</b><br>'drop by' means: visit someone informally for a short time. Example: <i>\"Feel free to drop by our home this evening.\"</i>",
       "audio_prompt": ""
     },
     {
       "id": 6,
       "section": "2. Everyday Vocabulary & Phrasal Verbs",
-      "question": "Day 6 Vocabulary (Strategic Negotiation & Tone (Phase 2)): What is the exact practical meaning of the phrase 'order in'?",
+      "question": "Day 6 Vocabulary (Strategic Negotiation & Tone (Phase 2)): What is the exact practical meaning of the phrase 'reach out to'?",
       "options": {
-        "a": "To stop doing all daily activities immediately.",
-        "b": "Request food delivered home.",
-        "c": "To clean the room using water."
+        "a": "Contact someone for help or information.",
+        "b": "To postpone or cancel an activity indefinitely.",
+        "c": "To clean or inspect a physical room thoroughly.",
+        "d": "To perform a daily task hastily without preparation."
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>'order in' means: request food delivered home. Example: <i>\"Let us order in dinner tonight.\"</i>",
+      "answer": "a",
+      "explanation": "<b>Correct: Option A</b><br>'reach out to' means: contact someone for help or information. Example: <i>\"I will reach out to customer support tomorrow.\"</i>",
       "audio_prompt": ""
     },
     {
       "id": 7,
       "section": "2. Everyday Vocabulary & Phrasal Verbs",
-      "question": "Day 6 Vocabulary (Strategic Negotiation & Tone (Phase 2)): What is the exact practical meaning of the phrase 'fill out'?",
+      "question": "Day 6 Vocabulary (Strategic Negotiation & Tone (Phase 2)): What is the exact practical meaning of the phrase 'touch base'?",
       "options": {
-        "a": "To stop doing all daily activities immediately.",
-        "b": "Complete an official form.",
-        "c": "To clean the room using water."
+        "a": "To clean or inspect a physical room thoroughly.",
+        "b": "Briefly connect with someone to exchange news.",
+        "c": "To postpone or cancel an activity indefinitely.",
+        "d": "To perform a daily task hastily without preparation."
       },
       "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>'fill out' means: complete an official form. Example: <i>\"Please fill out this registration form.\"</i>",
+      "explanation": "<b>Correct: Option B</b><br>'touch base' means: briefly connect with someone to exchange news. Example: <i>\"I will touch base with you after the review.\"</i>",
       "audio_prompt": ""
     },
     {
       "id": 8,
       "section": "2. Everyday Vocabulary & Phrasal Verbs",
-      "question": "Day 6 Vocabulary (Strategic Negotiation & Tone (Phase 2)): What is the exact practical meaning of the phrase 'drop off'?",
+      "question": "Day 6 Vocabulary (Strategic Negotiation & Tone (Phase 2)): What is the exact practical meaning of the phrase 'pick out'?",
       "options": {
-        "a": "To stop doing all daily activities immediately.",
-        "b": "Take someone to a destination and leave them there.",
-        "c": "To clean the room using water."
+        "a": "To postpone or cancel an activity indefinitely.",
+        "b": "To perform a daily task hastily without preparation.",
+        "c": "To clean or inspect a physical room thoroughly.",
+        "d": "Carefully choose specific items from a group."
       },
-      "answer": "b",
-      "explanation": "<b>Correct: Option B</b><br>'drop off' means: take someone to a destination and leave them there. Example: <i>\"Please drop me off near the bus stand.\"</i>",
+      "answer": "d",
+      "explanation": "<b>Correct: Option D</b><br>'pick out' means: carefully choose specific items from a group. Example: <i>\"Could you help me pick out the best mangos?\"</i>",
       "audio_prompt": ""
     },
     {
       "id": 9,
       "section": "3. Connecting Pillars & Expressions",
-      "question": "Day 6 Connecting Pillars (Strategic Negotiation & Tone (Phase 2)): Complete the sentence: 'The negotiation was __________ until midnight.'",
+      "question": "Day 6 Connecting Pillars (Strategic Negotiation & Tone (Phase 2)): Complete the sentence: 'Audits are __________ of this industry.'",
       "options": {
-        "a": "touch and go",
-        "b": "out of stock",
-        "c": "bits and pieces"
+        "a": "first and foremost",
+        "b": "bits and pieces",
+        "c": "touch and go",
+        "d": "part and parcel"
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>'touch and go' is a natural connecting pillar meaning: precarious or uncertain outcome.",
+      "answer": "d",
+      "explanation": "<b>Correct: Option D</b><br>'part and parcel' is a natural connecting pillar meaning: an unavoidable essential component.",
       "audio_prompt": ""
     },
     {
       "id": 10,
       "section": "3. Connecting Pillars & Expressions",
-      "question": "Day 6 Connecting Pillars (Strategic Negotiation & Tone (Phase 2)): Complete the sentence: 'By and large, the project achieved all key milestones.'",
+      "question": "Day 6 Connecting Pillars (Strategic Negotiation & Tone (Phase 2)): Complete the sentence: 'First and foremost, data security is our top priority.'",
       "options": {
-        "a": "by and large",
-        "b": "out of stock",
-        "c": "bits and pieces"
+        "a": "part and parcel",
+        "b": "touch and go",
+        "c": "bits and pieces",
+        "d": "first and foremost"
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>'by and large' is a natural connecting pillar meaning: overall or generally speaking.",
+      "answer": "d",
+      "explanation": "<b>Correct: Option D</b><br>'first and foremost' is a natural connecting pillar meaning: most importantly or above all else.",
       "audio_prompt": ""
     },
     {
       "id": 11,
       "section": "3. Connecting Pillars & Expressions",
-      "question": "Day 6 Connecting Pillars (Strategic Negotiation & Tone (Phase 2)): Complete the sentence: 'Our family arrived home __________ after the trip.'",
+      "question": "Day 6 Pair Idioms (Strategic Negotiation & Tone (Phase 2)): Fill in the blank with the best connecting pillar: 'I picked up a few __________ from the store.'",
       "options": {
-        "a": "safe and sound",
-        "b": "out of stock",
-        "c": "bits and pieces"
+        "a": "touch and go",
+        "b": "part and parcel",
+        "c": "bits and pieces",
+        "d": "short and sweet"
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>'safe and sound' is a natural connecting pillar meaning: completely unharmed and intact after travel.",
+      "answer": "c",
+      "explanation": "<b>Correct: Option C</b><br>'bits and pieces' is a natural connecting pillar meaning: small miscellaneous items.",
       "audio_prompt": ""
     },
     {
       "id": 12,
       "section": "3. Connecting Pillars & Expressions",
-      "question": "Day 6 Connecting Pillars (Strategic Negotiation & Tone (Phase 2)): Complete the sentence: 'I picked up a few __________ from the store.'",
+      "question": "Day 6 Connecting Pillars (Strategic Negotiation & Tone (Phase 2)): Complete the sentence: 'After cleaning, the living room is __________.'",
       "options": {
-        "a": "bits and pieces",
-        "b": "out of stock",
-        "c": "short and sweet"
+        "a": "part and parcel",
+        "b": "touch and go",
+        "c": "bits and pieces",
+        "d": "spick and span"
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>'bits and pieces' is a natural connecting pillar meaning: small miscellaneous items.",
+      "answer": "d",
+      "explanation": "<b>Correct: Option D</b><br>'spick and span' is a natural connecting pillar meaning: neat, spotless, and orderly.",
       "audio_prompt": ""
     },
     {
       "id": 13,
       "section": "4. Listening to Spoken English",
-      "question": "Day 6 Auditory Clip 1 (Strategic Negotiation & Tone (Phase 2)): Listen to the audio snippet. What instruction is given?",
+      "question": "Day 6 Spoken Clip 1 (Strategic Negotiation & Tone (Phase 2)): Listen to the audio prompt. What message is shared?",
       "options": {
-        "a": "The speaker says: \"Could we please see the menu and order starters?\"",
-        "b": "The speaker is canceling all upcoming meetings.",
-        "c": "The speaker is asking for directions to the airport."
+        "a": "The speaker is requesting to cancel all scheduled meetings for today.",
+        "b": "The speaker says: \"Drop me station gate.\"",
+        "c": "The speaker is asking for urgent driving directions to the station.",
+        "d": "The speaker says: \"Please drop me off near gate 2 of the metro station.\""
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>The speaker states: <i>\"Could we please see the menu and order starters?\"</i>",
-      "audio_prompt": "Could we please see the menu and order starters?"
+      "answer": "d",
+      "explanation": "<b>Correct: Option D</b><br>The speaker states: <i>\"Please drop me off near gate 2 of the metro station.\"</i>",
+      "audio_prompt": "Please drop me off near gate 2 of the metro station."
     },
     {
       "id": 14,
       "section": "4. Listening to Spoken English",
-      "question": "Day 6 Auditory Clip 2 (Strategic Negotiation & Tone (Phase 2)): Listen to the audio snippet. What instruction is given?",
+      "question": "Day 6 Spoken Clip 2 (Strategic Negotiation & Tone (Phase 2)): Listen to the audio prompt. What message is shared?",
       "options": {
-        "a": "The speaker says: \"How much are these organic apples per kilo?\"",
-        "b": "The speaker is canceling all upcoming meetings.",
-        "c": "The speaker is asking for directions to the airport."
+        "a": "The speaker is asking for urgent driving directions to the station.",
+        "b": "The speaker is requesting to cancel all scheduled meetings for today.",
+        "c": "The speaker says: \"I am tidy up room.\"",
+        "d": "The speaker says: \"I am tidying up the room right now.\""
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>The speaker states: <i>\"How much are these organic apples per kilo?\"</i>",
-      "audio_prompt": "How much are these organic apples per kilo?"
+      "answer": "d",
+      "explanation": "<b>Correct: Option D</b><br>The speaker states: <i>\"I am tidying up the room right now.\"</i>",
+      "audio_prompt": "I am tidying up the room right now."
     },
     {
       "id": 15,
       "section": "4. Listening to Spoken English",
-      "question": "Day 6 Auditory Clip 3 (Strategic Negotiation & Tone (Phase 2)): Listen to the audio snippet. What instruction is given?",
+      "question": "Day 6 Spoken Clip 3 (Strategic Negotiation & Tone (Phase 2)): Listen to the audio prompt. What message is shared?",
       "options": {
-        "a": "The speaker says: \"I am having a fresh cup of tea before leaving.\"",
-        "b": "The speaker is canceling all upcoming meetings.",
-        "c": "The speaker is asking for directions to the airport."
+        "a": "The speaker is requesting to cancel all scheduled meetings for today.",
+        "b": "The speaker says: \"I picked out fresh tomatoes and spinach at the market.\"",
+        "c": "The speaker says: \"I buyed vegetables market.\"",
+        "d": "The speaker is asking for urgent driving directions to the station."
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>The speaker states: <i>\"I am having a fresh cup of tea before leaving.\"</i>",
-      "audio_prompt": "I am having a fresh cup of tea before leaving."
+      "answer": "b",
+      "explanation": "<b>Correct: Option B</b><br>The speaker states: <i>\"I picked out fresh tomatoes and spinach at the market.\"</i>",
+      "audio_prompt": "I picked out fresh tomatoes and spinach at the market."
     },
     {
       "id": 16,
       "section": "4. Listening to Spoken English",
-      "question": "Day 6 Auditory Clip 4 (Strategic Negotiation & Tone (Phase 2)): Listen to the audio snippet. What instruction is given?",
+      "question": "Day 6 Spoken Clip 4 (Strategic Negotiation & Tone (Phase 2)): Listen to the audio prompt. What message is shared?",
       "options": {
-        "a": "The speaker says: \"Will my parcel be delivered by 5:00 PM today?\"",
-        "b": "The speaker is canceling all upcoming meetings.",
-        "c": "The speaker is asking for directions to the airport."
+        "a": "The speaker is requesting to cancel all scheduled meetings for today.",
+        "b": "The speaker is asking for urgent driving directions to the station.",
+        "c": "The speaker says: \"Milk packet no stock having.\"",
+        "d": "The speaker says: \"Fresh milk packets were completely out of stock.\""
       },
-      "answer": "a",
-      "explanation": "<b>Correct: Option A</b><br>The speaker states: <i>\"Will my parcel be delivered by 5:00 PM today?\"</i>",
-      "audio_prompt": "Will my parcel be delivered by 5:00 PM today?"
+      "answer": "d",
+      "explanation": "<b>Correct: Option D</b><br>The speaker states: <i>\"Fresh milk packets were completely out of stock.\"</i>",
+      "audio_prompt": "Fresh milk packets were completely out of stock."
     },
     {
       "id": 17,
       "section": "5. Real-Life Telugu ➔ English Translation",
-      "question": "Day 6 Translation Scenario 1 (Strategic Negotiation & Tone (Phase 2)):<br><br><b>Telugu:</b> \"నాకు కొంచెం తలనొప్పిగా ఉంది, ఒక గంట సేపు రెస్ట్ తీసుకుంటాను.\"<br><i>(Literal attempt: \"To me little headache is there, take rest one hour.\")</i>",
+      "question": "Day 6 Translation Scenario 1 (Strategic Negotiation & Tone (Phase 2)):<br><br><b>Telugu:</b> \"సాయంత్రం మా ఇంటికి రండి, టీ తాగుదాం.\"<br><i>(Literal attempt: \"Evening my house come, tea drink.\")</i>",
       "options": {
-        "a": "To me little headache is there, take rest one hour.",
-        "b": "I have a slight headache; I'm going to rest for an hour.",
-        "c": "Literal translation attempt."
+        "a": "Evening my house come, tea drink.",
+        "b": "Literal Indian English phrasing without modal polite verbs.",
+        "c": "I am needing to evening my house come, tea drink.",
+        "d": "Please drop by our home this evening; we can have tea together."
       },
-      "answer": "b",
-      "explanation": "<b>Natural Version:</b> <i>\"I have a slight headache; I'm going to rest for an hour.\"</i><br><br>Say 'I have a slight headache' instead of literal translations.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('I have a slight headache; I\\'m going to rest for an hour.')\">🔊 Listen to Polished Pronunciation</button>",
+      "answer": "d",
+      "explanation": "<b>Correct: Option D</b><br><b>Natural Version:</b> <i>\"Please drop by our home this evening; we can have tea together.\"</i><br><br>Use 'drop by our home' for informal invitations.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Please drop by our home this evening; we can have tea together.')\">🔊 Listen to Polished Pronunciation</button>",
       "audio_prompt": ""
     },
     {
       "id": 18,
       "section": "5. Real-Life Telugu ➔ English Translation",
-      "question": "Day 6 Translation Scenario 2 (Strategic Negotiation & Tone (Phase 2)):<br><br><b>Telugu:</b> \"రేపటి మీటింగ్ 3 గంటలకు రీషెడ్యూల్ చేయవచ్చా?\"<br><i>(Literal attempt: \"Tomorrow meeting 3 clock reschedule possible?\")</i>",
+      "question": "Day 6 Telugu Scenario 2 (Strategic Negotiation & Tone (Phase 2)):<br><br><b>Telugu:</b> \"రేపటి మీటింగ్ 3 గంటలకు రీషెడ్యూల్ చేయవచ్చా?\"<br><i>(Word-by-word: \"Tomorrow meeting 3 clock reschedule possible?\")</i>",
       "options": {
         "a": "Tomorrow meeting 3 clock reschedule possible?",
         "b": "Could we reschedule tomorrow's meeting to 3:00 PM?",
-        "c": "Literal translation attempt."
+        "c": "I am needing to tomorrow meeting 3 clock reschedule possible?",
+        "d": "Literal Indian English phrasing without modal polite verbs."
       },
       "answer": "b",
-      "explanation": "<b>Natural Version:</b> <i>\"Could we reschedule tomorrow's meeting to 3:00 PM?\"</i><br><br>Use 'Could we reschedule...' for polite professional requests.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Could we reschedule tomorrow\\'s meeting to 3:00 PM?')\">🔊 Listen to Polished Pronunciation</button>",
+      "explanation": "<b>Correct: Option B</b><br><b>Natural Version:</b> <i>\"Could we reschedule tomorrow's meeting to 3:00 PM?\"</i><br><br>Use 'Could we reschedule...' for polite professional requests.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Could we reschedule tomorrow\\'s meeting to 3:00 PM?')\">🔊 Listen to Polished Pronunciation</button>",
       "audio_prompt": ""
     },
     {
       "id": 19,
       "section": "5. Real-Life Telugu ➔ English Translation",
-      "question": "Day 6 Translation Scenario 3 (Strategic Negotiation & Tone (Phase 2)):<br><br><b>Telugu:</b> \"అన్నా, బస్టాండ్ దగ్గర డ్రాప్ చేయండి, ఎంత అవుతుంది?\"<br><i>(Literal attempt: \"Brother bus stand drop me, how much will become?\")</i>",
+      "question": "Day 6 Translation Scenario 3 (Strategic Negotiation & Tone (Phase 2)):<br><br><b>Telugu:</b> \"నాకు కొంచెం తలనొప్పిగా ఉంది, ఒక గంట సేపు రెస్ట్ తీసుకుంటాను.\"<br><i>(Literal attempt: \"To me little headache is there, take rest one hour.\")</i>",
       "options": {
-        "a": "Brother bus stand drop me, how much will become?",
-        "b": "Please drop me off near the bus stand. How much is the fare?",
-        "c": "Literal translation attempt."
+        "a": "Literal Indian English phrasing without modal polite verbs.",
+        "b": "I am needing to to me little headache is there, take rest one hour.",
+        "c": "I have a slight headache; I'm going to rest for an hour.",
+        "d": "To me little headache is there, take rest one hour."
       },
-      "answer": "b",
-      "explanation": "<b>Natural Version:</b> <i>\"Please drop me off near the bus stand. How much is the fare?\"</i><br><br>Avoid 'how much will become' and ask 'How much is the fare?'.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('Please drop me off near the bus stand. How much is the fare?')\">🔊 Listen to Polished Pronunciation</button>",
+      "answer": "c",
+      "explanation": "<b>Correct: Option C</b><br><b>Natural Version:</b> <i>\"I have a slight headache; I'm going to rest for an hour.\"</i><br><br>Say 'I have a slight headache' instead of literal translations.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('I have a slight headache; I\\'m going to rest for an hour.')\">🔊 Listen to Polished Pronunciation</button>",
       "audio_prompt": ""
     },
     {
       "id": 20,
       "section": "5. Real-Life Telugu ➔ English Translation",
-      "question": "Day 6 Translation Scenario 4 (Strategic Negotiation & Tone (Phase 2)):<br><br><b>Telugu:</b> \"ఈ ఒప్పందంలో కొన్ని మార్పులు చేస్తే బాగుంటుంది.\"<br><i>(Literal attempt: \"In agreement some changes if do good.\")</i>",
+      "question": "Day 6 Translation Scenario 4 (Strategic Negotiation & Tone (Phase 2)):<br><br><b>Telugu:</b> \"మీ ఆలోచన బాగుంది కానీ మన బడ్జెట్ దానికి అనుమతించదు.\"<br><i>(Literal attempt: \"Your thought good but budget not allow.\")</i>",
       "options": {
-        "a": "In agreement some changes if do good.",
-        "b": "It would be advantageous to incorporate a few revisions into this agreement.",
-        "c": "Literal translation attempt."
+        "a": "Your thought good but budget not allow.",
+        "b": "While your proposal is insightful, our current budget constraints prevent us from adopting it.",
+        "c": "Literal Indian English phrasing without modal polite verbs.",
+        "d": "I am needing to your thought good but budget not allow."
       },
       "answer": "b",
-      "explanation": "<b>Natural Version:</b> <i>\"It would be advantageous to incorporate a few revisions into this agreement.\"</i><br><br>Use executive diplomacy 'It would be advantageous to...'.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('It would be advantageous to incorporate a few revisions into this agreement.')\">🔊 Listen to Polished Pronunciation</button>",
+      "explanation": "<b>Correct: Option B</b><br><b>Natural Version:</b> <i>\"While your proposal is insightful, our current budget constraints prevent us from adopting it.\"</i><br><br>Use diplomatic contrast 'While your proposal is insightful...'.<br><button type=\"button\" class=\"audio-btn\" style=\"margin-top:10px; display:inline-flex; align-items:center; gap:6px;\" onclick=\"playPrompt('While your proposal is insightful, our current budget constraints prevent us from adopting it.')\">🔊 Listen to Polished Pronunciation</button>",
       "audio_prompt": ""
     }
   ]
