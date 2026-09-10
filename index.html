@@ -34,7 +34,6 @@
       padding-bottom: 60px;
     }
 
-    /* Hero Banner */
     .hero {
       background: linear-gradient(135deg, #064e3b 0%, #047857 60%, #059669 100%);
       color: white;
@@ -78,35 +77,6 @@
       z-index: 10;
     }
 
-    /* Learner Profile Card */
-    .profile-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px 28px;
-      margin-bottom: 28px;
-      box-shadow: var(--shadow-md);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .profile-info { flex: 1; min-width: 260px; }
-    .profile-info h3 { font-size: 1.1rem; font-weight: 800; color: var(--text); }
-    .profile-info p { font-size: 0.92rem; color: var(--text-muted); }
-    .profile-field input {
-      width: 100%;
-      max-width: 300px;
-      padding: 12px 16px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      font-size: 0.95rem;
-      font-family: inherit;
-    }
-    .profile-field input:focus { outline: none; border-color: var(--primary); }
-
-    /* Privacy & Trust Banner */
     .trust-banner {
       background: #f0fdf4;
       border: 1px solid #bbf7d0;
@@ -141,7 +111,6 @@
       line-height: 1.45;
     }
 
-    /* Level Tracks Grid */
     .section-header {
       font-size: 1.4rem;
       font-weight: 800;
@@ -190,8 +159,39 @@
     .track-card.advanced .track-badge { background: #ede9fe; color: #6d28d9; }
 
     .track-title { font-size: 1.35rem; font-weight: 800; margin-bottom: 8px; color: var(--text); }
-    .track-desc { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; }
+    .track-desc { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; }
     
+    .dropdown-wrap {
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .dropdown-label {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    select.day-select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 0.95rem;
+      font-family: inherit;
+      font-weight: 700;
+      background: #f8fafc;
+      color: var(--text);
+      cursor: pointer;
+    }
+    select.day-select option:disabled {
+      color: #94a3b8;
+      background: #f1f5f9;
+      font-style: italic;
+    }
+
     .link-group { display: flex; flex-direction: column; gap: 10px; }
     .btn-main {
       width: 100%;
@@ -205,6 +205,8 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      cursor: pointer;
+      border: none;
       transition: background 0.2s;
     }
     .track-card.beginner .btn-main { background: #059669; color: white; }
@@ -220,10 +222,17 @@
       color: var(--text-muted);
       text-decoration: none;
       text-align: center;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
     }
     .btn-sub:hover { color: var(--primary); text-decoration: underline; }
+    .weekend-btn {
+      background: #eff6ff;
+      color: #1e40af;
+      border-color: #bfdbfe;
+    }
 
-    /* Features & Outline Section */
     .content-box {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -235,7 +244,6 @@
     .content-box h3 { font-size: 1.25rem; font-weight: 800; color: var(--text); margin-bottom: 14px; }
     .content-box p { font-size: 0.98rem; color: var(--text-muted); margin-bottom: 16px; line-height: 1.6; }
 
-    /* 5-Part Flow List */
     .flow-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -252,7 +260,6 @@
     .flow-item-title { font-weight: 800; font-size: 1rem; color: var(--text); margin-bottom: 6px; }
     .flow-item-desc { font-size: 0.88rem; color: var(--text-muted); }
 
-    /* Curriculum Roadmap Table */
     .roadmap-table-wrap {
       overflow-x: auto;
       margin-top: 16px;
@@ -285,22 +292,20 @@
   <header class="hero">
     <span class="hero-badge">⚡ Everyday Practical English Mastery</span>
     <h1>FluencyCraft</h1>
-    <p>Build conversational confidence through 20 daily living scenario questions refreshed every morning at 7:00 AM IST. Master phrasal verbs, connecting pillars, listening prompts, and natural Telugu-to-English translation phrasing.</p>
+    <p>Build conversational confidence through 20 daily living scenario questions refreshed every morning at 7:00 AM IST. Select your pending day test from the dropdown below to begin!</p>
   </header>
 
   <main class="container">
 
-    <!-- Privacy & Data Trust Note -->
     <div class="trust-banner">
       <div class="trust-icon">🔒</div>
       <div class="trust-content">
         <h4>100% Private & Safe • Stored Only In Your Local Browser</h4>
-        <p>Your name, quiz answers, and test scores are strictly saved inside your own local browser (LocalStorage). No personal data or responses are ever sent to external servers or stored elsewhere. Learn with complete confidence and privacy!</p>
+        <p>Your test progress, completed days, and scores are strictly saved inside your local browser. Completed daily tests are automatically disabled in the dropdown so you can easily focus on your next pending test!</p>
       </div>
     </div>
 
-    <!-- Course Level Direct Links -->
-    <h2 class="section-header">🎓 Choose Your Practice Track</h2>
+    <h2 class="section-header">🎓 Choose Your Practice Track & Day</h2>
     <div class="tracks-grid">
 
       <!-- Level 1 -->
@@ -308,12 +313,16 @@
         <div>
           <span class="track-badge">Level 1 • Beginner</span>
           <h3 class="track-title">Everyday Essentials</h3>
-          <p class="track-desc">Home routines, grocery shopping, market queries, polite manners, connecting pillars, and everyday Telugu translation scenarios.</p>
+          <p class="track-desc">Home routines, grocery shopping, market queries, polite manners, connecting pillars, and Telugu translation scenarios.</p>
+          
+          <div class="dropdown-wrap">
+            <label class="dropdown-label" for="beginnerSelect">Select Pending Practice Day:</label>
+            <select id="beginnerSelect" class="day-select"></select>
+          </div>
         </div>
         <div class="link-group">
-          <a href="tests/beginner/latest.html" class="btn-main">Start Today's Test (latest.html) →</a>
-          <a href="tests/beginner/day-01.html" class="btn-sub">View Day 1 Test File</a>
-          <a href="tests/beginner/weekend-test.html" class="btn-sub" style="background:#eff6ff; color:#1e40af; border-color:#bfdbfe;">🎯 Weekend Weak-Spot Test</a>
+          <button type="button" class="btn-main" onclick="launchSelectedDay('beginner')">Start Selected Day Test →</button>
+          <a href="tests/beginner/weekend-test.html" class="btn-sub weekend-btn" id="beginnerWeekendBtn">🎯 Weekend Weak-Spot Test</a>
         </div>
       </div>
 
@@ -323,11 +332,15 @@
           <span class="track-badge">Level 2 • Intermediate</span>
           <h3 class="track-title">Workplace Communication</h3>
           <p class="track-desc">Standup sync updates, travel & cab queries, completed actions, clinic checkups, and connecting pillar expressions.</p>
+          
+          <div class="dropdown-wrap">
+            <label class="dropdown-label" for="intermediateSelect">Select Pending Practice Day:</label>
+            <select id="intermediateSelect" class="day-select"></select>
+          </div>
         </div>
         <div class="link-group">
-          <a href="tests/intermediate/latest.html" class="btn-main">Start Today's Test (latest.html) →</a>
-          <a href="tests/intermediate/day-01.html" class="btn-sub">View Day 1 Test File</a>
-          <a href="tests/intermediate/weekend-test.html" class="btn-sub" style="background:#eff6ff; color:#1e40af; border-color:#bfdbfe;">🎯 Weekend Weak-Spot Test</a>
+          <button type="button" class="btn-main" onclick="launchSelectedDay('intermediate')">Start Selected Day Test →</button>
+          <a href="tests/intermediate/weekend-test.html" class="btn-sub weekend-btn" id="intermediateWeekendBtn">🎯 Weekend Weak-Spot Test</a>
         </div>
       </div>
 
@@ -336,12 +349,16 @@
         <div>
           <span class="track-badge">Level 3 • Advanced</span>
           <h3 class="track-title">Executive Leadership</h3>
-          <p class="track-desc">Stakeholder negotiation, passive/active syntax precision, phone etiquette, and advanced tone diplomacy.</p>
+          <p class="track-desc">Stakeholder negotiation, tone diplomacy, governance directives, and executive strategic phrasing.</p>
+          
+          <div class="dropdown-wrap">
+            <label class="dropdown-label" for="advancedSelect">Select Pending Practice Day:</label>
+            <select id="advancedSelect" class="day-select"></select>
+          </div>
         </div>
         <div class="link-group">
-          <a href="tests/advanced/latest.html" class="btn-main">Start Today's Test (latest.html) →</a>
-          <a href="tests/advanced/day-01.html" class="btn-sub">View Day 1 Test File</a>
-          <a href="tests/advanced/weekend-test.html" class="btn-sub" style="background:#eff6ff; color:#1e40af; border-color:#bfdbfe;">🎯 Weekend Weak-Spot Test</a>
+          <button type="button" class="btn-main" onclick="launchSelectedDay('advanced')">Start Selected Day Test →</button>
+          <a href="tests/advanced/weekend-test.html" class="btn-sub weekend-btn" id="advancedWeekendBtn">🎯 Weekend Weak-Spot Test</a>
         </div>
       </div>
 
@@ -406,7 +423,7 @@
         <div class="flow-item" style="background:white; border-color:#bfdbfe;">
           <div class="flow-item-num" style="color:#1e40af;">Step 3 • Weekend Adaptive Test</div>
           <div class="flow-item-title">Targeted Re-Evaluation & Roadmap</div>
-          <div class="flow-item-desc">On weekends, launch the Weekend Weak-Spot Test. It dynamically constructs a custom review test focusing strictly on your logged errors, providing tailored improvement feedback!</div>
+          <div class="flow-item-desc">On Saturdays & Sundays, the Weekend Weak-Spot Test unlocks automatically, focusing strictly on your logged errors!</div>
         </div>
       </div>
     </div>
@@ -481,20 +498,108 @@
   </main>
 
   <script>
+    const DAY_THEMES_BEGINNER = {
+      1: "Morning & Home Routines",
+      2: "Market & Grocery Shopping",
+      3: "Travel, Autos & Cabs",
+      4: "Clinic & Pharmacy Visits",
+      5: "Polite Social Manners",
+      6: "Phone Calls & Deliveries",
+      7: "Weekend Plans & Weather"
+    };
+
+    const DAY_THEMES_INTERMEDIATE = {
+      1: "Workplace Standups & Agendas",
+      2: "Client Communication & Updates",
+      3: "Team Collaboration & Workload",
+      4: "Process Improvements & Feedback",
+      5: "Customer Escalations & Quality",
+      6: "Technical Demos & Walkthroughs",
+      7: "Performance Reviews & Goals"
+    };
+
+    const DAY_THEMES_ADVANCED = {
+      1: "Strategic Negotiation & Tone",
+      2: "Stakeholder Alignment & Governance",
+      3: "Corporate Governance & Crisis",
+      4: "Strategic Pivots & Innovation",
+      5: "Mergers & Acquisition Synergies"
+    };
+
+    const AVAILABLE_DAYS = {
+      beginner: 5,
+      intermediate: 5,
+      advanced: 5
+    };
+
     window.addEventListener('DOMContentLoaded', () => {
-      loadNameState();
+      populateLevelDropdown('beginner', AVAILABLE_DAYS.beginner, DAY_THEMES_BEGINNER);
+      populateLevelDropdown('intermediate', AVAILABLE_DAYS.intermediate, DAY_THEMES_INTERMEDIATE);
+      populateLevelDropdown('advanced', AVAILABLE_DAYS.advanced, DAY_THEMES_ADVANCED);
+      updateWeekendButtonsStatus();
     });
 
-    function saveNameState() {
-      const name = document.getElementById('learnerName').value.trim();
-      localStorage.setItem('fluencycraft_learner_name', name);
+    function populateLevelDropdown(level, totalDaysAvailable, themeMap) {
+      const select = document.getElementById(level + 'Select');
+      if (!select) return;
+
+      let completedDays = [];
+      try {
+        completedDays = JSON.parse(localStorage.getItem('fluencycraft_completed_days_' + level) || '[]');
+      } catch(e) { completedDays = []; }
+
+      select.innerHTML = '';
+      let firstPendingVal = null;
+
+      for (let d = 1; d <= totalDaysAvailable; d++) {
+        const opt = document.createElement('option');
+        const dayFormatted = String(d).padStart(2, '0');
+        const theme = themeMap[d] || `Daily Living Module ${d}`;
+        const isDone = completedDays.includes(d);
+
+        if (isDone) {
+          opt.value = `day-${dayFormatted}.html`;
+          opt.textContent = `✓ Day ${dayFormatted}: ${theme} (Completed)`;
+          opt.disabled = true;
+        } else {
+          opt.value = `day-${dayFormatted}.html`;
+          opt.textContent = `Day ${dayFormatted}: ${theme} (Pending)`;
+          if (!firstPendingVal) firstPendingVal = opt.value;
+        }
+        select.appendChild(opt);
+      }
+
+      if (firstPendingVal) {
+        select.value = firstPendingVal;
+      } else if (select.options.length > 0) {
+        // If all completed, keep last selected for review or reset
+        select.selectedIndex = select.options.length - 1;
+      }
     }
 
-    function loadNameState() {
-      const savedName = localStorage.getItem('fluencycraft_learner_name');
-      if (savedName) {
-        document.getElementById('learnerName').value = savedName;
+    function launchSelectedDay(level) {
+      const select = document.getElementById(level + 'Select');
+      if (select && select.value) {
+        window.location.href = `tests/${level}/${select.value}`;
       }
+    }
+
+    function updateWeekendButtonsStatus() {
+      const dayOfWeek = new Date().getDay(); // 0 = Sunday, 6 = Saturday
+      const isWeekend = (dayOfWeek === 0 || dayOfWeek === 6);
+
+      ['beginner', 'intermediate', 'advanced'].forEach(level => {
+        const btn = document.getElementById(level + 'WeekendBtn');
+        if (btn) {
+          if (isWeekend) {
+            btn.innerHTML = '🔓 🎯 Weekend Weak-Spot Test (Unlocked!)';
+            btn.style.borderColor = '#059669';
+            btn.style.color = '#047857';
+          } else {
+            btn.innerHTML = '🔒 🎯 Weekend Weak-Spot Test (Unlocks Sat & Sun)';
+          }
+        }
+      });
     }
   </script>
 </body>

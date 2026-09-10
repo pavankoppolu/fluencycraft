@@ -23,7 +23,6 @@ def get_past_questions(level_dir):
                         data = json.load(f)
                         for q in data.get("questions", []):
                             if "question" in q:
-                                # Clean HTML tags for comparison
                                 clean_q = re.sub(r'<[^>]+>', '', q["question"]).strip().lower()
                                 past_questions.add(clean_q)
                 except Exception:
@@ -33,38 +32,39 @@ def get_past_questions(level_dir):
 def get_day_concept_plan(level, day_num):
     """
     Returns planned daily living concept theme and focus for a given day and level.
-    Supports unlimited days via modular rotation and dynamic topic synthesis.
+    Supports 30+ distinct days per level.
     """
     level_str = level.lower()
     
     concepts_beginner = [
-        {"theme": "Morning & Home Routines", "focus": "Everyday Home Routines, Easy Phrasal Verbs & Connecting Pillars", "why": "Mastering daily routine expressions and connecting pillars helps you express thoughts naturally without hesitation.", "word": "Run errands", "meaning": "Do short daily trips to accomplish chores", "usage": "I need to run a few errands at the market before dinner."},
-        {"theme": "Market & Grocery Shopping", "focus": "Market Shopping, Produce Selection & Price Inquiries", "why": "Shopping for food and home supplies requires clear questions about weight, price per unit, and specifying preferences politely.", "word": "Pick out", "meaning": "To carefully choose or select specific items from a group", "usage": "Could you help me pick out the freshest apples at the market?"},
-        {"theme": "Travel, Autos & Cabs", "focus": "Neighborhood Travel, Auto/Cab Rides & Directions", "why": "Communicating locations, rides, and local services comfortably boosts your everyday self-reliance.", "word": "Drop off", "meaning": "To take someone or something to a destination and leave them there", "usage": "Can you drop me off near the metro station on your way?"},
-        {"theme": "Clinic & Pharmacy Visits", "focus": "Doctor Appointments, Symptoms & Pharmacy Inquiries", "why": "Describing health conditions accurately ensures you receive proper medical care and advice.", "word": "On an empty stomach", "meaning": "Before eating any food in the morning or before taking medication", "usage": "Take this tablet once daily on an empty stomach."},
-        {"theme": "Polite Social Manners", "focus": "Inviting Neighbors, Offering Refreshments & Courtesy", "why": "Warm social greetings and courteous invitations build strong, friendly relationships in your community.", "word": "Drop by", "meaning": "To visit someone informally for a short time", "usage": "Please drop by our home this evening for a quick cup of tea."},
-        {"theme": "Phone Calls & Deliveries", "focus": "Delivery Agents, Customer Service & Package Tracking", "why": "Handling delivery phone calls smoothly prevents parcel delays and miscommunications.", "word": "Reach out to", "meaning": "To contact someone for assistance or information", "usage": "I will reach out to customer support regarding the delivery status."},
-        {"theme": "Weekend Plans & Weather Talk", "focus": "Outdoor Activities, Family Outings & Rain Updates", "why": "Discussing weekend plans and weather naturally makes casual conversations enjoyable.", "word": "Grab a bite", "meaning": "To get a quick meal or snack", "usage": "Let's grab a bite at the new cafe after the movie."}
+        {"theme": "Morning & Home Routines", "focus": "Everyday Home Routines & Basic Schedules", "why": "Expressing daily routines helps you speak without hesitation.", "word": "Run errands", "meaning": "Do short daily trips to accomplish chores", "usage": "I need to run errands before dinner."},
+        {"theme": "Market & Grocery Shopping", "focus": "Market Shopping, Produce Selection & Pricing", "why": "Shopping for supplies requires asking about prices and weight politely.", "word": "Pick out", "meaning": "Carefully choose specific items from a group", "usage": "Help me pick out fresh tomatoes."},
+        {"theme": "Travel, Autos & Cabs", "focus": "Neighborhood Travel & Commute Directions", "why": "Communicating ride directions and fares boosts independence.", "word": "Drop off", "meaning": "Take someone to a destination and leave them there", "usage": "Drop me off near the bus stand."},
+        {"theme": "Clinic & Pharmacy Visits", "focus": "Doctor Symptoms & Medicine Dosage", "why": "Describing health conditions accurately ensures proper care.", "word": "On an empty stomach", "meaning": "Before eating food in the morning", "usage": "Take this tablet on an empty stomach."},
+        {"theme": "Polite Social Manners", "focus": "Inviting Neighbors & Hospitality", "why": "Courteous invitations build friendly community relationships.", "word": "Drop by", "meaning": "Visit someone informally for a short time", "usage": "Please drop by our home for tea."},
+        {"theme": "Phone Calls & Deliveries", "focus": "Delivery Tracking & Customer Support", "why": "Handling delivery calls smoothly prevents parcel delays.", "word": "Reach out to", "meaning": "Contact someone for help", "usage": "Reach out to support for parcel status."},
+        {"theme": "Weekend Plans & Weather", "focus": "Outdoor Outings & Weather Forecasts", "why": "Discussing weekend plans makes casual chats enjoyable.", "word": "Grab a bite", "meaning": "Get a quick meal or snack", "usage": "Let's grab a bite after the movie."},
+        {"theme": "Restaurant & Dining Out", "focus": "Ordering Food, Menu Items & Billing", "why": "Ordering food and asking for bills politely builds social confidence.", "word": "Order in", "meaning": "Request food delivered to your home", "usage": "Let us order in dinner tonight."},
+        {"theme": "Bank & Financial Services", "focus": "Cash Withdrawals, UPI & Account Help", "why": "Managing banking interactions clearly protects your finances.", "word": "Fill out", "meaning": "Complete a official paper or online form", "usage": "Fill out this deposit slip at the counter."},
+        {"theme": "Home Maintenance & Repairs", "focus": "Plumbing, Electrical & House Upkeep", "why": "Explaining home repair issues clearly helps technicians fix problems fast.", "word": "Fix up", "meaning": "Repair or renovate a damaged item", "usage": "We need to fix up the leaking tap."}
     ]
 
     concepts_intermediate = [
-        {"theme": "Workplace Standups & Meeting Scheduling", "focus": "Workplace Standups, Agenda Setting & Meeting Protocol", "why": "Navigating status updates and schedule changes with present perfect tenses builds workplace credibility.", "word": "Circle back", "meaning": "To return to a topic or person later for follow-up", "usage": "Let's circle back to the timeline discussion after the team review."},
-        {"theme": "Client Communication & Progress Reports", "focus": "Client Communication, Status Reports & Stakeholder Updates", "why": "Communicating clear progress updates and managing client expectations prevents project delays.", "word": "Touch base", "meaning": "Briefly connect with someone to exchange information", "usage": "Let me touch base with the lead developer before finalizing the deadline."},
-        {"theme": "Team Collaboration & Workload Management", "focus": "Team Collaboration, Deadline Adjustments & Bottlenecks", "why": "Negotiating deadlines constructively maintains productivity and team trust.", "word": "Bottleneck", "meaning": "A point of congestion that delays progress in a process", "usage": "We identified a testing bottleneck that slowed down our deployment."},
-        {"theme": "Operational Improvements & Feedback", "focus": "Process Streamlining, Constructive Feedback & Problem Solving", "why": "Proposing workflow improvements demonstrates proactive professional leadership.", "word": "Streamline", "meaning": "To make an organization, process, or system more efficient", "usage": "We need to streamline our code review process to reduce release delays."},
-        {"theme": "Customer Support & Conflict Resolution", "focus": "Customer Escalations, Resolution Strategy & Quality Control", "why": "De-escalating customer complaints diplomatically preserves business relationships.", "word": "Iron out", "meaning": "To resolve minor problems, discrepancies, or details in a plan", "usage": "We need one final sync to iron out the remaining account details."},
-        {"theme": "Product Demos & Technical Presentations", "focus": "Technical Walkthroughs, Q&A Sessions & Demos", "why": "Explaining technical concepts clearly to non-technical stakeholders accelerates decision making.", "word": "Walk through", "meaning": "To explain or demonstrate a process step by step", "usage": "Allow me to walk you through the new feature dashboard."},
-        {"theme": "Performance Reviews & Career Goals", "focus": "Performance Appraisal, Goal Alignment & Professional Growth", "why": "Articulating your career achievements and goals secures professional growth opportunities.", "word": "Step up", "meaning": "To take on extra responsibility or action when needed", "usage": "She stepped up to lead the team during the manager's absence."}
+        {"theme": "Workplace Standups & Agendas", "focus": "Workplace Standups & Project Status Updates", "why": "Sharing clear status updates builds workplace credibility.", "word": "Circle back", "meaning": "Return to a topic later for follow-up", "usage": "Let us circle back to this item after lunch."},
+        {"theme": "Client Communication & Updates", "focus": "Client Progress Reports & Expectations", "why": "Managing client expectations prevents project misunderstandings.", "word": "Touch base", "meaning": "Briefly connect with someone for info", "usage": "I will touch base with the team leader."},
+        {"theme": "Team Collaboration & Workload", "focus": "Workload Balance & Deadline Extensions", "why": "Negotiating deadlines constructively maintains team trust.", "word": "Bottleneck", "meaning": "A congestion point delaying progress", "usage": "Testing is currently our main bottleneck."},
+        {"theme": "Process Improvements & Feedback", "focus": "Workflow Streamlining & Problem Solving", "why": "Proposing fixes demonstrates professional initiative.", "word": "Streamline", "meaning": "Make a process more efficient", "usage": "We must streamline our code reviews."},
+        {"theme": "Customer Escalations & Quality", "focus": "Resolving Complaints & Service Quality", "why": "De-escalating complaints diplomatically preserves accounts.", "word": "Iron out", "meaning": "Resolve minor details or discrepancies", "usage": "We will iron out contract terms today."},
+        {"theme": "Technical Demos & Walkthroughs", "focus": "Feature Demos & Stakeholder Q&A", "why": "Explaining tech clearly helps non-technical partners decide.", "word": "Walk through", "meaning": "Demonstrate a process step by step", "usage": "Let me walk you through the new dashboard."},
+        {"theme": "Performance Reviews & Goals", "focus": "Appraisals & Career Milestone Planning", "why": "Articulating achievements secures growth opportunities.", "word": "Step up", "meaning": "Take on extra responsibility when needed", "usage": "She stepped up to lead the sprint."}
     ]
 
     concepts_advanced = [
-        {"theme": "Strategic Negotiation & Tone Diplomacy", "focus": "Strategic Negotiation, Delicate Refusal & Tone Diplomacy", "why": "Executive communication requires modal diplomacy, subtle disagreement phrasing, and syntax precision.", "word": "Iron out", "meaning": "To resolve minor problems, discrepancies, or details in a plan or agreement", "usage": "We need one final meeting to iron out the remaining contract details."},
-        {"theme": "Stakeholder Alignment & Fiscal Governance", "focus": "Executive Stakeholder Alignment, Budgeting & Risk Management", "why": "Executive leadership demands sophisticated risk hedging, diplomatic refusal structures, and formal financial syntax.", "word": "Hedge against", "meaning": "To protect an organization or portfolio against potential financial or operational loss", "usage": "We must diversify our supplier base to hedge against supply chain disruptions."},
-        {"theme": "Corporate Governance & Crisis Control", "focus": "Corporate Governance, Media Statements & Compliance", "why": "Handling crisis communications with authoritative precision protects organizational reputation.", "word": "Benchmark", "meaning": "To evaluate something by comparison with a standard or best practice", "usage": "We benchmark our security protocols against top industry standards."},
-        {"theme": "Strategic Pivots & Market Expansion", "focus": "Change Management, Strategic Pivots & Innovation", "why": "Framing major organizational shifts constructively inspires executive confidence.", "word": "Pivot", "meaning": "To fundamentally shift strategic direction or business focus", "usage": "The board decided to pivot from hardware sales to recurring cloud software."},
-        {"theme": "Mergers, Acquisitions & Integration", "focus": "Corporate Mergers, Synergy Planning & Due Diligence", "why": "Articulating merger synergies requires precise corporate vocabulary and conditional logic.", "word": "Hinge on", "meaning": "To depend entirely on a single vital factor", "usage": "The success of this acquisition hinges on seamless cultural integration."},
-        {"theme": "Policy Formulation & Executive Direction", "focus": "Executive Directives, Subjunctive Syntax & Policy Standard", "why": "Formulating mandatory corporate directives mandates exact subjunctive structures.", "word": "Spearhead", "meaning": "To lead or initiate a major enterprise initiative", "usage": "She was chosen to spearhead the global digital transformation initiative."},
-        {"theme": "Long-Term Vision & Organizational Culture", "focus": "Executive Leadership Vision, Mission Alignment & Values", "why": "Communicating long-term vision clearly aligns cross-functional teams toward overarching goals.", "word": "Boil down to", "meaning": "To be the essential or core factor of a complex situation", "usage": "Ultimately, sustainable growth boils down to continuous customer satisfaction."}
+        {"theme": "Strategic Negotiation & Tone", "focus": "Diplomatic Refusals & Formal Negotiations", "why": "Executive communication requires modal diplomacy and syntax precision.", "word": "Iron out", "meaning": "Resolve minor details in an executive plan", "usage": "We need to iron out deal terms."},
+        {"theme": "Stakeholder Alignment & Governance", "focus": "Fiscal Governance & Risk Hedging", "why": "Executive leadership demands financial syntax and risk hedging.", "word": "Hedge against", "meaning": "Protect an organization against loss", "usage": "Diversify to hedge against volatility."},
+        {"theme": "Corporate Governance & Crisis", "focus": "Media Statements & Regulatory Compliance", "why": "Handling crisis communications protects company reputation.", "word": "Benchmark", "meaning": "Evaluate against industry standards", "usage": "We benchmark against international standards."},
+        {"theme": "Strategic Pivots & Innovation", "focus": "Change Management & Enterprise Pivots", "why": "Framing major strategic shifts inspires investor confidence.", "word": "Pivot", "meaning": "Fundamentally shift business focus", "usage": "The company decided to pivot to cloud services."},
+        {"theme": "Mergers & Acquisition Synergies", "focus": "M&A Integration & Financial Due Diligence", "why": "Articulating merger synergies requires precise corporate vocabulary.", "word": "Hinge on", "meaning": "Depend entirely on a single vital factor", "usage": "Success hinges on seamless integration."}
     ]
 
     if level_str == "beginner":
@@ -101,6 +101,9 @@ def generate_via_gemini_api(level, day_num, plan_info, past_questions):
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
         return None
+
+    past_samples = list(past_questions)[:40]
+    past_questions_str = json.dumps(past_samples, ensure_ascii=False) if past_samples else "[]"
 
     prompt = f"""
     You are an expert English language pedagogue designing a 20-question conceptual practical English test for FluencyCraft ({level.capitalize()} track, Day {day_num}).
@@ -181,7 +184,6 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
     # Parameter pools
     subjects = ["I", "My sister", "My colleague", "Our neighbor", "The delivery executive", "My manager", "The cab driver", "The store vendor"]
     times = ["every morning", "right now", "yesterday afternoon", "this evening", "by 5:00 PM", "twice a week", "on weekends"]
-    locations = ["at the local market", "near the metro station", "in the office meeting room", "at the clinic", "in our neighborhood", "near the billing counter"]
 
     actions_pool = [
         ("making morning tea", "I am having a fresh cup of tea before leaving.", "I am have fresh cup tea."),
@@ -196,7 +198,9 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
         ("declining an out-of-scope task", "While I understand the urgency, our current bandwidth is full.", "No cannot do this work."),
         ("checking grocery item stock", "Fresh milk packets were completely out of stock.", "Milk packet no stock having."),
         ("asking for item weight price", "How much are these organic apples per kilo?", "Apples kg how much cost?"),
-        ("giving street directions", "Take a left turn after crossing the traffic signal.", "Signal crossing left turn take.")
+        ("giving street directions", "Take a left turn after crossing the traffic signal.", "Signal crossing left turn take."),
+        ("ordering food at a restaurant", "Could we please see the menu and order starters?", "Menu giving order doing."),
+        ("withdrawing cash from ATM", "Is this card accepted at the cash withdrawal counter?", "Card cash withdrawal taking?")
     ]
 
     phrasal_verbs_pool = [
@@ -211,7 +215,9 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
         ("iron out", "resolve minor problems or details in a plan", "We need one final sync to iron out contract details."),
         ("hedge against", "protect against potential financial or operational loss", "We must diversify to hedge against market risk."),
         ("call off", "cancel a planned event or meeting", "They had to call off the afternoon presentation."),
-        ("follow up", "check progress on a prior matter", "I will follow up with the team regarding the report.")
+        ("follow up", "check progress on a prior matter", "I will follow up with the team regarding the report."),
+        ("order in", "request food delivered home", "Let us order in dinner tonight."),
+        ("fill out", "complete an official form", "Please fill out this registration form.")
     ]
 
     pillars_pool = [
@@ -243,7 +249,6 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
     questions = []
     used_questions_clean = set(past_questions)
 
-    # Function helper to ensure uniqueness
     def is_unique(q_str):
         clean = re.sub(r'<[^>]+>', '', q_str).strip().lower()
         if clean in used_questions_clean:
@@ -259,10 +264,10 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
             break
         subj = rng.choice(subjects)
         t_val = rng.choice(times)
-        q_text = f"Day {day_num} Practice: When talking about {act} ({t_val}), which sentence is grammatically correct for '{subj}'?"
+        q_text = f"Day {day_num} Practice ({plan_info['theme']}): When talking about {act} ({t_val}), which sentence is grammatically correct for '{subj}'?"
         
         if not is_unique(q_text):
-            q_text = f"Day {day_num} Scenario: Select the natural English phrasing when {subj} is {act} {t_val}:"
+            q_text = f"Day {day_num} Scenario ({plan_info['theme']}): Select the natural English phrasing when {subj} is {act} {t_val}:"
             if not is_unique(q_text):
                 continue
                 
@@ -287,9 +292,9 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
     for pv, meaning, example in phrasal_verbs_pool:
         if q_id > 8:
             break
-        q_text = f"Day {day_num} Vocabulary: What is the exact practical meaning of the everyday phrase '{pv}'?"
+        q_text = f"Day {day_num} Vocabulary ({plan_info['theme']}): What is the exact practical meaning of the phrase '{pv}'?"
         if not is_unique(q_text):
-            q_text = f"Day {day_num} Everyday Terms: Choose the correct definition for the phrasal verb '{pv}':"
+            q_text = f"Day {day_num} Terms ({plan_info['theme']}): Choose the correct definition for the phrasal verb '{pv}':"
             if not is_unique(q_text):
                 continue
 
@@ -306,7 +311,7 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
             "explanation": f"<b>Correct: Option B</b><br>'{pv}' means: {meaning}. Example: <i>\"{example}\"</i>",
             "audio_prompt": ""
         })
-        q_id += 5 if False else 1
+        q_id += 1
 
     # Section 3: Connecting Pillars (Q9-12)
     rng.shuffle(pillars_pool)
@@ -314,9 +319,9 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
     for pil, pil_meaning, pil_ex in pillars_pool:
         if q_id > 12:
             break
-        q_text = f"Day {day_num} Connecting Pillars: Complete the sentence: '{pil_ex.replace(pil, '__________')}'"
+        q_text = f"Day {day_num} Connecting Pillars ({plan_info['theme']}): Complete the sentence: '{pil_ex.replace(pil, '__________')}'"
         if not is_unique(q_text):
-            q_text = f"Day {day_num} Pair Idioms: Fill in the blank with the best connecting pillar: '{pil_ex.replace(pil, '__________')}'"
+            q_text = f"Day {day_num} Pair Idioms ({plan_info['theme']}): Fill in the blank with the best connecting pillar: '{pil_ex.replace(pil, '__________')}'"
             if not is_unique(q_text):
                 continue
 
@@ -341,9 +346,9 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
     for act, correct_sent, wrong_sent in actions_pool:
         if q_id > 16:
             break
-        q_text = f"Day {day_num} Auditory Clip {q_id - 12}: Listen to the audio snippet. What instruction is given?"
+        q_text = f"Day {day_num} Auditory Clip {q_id - 12} ({plan_info['theme']}): Listen to the audio snippet. What instruction is given?"
         if not is_unique(q_text):
-            q_text = f"Day {day_num} Spoken English Clip {q_id - 12}: Listen to the audio prompt. What message is shared?"
+            q_text = f"Day {day_num} Spoken Clip {q_id - 12} ({plan_info['theme']}): Listen to the audio prompt. What message is shared?"
             if not is_unique(q_text):
                 continue
 
@@ -368,9 +373,9 @@ def generate_on_demand_synthesis(level, day_num, plan_info, past_questions):
     for tel, lit, nat, exp in telugu_pool:
         if q_id > 20:
             break
-        q_text = f"Day {day_num} Translation Scenario {q_id - 16}:<br><br><b>Telugu:</b> \"{tel}\"<br><i>(Literal attempt: \"{lit}\")</i>"
+        q_text = f"Day {day_num} Translation Scenario {q_id - 16} ({plan_info['theme']}):<br><br><b>Telugu:</b> \"{tel}\"<br><i>(Literal attempt: \"{lit}\")</i>"
         if not is_unique(q_text):
-            q_text = f"Day {day_num} Telugu Scenario {q_id - 16}:<br><br><b>Telugu:</b> \"{tel}\"<br><i>(Word-by-word: \"{lit}\")</i>"
+            q_text = f"Day {day_num} Telugu Scenario {q_id - 16} ({plan_info['theme']}):<br><br><b>Telugu:</b> \"{tel}\"<br><i>(Word-by-word: \"{lit}\")</i>"
             if not is_unique(q_text):
                 continue
 
@@ -396,12 +401,10 @@ def generate_20_questions(level, day_num, level_dir):
     past_questions = get_past_questions(level_dir)
     plan_info = get_day_concept_plan(level, day_num)
 
-    # 1. Try Gemini AI On-Demand Generator first if API key is present
     api_result = generate_via_gemini_api(level, day_num, plan_info, past_questions)
     if api_result:
         return api_result
 
-    # 2. Fallback to Dynamic Synthesis Generator (eliminates static python hardcoding and enforces de-duplication)
     return generate_on_demand_synthesis(level, day_num, plan_info, past_questions)
 
 def build_json_payload(level, day_num, word_info, concept_overview, why_important, questions):
@@ -699,6 +702,8 @@ def build_standalone_html(level, day_num, word_info, concept_overview, why_impor
 </div>
 
 <script>
+  const CURRENT_LEVEL = "{level.lower()}";
+  const CURRENT_DAY = {day_num};
   const questionsData = {questions_js};
   const answerKeyMap = {{}};
   const userAnswersMap = {{}};
@@ -718,6 +723,17 @@ def build_standalone_html(level, day_num, word_info, concept_overview, why_impor
   function loadNameState() {{
     const saved = localStorage.getItem('fluencycraft_learner_name');
     if (saved) document.getElementById('learnerName').value = saved;
+  }}
+
+  function markDayCompleted() {{
+    let completed = [];
+    try {{
+      completed = JSON.parse(localStorage.getItem('fluencycraft_completed_days_' + CURRENT_LEVEL) || '[]');
+    }} catch(e) {{ completed = []; }}
+    if (!completed.includes(CURRENT_DAY)) {{
+      completed.push(CURRENT_DAY);
+      localStorage.setItem('fluencycraft_completed_days_' + CURRENT_LEVEL, JSON.stringify(completed));
+    }}
   }}
 
   function restoreSavedAnswers() {{
@@ -829,6 +845,8 @@ def build_standalone_html(level, day_num, word_info, concept_overview, why_impor
       expDiv.className = `explanation ${{userAnswersMap[key] === answerKeyMap[key].ans ? 'correct' : 'incorrect'}}`;
       expDiv.style.display = 'block';
     }}
+
+    markDayCompleted();
 
     const name = document.getElementById('learnerName').value.trim();
     const banner = document.getElementById('result-banner');
@@ -974,6 +992,17 @@ def build_weekend_test_html(level, questions):
     .weakspot-title {{ font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }}
     .weakspot-desc {{ font-size: 0.98rem; color: #eff6ff; }}
 
+    .locked-card {{
+      background: #fef2f2;
+      border: 2px dashed #ef4444;
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      margin-bottom: 24px;
+    }}
+    .locked-card h2 {{ color: #991b1b; font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }}
+    .locked-card p {{ color: #7f1d1d; font-size: 1rem; max-width: 600px; margin: 0 auto 20px; }}
+
     .card {{
       background: var(--surface);
       border: 1px solid var(--border);
@@ -1096,28 +1125,39 @@ def build_weekend_test_html(level, questions):
     </div>
   </header>
 
-  <div class="weakspot-banner" id="weakspotBanner">
-    <div class="weakspot-header">🎯 Adaptive Diagnosis Engine</div>
-    <div class="weakspot-title" id="weakspotTitle">Analyzing Weekday Practice...</div>
-    <div class="weakspot-desc" id="weakspotDesc">Checking your local mistake log from the past 5 days of practice.</div>
+  <!-- Lock screen container for weekdays -->
+  <div id="weekdayLockedContainer" style="display:none;">
+    <div class="locked-card">
+      <h2>🔒 Weekend Weak-Spot Test is Locked Today</h2>
+      <p>This adaptive review test automatically unlocks on <b>Saturday</b> and <b>Sunday</b>. Complete your daily Monday through Friday practice sessions to log your weak spots!</p>
+      <a href="../../index.html" class="audio-btn" style="background:#1e40af; color:white; padding:12px 24px; text-decoration:none; font-size:0.95rem;">Return to Daily Practice Dropdown</a>
+    </div>
   </div>
 
-  <form id="quizForm">
-    <div id="questionsContainer"></div>
-
-    <div class="actions-bar">
-      <button type="button" class="submit-btn" onclick="evaluateFullQuiz()">Finish Weekend Test & Get Improvement Feedback</button>
-      <button type="button" class="reset-btn" onclick="clearMistakesLog()">Clear Mistake History</button>
+  <div id="weekendActiveContainer">
+    <div class="weakspot-banner" id="weakspotBanner">
+      <div class="weakspot-header">🎯 Adaptive Diagnosis Engine</div>
+      <div class="weakspot-title" id="weakspotTitle">Analyzing Weekday Practice...</div>
+      <div class="weakspot-desc" id="weakspotDesc">Checking your local mistake log from the past 5 days of practice.</div>
     </div>
-  </form>
 
-  <div id="result-banner">
-    <div id="result-title">Weekend Test Result</div>
-    <div id="result-score">0 / 0</div>
+    <form id="quizForm">
+      <div id="questionsContainer"></div>
 
-    <div class="feedback-box" id="feedbackBox">
-      <h4>🎯 Weak Spot Improvement Feedback & Action Roadmap</h4>
-      <div id="feedbackContent">Calculating personalized feedback based on your responses...</div>
+      <div class="actions-bar">
+        <button type="button" class="submit-btn" onclick="evaluateFullQuiz()">Finish Weekend Test & Get Improvement Feedback</button>
+        <button type="button" class="reset-btn" onclick="clearMistakesLog()">Clear Mistake History</button>
+      </div>
+    </form>
+
+    <div id="result-banner">
+      <div id="result-title">Weekend Test Result</div>
+      <div id="result-score">0 / 0</div>
+
+      <div class="feedback-box" id="feedbackBox">
+        <h4>🎯 Weak Spot Improvement Feedback & Action Roadmap</h4>
+        <div id="feedbackContent">Calculating personalized feedback based on your responses...</div>
+      </div>
     </div>
   </div>
 
@@ -1131,8 +1171,26 @@ def build_weekend_test_html(level, questions):
 
   window.addEventListener('DOMContentLoaded', () => {{
     loadNameState();
-    loadAdaptiveQuestions();
+    checkWeekendAccess();
   }});
+
+  function checkWeekendAccess() {{
+    const dayOfWeek = new Date().getDay(); // 0 = Sunday, 6 = Saturday
+    const isWeekend = (dayOfWeek === 0 || dayOfWeek === 6);
+
+    // If URL has ?override=true or if it's weekend (Sat/Sun), unlock test
+    const urlParams = new URLSearchParams(window.location.search);
+    const forceUnlock = urlParams.get('override') === 'true';
+
+    if (isWeekend || forceUnlock) {{
+      document.getElementById('weekendActiveContainer').style.display = 'block';
+      document.getElementById('weekdayLockedContainer').style.display = 'none';
+      loadAdaptiveQuestions();
+    }} else {{
+      document.getElementById('weekendActiveContainer').style.display = 'none';
+      document.getElementById('weekdayLockedContainer').style.display = 'block';
+    }}
+  }}
 
   function saveNameState() {{
     const name = document.getElementById('learnerName').value.trim();
@@ -1387,6 +1445,33 @@ def main():
             f.write(weekend_content)
 
         print(f"[{level.upper()}] Generated tests/{level}/{day_filename}, {json_filename}, latest.html/json, and weekend-test.html (Day {day_num})")
+
+    # Update AVAILABLE_DAYS in index.html dynamically
+    index_path = os.path.join(root_dir, "index.html")
+    if os.path.exists(index_path):
+        try:
+            with open(index_path, "r", encoding="utf-8") as f:
+                idx_content = f.read()
+            
+            day_counts = {}
+            for lvl in ["beginner", "intermediate", "advanced"]:
+                lvl_dir = os.path.join(tests_root_dir, lvl)
+                max_d = 1
+                if os.path.exists(lvl_dir):
+                    for fn in os.listdir(lvl_dir):
+                        m = re.match(r"^day-(\d+)\.html$", fn)
+                        if m:
+                            max_d = max(max_d, int(m.group(1)))
+                day_counts[lvl] = max_d
+            
+            new_days_block = f"const AVAILABLE_DAYS = {{\n      beginner: {day_counts['beginner']},\n      intermediate: {day_counts['intermediate']},\n      advanced: {day_counts['advanced']}\n    }};"
+            updated_idx = re.sub(r'const AVAILABLE_DAYS = \{[^}]+\};', new_days_block, idx_content)
+            
+            with open(index_path, "w", encoding="utf-8") as f:
+                f.write(updated_idx)
+            print(f"[INDEX.HTML] Updated AVAILABLE_DAYS: {day_counts}")
+        except Exception as e:
+            print(f"[INDEX.HTML] Could not update index.html AVAILABLE_DAYS: {e}")
 
 if __name__ == "__main__":
     main()
