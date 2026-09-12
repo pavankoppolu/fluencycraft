@@ -1288,14 +1288,20 @@ def build_weekend_test_html(level, questions):
         audioHtml = `<button type="button" class="audio-btn" onclick="playPrompt('${{q.audio_prompt.replace(/'/g, "\\'")}}')">🔊 Listen to Audio Clip</button>`;
       }}
 
+      let optionsHtml = '';
+      const optKeys = Object.keys(q.options || {{}});
+      optKeys.forEach(optKey => {{
+        const keyUpper = optKey.toUpperCase();
+        const valText = q.options[optKey];
+        optionsHtml += `<label class="option-label" id="label_q${{qNum}}_${{optKey}}"><input type="radio" name="q${{qNum}}" value="${{optKey}}" onchange="onAnswerSelected('q${{qNum}}', '${{optKey}}', true)"> ${{keyUpper}}) ${{valText}}</label>`;
+      }});
+
       card.innerHTML = `
         <div style="font-size:0.8rem; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:6px;">${{q.section || ''}}</div>
         ${{audioHtml}}
         <p class="question">${{qNum}}. ${{q.question}}</p>
         <div class="options" id="optionsGroup_${{qNum}}">
-          <label class="option-label" id="label_q${{qNum}}_a"><input type="radio" name="q${{qNum}}" value="a" onchange="onAnswerSelected('q${{qNum}}', 'a', true)"> A) ${{q.options.a}}</label>
-          <label class="option-label" id="label_q${{qNum}}_b"><input type="radio" name="q${{qNum}}" value="b" onchange="onAnswerSelected('q${{qNum}}', 'b', true)"> B) ${{q.options.b}}</label>
-          <label class="option-label" id="label_q${{qNum}}_c"><input type="radio" name="q${{qNum}}" value="c" onchange="onAnswerSelected('q${{qNum}}', 'c', true)"> C) ${{q.options.c}}</label>
+          ${{optionsHtml}}
         </div>
         <div class="explanation" id="exp${{qNum}}"></div>
       `;
@@ -1406,6 +1412,13 @@ def main():
     for arg in sys.argv[1:]:
         if arg.isdigit():
             specified_day = int(arg)
+
+    today_weekday = datetime.now(timezone.utc).weekday() # 5 = Saturday, 6 = Sunday
+    is_weekend = (today_weekday in [5, 6]) or ("--weekend" in sys.argv)
+    
+    if is_weekend and specified_day is None:
+        print("[WEEKEND POLICY] Today is Weekend (Saturday/Sunday). Regular daily test generation is paused to focus strictly on Weekend Weak-Spot Review.")
+        increment_day = False
 
     for level in ["beginner", "intermediate", "advanced"]:
         level_dir = os.path.join(tests_root_dir, level)

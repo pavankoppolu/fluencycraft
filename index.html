@@ -303,6 +303,10 @@
         <h4>100% Private & Safe • Stored Only In Your Local Browser</h4>
         <p>Your test progress, completed days, and scores are strictly saved inside your local browser. Completed daily tests are automatically disabled in the dropdown so you can easily focus on your next pending test!</p>
       </div>
+    <div id="weekendNoticeBanner" style="display:none; background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: white; border-radius: 16px; padding: 24px; margin-bottom: 24px; box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);">
+      <div style="font-size:0.8rem; font-weight:800; text-transform:uppercase; color:#bfdbfe; margin-bottom:4px;">🎯 Weekend Special Focus Active</div>
+      <h3 style="font-size:1.35rem; font-weight:800; margin-bottom:6px;">Happy Weekend! Focus Strictly on Your Weak Spots</h3>
+      <p style="font-size:0.96rem; color:#eff6ff; line-height:1.5;">Regular daily test generation is paused on Saturday & Sunday so you can consolidate your learning. Practice your personalized Weekend Weak-Spot Review Test below to master your mistakes from the past week!</p>
     </div>
 
     <h2 class="section-header">🎓 Choose Your Practice Track & Day</h2>
@@ -557,8 +561,25 @@
 
       select.innerHTML = '';
       let firstPendingVal = null;
+      let currentOptGroup = null;
+      let currentWeekNum = 0;
 
       for (let d = 1; d <= totalDaysAvailable; d++) {
+        const weekNum = Math.floor((d - 1) / 5) + 1;
+        const dayInWeek = ((d - 1) % 5) + 1;
+
+        if (weekNum !== currentWeekNum) {
+          currentWeekNum = weekNum;
+          const startDay = (weekNum - 1) * 5 + 1;
+          const endDay = weekNum * 5;
+          const startFmt = String(startDay).padStart(2, '0');
+          const endFmt = String(endDay).padStart(2, '0');
+          
+          currentOptGroup = document.createElement('optgroup');
+          currentOptGroup.label = `── Week ${weekNum} (Days ${startFmt}–${endFmt}) ──`;
+          select.appendChild(currentOptGroup);
+        }
+
         const opt = document.createElement('option');
         const dayFormatted = String(d).padStart(2, '0');
         const theme = themeMap[d] || `Daily Living Module ${d}`;
@@ -566,20 +587,19 @@
 
         if (isDone) {
           opt.value = `day-${dayFormatted}.html`;
-          opt.textContent = `✓ Day ${dayFormatted}: ${theme} (Completed)`;
+          opt.textContent = `✓ Day ${dayFormatted} (W${weekNum}D${dayInWeek}): ${theme} (Completed)`;
           opt.disabled = true;
         } else {
           opt.value = `day-${dayFormatted}.html`;
-          opt.textContent = `Day ${dayFormatted}: ${theme} (Pending)`;
+          opt.textContent = `▶ Day ${dayFormatted} (W${weekNum}D${dayInWeek}): ${theme} (Pending)`;
           if (!firstPendingVal) firstPendingVal = opt.value;
         }
-        select.appendChild(opt);
+        currentOptGroup.appendChild(opt);
       }
 
       if (firstPendingVal) {
         select.value = firstPendingVal;
       } else if (select.options.length > 0) {
-        // If all completed, keep last selected for review or reset
         select.selectedIndex = select.options.length - 1;
       }
     }
@@ -595,15 +615,26 @@
       const dayOfWeek = new Date().getDay(); // 0 = Sunday, 6 = Saturday
       const isWeekend = (dayOfWeek === 0 || dayOfWeek === 6);
 
+      const weekendBanner = document.getElementById('weekendNoticeBanner');
+      if (weekendBanner) {
+        weekendBanner.style.display = isWeekend ? 'block' : 'none';
+      }
+
       ['beginner', 'intermediate', 'advanced'].forEach(level => {
         const btn = document.getElementById(level + 'WeekendBtn');
         if (btn) {
           if (isWeekend) {
-            btn.innerHTML = '🔓 🎯 Weekend Weak-Spot Test (Unlocked!)';
-            btn.style.borderColor = '#059669';
-            btn.style.color = '#047857';
+            btn.innerHTML = '🔓 🎯 Start Weekend Weak-Spot Test (Unlocked!)';
+            btn.style.background = '#1e40af';
+            btn.style.color = '#ffffff';
+            btn.style.borderColor = '#1e3a8a';
+            btn.style.boxShadow = '0 0 12px rgba(30, 64, 175, 0.4)';
           } else {
             btn.innerHTML = '🔒 🎯 Weekend Weak-Spot Test (Unlocks Sat & Sun)';
+            btn.style.background = '';
+            btn.style.color = '';
+            btn.style.borderColor = '';
+            btn.style.boxShadow = '';
           }
         }
       });
